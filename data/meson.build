@@ -1,6 +1,6 @@
 desktop_file = i18n.merge_file(
-  input: 'io.github.trytonvanmeer.Roru.desktop.in',
-  output: 'io.github.trytonvanmeer.Roru.desktop',
+  input: 'io.github.trytonvanmeer.DungeonJournal.desktop.in',
+  output: 'io.github.trytonvanmeer.DungeonJournal.desktop',
   type: 'desktop',
   po_dir: '../po',
   install: true,
@@ -15,8 +15,8 @@ if desktop_utils.found()
 endif
 
 appstream_file = i18n.merge_file(
-  input: 'io.github.trytonvanmeer.Roru.appdata.xml.in',
-  output: 'io.github.trytonvanmeer.Roru.appdata.xml',
+  input: 'io.github.trytonvanmeer.DungeonJournal.appdata.xml.in',
+  output: 'io.github.trytonvanmeer.DungeonJournal.appdata.xml',
   po_dir: '../po',
   install: true,
   install_dir: join_paths(get_option('datadir'), 'appdata')
@@ -29,7 +29,7 @@ if appstream_util.found()
   )
 endif
 
-# install_data('io.github.trytonvanmeer.Roru.gschema.xml',
+# install_data('io.github.trytonvanmeer.DungeonJournal.gschema.xml',
 #   install_dir: join_paths(get_option('datadir'), 'glib-2.0/schemas')
 # )
 
@@ -40,7 +40,7 @@ if compile_schemas.found()
   )
 endif
 
-resources = gnome.compile_resources('roru-resources',
-    'roru.gresource.xml',
-    c_name: 'roru'
+resources = gnome.compile_resources('dungeonjournal-resources',
+    'dungeonjournal.gresource.xml',
+    c_name: 'dungeonjournal'
 )

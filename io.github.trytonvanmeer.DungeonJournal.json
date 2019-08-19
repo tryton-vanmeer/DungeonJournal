@@ -1,9 +1,9 @@
 {
-    "app-id": "io.github.trytonvanmeer.Roru",
+    "app-id": "io.github.trytonvanmeer.DungeonJournal",
     "runtime": "org.gnome.Platform",
     "runtime-version": "3.32",
     "sdk": "org.gnome.Sdk",
-    "command": "roru",
+    "command": "dungeonjournal",
     "finish-args": [
         "--share=network",
         "--share=ipc",
@@ -35,13 +35,13 @@
     ],
     "modules": [
         {
-            "name": "roru",
+            "name": "dungeonjournal",
             "builddir": true,
             "buildsystem": "meson",
             "sources": [
                 {
                     "type": "git",
-                    "url": "file:///home/tryton-vanmeer/Code/Roru"
+                    "url": "file:///home/tryton-vanmeer/Code/DungeonJournal"
                 }
             ]
         }

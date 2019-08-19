@@ -1,1 +1,1 @@
-i18n.gettext('roru', preset: 'glib')
+i18n.gettext('dungeonjournal', preset: 'glib')

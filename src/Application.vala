@@ -1,4 +1,4 @@
-namespace Roru
+namespace DungeonJournal
 { 
     public class App : Gtk.Application
     {
@@ -7,7 +7,7 @@ namespace Roru
         public App()
         {
             Object(
-                application_id: "io.github.trytonvanmeer.Roru",
+                application_id: "io.github.trytonvanmeer.DungeonJournal",
                 flags: ApplicationFlags.FLAGS_NONE
             );
         }
@@ -20,7 +20,7 @@ namespace Roru
 
         protected override void activate()
         {
-            window = new Roru.Window(this);
+            window = new DungeonJournal.Window(this);
             window.show_all();
         }
 
@@ -45,12 +45,12 @@ namespace Roru
             Gtk.show_about_dialog
             (
                 window,
-                logo_icon_name: "com.github.trytonvanmeer.Roru",
-                program_name: "Roru",
+                logo_icon_name: "com.github.trytonvanmeer.DungeonJournal",
+                program_name: "DungeonJournal",
                 comments: _("Create Characters"),
                 copyright: "© 2019 Tryton Van Meer",
                 authors: authors,
-                website: "https://github.com/tryton-vanmeer/Roru",
+                website: "https://github.com/tryton-vanmeer/DungeonJournal",
                 website_label: _("GitHub Homepage"),
                 version: Config.VERSION,
                 license_type: Gtk.License.GPL_3_0

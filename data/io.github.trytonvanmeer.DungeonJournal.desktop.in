@@ -1,9 +1,9 @@
 [Desktop Entry]
-Name=roru
+Name=Dungeon Journal
 Comment=Manage 5e Characters
 # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-Icon=com.github.trytonvanmeer.Roru
-Exec=roru
+Icon=com.github.trytonvanmeer.DungeonJournal
+Exec=dungeonjournal
 Terminal=false
 Type=Application
 Categories=Utility;GTK;GNOME;
