@@ -1,0 +1,6 @@
+data/io.github.trytonvanmeer.Roru.desktop.in
+data/io.github.trytonvanmeer.Roru.appdata.xml.in
+src/window.ui
+src/Application.vala
+src/Window.vala
+
