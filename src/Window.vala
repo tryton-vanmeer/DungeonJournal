@@ -4,14 +4,20 @@ namespace DungeonJournal
     public class Window : Gtk.ApplicationWindow
     {
         [GtkChild]
-        Gtk.ListBox list_box;
+        private Gtk.ListBox list_box;
 
         [GtkChild]
-        Gtk.Stack stack;
+        private Gtk.Stack stack;
+
+        private CharacterInfoView info_view;
+        private CharacterStatsView stats_view;
 
         public Window(Gtk.Application app)
         {
             Object(application: app);
+
+            this.info_view = new CharacterInfoView();
+            this.stats_view = new CharacterStatsView();
 
             setup_view();
 		    connect_signals();
@@ -22,8 +28,8 @@ namespace DungeonJournal
             this.list_box.insert(new Gtk.Label("Info"), -1);
             this.list_box.insert(new Gtk.Label("Stats"), -1);
 
-            this.stack.add_named(new CharacterInfoView(), "Info");
-            this.stack.add_named(new CharacterStatsView(), "Stats");
+            this.stack.add_named(this.info_view, "Info");
+            this.stack.add_named(this.stats_view, "Stats");
         }
 
         private void connect_signals()
