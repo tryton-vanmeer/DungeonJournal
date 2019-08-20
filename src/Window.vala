@@ -3,6 +3,9 @@ namespace DungeonJournal
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/window.ui")]
     public class Window : Gtk.ApplicationWindow
     {
+        const string CHARACTER_INFO = "Info";
+        const string CHARACTER_STATS = "Stats";
+
         [GtkChild]
         private Gtk.ListBox list_box;
 
@@ -25,11 +28,11 @@ namespace DungeonJournal
 
         private void setup_view()
         {
-            this.list_box.insert(new Gtk.Label("Info"), -1);
-            this.list_box.insert(new Gtk.Label("Stats"), -1);
+            this.list_box.insert(new Gtk.Label(CHARACTER_INFO), -1);
+            this.list_box.insert(new Gtk.Label(CHARACTER_STATS), -1);
 
-            this.stack.add_named(this.info_view, "Info");
-            this.stack.add_named(this.stats_view, "Stats");
+            this.stack.add_named(this.info_view, CHARACTER_INFO);
+            this.stack.add_named(this.stats_view, CHARACTER_STATS);
         }
 
         private void connect_signals()
