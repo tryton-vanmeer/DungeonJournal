@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+    <requires lib="gtk+" version="3.20"/>
+    <template class="DungeonJournalCharacterStatsView" parent="GtkBin">
+        <property name="visible">True</property>
+        <child>
+            <object class="GtkLabel">
+                <property name="label">Stats View</property>
+            </object>
+        </child>
+    </template>
+</interface>

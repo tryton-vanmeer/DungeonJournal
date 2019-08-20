@@ -19,13 +19,20 @@ namespace DungeonJournal
 
         private void setup_view()
         {
-            var label = new Gtk.Label("Info");
-            this.list_box.insert(label, -1);
+            this.list_box.insert(new Gtk.Label("Info"), -1);
+            this.list_box.insert(new Gtk.Label("Stats"), -1);
+
+            this.stack.add_named(new CharacterInfoView(), "Info");
+            this.stack.add_named(new CharacterStatsView(), "Stats");
         }
 
         private void connect_signals()
         {
-
+            this.list_box.row_activated.connect((row) =>
+            {
+                var label = (Gtk.Label) row.get_child();
+                this.stack.set_visible_child_name(label.label);
+            });
         }
     }
 }

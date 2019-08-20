@@ -21,6 +21,8 @@ deps = [
 sources = [
   'src/Application.vala',
   'src/Window.vala',
+  'src/View/CharacterInfoView.vala',
+  'src/View/CharacterStatsView.vala',
 ]
 
 c_args = [
