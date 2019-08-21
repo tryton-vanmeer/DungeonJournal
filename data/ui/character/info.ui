@@ -4,8 +4,195 @@
     <template class="DungeonJournalCharacterInfoView" parent="GtkBin">
         <property name="visible">True</property>
         <child>
-            <object class="GtkLabel">
-                <property name="label">Info View</property>
+            <object class="GtkGrid">
+                <property name="visible">True</property>
+                <property name="margin_top">18</property>
+                <property name="margin_left">18</property>
+                <property name="margin_right">18</property>
+                <property name="column_spacing">18</property>
+                <property name="row_spacing">12</property>
+                <property name="column_homogeneous">True</property>
+                <!-- <property name="orientation">vertical</property> -->
+
+                <!-- Name -->
+                <child>
+                    <object class="GtkBox">
+                        <property name="visible">True</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="visible">True</property>
+                                <property name="xalign">0</property>
+                                <property name="label" translatable="yes">Character Name</property>
+                                <attributes>
+                                    <attribute name="weight" value="bold"/>
+                                </attributes>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkEntry" id="character_name_entry">
+                                <property name="visible">True</property>
+                            </object>
+                        </child>
+                    </object>
+                    <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">0</property>
+                    </packing>
+                </child>
+
+                <!-- Class -->
+                <child>
+                    <object class="GtkBox">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                        <object class="GtkLabel">
+                            <property name="visible">True</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">Class</property>
+                            <attributes>
+                                <attribute name="weight" value="bold"/>
+                            </attributes>
+                        </object>
+                    </child>
+                    <child>
+                        <object class="GtkEntry" id="character_class_entry">
+                            <property name="visible">True</property>
+                        </object>
+                    </child>
+                    </object>
+                    <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">0</property>
+                    </packing>
+                </child>
+
+                <!-- Race -->
+                <child>
+                    <object class="GtkBox">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="visible">True</property>
+                                <property name="xalign">0</property>
+                                <property name="label" translatable="yes">Race</property>
+                                <attributes>
+                                    <attribute name="weight" value="bold"/>
+                                </attributes>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkEntry" id="character_race_entry">
+                                <property name="visible">True</property>
+                            </object>
+                        </child>
+                    </object>
+                    <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">1</property>
+                    </packing>
+                </child>
+
+                <!-- Alignment -->
+                <child>
+                    <object class="GtkBox">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="visible">True</property>
+                                <property name="xalign">0</property>
+                                <property name="label" translatable="yes">Alignment</property>
+                                <attributes>
+                                    <attribute name="weight" value="bold"/>
+                                </attributes>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkComboBoxText" id="character_alignment_entry">
+                                <property name="visible">True</property>
+                                <items>
+                                    <item translatable="yes">Lawful Good</item>
+                                    <item translatable="yes">Neutral Good</item>
+                                    <item translatable="yes">Chaotic Good</item>
+                                    <item translatable="yes">Lawful Neutral</item>
+                                    <item translatable="yes">Neutral</item>
+                                    <item translatable="yes">Chaotic Neutral</item>
+                                    <item translatable="yes">Lawful Evil</item>
+                                    <item translatable="yes">Neutral Evil</item>
+                                    <item translatable="yes">Chaotic Evil</item>
+                                </items>
+                            </object>
+                        </child>
+                    </object>
+                    <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">1</property>
+                    </packing>
+                </child>
+
+                <!-- Level -->
+                <child>
+                    <object class="GtkBox">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="visible">True</property>
+                                <property name="xalign">0</property>
+                                <property name="label" translatable="yes">Level</property>
+                                <attributes>
+                                    <attribute name="weight" value="bold"/>
+                                </attributes>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkEntry" id="character_level_entry">
+                                <property name="visible">True</property>
+                                <property name="input_purpose">digits</property>
+                            </object>
+                        </child>
+                    </object>
+                    <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">2</property>
+                    </packing>
+                </child>
+
+                <!-- Xp -->
+                <child>
+                    <object class="GtkBox">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="visible">True</property>
+                                <property name="xalign">0</property>
+                                <property name="label" translatable="yes">Experience Points</property>
+                                <attributes>
+                                    <attribute name="weight" value="bold"/>
+                                </attributes>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkEntry" id="character_xp_entry">
+                                <property name="visible">True</property>
+                                <property name="input_purpose">digits</property>
+                            </object>
+                        </child>
+                    </object>
+                    <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">2</property>
+                    </packing>
+                </child>
             </object>
         </child>
     </template>

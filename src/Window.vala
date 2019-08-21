@@ -4,9 +4,6 @@ namespace DungeonJournal
     public class Window : Gtk.ApplicationWindow
     {
         [GtkChild]
-        private Gtk.StackSidebar sidebar;
-
-        [GtkChild]
         private Gtk.Stack stack;
 
         private CharacterInfoView info_view;
