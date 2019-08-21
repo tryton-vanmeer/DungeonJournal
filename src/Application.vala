@@ -46,7 +46,7 @@ namespace DungeonJournal
             (
                 window,
                 logo_icon_name: "com.github.trytonvanmeer.DungeonJournal",
-                program_name: "DungeonJournal",
+                program_name: "Dungeon Journal",
                 comments: _("Create Characters"),
                 copyright: "© 2019 Tryton Van Meer",
                 authors: authors,
