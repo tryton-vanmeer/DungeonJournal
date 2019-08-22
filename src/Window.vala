@@ -7,14 +7,14 @@ namespace DungeonJournal
         private Gtk.Stack stack;
 
         private CharacterInfoView info_view;
-        private CharacterStatsView stats_view;
+        private CharacterAbilitySkillView ability_skill_view;
 
         public Window(Gtk.Application app)
         {
             Object(application: app);
 
             this.info_view = new CharacterInfoView();
-            this.stats_view = new CharacterStatsView();
+            this.ability_skill_view = new CharacterAbilitySkillView();
 
             setup_view();
 		    connect_signals();
@@ -23,7 +23,7 @@ namespace DungeonJournal
         private void setup_view()
         {
             this.stack.add_titled(this.info_view, "info", _("Info"));
-            this.stack.add_titled(this.stats_view, "stats", _("Stats"));
+            this.stack.add_titled(this.ability_skill_view, "stats", _("Ability & Skills"));
         }
 
         private void connect_signals()

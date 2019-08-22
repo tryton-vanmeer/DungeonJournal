@@ -3,6 +3,6 @@
     <gresource prefix="/io/github/trytonvanmeer/DungeonJournal">
         <file compressed="true" preprocess="xml-stripblanks">ui/window.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/character/info.ui</file>
-        <file compressed="true" preprocess="xml-stripblanks">ui/character/stats.ui</file>
+        <file compressed="true" preprocess="xml-stripblanks">ui/character/ability_skills.ui</file>
     </gresource>
 </gresources>
