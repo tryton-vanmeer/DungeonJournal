@@ -37,15 +37,16 @@
                                     <object class="GtkBox">
                                         <property name="visible">True</property>
                                         <child>
-                                            <object class="GtkSpinButton">
+                                            <object class="GtkSpinButton" id="strength_score">
                                                 <property name="visible">True</property>
                                                 <property name="margin_right">12</property>
                                                 <property name="orientation">vertical</property>
                                                 <property name="adjustment">score_adjustment</property>
+                                                <property name="update_policy">if-valid</property>
                                             </object>
                                         </child>
                                         <child>
-                                            <object class="GtkLabel">
+                                            <object class="GtkLabel" id="strength_mod">
                                                 <property name="visible">True</property>
                                                 <property name="label">+0</property>
                                             </object>
@@ -64,13 +65,13 @@
                                                 <property name="visible">True</property>
                                                 <property name="margin_bottom">6</property>
                                                 <child>
-                                                    <object class="GtkCheckButton">
+                                                    <object class="GtkCheckButton" id="strength_save_proficiency">
                                                         <property name="visible">True</property>
                                                         <property name="margin_right">6</property>
                                                     </object>
                                                 </child>
                                                 <child>
-                                                    <object class="GtkEntry">
+                                                    <object class="GtkEntry" id="strength_save">
                                                         <property name="visible">True</property>
                                                         <property name="can_focus">True</property>
                                                         <property name="margin_right">6</property>
@@ -93,13 +94,13 @@
                                                 <property name="visible">True</property>
                                                 <property name="margin_bottom">6</property>
                                                 <child>
-                                                    <object class="GtkCheckButton">
+                                                    <object class="GtkCheckButton" id="athletics_skill_proficiency">
                                                         <property name="visible">True</property>
                                                         <property name="margin_right">6</property>
                                                     </object>
                                                 </child>
                                                 <child>
-                                                    <object class="GtkEntry">
+                                                    <object class="GtkEntry" id="athletics_skill">
                                                         <property name="visible">True</property>
                                                         <property name="can_focus">True</property>
                                                         <property name="margin_right">6</property>
