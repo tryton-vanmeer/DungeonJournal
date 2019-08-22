@@ -20,5 +20,18 @@ namespace DungeonJournal
 
         [GtkChild]
         private Gtk.Entry athletics_skill;
+
+        public CharacterAbilitySkillView()
+        {
+            connect_signals();
+        }
+
+        private void connect_signals()
+        {
+            this.strength_score.value_changed.connect(() =>
+            {
+                this.strength_mod.label = calculate_ability_modifier(this.strength_score.value);
+            });
+        }
     }
 }
