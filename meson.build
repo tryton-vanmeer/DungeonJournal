@@ -23,6 +23,7 @@ sources = [
   'src/Window.vala',
   'src/View/CharacterInfoView.vala',
   'src/View/CharacterAbilitySkillView.vala',
+  'src/Util.vala',
 ]
 
 c_args = [
