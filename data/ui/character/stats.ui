@@ -4,9 +4,140 @@
     <template class="DungeonJournalCharacterStatsView" parent="GtkBin">
         <property name="visible">True</property>
         <child>
-            <object class="GtkLabel">
-                <property name="label">Stats View</property>
+            <object class="GtkScrolledWindow">
+                <child>
+                    <object class="GtkBox">
+                        <property name="visible">True</property>
+                        <property name="margin_top">18</property>
+                        <property name="margin_left">18</property>
+                        <property name="margin_right">18</property>
+                        <property name="orientation">vertical</property>
+            
+                        <!-- Strength -->
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="xalign">0</property>
+                                <property name="margin_bottom">6</property>
+                                <property name="label" translatable="yes">Strength</property>
+                                <attributes>
+                                    <attribute name="weight" value="bold"/>
+                                    <attribute name="scale" value="1.5"/>
+                                </attributes>
+                            </object>
+                        </child>
+            
+                        <child>
+                            <object class="GtkBox">
+                                <property name="visible">True</property>
+                                <property name="margin_bottom">6</property>
+                                <property name="homogeneous">True</property>
+            
+                                <!-- Strength Score -->
+                                <child>
+                                    <object class="GtkBox">
+                                        <property name="visible">True</property>
+                                        <child>
+                                            <object class="GtkSpinButton">
+                                                <property name="visible">True</property>
+                                                <property name="margin_right">12</property>
+                                                <property name="orientation">vertical</property>
+                                                <property name="adjustment">score_adjustment</property>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel">
+                                                <property name="visible">True</property>
+                                                <property name="label">+0</property>
+                                            </object>
+                                        </child>
+                                    </object>
+                                </child>
+            
+                                <child>
+                                    <object class="GtkBox">
+                                        <property name="visible">True</property>
+                                        <property name="orientation">vertical</property>
+            
+                                        <!-- Strength Save -->
+                                        <child>
+                                            <object class="GtkBox">
+                                                <property name="visible">True</property>
+                                                <property name="margin_bottom">6</property>
+                                                <child>
+                                                    <object class="GtkCheckButton">
+                                                        <property name="visible">True</property>
+                                                        <property name="margin_right">6</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkEntry">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">True</property>
+                                                        <property name="margin_right">6</property>
+                                                        <property name="width_chars">2</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkLabel">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">False</property>
+                                                        <property name="label" translatable="yes">Saving Throws</property>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </child>
+            
+                                        <!-- Skill Athletics -->
+                                        <child>
+                                            <object class="GtkBox">
+                                                <property name="visible">True</property>
+                                                <property name="margin_bottom">6</property>
+                                                <child>
+                                                    <object class="GtkCheckButton">
+                                                        <property name="visible">True</property>
+                                                        <property name="margin_right">6</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkEntry">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">True</property>
+                                                        <property name="margin_right">6</property>
+                                                        <property name="width_chars">2</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkLabel">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">False</property>
+                                                        <property name="label" translatable="yes">Athletics</property>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </child>
+                                    </object>
+                                </child>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkSeparator">
+                                <property name="visible">True</property>
+                                <property name="margin_bottom">6</property>
+                            </object>
+                        </child>
+
+                              <!-- Dexterity -->
+                        </object>
+                    </child>
             </object>
         </child>
     </template>
+
+    <object class="GtkAdjustment" id="score_adjustment">
+        <property name="lower">1</property>
+        <property name="upper">20</property>
+        <property name="value">10</property>
+        <property name="step_increment">1</property>
+        <property name="page_increment">10</property>
+    </object>
 </interface>
