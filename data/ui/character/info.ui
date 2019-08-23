@@ -115,6 +115,7 @@
                         <child>
                             <object class="GtkComboBoxText" id="character_alignment_entry">
                                 <property name="visible">True</property>
+                                <property name="active">4</property>
                                 <items>
                                     <item translatable="yes">Lawful Good</item>
                                     <item translatable="yes">Neutral Good</item>
