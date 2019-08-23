@@ -26,6 +26,7 @@
                             </object>
                         </child>
             
+                        <!-- Strength Score/Skill -->
                         <child>
                             <object class="GtkBox">
                                 <property name="visible">True</property>
@@ -37,11 +38,12 @@
                                     <object class="GtkBox">
                                         <property name="visible">True</property>
                                         <child>
-                                            <object class="GtkSpinButton" id="strength_score">
+                                            <object class="GtkSpinButton">
                                                 <property name="visible">True</property>
                                                 <property name="margin_right">12</property>
                                                 <property name="orientation">vertical</property>
-                                                <property name="adjustment">score_adjustment</property>
+                                                <property name="valign">center</property>
+                                                <property name="adjustment">strength_score_adjustment</property>
                                                 <property name="update_policy">if-valid</property>
                                             </object>
                                         </child>
@@ -120,6 +122,7 @@
                                 </child>
                             </object>
                         </child>
+
                         <child>
                             <object class="GtkSeparator">
                                 <property name="visible">True</property>
@@ -127,14 +130,973 @@
                             </object>
                         </child>
 
-                              <!-- Dexterity -->
-                        </object>
-                    </child>
+                        <!-- Dexterity -->
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="xalign">0</property>
+                                <property name="margin_bottom">6</property>
+                                <property name="label" translatable="yes">Dexterity</property>
+                                <attributes>
+                                    <attribute name="weight" value="bold"/>
+                                    <attribute name="scale" value="1.5"/>
+                                </attributes>
+                            </object>
+                        </child>
+
+                        <!-- Dexterity Score/Skill -->
+                        <child>
+                            <object class="GtkBox">
+                                <property name="visible">True</property>
+                                <property name="margin_bottom">6</property>
+                                <property name="homogeneous">True</property>
+            
+                                <!-- Dexterity Score -->
+                                <child>
+                                    <object class="GtkBox">
+                                        <property name="visible">True</property>
+                                        <child>
+                                            <object class="GtkSpinButton">
+                                                <property name="visible">True</property>
+                                                <property name="margin_right">12</property>
+                                                <property name="orientation">vertical</property>
+                                                <property name="valign">center</property>
+                                                <property name="adjustment">dexterity_score_adjustment</property>
+                                                <property name="update_policy">if-valid</property>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="dexterity_mod">
+                                                <property name="visible">True</property>
+                                                <property name="label">-1</property>
+                                            </object>
+                                        </child>
+                                    </object>
+                                </child>
+            
+                                <child>
+                                    <object class="GtkBox">
+                                        <property name="visible">True</property>
+                                        <property name="orientation">vertical</property>
+            
+                                        <!-- Dexterity Save -->
+                                        <child>
+                                            <object class="GtkBox">
+                                                <property name="visible">True</property>
+                                                <property name="margin_bottom">6</property>
+                                                <child>
+                                                    <object class="GtkCheckButton" id="dexterity_save_proficiency">
+                                                        <property name="visible">True</property>
+                                                        <property name="margin_right">6</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkEntry" id="dexterity_save">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">True</property>
+                                                        <property name="margin_right">6</property>
+                                                        <property name="width_chars">2</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkLabel">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">False</property>
+                                                        <property name="label" translatable="yes">Saving Throws</property>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </child>
+            
+                                        <!-- Skill Acrobatics -->
+                                        <child>
+                                            <object class="GtkBox">
+                                                <property name="visible">True</property>
+                                                <property name="margin_bottom">6</property>
+                                                <child>
+                                                    <object class="GtkCheckButton" id="acrobatics_skill_proficiency">
+                                                        <property name="visible">True</property>
+                                                        <property name="margin_right">6</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkEntry" id="acrobatics_skill">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">True</property>
+                                                        <property name="margin_right">6</property>
+                                                        <property name="width_chars">2</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkLabel">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">False</property>
+                                                        <property name="label" translatable="yes">Acrobatics</property>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </child>
+
+                                        <!-- Skill Sleight of hand -->
+                                        <child>
+                                            <object class="GtkBox">
+                                                <property name="visible">True</property>
+                                                <property name="margin_bottom">6</property>
+                                                <child>
+                                                    <object class="GtkCheckButton" id="sleight_of_hand_skill_proficiency">
+                                                        <property name="visible">True</property>
+                                                        <property name="margin_right">6</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkEntry" id="sleight_of_hand_skill">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">True</property>
+                                                        <property name="margin_right">6</property>
+                                                        <property name="width_chars">2</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkLabel">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">False</property>
+                                                        <property name="label" translatable="yes">Sleight of Hand</property>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </child>
+
+                                        <!-- Skill Stealth -->
+                                        <child>
+                                            <object class="GtkBox">
+                                                <property name="visible">True</property>
+                                                <property name="margin_bottom">6</property>
+                                                <child>
+                                                    <object class="GtkCheckButton" id="stealth_skill_proficiency">
+                                                        <property name="visible">True</property>
+                                                        <property name="margin_right">6</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkEntry" id="stealth_skill">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">True</property>
+                                                        <property name="margin_right">6</property>
+                                                        <property name="width_chars">2</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkLabel">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">False</property>
+                                                        <property name="label" translatable="yes">Stealth</property>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </child>
+                                    </object>
+                                </child>
+                            </object>
+                        </child>
+
+                        <child>
+                            <object class="GtkSeparator">
+                                <property name="visible">True</property>
+                                <property name="margin_bottom">6</property>
+                            </object>
+                        </child>
+
+                        <!-- Constitution -->
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="xalign">0</property>
+                                <property name="margin_bottom">6</property>
+                                <property name="label" translatable="yes">Constitution</property>
+                                <attributes>
+                                    <attribute name="weight" value="bold"/>
+                                    <attribute name="scale" value="1.5"/>
+                                </attributes>
+                            </object>
+                        </child>
+
+                        <!-- Constitution Score/Skill -->
+                        <child>
+                            <object class="GtkBox">
+                                <property name="visible">True</property>
+                                <property name="margin_bottom">6</property>
+                                <property name="homogeneous">True</property>
+            
+                                <!-- Constitution Score -->
+                                <child>
+                                    <object class="GtkBox">
+                                        <property name="visible">True</property>
+                                        <child>
+                                            <object class="GtkSpinButton">
+                                                <property name="visible">True</property>
+                                                <property name="margin_right">12</property>
+                                                <property name="orientation">vertical</property>
+                                                <property name="valign">center</property>
+                                                <property name="adjustment">constitution_score_adjustment</property>
+                                                <property name="update_policy">if-valid</property>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="constitution_mod">
+                                                <property name="visible">True</property>
+                                                <property name="label">-1</property>
+                                            </object>
+                                        </child>
+                                    </object>
+                                </child>
+            
+                                <child>
+                                    <object class="GtkBox">
+                                        <property name="visible">True</property>
+                                        <property name="orientation">vertical</property>
+            
+                                        <!-- Constitution Save -->
+                                        <child>
+                                            <object class="GtkBox">
+                                                <property name="visible">True</property>
+                                                <property name="margin_bottom">6</property>
+                                                <child>
+                                                    <object class="GtkCheckButton" id="constitution_save_proficiency">
+                                                        <property name="visible">True</property>
+                                                        <property name="margin_right">6</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkEntry" id="constitution_save">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">True</property>
+                                                        <property name="margin_right">6</property>
+                                                        <property name="width_chars">2</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkLabel">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">False</property>
+                                                        <property name="label" translatable="yes">Saving Throws</property>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </child>
+                                    </object>
+                                </child>
+                            </object>
+                        </child>
+
+                        <child>
+                            <object class="GtkSeparator">
+                                <property name="visible">True</property>
+                                <property name="margin_bottom">6</property>
+                            </object>
+                        </child>
+
+                        <!-- Intelligence -->
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="xalign">0</property>
+                                <property name="margin_bottom">6</property>
+                                <property name="label" translatable="yes">Intelligence</property>
+                                <attributes>
+                                    <attribute name="weight" value="bold"/>
+                                    <attribute name="scale" value="1.5"/>
+                                </attributes>
+                            </object>
+                        </child>
+
+                        <!-- Intelligence Score/Skill -->
+                        <child>
+                            <object class="GtkBox">
+                                <property name="visible">True</property>
+                                <property name="margin_bottom">6</property>
+                                <property name="homogeneous">True</property>
+            
+                                <!-- Intelligence Score -->
+                                <child>
+                                    <object class="GtkBox">
+                                        <property name="visible">True</property>
+                                        <child>
+                                            <object class="GtkSpinButton">
+                                                <property name="visible">True</property>
+                                                <property name="margin_right">12</property>
+                                                <property name="orientation">vertical</property>
+                                                <property name="valign">center</property>
+                                                <property name="adjustment">intelligence_score_adjustment</property>
+                                                <property name="update_policy">if-valid</property>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="intelligence_mod">
+                                                <property name="visible">True</property>
+                                                <property name="label">-1</property>
+                                            </object>
+                                        </child>
+                                    </object>
+                                </child>
+            
+                                <child>
+                                    <object class="GtkBox">
+                                        <property name="visible">True</property>
+                                        <property name="orientation">vertical</property>
+            
+                                        <!-- Intelligence Save -->
+                                        <child>
+                                            <object class="GtkBox">
+                                                <property name="visible">True</property>
+                                                <property name="margin_bottom">6</property>
+                                                <child>
+                                                    <object class="GtkCheckButton" id="intelligence_save_proficiency">
+                                                        <property name="visible">True</property>
+                                                        <property name="margin_right">6</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkEntry" id="intelligence_save">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">True</property>
+                                                        <property name="margin_right">6</property>
+                                                        <property name="width_chars">2</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkLabel">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">False</property>
+                                                        <property name="label" translatable="yes">Saving Throws</property>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </child>
+
+                                        <!-- Skill Arcana -->
+                                        <child>
+                                            <object class="GtkBox">
+                                                <property name="visible">True</property>
+                                                <property name="margin_bottom">6</property>
+                                                <child>
+                                                    <object class="GtkCheckButton" id="arcana_skill_proficiency">
+                                                        <property name="visible">True</property>
+                                                        <property name="margin_right">6</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkEntry" id="arcana_skill">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">True</property>
+                                                        <property name="margin_right">6</property>
+                                                        <property name="width_chars">2</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkLabel">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">False</property>
+                                                        <property name="label" translatable="yes">Arcana</property>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </child>
+
+                                        <!-- Skill History -->
+                                        <child>
+                                            <object class="GtkBox">
+                                                <property name="visible">True</property>
+                                                <property name="margin_bottom">6</property>
+                                                <child>
+                                                    <object class="GtkCheckButton" id="history_skill_proficiency">
+                                                        <property name="visible">True</property>
+                                                        <property name="margin_right">6</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkEntry" id="history_skill">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">True</property>
+                                                        <property name="margin_right">6</property>
+                                                        <property name="width_chars">2</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkLabel">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">False</property>
+                                                        <property name="label" translatable="yes">History</property>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </child>
+
+                                        <!-- Skill Investigation -->
+                                        <child>
+                                            <object class="GtkBox">
+                                                <property name="visible">True</property>
+                                                <property name="margin_bottom">6</property>
+                                                <child>
+                                                    <object class="GtkCheckButton" id="investigation_skill_proficiency">
+                                                        <property name="visible">True</property>
+                                                        <property name="margin_right">6</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkEntry" id="investigation_skill">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">True</property>
+                                                        <property name="margin_right">6</property>
+                                                        <property name="width_chars">2</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkLabel">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">False</property>
+                                                        <property name="label" translatable="yes">Investigation</property>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </child>
+
+                                        <!-- Skill Nature -->
+                                        <child>
+                                            <object class="GtkBox">
+                                                <property name="visible">True</property>
+                                                <property name="margin_bottom">6</property>
+                                                <child>
+                                                    <object class="GtkCheckButton" id="nature_skill_proficiency">
+                                                        <property name="visible">True</property>
+                                                        <property name="margin_right">6</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkEntry" id="nature_skill">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">True</property>
+                                                        <property name="margin_right">6</property>
+                                                        <property name="width_chars">2</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkLabel">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">False</property>
+                                                        <property name="label" translatable="yes">Nature</property>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </child>
+
+                                        <!-- Skill Religion -->
+                                        <child>
+                                            <object class="GtkBox">
+                                                <property name="visible">True</property>
+                                                <property name="margin_bottom">6</property>
+                                                <child>
+                                                    <object class="GtkCheckButton" id="religion_skill_proficiency">
+                                                        <property name="visible">True</property>
+                                                        <property name="margin_right">6</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkEntry" id="religion_skill">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">True</property>
+                                                        <property name="margin_right">6</property>
+                                                        <property name="width_chars">2</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkLabel">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">False</property>
+                                                        <property name="label" translatable="yes">Religion</property>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </child>
+                                    </object>
+                                </child>
+                            </object>
+                        </child>
+
+                        <child>
+                            <object class="GtkSeparator">
+                                <property name="visible">True</property>
+                                <property name="margin_bottom">6</property>
+                            </object>
+                        </child>
+
+                        <!-- Wisdom -->
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="xalign">0</property>
+                                <property name="margin_bottom">6</property>
+                                <property name="label" translatable="yes">Wisdom</property>
+                                <attributes>
+                                    <attribute name="weight" value="bold"/>
+                                    <attribute name="scale" value="1.5"/>
+                                </attributes>
+                            </object>
+                        </child>
+
+                        <!-- Wisdom Score/Skill -->
+                        <child>
+                            <object class="GtkBox">
+                                <property name="visible">True</property>
+                                <property name="margin_bottom">6</property>
+                                <property name="homogeneous">True</property>
+            
+                                <!-- Wisdom Score -->
+                                <child>
+                                    <object class="GtkBox">
+                                        <property name="visible">True</property>
+                                        <child>
+                                            <object class="GtkSpinButton">
+                                                <property name="visible">True</property>
+                                                <property name="margin_right">12</property>
+                                                <property name="orientation">vertical</property>
+                                                <property name="valign">center</property>
+                                                <property name="adjustment">wisdom_score_adjustment</property>
+                                                <property name="update_policy">if-valid</property>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="wisdom_mod">
+                                                <property name="visible">True</property>
+                                                <property name="label">-1</property>
+                                            </object>
+                                        </child>
+                                    </object>
+                                </child>
+            
+                                <child>
+                                    <object class="GtkBox">
+                                        <property name="visible">True</property>
+                                        <property name="orientation">vertical</property>
+            
+                                        <!-- Wisdom Save -->
+                                        <child>
+                                            <object class="GtkBox">
+                                                <property name="visible">True</property>
+                                                <property name="margin_bottom">6</property>
+                                                <child>
+                                                    <object class="GtkCheckButton" id="wisdom_save_proficiency">
+                                                        <property name="visible">True</property>
+                                                        <property name="margin_right">6</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkEntry" id="wisdom_save">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">True</property>
+                                                        <property name="margin_right">6</property>
+                                                        <property name="width_chars">2</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkLabel">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">False</property>
+                                                        <property name="label" translatable="yes">Saving Throws</property>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </child>
+
+                                        <!-- Skill Animal Handling -->
+                                        <child>
+                                            <object class="GtkBox">
+                                                <property name="visible">True</property>
+                                                <property name="margin_bottom">6</property>
+                                                <child>
+                                                    <object class="GtkCheckButton" id="animal_handling_skill_proficiency">
+                                                        <property name="visible">True</property>
+                                                        <property name="margin_right">6</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkEntry" id="animal_handling_skill">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">True</property>
+                                                        <property name="margin_right">6</property>
+                                                        <property name="width_chars">2</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkLabel">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">False</property>
+                                                        <property name="label" translatable="yes">Animal Handling</property>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </child>
+                                        
+                                        <!-- Skill Insight -->
+                                        <child>
+                                            <object class="GtkBox">
+                                                <property name="visible">True</property>
+                                                <property name="margin_bottom">6</property>
+                                                <child>
+                                                    <object class="GtkCheckButton" id="insight_skill_proficiency">
+                                                        <property name="visible">True</property>
+                                                        <property name="margin_right">6</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkEntry" id="insight_skill">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">True</property>
+                                                        <property name="margin_right">6</property>
+                                                        <property name="width_chars">2</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkLabel">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">False</property>
+                                                        <property name="label" translatable="yes">Insight</property>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </child>
+
+                                        <!-- Skill Medicine -->
+                                        <child>
+                                            <object class="GtkBox">
+                                                <property name="visible">True</property>
+                                                <property name="margin_bottom">6</property>
+                                                <child>
+                                                    <object class="GtkCheckButton" id="medicine_skill_proficiency">
+                                                        <property name="visible">True</property>
+                                                        <property name="margin_right">6</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkEntry" id="medicine_skill">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">True</property>
+                                                        <property name="margin_right">6</property>
+                                                        <property name="width_chars">2</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkLabel">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">False</property>
+                                                        <property name="label" translatable="yes">Medicine</property>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </child>
+
+                                        <!-- Skill Perception -->
+                                        <child>
+                                            <object class="GtkBox">
+                                                <property name="visible">True</property>
+                                                <property name="margin_bottom">6</property>
+                                                <child>
+                                                    <object class="GtkCheckButton" id="perception_skill_proficiency">
+                                                        <property name="visible">True</property>
+                                                        <property name="margin_right">6</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkEntry" id="perception_skill">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">True</property>
+                                                        <property name="margin_right">6</property>
+                                                        <property name="width_chars">2</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkLabel">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">False</property>
+                                                        <property name="label" translatable="yes">Perception</property>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </child>
+
+                                        <!-- Skill Survival -->
+                                        <child>
+                                            <object class="GtkBox">
+                                                <property name="visible">True</property>
+                                                <property name="margin_bottom">6</property>
+                                                <child>
+                                                    <object class="GtkCheckButton" id="survival_skill_proficiency">
+                                                        <property name="visible">True</property>
+                                                        <property name="margin_right">6</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkEntry" id="survival_skill">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">True</property>
+                                                        <property name="margin_right">6</property>
+                                                        <property name="width_chars">2</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkLabel">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">False</property>
+                                                        <property name="label" translatable="yes">Survival</property>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </child>
+                                    </object>
+                                </child>
+                            </object>
+                        </child>
+
+                        <child>
+                            <object class="GtkSeparator">
+                                <property name="visible">True</property>
+                                <property name="margin_bottom">6</property>
+                            </object>
+                        </child>
+
+                        <!-- Charisma -->
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="xalign">0</property>
+                                <property name="margin_bottom">6</property>
+                                <property name="label" translatable="yes">Charisma</property>
+                                <attributes>
+                                    <attribute name="weight" value="bold"/>
+                                    <attribute name="scale" value="1.5"/>
+                                </attributes>
+                            </object>
+                        </child>
+
+                        <!-- Charisma Score/Skill -->
+                        <child>
+                            <object class="GtkBox">
+                                <property name="visible">True</property>
+                                <property name="margin_bottom">6</property>
+                                <property name="homogeneous">True</property>
+            
+                                <!-- Charisma Score -->
+                                <child>
+                                    <object class="GtkBox">
+                                        <property name="visible">True</property>
+                                        <child>
+                                            <object class="GtkSpinButton">
+                                                <property name="visible">True</property>
+                                                <property name="margin_right">12</property>
+                                                <property name="orientation">vertical</property>
+                                                <property name="valign">center</property>
+                                                <property name="adjustment">charisma_score_adjustment</property>
+                                                <property name="update_policy">if-valid</property>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="charisma_mod">
+                                                <property name="visible">True</property>
+                                                <property name="label">-1</property>
+                                            </object>
+                                        </child>
+                                    </object>
+                                </child>
+            
+                                <child>
+                                    <object class="GtkBox">
+                                        <property name="visible">True</property>
+                                        <property name="orientation">vertical</property>
+            
+                                        <!-- Charisma Save -->
+                                        <child>
+                                            <object class="GtkBox">
+                                                <property name="visible">True</property>
+                                                <property name="margin_bottom">6</property>
+                                                <child>
+                                                    <object class="GtkCheckButton" id="charisma_save_proficiency">
+                                                        <property name="visible">True</property>
+                                                        <property name="margin_right">6</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkEntry" id="charisma_save">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">True</property>
+                                                        <property name="margin_right">6</property>
+                                                        <property name="width_chars">2</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkLabel">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">False</property>
+                                                        <property name="label" translatable="yes">Saving Throws</property>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </child>
+
+                                        <!-- Skill Deception -->
+                                        <child>
+                                            <object class="GtkBox">
+                                                <property name="visible">True</property>
+                                                <property name="margin_bottom">6</property>
+                                                <child>
+                                                    <object class="GtkCheckButton" id="deception_skill_proficiency">
+                                                        <property name="visible">True</property>
+                                                        <property name="margin_right">6</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkEntry" id="deception_skill">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">True</property>
+                                                        <property name="margin_right">6</property>
+                                                        <property name="width_chars">2</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkLabel">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">False</property>
+                                                        <property name="label" translatable="yes">Deception</property>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </child>
+
+                                        <!-- Skill Intimidation -->
+                                        <child>
+                                            <object class="GtkBox">
+                                                <property name="visible">True</property>
+                                                <property name="margin_bottom">6</property>
+                                                <child>
+                                                    <object class="GtkCheckButton" id="intimidation_skill_proficiency">
+                                                        <property name="visible">True</property>
+                                                        <property name="margin_right">6</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkEntry" id="intimidation_skill">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">True</property>
+                                                        <property name="margin_right">6</property>
+                                                        <property name="width_chars">2</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkLabel">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">False</property>
+                                                        <property name="label" translatable="yes">Intimidation</property>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </child>
+
+                                        <!-- Skill Performance -->
+                                        <child>
+                                            <object class="GtkBox">
+                                                <property name="visible">True</property>
+                                                <property name="margin_bottom">6</property>
+                                                <child>
+                                                    <object class="GtkCheckButton" id="performance_skill_proficiency">
+                                                        <property name="visible">True</property>
+                                                        <property name="margin_right">6</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkEntry" id="performance_skill">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">True</property>
+                                                        <property name="margin_right">6</property>
+                                                        <property name="width_chars">2</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkLabel">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">False</property>
+                                                        <property name="label" translatable="yes">Performance</property>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </child>
+
+                                        <!-- Skill Persuasion -->
+                                        <child>
+                                            <object class="GtkBox">
+                                                <property name="visible">True</property>
+                                                <property name="margin_bottom">6</property>
+                                                <child>
+                                                    <object class="GtkCheckButton" id="persuasion_skill_proficiency">
+                                                        <property name="visible">True</property>
+                                                        <property name="margin_right">6</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkEntry" id="persuasion_skill">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">True</property>
+                                                        <property name="margin_right">6</property>
+                                                        <property name="width_chars">2</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkLabel">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">False</property>
+                                                        <property name="label" translatable="yes">Persuasion</property>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </child>
+                                    </object>
+                                </child>
+                            </object>
+                        </child>
+                    </object>
+                </child>
             </object>
         </child>
     </template>
 
-    <object class="GtkAdjustment" id="score_adjustment">
+    <object class="GtkAdjustment" id="strength_score_adjustment">
+        <property name="lower">1</property>
+        <property name="upper">30</property>
+        <property name="value">8</property>
+        <property name="step_increment">1</property>
+        <property name="page_increment">10</property>
+    </object>
+    <object class="GtkAdjustment" id="dexterity_score_adjustment">
+        <property name="lower">1</property>
+        <property name="upper">30</property>
+        <property name="value">8</property>
+        <property name="step_increment">1</property>
+        <property name="page_increment">10</property>
+    </object>
+    <object class="GtkAdjustment" id="constitution_score_adjustment">
+        <property name="lower">1</property>
+        <property name="upper">30</property>
+        <property name="value">8</property>
+        <property name="step_increment">1</property>
+        <property name="page_increment">10</property>
+    </object>
+    <object class="GtkAdjustment" id="intelligence_score_adjustment">
+        <property name="lower">1</property>
+        <property name="upper">30</property>
+        <property name="value">8</property>
+        <property name="step_increment">1</property>
+        <property name="page_increment">10</property>
+    </object>
+    <object class="GtkAdjustment" id="wisdom_score_adjustment">
+        <property name="lower">1</property>
+        <property name="upper">30</property>
+        <property name="value">8</property>
+        <property name="step_increment">1</property>
+        <property name="page_increment">10</property>
+    </object>
+    <object class="GtkAdjustment" id="charisma_score_adjustment">
         <property name="lower">1</property>
         <property name="upper">30</property>
         <property name="value">8</property>
