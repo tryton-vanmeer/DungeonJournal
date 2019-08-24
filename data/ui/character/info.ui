@@ -4,194 +4,278 @@
     <template class="DungeonJournalCharacterInfoView" parent="GtkBin">
         <property name="visible">True</property>
         <child>
-            <object class="GtkGrid">
+            <object class="GtkScrolledWindow">
                 <property name="visible">True</property>
-                <property name="margin_top">18</property>
-                <property name="margin_left">18</property>
-                <property name="margin_right">18</property>
-                <property name="column_spacing">18</property>
-                <property name="row_spacing">12</property>
-                <property name="column_homogeneous">True</property>
-
-                <!-- Name -->
+                <property name="hscrollbar_policy">never</property>
                 <child>
-                    <object class="GtkBox">
+                    <object class="HdyColumn">
                         <property name="visible">True</property>
-                        <property name="orientation">vertical</property>
+                        <property name="maximum_width">600</property>
+                        <property name="linear_growth_width">400</property>
+                        <property name="margin_top">32</property>
+                        <property name="margin_bottom">32</property>
+                        <property name="margin_start">12</property>
+                        <property name="margin_end">12</property>
                         <child>
-                            <object class="GtkLabel">
+                            <object class="GtkBox">
                                 <property name="visible">True</property>
-                                <property name="xalign">0</property>
-                                <property name="label" translatable="yes">Character Name</property>
-                                <attributes>
-                                    <attribute name="weight" value="bold"/>
-                                </attributes>
-                            </object>
-                        </child>
-                        <child>
-                            <object class="GtkEntry" id="character_name_entry">
-                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="orientation">vertical</property>
+                                <property name="hexpand">True</property>
+
+                                <!-- Name -->
+                                <child>
+                                    <object class="GtkBox">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="valign">center</property>
+                                        <child>
+                                            <object class="GtkLabel">
+                                                <property name="height_request">32</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="halign">start</property>
+                                                <property name="margin_start">12</property>
+                                                <property name="margin_top">8</property>
+                                                <property name="margin_bottom">8</property>
+                                                <property name="hexpand">True</property>
+                                                <property name="ellipsize">end</property>
+                                                <property name="xalign">0</property>
+                                                <property name="use_underline">True</property>
+                                                <property name="label" translatable="yes">Character Name</property>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkEntry" id="character_name_entry">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="halign">end</property>
+                                                <property name="valign">center</property>
+                                                <property name="margin_end">12</property>                                
+                                            </object>
+                                        </child>
+                                    </object>
+                                </child>
+
+                                <!-- Class -->
+                                <child>
+                                    <object class="GtkBox">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="valign">center</property>
+                                        <child>
+                                            <object class="GtkLabel">
+                                                <property name="height_request">32</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="halign">start</property>
+                                                <property name="margin_start">12</property>
+                                                <property name="margin_top">8</property>
+                                                <property name="margin_bottom">8</property>
+                                                <property name="hexpand">True</property>
+                                                <property name="ellipsize">end</property>
+                                                <property name="xalign">0</property>
+                                                <property name="use_underline">True</property>
+                                                <property name="label" translatable="yes">Class</property>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkEntry" id="character_class_entry">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="halign">end</property>
+                                                <property name="valign">center</property>
+                                                <property name="margin_end">12</property>                                
+                                            </object>
+                                        </child>
+                                    </object>
+                                </child>
+
+                                <!-- Race -->
+                                <child>
+                                    <object class="GtkBox">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="valign">center</property>
+                                        <child>
+                                            <object class="GtkLabel">
+                                                <property name="height_request">32</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="halign">start</property>
+                                                <property name="margin_start">12</property>
+                                                <property name="margin_top">8</property>
+                                                <property name="margin_bottom">8</property>
+                                                <property name="hexpand">True</property>
+                                                <property name="ellipsize">end</property>
+                                                <property name="xalign">0</property>
+                                                <property name="use_underline">True</property>
+                                                <property name="label" translatable="yes">Race</property>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkEntry" id="character_race_entry">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="halign">end</property>
+                                                <property name="valign">center</property>
+                                                <property name="margin_end">12</property>                                
+                                            </object>
+                                        </child>
+                                    </object>
+                                </child>
+
+                                <!-- Alignment -->
+                                <child>
+                                    <object class="GtkBox">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="valign">center</property>
+                                        <child>
+                                            <object class="GtkLabel">
+                                                <property name="height_request">32</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="halign">start</property>
+                                                <property name="margin_start">12</property>
+                                                <property name="margin_top">8</property>
+                                                <property name="margin_bottom">8</property>
+                                                <property name="hexpand">True</property>
+                                                <property name="ellipsize">end</property>
+                                                <property name="xalign">0</property>
+                                                <property name="use_underline">True</property>
+                                                <property name="label" translatable="yes">Alignment</property>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkComboBoxText" id="character_alignment_entry">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="halign">end</property>
+                                                <property name="valign">center</property>
+                                                <property name="margin_end">12</property> 
+                                                <property name="active">4</property>
+                                                <items>
+                                                    <item translatable="yes">Lawful Good</item>
+                                                    <item translatable="yes">Neutral Good</item>
+                                                    <item translatable="yes">Chaotic Good</item>
+                                                    <item translatable="yes">Lawful Neutral</item>
+                                                    <item translatable="yes">Neutral</item>
+                                                    <item translatable="yes">Chaotic Neutral</item>
+                                                    <item translatable="yes">Lawful Evil</item>
+                                                    <item translatable="yes">Neutral Evil</item>
+                                                    <item translatable="yes">Chaotic Evil</item>
+                                                </items>
+                                            </object>
+                                        </child>
+                                    </object>
+                                </child>
+
+                                <!-- Level -->
+                                <child>
+                                    <object class="GtkBox">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="valign">center</property>
+                                        <child>
+                                            <object class="GtkLabel">
+                                                <property name="height_request">32</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="halign">start</property>
+                                                <property name="margin_start">12</property>
+                                                <property name="margin_top">8</property>
+                                                <property name="margin_bottom">8</property>
+                                                <property name="hexpand">True</property>
+                                                <property name="ellipsize">end</property>
+                                                <property name="xalign">0</property>
+                                                <property name="use_underline">True</property>
+                                                <property name="label" translatable="yes">Level</property>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkEntry" id="character_level_entry">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="halign">end</property>
+                                                <property name="valign">center</property>
+                                                <property name="margin_end">12</property>                                
+                                            </object>
+                                        </child>
+                                    </object>
+                                </child>
+
+                                <!-- XP -->
+                                <child>
+                                    <object class="GtkBox">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="valign">center</property>
+                                        <child>
+                                            <object class="GtkLabel">
+                                                <property name="height_request">32</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="halign">start</property>
+                                                <property name="margin_start">12</property>
+                                                <property name="margin_top">8</property>
+                                                <property name="margin_bottom">8</property>
+                                                <property name="hexpand">True</property>
+                                                <property name="ellipsize">end</property>
+                                                <property name="xalign">0</property>
+                                                <property name="use_underline">True</property>
+                                                <property name="label" translatable="yes">Experience Points</property>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkEntry" id="character_xp_entry">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="halign">end</property>
+                                                <property name="valign">center</property>
+                                                <property name="margin_end">12</property>                                
+                                            </object>
+                                        </child>
+                                    </object>
+                                </child>
+
+                                <!--  -->
+                                <!-- <child>
+                                    <object class="GtkBox">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="valign">center</property>
+                                        <child>
+                                            <object class="GtkLabel">
+                                                <property name="height_request">32</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="halign">start</property>
+                                                <property name="margin_start">12</property>
+                                                <property name="margin_top">8</property>
+                                                <property name="margin_bottom">8</property>
+                                                <property name="hexpand">True</property>
+                                                <property name="ellipsize">end</property>
+                                                <property name="xalign">0</property>
+                                                <property name="use_underline">True</property>
+                                                <property name="label" translatable="yes"></property>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkEntry" id="character__entry">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="halign">end</property>
+                                                <property name="valign">center</property>
+                                                <property name="margin_end">12</property>                                
+                                            </object>
+                                        </child>
+                                    </object>
+                                </child> -->
+
                             </object>
                         </child>
                     </object>
-                    <packing>
-                        <property name="left_attach">0</property>
-                        <property name="top_attach">0</property>
-                    </packing>
-                </child>
-
-                <!-- Class -->
-                <child>
-                    <object class="GtkBox">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="orientation">vertical</property>
-                        <child>
-                        <object class="GtkLabel">
-                            <property name="visible">True</property>
-                            <property name="xalign">0</property>
-                            <property name="label" translatable="yes">Class</property>
-                            <attributes>
-                                <attribute name="weight" value="bold"/>
-                            </attributes>
-                        </object>
-                    </child>
-                    <child>
-                        <object class="GtkEntry" id="character_class_entry">
-                            <property name="visible">True</property>
-                        </object>
-                    </child>
-                    </object>
-                    <packing>
-                        <property name="left_attach">1</property>
-                        <property name="top_attach">0</property>
-                    </packing>
-                </child>
-
-                <!-- Race -->
-                <child>
-                    <object class="GtkBox">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="orientation">vertical</property>
-                        <child>
-                            <object class="GtkLabel">
-                                <property name="visible">True</property>
-                                <property name="xalign">0</property>
-                                <property name="label" translatable="yes">Race</property>
-                                <attributes>
-                                    <attribute name="weight" value="bold"/>
-                                </attributes>
-                            </object>
-                        </child>
-                        <child>
-                            <object class="GtkEntry" id="character_race_entry">
-                                <property name="visible">True</property>
-                            </object>
-                        </child>
-                    </object>
-                    <packing>
-                        <property name="left_attach">0</property>
-                        <property name="top_attach">1</property>
-                    </packing>
-                </child>
-
-                <!-- Alignment -->
-                <child>
-                    <object class="GtkBox">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="orientation">vertical</property>
-                        <child>
-                            <object class="GtkLabel">
-                                <property name="visible">True</property>
-                                <property name="xalign">0</property>
-                                <property name="label" translatable="yes">Alignment</property>
-                                <attributes>
-                                    <attribute name="weight" value="bold"/>
-                                </attributes>
-                            </object>
-                        </child>
-                        <child>
-                            <object class="GtkComboBoxText" id="character_alignment_entry">
-                                <property name="visible">True</property>
-                                <property name="active">4</property>
-                                <items>
-                                    <item translatable="yes">Lawful Good</item>
-                                    <item translatable="yes">Neutral Good</item>
-                                    <item translatable="yes">Chaotic Good</item>
-                                    <item translatable="yes">Lawful Neutral</item>
-                                    <item translatable="yes">Neutral</item>
-                                    <item translatable="yes">Chaotic Neutral</item>
-                                    <item translatable="yes">Lawful Evil</item>
-                                    <item translatable="yes">Neutral Evil</item>
-                                    <item translatable="yes">Chaotic Evil</item>
-                                </items>
-                            </object>
-                        </child>
-                    </object>
-                    <packing>
-                        <property name="left_attach">1</property>
-                        <property name="top_attach">1</property>
-                    </packing>
-                </child>
-
-                <!-- Level -->
-                <child>
-                    <object class="GtkBox">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="orientation">vertical</property>
-                        <child>
-                            <object class="GtkLabel">
-                                <property name="visible">True</property>
-                                <property name="xalign">0</property>
-                                <property name="label" translatable="yes">Level</property>
-                                <attributes>
-                                    <attribute name="weight" value="bold"/>
-                                </attributes>
-                            </object>
-                        </child>
-                        <child>
-                            <object class="GtkEntry" id="character_level_entry">
-                                <property name="visible">True</property>
-                                <property name="input_purpose">digits</property>
-                            </object>
-                        </child>
-                    </object>
-                    <packing>
-                        <property name="left_attach">0</property>
-                        <property name="top_attach">2</property>
-                    </packing>
-                </child>
-
-                <!-- Xp -->
-                <child>
-                    <object class="GtkBox">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="orientation">vertical</property>
-                        <child>
-                            <object class="GtkLabel">
-                                <property name="visible">True</property>
-                                <property name="xalign">0</property>
-                                <property name="label" translatable="yes">Experience Points</property>
-                                <attributes>
-                                    <attribute name="weight" value="bold"/>
-                                </attributes>
-                            </object>
-                        </child>
-                        <child>
-                            <object class="GtkEntry" id="character_xp_entry">
-                                <property name="visible">True</property>
-                                <property name="input_purpose">digits</property>
-                            </object>
-                        </child>
-                    </object>
-                    <packing>
-                        <property name="left_attach">1</property>
-                        <property name="top_attach">2</property>
-                    </packing>
                 </child>
             </object>
         </child>

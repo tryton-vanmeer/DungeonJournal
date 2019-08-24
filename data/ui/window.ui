@@ -97,7 +97,7 @@
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
                         <property name="action_name">app.about</property>
-                        <property name="text" translatable="yes" comments="&quot;Footnote&quot; is the application name">About Footnote</property>
+                        <property name="text" translatable="yes" comments="&quot;Footnote&quot; is the application name">About Dungeon Journal</property>
                     </object>
                     <packing>
                         <property name="expand">False</property>
