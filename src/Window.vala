@@ -23,7 +23,7 @@ namespace DungeonJournal
         private void setup_view()
         {
             this.stack.add_titled(this.info_view, "info", _("Info"));
-            this.stack.add_titled(this.ability_skill_view, "stats", _("Ability & Skills"));
+            this.stack.add_titled(this.ability_skill_view, "ability_skill", _("Ability & Skills"));
         }
 
         private void connect_signals()
