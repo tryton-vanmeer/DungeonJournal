@@ -15,6 +15,7 @@ valac = meson.get_compiler('vala')
 deps = [
   dependency('gio-2.0', version: '>= 2.50'),
   dependency('gtk+-3.0', version: '>= 3.22'),
+  dependency('libhandy-0.0', version: '>= 0.0.9'),
   valac.find_library('config', dirs: vapi_dir),
 ]
 
@@ -30,6 +31,8 @@ c_args = [
   '-DVERSION="' + meson.project_version() + '"',
   '-DGETTEXT_PACKAGE="footnote"',
   '-DGNOMELOCALEDIR="' + get_option('prefix') + '/' + get_option('localedir') + '"',
+  '-DHANDY_USE_UNSTABLE_API',
+  
 ]
 
 vala_args = [
