@@ -3,197 +3,101 @@ namespace DungeonJournal
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/character/ability_skills.ui")]
     public class CharacterAbilitySkillView : Gtk.Bin
     {
-        // Abiltiy Scores
+        // Ability Scores
 
         [GtkChild]
-        private Gtk.Adjustment strength_score_adjustment;
+        private AbilityScore strength_ability_score;
 
         [GtkChild]
-        private Gtk.Adjustment dexterity_score_adjustment;
+        private AbilityScore dexterity_ability_score;
 
         [GtkChild]
-        private Gtk.Adjustment constitution_score_adjustment;
+        private AbilityScore constitution_ability_score;
 
         [GtkChild]
-        private Gtk.Adjustment intelligence_score_adjustment;
+        private AbilityScore intelligence_ability_score;
 
         [GtkChild]
-        private Gtk.Adjustment wisdom_score_adjustment;
+        private AbilityScore wisdom_ability_score;
 
         [GtkChild]
-        private Gtk.Adjustment charisma_score_adjustment;
+        private AbilityScore charisma_ability_score;
 
-        // Abiltiy Scores Modifiers
-
-        [GtkChild]
-        private Gtk.Label strength_mod;
+        // Saving Throws
 
         [GtkChild]
-        private Gtk.Label dexterity_mod;
+        private AbilitySkill strength_save_skill;
 
         [GtkChild]
-        private Gtk.Label constitution_mod;
+        private AbilitySkill dexterity_save_skill;
 
         [GtkChild]
-        private Gtk.Label intelligence_mod;
+        private AbilitySkill constitution_save_skill;
 
         [GtkChild]
-        private Gtk.Label wisdom_mod;
+        private AbilitySkill intelligence_save_skill;
 
         [GtkChild]
-        private Gtk.Label charisma_mod;
-
-        // Abiltiy Score Saves Proficiencies
+        private AbilitySkill wisdom_save_skill;
 
         [GtkChild]
-        private Gtk.CheckButton strength_save_proficiency;
-
-        [GtkChild]
-        private Gtk.CheckButton dexterity_save_proficiency;
-
-        [GtkChild]
-        private Gtk.CheckButton constitution_save_proficiency;
-
-        [GtkChild]
-        private Gtk.CheckButton intelligence_save_proficiency;
-
-        [GtkChild]
-        private Gtk.CheckButton wisdom_save_proficiency;
-
-        [GtkChild]
-        private Gtk.CheckButton charisma_save_proficiency;
-
-        // Abiltiy Score Saves
-
-        [GtkChild]
-        private Gtk.Entry strength_save;
-
-        [GtkChild]
-        private Gtk.Entry dexterity_save;
-
-        [GtkChild]
-        private Gtk.Entry constitution_save;
-
-        [GtkChild]
-        private Gtk.Entry intelligence_save;
-
-        [GtkChild]
-        private Gtk.Entry wisdom_save;
-
-        [GtkChild]
-        private Gtk.Entry charisma_save;
-
-        // Skill Proficiencies
-
-        [GtkChild]
-        private Gtk.CheckButton athletics_skill_proficiency;
-
-        [GtkChild]
-        private Gtk.CheckButton acrobatics_skill_proficiency;
-
-        [GtkChild]
-        private Gtk.CheckButton sleight_of_hand_skill_proficiency;
-
-        [GtkChild]
-        private Gtk.CheckButton stealth_skill_proficiency;
-
-        [GtkChild]
-        private Gtk.CheckButton arcana_skill_proficiency;
-
-        [GtkChild]
-        private Gtk.CheckButton history_skill_proficiency;
-
-        [GtkChild]
-        private Gtk.CheckButton investigation_skill_proficiency;
-
-        [GtkChild]
-        private Gtk.CheckButton nature_skill_proficiency;
-
-        [GtkChild]
-        private Gtk.CheckButton religion_skill_proficiency;
-
-        [GtkChild]
-        private Gtk.CheckButton animal_handling_skill_proficiency;
-
-        [GtkChild]
-        private Gtk.CheckButton insight_skill_proficiency;
-
-        [GtkChild]
-        private Gtk.CheckButton medicine_skill_proficiency;
-
-        [GtkChild]
-        private Gtk.CheckButton perception_skill_proficiency;
-
-        [GtkChild]
-        private Gtk.CheckButton survival_skill_proficiency;
-
-        [GtkChild]
-        private Gtk.CheckButton deception_skill_proficiency;
-
-        [GtkChild]
-        private Gtk.CheckButton intimidation_skill_proficiency;
-
-        [GtkChild]
-        private Gtk.CheckButton performance_skill_proficiency;
-
-        [GtkChild]
-        private Gtk.CheckButton persuasion_skill_proficiency;
+        private AbilitySkill charisma_save_skill;
 
         // Skills
 
         [GtkChild]
-        private Gtk.Entry athletics_skill;
+        private AbilitySkill athletics_skill;
 
         [GtkChild]
-        private Gtk.Entry acrobatics_skill;
+        private AbilitySkill acrobatics_skill;
 
         [GtkChild]
-        private Gtk.Entry sleight_of_hand_skill;
+        private AbilitySkill sleight_of_hand_skill;
 
         [GtkChild]
-        private Gtk.Entry stealth_skill;
+        private AbilitySkill stealth_skill;
 
         [GtkChild]
-        private Gtk.Entry arcana_skill;
+        private AbilitySkill arcana_skill;
 
         [GtkChild]
-        private Gtk.Entry history_skill;
+        private AbilitySkill history_skill;
 
         [GtkChild]
-        private Gtk.Entry investigation_skill;
+        private AbilitySkill investigation_skill;
 
         [GtkChild]
-        private Gtk.Entry nature_skill;
+        private AbilitySkill nature_skill;
 
         [GtkChild]
-        private Gtk.Entry religion_skill;
+        private AbilitySkill religion_skill;
 
         [GtkChild]
-        private Gtk.Entry animal_handling_skill;
+        private AbilitySkill animal_handling_skill;
 
         [GtkChild]
-        private Gtk.Entry insight_skill;
+        private AbilitySkill insight_skill;
 
         [GtkChild]
-        private Gtk.Entry medicine_skill;
+        private AbilitySkill medicine_skill;
 
         [GtkChild]
-        private Gtk.Entry perception_skill;
+        private AbilitySkill perception_skill;
 
         [GtkChild]
-        private Gtk.Entry survival_skill;
+        private AbilitySkill survival_skill;
 
         [GtkChild]
-        private Gtk.Entry deception_skill;
+        private AbilitySkill deception_skill;
 
         [GtkChild]
-        private Gtk.Entry intimidation_skill;
+        private AbilitySkill intimidation_skill;
 
         [GtkChild]
-        private Gtk.Entry performance_skill;
+        private AbilitySkill performance_skill;
 
         [GtkChild]
-        private Gtk.Entry persuasion_skill;
+        private AbilitySkill persuasion_skill;
 
         public CharacterAbilitySkillView()
         {
@@ -202,37 +106,7 @@ namespace DungeonJournal
 
         private void connect_signals()
         {
-            // Abiltiy Score update Modifier
 
-            this.strength_score_adjustment.value_changed.connect(() =>
-            {
-                this.strength_mod.label = calculate_ability_modifier(this.strength_score_adjustment.value);
-            });
-
-            this.dexterity_score_adjustment.value_changed.connect(() =>
-            {
-                this.dexterity_mod.label = calculate_ability_modifier(this.dexterity_score_adjustment.value);
-            });
-
-            this.constitution_score_adjustment.value_changed.connect(() =>
-            {
-                this.constitution_mod.label = calculate_ability_modifier(this.constitution_score_adjustment.value);
-            });
-
-            this.intelligence_score_adjustment.value_changed.connect(() =>
-            {
-                this.intelligence_mod.label = calculate_ability_modifier(this.intelligence_score_adjustment.value);
-            });
-
-            this.wisdom_score_adjustment.value_changed.connect(() =>
-            {
-                this.wisdom_mod.label = calculate_ability_modifier(this.wisdom_score_adjustment.value);
-            });
-
-            this.charisma_score_adjustment.value_changed.connect(() =>
-            {
-                this.charisma_mod.label = calculate_ability_modifier(this.charisma_score_adjustment.value);
-            });
         }
     }
 }
