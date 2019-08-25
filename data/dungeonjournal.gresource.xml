@@ -4,5 +4,7 @@
         <file compressed="true" preprocess="xml-stripblanks">ui/window.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/character/info.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/character/ability_skills.ui</file>
+        <file compressed="true" preprocess="xml-stripblanks">ui/widget/ability_score.ui</file>
+        <file compressed="true" preprocess="xml-stripblanks">ui/widget/ability_skill.ui</file>
     </gresource>
 </gresources>

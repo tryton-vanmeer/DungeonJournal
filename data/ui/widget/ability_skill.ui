@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+    <template class="DungeonJournalAbilitySkill" parent="GtkBox">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="valign">center</property>
+        <child>
+            <object class="GtkLabel" id="skill_label">
+                <property name="height_request">32</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">start</property>
+                <property name="margin_start">12</property>
+                <property name="margin_top">8</property>
+                <property name="margin_bottom">8</property>
+                <property name="hexpand">True</property>
+                <property name="ellipsize">end</property>
+                <property name="xalign">0</property>
+            </object>
+        </child>
+        <child>
+            <object class="GtkBox">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="halign">end</property>
+                <property name="valign">center</property>
+                <property name="margin_end">12</property>
+                <child>
+                    <object class="GtkCheckButton" id="skill_proficiency_button">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                    </object>
+                </child>
+                <child>
+                    <object class="GtkEntry" id="skill_save_entry">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="width_chars">3</property>
+                    </object>
+                </child>
+            </object>
+        </child>
+    </template>
+</interface>
