@@ -23,9 +23,70 @@
                                 <property name="can_focus">False</property>
                                 <property name="orientation">vertical</property>
                                 <property name="hexpand">True</property>
+                                <child>
+                                    <object class="DungeonJournalCharacterEntry" id="proficiency_bonus_character_entry">
+                                        <property name="entry_name" translatable="yes">Proficiency Bonus</property>
+                                    </object>
+                                </child>
+                                <child>
+                                    <object class="DungeonJournalCharacterEntry" id="ac_character_entry">
+                                        <property name="entry_name" translatable="yes">Armor Class</property>
+                                    </object>
+                                </child>
+                                <child>
+                                    <object class="DungeonJournalCharacterEntry" id="initiative_character_entry">
+                                        <property name="entry_name" translatable="yes">Initiative</property>
+                                    </object>
+                                </child>
+                                <child>
+                                    <object class="DungeonJournalCharacterEntry" id="speed_character_entry">
+                                        <property name="entry_name" translatable="yes">Speed</property>
+                                    </object>
+                                </child>
+                                <child>
+                                    <object class="DungeonJournalCharacterEntry" id="hp_max_character_entry">
+                                        <property name="entry_name" translatable="yes">Hit Point Maximum</property>
+                                    </object>
+                                </child>
 
-                                <!--  -->
-                                
+                                <child>
+                                    <object class="GtkBox">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="valign">center</property>
+                                        <child>
+                                            <object class="GtkLabel" id="current_hp_label">
+                                                <property name="height_request">32</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="halign">start</property>
+                                                <property name="margin_start">12</property>
+                                                <property name="margin_top">8</property>
+                                                <property name="margin_bottom">8</property>
+                                                <property name="hexpand">True</property>
+                                                <property name="ellipsize">end</property>
+                                                <property name="xalign">0</property>
+                                                <property name="label" translatable="yes">Current Hit Points</property>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkSpinButton">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="halign">end</property>
+                                                <property name="valign">center</property>
+                                                <property name="margin_end">12</property>
+                                                <property name="adjustment">hp_adjustment</property>
+                                            </object>
+                                        </child>
+                                    </object>
+                                </child>
+
+                                <child>
+                                    <object class="DungeonJournalCharacterEntry" id="hit_dicecharacter_entry">
+                                        <property name="entry_name" translatable="yes">Hit Dice</property>
+                                    </object>
+                                </child>
                             </object>
                         </child>
                     </object>
@@ -33,4 +94,12 @@
             </object>
         </child>
     </template>
+
+    <object class="GtkAdjustment" id="hp_adjustment">
+        <property name="lower">0</property>
+        <property name="upper">10000</property>
+        <property name="value">0</property>
+        <property name="step_increment">1</property>
+        <property name="page_increment">5</property>
+    </object>
 </interface>
