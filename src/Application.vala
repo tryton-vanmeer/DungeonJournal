@@ -40,6 +40,7 @@ namespace DungeonJournal
         {
             // Create instances of custom widgets at least once
             // So Gtk.Builder know they exist
+            var character_entry = new CharacterEntry();
             var ability_score = new AbilityScore();
             var ability_skill = new AbilitySkill();
         }
