@@ -10,7 +10,16 @@
                 <property name="visible">True</property>
                 <property name="show-close-button">True</property>
                 <property name="title">Dungeon Journal</property>
-
+                <child>
+                    <object class="GtkButton" id="open_button">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="label" translatable="true">Open</property>
+                    </object>
+                    <packing>
+                        <property name="pack_type">start</property>
+                    </packing>
+                </child>
                 <child>
                     <object class="GtkMenuButton" id="appmenu_button">
                         <property name="visible">True</property>
@@ -24,6 +33,16 @@
                                 <property name="icon_name">open-menu-symbolic</property>
                             </object>
                         </child>
+                    </object>
+                    <packing>
+                        <property name="pack_type">end</property>
+                    </packing>
+                </child>
+                <child>
+                    <object class="GtkButton" id="save_button">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="label" translatable="true">Save</property>
                     </object>
                     <packing>
                         <property name="pack_type">end</property>
