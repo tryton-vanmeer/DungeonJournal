@@ -33,19 +33,16 @@
         </child>
 
         <child>
-            <object class="GtkBox">
+            <object class="HdyLeaflet" id="leaflet">
             <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="mode_transition_type">slide</property>
+            <property name="child_transition_type">slide</property>
                 <child>
-                    <object class="GtkStackSidebar" id="sidebar">
+                    <object class="GtkListBox" id="sidebar">
                         <property name="visible">True</property>
-                        <property name="stack">stack</property>
-                        <property name="width-request">150</property>
+                        <property name="width-request">200</property>
                     </object>
-                    <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">0</property>
-                    </packing>
                 </child>
                 <child>
                     <object class="GtkStack" id="stack">
@@ -55,11 +52,6 @@
                             <placeholder/>
                         </child>
                     </object>
-                    <packing>
-                        <property name="expand">True</property>
-                        <property name="fill">True</property>
-                        <property name="position">1</property>
-                    </packing>
                 </child>
             </object>
         </child>
