@@ -4,21 +4,21 @@ namespace DungeonJournal
     public class CharacterInfoView : Gtk.Bin
     {
         [GtkChild]
-        private Gtk.Entry character_name_entry;
+        private CharacterEntry name_character_entry;
 
         [GtkChild]
-        private Gtk.Entry character_class_entry;
+        private CharacterEntry class_character_entry;
 
         [GtkChild]
-        private Gtk.Entry character_race_entry;
+        private CharacterEntry race_character_entry;
 
         [GtkChild]
-        private Gtk.ComboBoxText character_alignment_entry;
+        private Gtk.ComboBoxText alignment_character_entry;
 
         [GtkChild]
-        private Gtk.Entry character_level_entry;
+        private CharacterEntry level_character_entry;
 
         [GtkChild]
-        private Gtk.Entry character_xp_entry;
+        private CharacterEntry xp_character_entry;
     }
 }
