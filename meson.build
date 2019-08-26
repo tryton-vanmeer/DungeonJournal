@@ -23,6 +23,7 @@ sources = [
   'src/Application.vala',
   'src/Window.vala',
   'src/View/CharacterInfoView.vala',
+  'src/View/CharacterStatsView.vala',
   'src/View/CharacterAbilitySkillView.vala',
   'src/Widget/AbilityScore.vala',
   'src/Widget/AbilitySkill.vala',
