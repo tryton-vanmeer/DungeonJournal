@@ -33,9 +33,7 @@ namespace DungeonJournal
             this.ability_skill_view = new CharacterAbilitySkillView();
 
             this.character = new CharacterSheet();
-            this.info_view.bind_character(ref this.character);
-            //  this.stats_view.bind_character(this.character);
-            //  this.ability_skill_view.bind_character(this.character);
+            bind_character();
 
             setup_view();
 		    connect_signals();
@@ -66,14 +64,72 @@ namespace DungeonJournal
             this.save_button.clicked.connect(save_character);
         }
 
+        private void bind_character()
+        {
+            this.info_view.bind_character(ref this.character);
+            //  this.stats_view.bind_character(this.character);
+            //  this.ability_skill_view.bind_character(this.character);
+        }
+
         private void open_character()
         {
-            
+            var dialog = new Gtk.FileChooserNative(
+                _("Open Character"),
+                this,
+                Gtk.FileChooserAction.OPEN,
+                _("_Open"),
+                _("_Cancel")
+            );
+
+            var filter = new Gtk.FileFilter();
+            filter.add_mime_type("application/json");
+            dialog.set_filter(filter);
+
+            if (dialog.run () == Gtk.ResponseType.ACCEPT)
+            {
+                string path = dialog.get_file().get_path();
+
+                var parser = new Json.Parser();
+                parser.load_from_file(path);
+                
+                Json.Node node = parser.get_root();
+                this.character = Json.gobject_deserialize(typeof (CharacterSheet), node) as CharacterSheet;
+                bind_character();
+            }
+
+            dialog.destroy();
         }
 
         private void save_character()
         {
-            string data = Json.gobject_to_data(this.character, null);
+            var dialog = new Gtk.FileChooserNative(
+                _("Save Character"),
+                this,
+                Gtk.FileChooserAction.SAVE,
+                _("_Save"),
+                _("_Cancel")
+            );
+
+            dialog.set_current_name(this.character.name + ".json");
+            dialog.set_do_overwrite_confirmation(true);
+
+            if (dialog.run() == Gtk.ResponseType.ACCEPT)
+            {
+                string json = Json.gobject_to_data(this.character, null);
+
+                string path = dialog.get_file().get_path();
+                var file = File.new_for_path(path);
+
+                if (file.query_exists())
+                {
+                    file.delete();
+                }
+                
+                FileOutputStream stream = file.create (FileCreateFlags.NONE);
+                stream.write(json.data);
+            }
+
+            dialog.destroy();
         }
     }
 
