@@ -15,6 +15,7 @@ valac = meson.get_compiler('vala')
 deps = [
   dependency('gio-2.0', version: '>= 2.50'),
   dependency('gtk+-3.0', version: '>= 3.22'),
+  dependency('json-glib-1.0', version: '>= 0.29.2'),
   dependency('libhandy-0.0', version: '>= 0.0.9'),
   valac.find_library('config', dirs: vapi_dir),
 ]
@@ -28,6 +29,7 @@ sources = [
   'src/Widget/CharacterEntry.vala',
   'src/Widget/AbilityScore.vala',
   'src/Widget/AbilitySkill.vala',
+  'src/CharacterSheet.vala',
   'src/Util.vala',
 ]
 
