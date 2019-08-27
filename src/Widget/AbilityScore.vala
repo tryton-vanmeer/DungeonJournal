@@ -7,10 +7,10 @@ namespace DungeonJournal
         private Gtk.Label ability_score_label;
 
         [GtkChild]
-        private Gtk.Label ability_score_mod;
+        public Gtk.Label ability_score_mod;
 
         [GtkChild]
-        private Gtk.Adjustment ability_score_adjustment;
+        public Gtk.Adjustment ability_score_adjustment;
 
         construct
         {
@@ -24,18 +24,6 @@ namespace DungeonJournal
         public string ability_name
         {
             set { this.ability_score_label.label = value; }
-        }
-
-        public string ability_modifier
-        {
-            set { this.ability_score_mod.label = value; }
-            get { return this.ability_score_mod.label; }
-        }
-
-        public double ability_score
-        {
-            set { this.ability_score_adjustment.set_value(value); }
-            get { return this.ability_score_adjustment.get_value(); }
         }
     }
 }
