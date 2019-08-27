@@ -7,7 +7,7 @@ namespace DungeonJournal
         private CharacterEntry proficiency_bonus_character_entry;
 
         [GtkChild]
-        private CharacterEntry ac_character_entry;
+        private CharacterEntry armor_class_character_entry;
 
         [GtkChild]
         private CharacterEntry initiative_character_entry;
@@ -22,7 +22,7 @@ namespace DungeonJournal
         private Gtk.Adjustment hp_adjustment;
 
         [GtkChild]
-        private CharacterEntry hit_dicecharacter_entry;
+        private CharacterEntry hit_dice_character_entry;
 
         public CharacterStatsView()
         {

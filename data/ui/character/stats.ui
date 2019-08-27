@@ -29,7 +29,7 @@
                                     </object>
                                 </child>
                                 <child>
-                                    <object class="DungeonJournalCharacterEntry" id="ac_character_entry">
+                                    <object class="DungeonJournalCharacterEntry" id="armor_class_character_entry">
                                         <property name="entry_name" translatable="yes">Armor Class</property>
                                     </object>
                                 </child>
@@ -83,7 +83,7 @@
                                 </child>
 
                                 <child>
-                                    <object class="DungeonJournalCharacterEntry" id="hit_dicecharacter_entry">
+                                    <object class="DungeonJournalCharacterEntry" id="hit_dice_character_entry">
                                         <property name="entry_name" translatable="yes">Hit Dice</property>
                                     </object>
                                 </child>
