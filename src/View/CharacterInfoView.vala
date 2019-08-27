@@ -20,5 +20,15 @@ namespace DungeonJournal
 
         [GtkChild]
         private CharacterEntry xp_character_entry;
+
+        public void bind_character(ref CharacterSheet character)
+        {
+            character.bind_property("name", this.name_character_entry.entry, "text", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
+            character.bind_property("class", this.class_character_entry.entry, "text", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
+            character.bind_property("race", this.race_character_entry.entry, "text", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
+            character.bind_property("alignment", this.alignment_character_entry, "active", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
+            character.bind_property("level", this.level_character_entry.entry, "text", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
+            character.bind_property("xp", this.xp_character_entry.entry, "text", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
+        }
     }
 }

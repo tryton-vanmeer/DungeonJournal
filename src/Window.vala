@@ -4,6 +4,12 @@ namespace DungeonJournal
     public class Window : Gtk.ApplicationWindow
     {
         [GtkChild]
+        private Gtk.Button open_button;
+
+        [GtkChild]
+        private Gtk.Button save_button;
+
+        [GtkChild]
         private Gtk.Stack stack;
 
         [GtkChild]
@@ -11,6 +17,8 @@ namespace DungeonJournal
 
         [GtkChild]
         private Gtk.ListBox sidebar;
+
+        private CharacterSheet character;
 
         private CharacterInfoView info_view;
         private CharacterStatsView stats_view;
@@ -23,6 +31,11 @@ namespace DungeonJournal
             this.info_view = new CharacterInfoView();
             this.stats_view = new CharacterStatsView();
             this.ability_skill_view = new CharacterAbilitySkillView();
+
+            this.character = new CharacterSheet();
+            this.info_view.bind_character(ref this.character);
+            //  this.stats_view.bind_character(this.character);
+            //  this.ability_skill_view.bind_character(this.character);
 
             setup_view();
 		    connect_signals();
@@ -41,13 +54,26 @@ namespace DungeonJournal
 
         private void connect_signals()
         {
-            sidebar.row_activated.connect((row) =>
+            this.sidebar.row_activated.connect((row) =>
             {
                 this.stack.set_visible_child_name(
                     Page.from_index(row.get_index()).to_string()
                 );
                 this.leaflet.set_visible_child(stack);
             });
+
+            this.open_button.clicked.connect(open_character);
+            this.save_button.clicked.connect(save_character);
+        }
+
+        private void open_character()
+        {
+            
+        }
+
+        private void save_character()
+        {
+            string data = Json.gobject_to_data(this.character, null);
         }
     }
 
