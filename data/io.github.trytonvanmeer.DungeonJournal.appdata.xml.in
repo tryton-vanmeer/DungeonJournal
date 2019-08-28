@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop">
-	<id>io.github.trytonvanmeer.DungeonJournal.desktop</id>
+	<id>io.github.trytonvanmeer.DungeonJournal</id>
 	<name>DungeonJournal</name>
 	<metadata_license>CC0-1.0</metadata_license>
 	<project_license>GPL-3.0-or-later</project_license>
+
 	<description>
-	    <p>DungeonJournal allows you to manager 5e characters.</p>
+	    <p>Dungeon Journal is a 5e character manager for the GNOME desktop environment.</p>
 	</description>
+
+	<screenshots>
+		<screenshot type="default">
+			<image width="745" height="480">https://raw.githubusercontent.com/tryton-vanmeer/DungeonJournal/master/data/screenshots/1.png</image>
+		</screenshot>	  
+	</screenshots>
+
+	<launchable type="desktop-id">io.github.trytonvanmeer.DungeonJournal.desktop</launchable>
+	<url type="homepage">https://github.com/tryton-vanmeer/DungeonJournal</url>
+  	<url type="bugtracker">https://github.com/tryton-vanmeer/DungeonJournal/issues</url>
+
+
 	<categories>
         <category>Utility</category>
     </categories>
