@@ -23,15 +23,16 @@ namespace DungeonJournal
 
         [GtkChild]
         private CharacterEntry hit_dice_character_entry;
-
-        public CharacterStatsView()
+        
+        public void bind_character(ref CharacterSheet character)
         {
-            connect_signals();
-        }
-
-        private void connect_signals()
-        {
-
+            character.bind_property("proficiency_bonus", this.proficiency_bonus_character_entry.entry, "text", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
+            character.bind_property("armor_class", this.armor_class_character_entry.entry, "text", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
+            character.bind_property("initiative", this.initiative_character_entry.entry, "text", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
+            character.bind_property("speed", this.speed_character_entry.entry, "text", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
+            character.bind_property("hp_max", this.hp_max_character_entry.entry, "text", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
+            character.bind_property("hp_current", this.hp_adjustment, "value", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
+            character.bind_property("hit_dice", this.hit_dice_character_entry.entry, "text", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
         }
     }
 }

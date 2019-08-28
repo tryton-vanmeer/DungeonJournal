@@ -16,7 +16,7 @@ namespace DungeonJournal
         public string initiative { get; set; }
         public string speed { get; set; }
         public string hp_max { get; set; }
-        public string hp_current { get; set; }
+        public double hp_current { get; set; }
         public string hit_dice { get; set; }
 
         // Abiltiy
