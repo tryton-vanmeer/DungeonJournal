@@ -20,12 +20,12 @@ namespace DungeonJournal
         public string hit_dice { get; set; }
 
         // Abiltiy
-        public double strength_score { get; set; }
-        public double dexterity_score { get; set; }
-        public double constitution_score { get; set; }
-        public double intelligence_score { get; set; }
-        public double wisdom_score { get; set; }
-        public double charisma_score { get; set; }
+        public double strength_score { get; set; default=8.0; }
+        public double dexterity_score { get; set; default=8.0; }
+        public double constitution_score { get; set; default=8.0; }
+        public double intelligence_score { get; set; default=8.0; }
+        public double wisdom_score { get; set; default=8.0; }
+        public double charisma_score { get; set; default=8.0; }
 
         public bool strength_save_proficiency { get; set; }
         public string strength_save { get; set; }
