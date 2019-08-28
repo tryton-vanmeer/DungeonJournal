@@ -1,3 +1,4 @@
+# Desktop file
 desktop_file = i18n.merge_file(
   input: 'io.github.trytonvanmeer.DungeonJournal.desktop.in',
   output: 'io.github.trytonvanmeer.DungeonJournal.desktop',
@@ -14,6 +15,7 @@ if desktop_utils.found()
   )
 endif
 
+# Appdata
 appstream_file = i18n.merge_file(
   input: 'io.github.trytonvanmeer.DungeonJournal.appdata.xml.in',
   output: 'io.github.trytonvanmeer.DungeonJournal.appdata.xml',
@@ -40,7 +42,11 @@ if compile_schemas.found()
   )
 endif
 
+# Resources
 resources = gnome.compile_resources('dungeonjournal-resources',
     'dungeonjournal.gresource.xml',
     c_name: 'dungeonjournal'
 )
+
+# Icons
+install_subdir('icons/hicolor/', install_dir: join_paths (get_option('datadir'), 'icons'))

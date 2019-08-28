@@ -55,7 +55,7 @@ namespace DungeonJournal
             Gtk.show_about_dialog
             (
                 window,
-                logo_icon_name: "com.github.trytonvanmeer.DungeonJournal",
+                logo_icon_name: "io.github.trytonvanmeer.DungeonJournal",
                 program_name: "Dungeon Journal",
                 comments: _("Create Characters"),
                 copyright: "© 2019 Tryton Van Meer",
