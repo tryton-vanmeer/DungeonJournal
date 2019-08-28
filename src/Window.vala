@@ -67,8 +67,8 @@ namespace DungeonJournal
         private void bind_character()
         {
             this.info_view.bind_character(ref this.character);
-            //  this.stats_view.bind_character(this.character);
-            //  this.ability_skill_view.bind_character(this.character);
+            this.stats_view.bind_character(ref this.character);
+            this.ability_skill_view.bind_character(ref this.character);
         }
 
         private void open_character()
@@ -89,12 +89,19 @@ namespace DungeonJournal
             {
                 string path = dialog.get_file().get_path();
 
-                var parser = new Json.Parser();
-                parser.load_from_file(path);
-                
-                Json.Node node = parser.get_root();
-                this.character = Json.gobject_deserialize(typeof (CharacterSheet), node) as CharacterSheet;
-                bind_character();
+                try
+                {
+                    var parser = new Json.Parser();
+                    parser.load_from_file(path);
+
+                    Json.Node node = parser.get_root();
+                    this.character = Json.gobject_deserialize(typeof (CharacterSheet), node) as CharacterSheet;
+                    bind_character();
+                }
+                catch (Error e)
+                {
+                    log(null, LogLevelFlags.LEVEL_ERROR, "Error Opening Character: %s\n", path);
+                }
             }
 
             dialog.destroy();
@@ -120,13 +127,20 @@ namespace DungeonJournal
                 string path = dialog.get_file().get_path();
                 var file = File.new_for_path(path);
 
-                if (file.query_exists())
+                try
                 {
-                    file.delete();
-                }
+                    if (file.query_exists())
+                    {
+                        file.delete();
+                    }
                 
-                FileOutputStream stream = file.create (FileCreateFlags.NONE);
-                stream.write(json.data);
+                    FileOutputStream stream = file.create (FileCreateFlags.NONE);
+                    stream.write(json.data);
+                }
+                catch (Error e)
+                {
+                    log(null, LogLevelFlags.LEVEL_ERROR, "Error Saving Character: %s\n", path);
+                }
             }
 
             dialog.destroy();
