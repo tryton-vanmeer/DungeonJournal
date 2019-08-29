@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2019 Tryton Van Meer -->
-<component type="desktop">
+<component type="desktop-application">
 	<id>io.github.trytonvanmeer.DungeonJournal</id>
 	<name>DungeonJournal</name>
 	<summary>A 5e Character Manager</summary>
