@@ -3,7 +3,9 @@
 	<id>io.github.trytonvanmeer.DungeonJournal</id>
 	<name>DungeonJournal</name>
 	<summary>A 5e Character Manager</summary>
-	<content_rating type="oars-1.1" />
+	<translation type="gettext">dungeonjournal</translation>
+	<update_contact>trytonvanmeer@gmail.com</update_contact>
+	<developer_name>Tryton Van Meer</developer_name>
 	<metadata_license>CC0-1.0</metadata_license>
 	<project_license>GPL-3.0-or-later</project_license>
 
@@ -26,7 +28,7 @@
 			<description>
 				<p>This is the first release of Dungeon Journal</p>
 				<ul>
-					<li>Allows input of basic info, some stats, and ability scores and skills.</li>
+					<li>Allows input of basic info, some stats, and ability scores and skills</li>
 					<li>Supports saving and loading of characters</li>
 					<li>More features to come</li>
 				</ul>
@@ -37,7 +39,6 @@
 
 	<categories>
         <category>Utility</category>
-    </categories>
-	<url type="homepage">https://github.com/tryton-vanmeer/DungeonJournal</url>
-    <developer_name>Tryton Van Meer</developer_name>
+	</categories>
+	<content_rating type="oars-1.1" />
 </component>
