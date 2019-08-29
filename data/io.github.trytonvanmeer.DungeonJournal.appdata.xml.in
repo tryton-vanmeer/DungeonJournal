@@ -16,7 +16,7 @@
 
 	<screenshots>
 		<screenshot type="default">
-			<image type="source">https://raw.githubusercontent.com/tryton-vanmeer/DungeonJournal/master/data/screenshots/1.png</image>
+			<image width="800" height="450">https://raw.githubusercontent.com/tryton-vanmeer/DungeonJournal/master/data/screenshots/1.png</image>
 		</screenshot>	  
 	</screenshots>
 
