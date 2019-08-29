@@ -2,7 +2,7 @@
 Name=Dungeon Journal
 Comment=Manage 5e Characters
 # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-Icon=com.github.trytonvanmeer.DungeonJournal
+Icon=io.github.trytonvanmeer.DungeonJournal
 Exec=dungeonjournal
 Terminal=false
 Type=Application
