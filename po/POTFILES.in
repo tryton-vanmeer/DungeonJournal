@@ -1,8 +1,8 @@
 data/io.github.trytonvanmeer.DungeonJournal.desktop.in
 data/io.github.trytonvanmeer.DungeonJournal.appdata.xml.in
-data/ui/ability_skills.ui
-data/ui/info.ui
-data/ui/stats.ui
+data/ui/character/ability_skills.ui
+data/ui/character/info.ui
+data/ui/character/stats.ui
 data/ui/window.ui
 src/Application.vala
 src/Window.vala
