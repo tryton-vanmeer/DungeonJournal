@@ -14,7 +14,7 @@ Dungeon Journal can be built and run with [Gnome Builder](https://wiki.gnome.org
 Just clone the repo and hit the run button!
 You can get Builder from [here](https://wiki.gnome.org/Apps/Builder/Downloads).
 
-You also can build FrDungeon Journalagments manually without using Flatpak:
+You also can build Dungeon Journal manually without using Flatpak:
 
 ```
 git clone https://github.com/tryton-vanmeer/DungeonJournal.git
