@@ -19,6 +19,7 @@ namespace DungeonJournal
         private Gtk.ListBox sidebar;
 
         private CharacterSheet character;
+        private string character_path;
 
         private CharacterInfoView info_view;
         private CharacterStatsView stats_view;
@@ -34,6 +35,8 @@ namespace DungeonJournal
 
             this.character = new CharacterSheet();
             bind_character();
+
+            this.character_path = null;
 
             setup_view();
 		    connect_signals();
@@ -61,7 +64,7 @@ namespace DungeonJournal
             });
 
             this.open_button.clicked.connect(open_character);
-            this.save_button.clicked.connect(save_character);
+            this.save_button.clicked.connect(on_save_character);
         }
 
         private void bind_character()
@@ -85,7 +88,7 @@ namespace DungeonJournal
             filter.add_mime_type("application/json");
             dialog.set_filter(filter);
 
-            if (dialog.run () == Gtk.ResponseType.ACCEPT)
+            if (dialog.run() == Gtk.ResponseType.ACCEPT)
             {
                 string path = dialog.get_file().get_path();
 
@@ -97,6 +100,8 @@ namespace DungeonJournal
                     Json.Node node = parser.get_root();
                     this.character = Json.gobject_deserialize(typeof (CharacterSheet), node) as CharacterSheet;
                     bind_character();
+
+                    this.character_path = path;
                 }
                 catch (Error e)
                 {
@@ -107,7 +112,40 @@ namespace DungeonJournal
             dialog.destroy();
         }
 
-        private void save_character()
+        private void on_save_character()
+        {
+            if (this.character_path == null)
+            {
+                save_character_as();
+            }
+            else
+            {
+                save_character(this.character_path);
+            }
+        }
+
+        private void save_character(string path)
+        {
+            string json = Json.gobject_to_data(this.character, null);
+            var file = File.new_for_path(path);
+
+            try
+            {
+                if (file.query_exists())
+                {
+                    file.delete();
+                }
+            
+                FileOutputStream stream = file.create (FileCreateFlags.NONE);
+                stream.write(json.data);
+            }
+            catch (Error e)
+            {
+                log(null, LogLevelFlags.LEVEL_ERROR, "Error Saving Character: %s\n", path);
+            }
+        }
+
+        private void save_character_as()
         {
             var dialog = new Gtk.FileChooserNative(
                 _("Save Character"),
@@ -122,25 +160,10 @@ namespace DungeonJournal
 
             if (dialog.run() == Gtk.ResponseType.ACCEPT)
             {
-                string json = Json.gobject_to_data(this.character, null);
-
                 string path = dialog.get_file().get_path();
-                var file = File.new_for_path(path);
 
-                try
-                {
-                    if (file.query_exists())
-                    {
-                        file.delete();
-                    }
-                
-                    FileOutputStream stream = file.create (FileCreateFlags.NONE);
-                    stream.write(json.data);
-                }
-                catch (Error e)
-                {
-                    log(null, LogLevelFlags.LEVEL_ERROR, "Error Saving Character: %s\n", path);
-                }
+                save_character(path);
+                this.character_path = path;
             }
 
             dialog.destroy();
