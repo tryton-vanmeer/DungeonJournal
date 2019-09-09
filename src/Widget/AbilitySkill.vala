@@ -10,7 +10,7 @@ namespace DungeonJournal
         public Gtk.ToggleButton skill_proficiency_button;
 
         [GtkChild]
-        public Gtk.Entry skill_save_entry;
+        public Gtk.Adjustment skill_save_entry;
 
         public string skill_name
         {

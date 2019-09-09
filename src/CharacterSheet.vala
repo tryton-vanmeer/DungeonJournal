@@ -28,76 +28,76 @@ namespace DungeonJournal
         public double charisma_score { get; set; default=8.0; }
 
         public bool strength_save_proficiency { get; set; }
-        public string strength_save { get; set; default=""; }
+        public double strength_save { get; set; default=0; }
 
         public bool dexterity_save_proficiency { get; set; }
-        public string dexterity_save { get; set; default=""; }
+        public double dexterity_save { get; set; default=0; }
 
         public bool constitution_save_proficiency { get; set; }
-        public string constitution_save { get; set; default=""; }
+        public double constitution_save { get; set; default=0; }
 
         public bool intelligence_save_proficiency { get; set; }
-        public string intelligence_save { get; set; default=""; }
+        public double intelligence_save { get; set; default=0; }
 
         public bool wisdom_save_proficiency { get; set; }
-        public string wisdom_save { get; set; default=""; }
+        public double wisdom_save { get; set; default=0; }
 
         public bool charisma_save_proficiency { get; set; }
-        public string charisma_save { get; set; default=""; }
+        public double charisma_save { get; set; default=0; }
 
         // Skills
         public bool athletics_skill_proficiency { get; set; }
-        public string athletics_skill { get; set; default=""; }
+        public double athletics_skill { get; set; default=0; }
 
         public bool acrobatics_skill_proficiency { get; set; }
-        public string acrobatics_skill { get; set; default=""; }
+        public double acrobatics_skill { get; set; default=0; }
 
         public bool sleight_of_hand_skill_proficiency { get; set; }
-        public string sleight_of_hand_skill { get; set; default=""; }
+        public double sleight_of_hand_skill { get; set; default=0; }
 
         public bool stealth_skill_proficiency { get; set; }
-        public string stealth_skill { get; set; default=""; }
+        public double stealth_skill { get; set; default=0; }
 
         public bool arcana_skill_proficiency { get; set; }
-        public string arcana_skill { get; set; default=""; }
+        public double arcana_skill { get; set; default=0; }
 
         public bool history_skill_proficiency { get; set; }
-        public string history_skill { get; set; default=""; }
+        public double history_skill { get; set; default=0; }
 
         public bool investigation_skill_proficiency { get; set; }
-        public string investigation_skill { get; set; default=""; }
+        public double investigation_skill { get; set; default=0; }
 
         public bool nature_skill_proficiency { get; set; }
-        public string nature_skill { get; set; default=""; }
+        public double nature_skill { get; set; default=0; }
 
         public bool religion_skill_proficiency { get; set; }
-        public string religion_skill { get; set; default=""; }
+        public double religion_skill { get; set; default=0; }
 
         public bool animal_handling_skill_proficiency { get; set; }
-        public string animal_handling_skill { get; set; default=""; }
+        public double animal_handling_skill { get; set; default=0; }
 
         public bool insight_skill_proficiency { get; set; }
-        public string insight_skill { get; set; default=""; }
+        public double insight_skill { get; set; default=0; }
 
         public bool medicine_skill_proficiency { get; set; }
-        public string medicine_skill { get; set; default=""; }
+        public double medicine_skill { get; set; default=0; }
 
         public bool perception_skill_proficiency { get; set; }
-        public string perception_skill { get; set; default=""; }
+        public double perception_skill { get; set; default=0; }
 
         public bool survival_skill_proficiency { get; set; }
-        public string survival_skill { get; set; default=""; }
+        public double survival_skill { get; set; default=0; }
 
         public bool deception_skill_proficiency { get; set; }
-        public string deception_skill { get; set; default=""; }
+        public double deception_skill { get; set; default=0; }
 
         public bool intimidation_skill_proficiency { get; set; }
-        public string intimidation_skill { get; set; default=""; }
+        public double intimidation_skill { get; set; default=0; }
 
         public bool performance_skill_proficiency { get; set; }
-        public string performance_skill { get; set; default=""; }
+        public double performance_skill { get; set; default=0; }
 
         public bool persuasion_skill_proficiency { get; set; }
-        public string persuasion_skill { get; set; default=""; }
+        public double persuasion_skill { get; set; default=0; }
     }
 }

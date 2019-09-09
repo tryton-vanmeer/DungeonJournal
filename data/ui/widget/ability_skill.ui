@@ -33,13 +33,24 @@
                     </object>
                 </child>
                 <child>
-                    <object class="GtkEntry" id="skill_save_entry">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="width_chars">3</property>
+                    <object class="GtkSpinButton">
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="halign">end</property>
+                            <property name="valign">center</property>
+                            <property name="adjustment">skill_save_entry</property>
+                            <property name="update_policy">if-valid</property>
                     </object>
                 </child>
             </object>
         </child>
     </template>
+
+    <object class="GtkAdjustment" id="skill_save_entry">
+        <property name="lower">-50</property>
+        <property name="upper">50</property>
+        <property name="value">0</property>
+        <property name="step_increment">1</property>
+        <property name="page_increment">10</property>
+    </object>
 </interface>
