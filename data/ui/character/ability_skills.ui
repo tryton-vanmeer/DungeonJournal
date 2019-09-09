@@ -38,6 +38,14 @@
                                         <property name="skill_name" translatable="true">Athletics</property>
                                     </object>
                                 </child>
+
+                                <child>
+                                    <object class="GtkSeparator">
+                                        <property name="margin_top">8</property>
+                                        <property name="margin_bottom">8</property>
+                                    </object>
+                                </child>
+
                                 <child>
                                     <object class="DungeonJournalAbilityScore" id="dexterity_ability_score">
                                         <property name="ability_name" translatable="true">Dexterity</property>
@@ -63,6 +71,14 @@
                                         <property name="skill_name" translatable="true">Stealth</property>
                                     </object>
                                 </child>
+
+                                <child>
+                                    <object class="GtkSeparator">
+                                        <property name="margin_top">8</property>
+                                        <property name="margin_bottom">8</property>
+                                    </object>
+                                </child>
+
                                 <child>
                                     <object class="DungeonJournalAbilityScore" id="constitution_ability_score">
                                         <property name="ability_name" translatable="true">Constitution</property>
@@ -73,6 +89,14 @@
                                         <property name="skill_name" translatable="true">Saving Throws</property>
                                     </object>
                                 </child>
+
+                                <child>
+                                    <object class="GtkSeparator">
+                                        <property name="margin_top">8</property>
+                                        <property name="margin_bottom">8</property>
+                                    </object>
+                                </child>
+
                                 <child>
                                     <object class="DungeonJournalAbilityScore" id="intelligence_ability_score">
                                         <property name="ability_name" translatable="true">Intelligence</property>
@@ -108,6 +132,14 @@
                                         <property name="skill_name" translatable="true">Religion</property>
                                     </object>
                                 </child>
+
+                                <child>
+                                    <object class="GtkSeparator">
+                                        <property name="margin_top">8</property>
+                                        <property name="margin_bottom">8</property>
+                                    </object>
+                                </child>
+
                                 <child>
                                     <object class="DungeonJournalAbilityScore" id="wisdom_ability_score">
                                         <property name="ability_name" translatable="true">Wisdom</property>
@@ -143,6 +175,14 @@
                                         <property name="skill_name" translatable="true">Survival</property>
                                     </object>
                                 </child>
+
+                                <child>
+                                    <object class="GtkSeparator">
+                                        <property name="margin_top">8</property>
+                                        <property name="margin_bottom">8</property>
+                                    </object>
+                                </child>
+
                                 <child>
                                     <object class="DungeonJournalAbilityScore" id="charisma_ability_score">
                                         <property name="ability_name" translatable="true">Charisma</property>
