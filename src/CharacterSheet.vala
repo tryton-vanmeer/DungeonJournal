@@ -7,16 +7,16 @@ namespace DungeonJournal
         public string class { get; set; default=""; }
         public string race { get; set; default=""; }
         public int alignment { get; set; default = 4; }
-        public string level { get; set; default=""; }
-        public string xp { get; set; default=""; }
+        public double level { get; set; default=1; }
+        public double xp { get; set; default=0; }
 
         // Stats
-        public string proficiency_bonus { get; set; default=""; }
-        public string armor_class { get; set; default=""; }
-        public string initiative { get; set; default=""; }
-        public string speed { get; set; default=""; }
-        public string hp_max { get; set; default=""; }
-        public double hp_current { get; set; }
+        public double proficiency_bonus { get; set; default=2; }
+        public double armor_class { get; set; default=0; }
+        public double initiative { get; set; default=0; }
+        public double speed { get; set; default=0; }
+        public double hp_max { get; set; default=0; }
+        public double hp_current { get; set; default=0; }
         public string hit_dice { get; set; default=""; }
 
         // Abiltiy

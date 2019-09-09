@@ -85,12 +85,12 @@
                                 </child>
 
                                 <child>
-                                    <object class="DungeonJournalCharacterEntry" id="level_character_entry">
+                                    <object class="DungeonJournalCharacterEntryAdjustment" id="level_character_entry">
                                         <property name="entry_name" translatable="yes">Level</property>
                                     </object>
                                 </child>
                                 <child>
-                                    <object class="DungeonJournalCharacterEntry" id="xp_character_entry">
+                                    <object class="DungeonJournalCharacterEntryAdjustment" id="xp_character_entry">
                                         <property name="entry_name" translatable="yes">Experience Points</property>
                                     </object>
                                 </child>
