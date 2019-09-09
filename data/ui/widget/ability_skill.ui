@@ -29,6 +29,7 @@
                     <object class="GtkCheckButton" id="skill_proficiency_button">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
+                        <property name="margin_right">8</property>
                     </object>
                 </child>
                 <child>
