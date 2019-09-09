@@ -6,6 +6,7 @@
         <file compressed="true" preprocess="xml-stripblanks">ui/character/stats.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/character/ability_skills.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/widget/character_entry.ui</file>
+        <file compressed="true" preprocess="xml-stripblanks">ui/widget/character_entry_adjustment.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/widget/ability_score.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/widget/ability_skill.ui</file>
     </gresource>

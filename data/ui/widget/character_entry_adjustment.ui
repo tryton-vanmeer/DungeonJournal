@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+    <template class="DungeonJournalCharacterEntryAdjustment" parent="GtkBox">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="valign">center</property>
+        <child>
+            <object class="GtkLabel" id="label">
+                <property name="height_request">32</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">start</property>
+                <property name="margin_start">12</property>
+                <property name="margin_top">8</property>
+                <property name="margin_bottom">8</property>
+                <property name="hexpand">True</property>
+                <property name="ellipsize">end</property>
+                <property name="xalign">0</property>
+            </object>
+        </child>
+        <child>
+            <object class="GtkSpinButton">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="halign">end</property>
+                <property name="valign">center</property>
+                <property name="margin_end">12</property>
+                <property name="adjustment">adjustment</property>
+                <property name="update_policy">if-valid</property>
+            </object>
+        </child>
+    </template>
+
+    <object class="GtkAdjustment" id="adjustment">
+        <property name="lower">0</property>
+        <property name="upper">1000000</property>
+        <property name="value">0</property>
+        <property name="step_increment">1</property>
+        <property name="page_increment">10</property>
+    </object>
+</interface>
