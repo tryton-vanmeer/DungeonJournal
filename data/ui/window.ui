@@ -103,6 +103,20 @@
                     </packing>
                 </child> -->
                 <child>
+                    <object class="GtkModelButton" id="button_popover_save_as">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="action_name">app.save_as</property>
+                        <property name="text" translatable="yes">Save As...</property>
+                    </object>
+                    <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
+                    </packing>
+                </child>
+                <child>
                     <object class="GtkModelButton" id="button_popover_about">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>

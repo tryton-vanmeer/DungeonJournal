@@ -2,7 +2,7 @@ namespace DungeonJournal
 { 
     public class App : Gtk.Application
     {
-        public static Window window;
+        public Window window;
 
         public App()
         {
@@ -32,7 +32,14 @@ namespace DungeonJournal
                 show_about_dialog();
             });
 
+            var save_as_action = new GLib.SimpleAction("save_as", null);
+            save_as_action.activate.connect(() =>
+            {
+                this.window.save_character_as();
+            });
+
             this.add_action(about_action);
+            this.add_action(save_as_action);
         }
 
         private void show_about_dialog()

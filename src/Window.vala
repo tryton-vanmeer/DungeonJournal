@@ -67,6 +67,18 @@ namespace DungeonJournal
             this.save_button.clicked.connect(on_save_character);
         }
 
+        private void on_save_character()
+        {
+            if (this.character_path == null)
+            {
+                save_character_as();
+            }
+            else
+            {
+                save_character(this.character_path);
+            }
+        }
+
         private void bind_character()
         {
             this.info_view.bind_character(ref this.character);
@@ -112,18 +124,6 @@ namespace DungeonJournal
             dialog.destroy();
         }
 
-        private void on_save_character()
-        {
-            if (this.character_path == null)
-            {
-                save_character_as();
-            }
-            else
-            {
-                save_character(this.character_path);
-            }
-        }
-
         private void save_character(string path)
         {
             string json = Json.gobject_to_data(this.character, null);
@@ -145,7 +145,7 @@ namespace DungeonJournal
             }
         }
 
-        private void save_character_as()
+        public void save_character_as()
         {
             var dialog = new Gtk.FileChooserNative(
                 _("Save Character"),
