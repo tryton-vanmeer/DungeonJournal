@@ -11,6 +11,7 @@ subdir('po')
 
 vapi_dir = join_paths (meson.source_root (), 'src', 'vapis')
 valac = meson.get_compiler('vala')
+cc = meson.get_compiler('c')
 
 deps = [
   dependency('gio-2.0', version: '>= 2.50'),
@@ -18,6 +19,7 @@ deps = [
   dependency('json-glib-1.0', version: '>= 0.29.2'),
   dependency('libhandy-0.0', version: '>= 0.0.9'),
   valac.find_library('config', dirs: vapi_dir),
+  cc.find_library('m'),
 ]
 
 sources = [
@@ -38,7 +40,6 @@ c_args = [
   '-DGETTEXT_PACKAGE="footnote"',
   '-DGNOMELOCALEDIR="' + get_option('prefix') + '/' + get_option('localedir') + '"',
   '-DHANDY_USE_UNSTABLE_API',
-  
 ]
 
 vala_args = [
