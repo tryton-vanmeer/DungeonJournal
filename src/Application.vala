@@ -16,7 +16,6 @@ namespace DungeonJournal
         {
             base.startup();
             setup_actions();
-            init_widgits();
         }
 
         protected override void activate()
@@ -34,15 +33,6 @@ namespace DungeonJournal
             });
 
             this.add_action(about_action);
-        }
-
-        private void init_widgits()
-        {
-            // Create instances of custom widgets at least once
-            // So Gtk.Builder know they exist
-            var character_entry = new CharacterEntry();
-            var ability_score = new AbilityScore();
-            var ability_skill = new AbilitySkill();
         }
 
         private void show_about_dialog()
