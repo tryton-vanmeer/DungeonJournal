@@ -4,12 +4,6 @@ namespace DungeonJournal
     public class Window : Gtk.ApplicationWindow
     {
         [GtkChild]
-        private Gtk.Button open_button;
-
-        [GtkChild]
-        private Gtk.Button save_button;
-
-        [GtkChild]
         private Gtk.Stack stack;
 
         [GtkChild]
@@ -62,21 +56,47 @@ namespace DungeonJournal
                 );
                 this.leaflet.set_visible_child(stack);
             });
-
-            this.open_button.clicked.connect(open_character);
-            this.save_button.clicked.connect(on_save_character);
         }
 
-        private void on_save_character()
+        public void on_open()
+        {
+            open_character();
+        }
+
+        public void on_save()
         {
             if (this.character_path == null)
             {
-                save_character_as();
+                on_save_as();
             }
             else
             {
                 save_character(this.character_path);
             }
+        }
+
+        public void on_save_as()
+        {
+            var dialog = new Gtk.FileChooserNative(
+                _("Save Character"),
+                this,
+                Gtk.FileChooserAction.SAVE,
+                _("_Save"),
+                _("_Cancel")
+            );
+
+            dialog.set_current_name(this.character.name + ".json");
+            dialog.set_do_overwrite_confirmation(true);
+
+            if (dialog.run() == Gtk.ResponseType.ACCEPT)
+            {
+                string path = dialog.get_file().get_path();
+
+                save_character(path);
+                this.character_path = path;
+            }
+
+            dialog.destroy();
         }
 
         private void bind_character()
@@ -143,30 +163,6 @@ namespace DungeonJournal
             {
                 log(null, LogLevelFlags.LEVEL_ERROR, "Error Saving Character: %s\n", path);
             }
-        }
-
-        public void save_character_as()
-        {
-            var dialog = new Gtk.FileChooserNative(
-                _("Save Character"),
-                this,
-                Gtk.FileChooserAction.SAVE,
-                _("_Save"),
-                _("_Cancel")
-            );
-
-            dialog.set_current_name(this.character.name + ".json");
-            dialog.set_do_overwrite_confirmation(true);
-
-            if (dialog.run() == Gtk.ResponseType.ACCEPT)
-            {
-                string path = dialog.get_file().get_path();
-
-                save_character(path);
-                this.character_path = path;
-            }
-
-            dialog.destroy();
         }
     }
 

@@ -32,14 +32,33 @@ namespace DungeonJournal
                 show_about_dialog();
             });
 
+            var open_action = new GLib.SimpleAction("open", null);
+            open_action.activate.connect(()=>
+            {
+                this.window.on_open();
+            });
+
+            var save_action = new GLib.SimpleAction("save", null);
+            save_action.activate.connect(() =>
+            {
+                this.window.on_save();
+            });
+
             var save_as_action = new GLib.SimpleAction("save_as", null);
             save_as_action.activate.connect(() =>
             {
-                this.window.save_character_as();
+                this.window.on_save_as();
             });
 
+            this.add_action(open_action);
+            this.add_action(save_action);
             this.add_action(about_action);
             this.add_action(save_as_action);
+
+            // Setup Accelerators
+            set_accels_for_action("app.open", {"<Primary>o"});
+            set_accels_for_action("app.save", {"<Primary>s"});
+            set_accels_for_action("app.save_as", {"<Primary><Shift>S"});
         }
 
         private void show_about_dialog()
