@@ -16,6 +16,7 @@ namespace DungeonJournal
         private string character_path;
 
         private CharacterInfoView info_view;
+        private CharacterBackgroundView background_view;
         private CharacterStatsView stats_view;
         private CharacterAbilitySkillView ability_skill_view;
 
@@ -24,6 +25,7 @@ namespace DungeonJournal
             Object(application: app);
 
             this.info_view = new CharacterInfoView();
+            this.background_view = new CharacterBackgroundView();
             this.stats_view = new CharacterStatsView();
             this.ability_skill_view = new CharacterAbilitySkillView();
 
@@ -39,10 +41,12 @@ namespace DungeonJournal
         private void setup_view()
         {
             this.stack.add_named(this.info_view, Page.INFO.to_string());
+            this.stack.add_named(this.background_view, Page.BACKGROUND.to_string());
             this.stack.add_named(this.stats_view, Page.STATS.to_string());
             this.stack.add_named(this.ability_skill_view, Page.ABILITY_SKILLS.to_string());
 
             this.sidebar.insert(new Gtk.Label(Page.INFO.to_string()), Page.INFO.to_index());
+            this.sidebar.insert(new Gtk.Label(Page.BACKGROUND.to_string()), Page.BACKGROUND.to_index());
             this.sidebar.insert(new Gtk.Label(Page.STATS.to_string()), Page.STATS.to_index());
             this.sidebar.insert(new Gtk.Label(Page.ABILITY_SKILLS.to_string()), Page.ABILITY_SKILLS.to_index());
         }
@@ -102,6 +106,7 @@ namespace DungeonJournal
         private void bind_character()
         {
             this.info_view.bind_character(ref this.character);
+            this.background_view.bind_character(ref this.character);
             this.stats_view.bind_character(ref this.character);
             this.ability_skill_view.bind_character(ref this.character);
         }
@@ -169,6 +174,7 @@ namespace DungeonJournal
     enum Page
     {
         INFO,
+        BACKGROUND,
         STATS,
         ABILITY_SKILLS;
 
@@ -178,6 +184,8 @@ namespace DungeonJournal
             {
                 case INFO:
                     return _("Info");
+                case BACKGROUND:
+                    return _("Background");
                 case STATS:
                     return _("Stats");
                 case ABILITY_SKILLS:
@@ -193,10 +201,12 @@ namespace DungeonJournal
             {
                 case INFO:
                     return 0;
-                case STATS:
+                case BACKGROUND:
                     return 1;
-                case ABILITY_SKILLS:
+                case STATS:
                     return 2;
+                case ABILITY_SKILLS:
+                    return 3;
                 default:
                     assert_not_reached();
             }
@@ -209,8 +219,10 @@ namespace DungeonJournal
                 case 0:
                     return INFO;
                 case 1:
-                    return STATS;
+                    return BACKGROUND;
                 case 2:
+                    return STATS;
+                case 3:
                     return ABILITY_SKILLS;
                 default:
                     assert_not_reached();
