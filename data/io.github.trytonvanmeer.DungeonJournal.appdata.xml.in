@@ -16,8 +16,17 @@
 
 	<screenshots>
 		<screenshot type="default">
-			<image width="800" height="450">https://raw.githubusercontent.com/tryton-vanmeer/DungeonJournal/master/data/screenshots/1.png</image>
-		</screenshot>	  
+			<image type="source">https://raw.githubusercontent.com/tryton-vanmeer/DungeonJournal/master/data/screenshots/1.png</image>
+		</screenshot>
+		<screenshot>
+			<image type="source">https://raw.githubusercontent.com/tryton-vanmeer/DungeonJournal/master/data/screenshots/2.png</image>
+		</screenshot>
+		<screenshot>
+			<image type="source">https://raw.githubusercontent.com/tryton-vanmeer/DungeonJournal/master/data/screenshots/3.png</image>
+		</screenshot>
+		<screenshot>
+			<image type="source">https://raw.githubusercontent.com/tryton-vanmeer/DungeonJournal/master/data/screenshots/4.png</image>
+		</screenshot>
 	</screenshots>
 
 	<launchable type="desktop-id">io.github.trytonvanmeer.DungeonJournal.desktop</launchable>
@@ -25,6 +34,19 @@
   	<url type="bugtracker">https://github.com/tryton-vanmeer/DungeonJournal/issues</url>
 
 	<releases>
+		<release version="0.6.0" date="2019-09-12">
+			<description>
+				<p>Version 0.6.0 of Dungeon Journal.</p>
+				<ul>
+					<li>Fixed Arm builds</li>
+					<li>Minor design changes</li>
+					<li>Fixed margin of skill profiencies</li>
+					<li>Added keyboard shortcuts</li>
+					<li>Track last opened/saved character to avoid save dialog when saving. 'Save As' option is added to app menu</li>
+					<li>Added page for character background options</li>
+				</ul>
+			</description>
+		</release>
 		<release version="0.5.0" date="2019-08-28">
 			<description>
 				<p>This is the first release of Dungeon Journal.</p>
