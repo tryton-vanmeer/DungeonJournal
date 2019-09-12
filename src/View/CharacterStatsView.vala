@@ -3,26 +3,13 @@ namespace DungeonJournal
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/character/stats.ui")]
     public class CharacterStatsView : Gtk.Bin
     {
-        [GtkChild]
-        private CharacterEntryAdjustment proficiency_bonus_character_entry;
-
-        [GtkChild]
-        private CharacterEntryAdjustment armor_class_character_entry;
-
-        [GtkChild]
-        private CharacterEntryAdjustment initiative_character_entry;
-
-        [GtkChild]
-        private CharacterEntryAdjustment speed_character_entry;
-
-        [GtkChild]
-        private CharacterEntryAdjustment hp_max_character_entry;
-
-        [GtkChild]
-        private CharacterEntryAdjustment hp_character_entry;
-
-        [GtkChild]
-        private CharacterEntry hit_dice_character_entry;
+        [GtkChild] private CharacterEntryAdjustment proficiency_bonus_character_entry;
+        [GtkChild] private CharacterEntryAdjustment armor_class_character_entry;
+        [GtkChild] private CharacterEntryAdjustment initiative_character_entry;
+        [GtkChild] private CharacterEntryAdjustment speed_character_entry;
+        [GtkChild] private CharacterEntryAdjustment hp_max_character_entry;
+        [GtkChild] private CharacterEntryAdjustment hp_character_entry;
+        [GtkChild] private CharacterEntry hit_dice_character_entry;
         
         public void bind_character(ref CharacterSheet character)
         {

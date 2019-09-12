@@ -3,14 +3,9 @@ namespace DungeonJournal
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/window.ui")]
     public class Window : Gtk.ApplicationWindow
     {
-        [GtkChild]
-        private Gtk.Stack stack;
-
-        [GtkChild]
-        private Hdy.Leaflet leaflet;
-
-        [GtkChild]
-        private Gtk.ListBox sidebar;
+        [GtkChild] private Gtk.Stack stack;
+        [GtkChild] private Hdy.Leaflet leaflet;
+        [GtkChild] private Gtk.ListBox sidebar;
 
         private CharacterSheet character;
         private string character_path;
