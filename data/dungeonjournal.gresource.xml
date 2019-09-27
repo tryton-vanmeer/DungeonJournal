@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
     <gresource prefix="/io/github/trytonvanmeer/DungeonJournal">
+        <file compressed="true">dungeonjournal.css</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/window.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/character/info.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/character/background.ui</file>
