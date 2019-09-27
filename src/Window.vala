@@ -29,8 +29,17 @@ namespace DungeonJournal
 
             this.character_path = null;
 
+            setup_style();
             setup_view();
 		    connect_signals();
+        }
+
+        private void setup_style()
+        {
+            var provider = new Gtk.CssProvider();
+            provider.load_from_resource("/io/github/trytonvanmeer/DungeonJournal/dungeonjournal.css");
+
+            Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), provider, Gtk.STYLE_PROVIDER_PRIORITY_USER);
         }
 
         private void setup_view()
