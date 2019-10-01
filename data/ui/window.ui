@@ -63,6 +63,9 @@
                     <object class="GtkListBox" id="sidebar">
                         <property name="visible">True</property>
                         <property name="width-request">200</property>
+                        <style>
+                            <class name="sidebar"/>
+                        </style>          
                     </object>
                 </child>
                 <child>
