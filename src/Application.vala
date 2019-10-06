@@ -32,12 +32,6 @@ namespace DungeonJournal
                 show_about_dialog();
             });
 
-            var shortcuts_action = new GLib.SimpleAction("shortcuts", null);
-            shortcuts_action.activate.connect(() =>
-            {
-                show_shortcuts_dialog();
-            });
-
             var open_action = new GLib.SimpleAction("open", null);
             open_action.activate.connect(()=>
             {
@@ -58,7 +52,6 @@ namespace DungeonJournal
 
             this.add_action(open_action);
             this.add_action(save_action);
-            this.add_action(shortcuts_action);
             this.add_action(about_action);
             this.add_action(save_as_action);
 
@@ -88,11 +81,6 @@ namespace DungeonJournal
                 version: Config.VERSION,
                 license_type: Gtk.License.GPL_3_0
             );
-        }
-
-        private void show_shortcuts_dialog()
-        {
-
         }
     }
 

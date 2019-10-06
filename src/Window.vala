@@ -29,6 +29,8 @@ namespace DungeonJournal
 
             this.character_path = null;
 
+            set_help_overlay(new ShortcutsWindow());
+
             setup_style();
             setup_view();
 		    connect_signals();
