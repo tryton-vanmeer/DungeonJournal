@@ -4,6 +4,7 @@
         <file compressed="true">dungeonjournal.css</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/window.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/shortcuts-window.ui</file>
+        <file compressed="true" preprocess="xml-stripblanks">ui/character-view.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/character/info.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/character/background.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/character/stats.ui</file>
