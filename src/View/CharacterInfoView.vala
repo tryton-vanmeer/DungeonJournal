@@ -1,7 +1,7 @@
 namespace DungeonJournal
 {
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/character/info.ui")]
-    public class CharacterInfoView : Gtk.Bin
+    public class CharacterInfoView : CharacterView
     {
         [GtkChild]private CharacterEntry name_character_entry;
         [GtkChild]private CharacterEntry class_character_entry;

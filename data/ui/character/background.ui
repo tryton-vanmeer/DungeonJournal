@@ -2,54 +2,37 @@
 <interface>
     <requires lib="gtk+" version="3.20"/>
     <requires lib="libhandy" version="0.0"/>
-    <template class="DungeonJournalCharacterBackgroundView" parent="GtkBin">
+    <template class="DungeonJournalCharacterBackgroundView" parent="DungeonJournalCharacterView">
         <property name="visible">True</property>
-        <child>
-            <object class="GtkScrolledWindow">
+        <child internal-child="box">
+            <object class="GtkBox">
                 <property name="visible">True</property>
-                <property name="hscrollbar_policy">never</property>
+                <property name="can_focus">False</property>
+                <property name="orientation">vertical</property>
+                <property name="hexpand">True</property>
                 <child>
-                    <object class="HdyColumn">
-                        <property name="visible">True</property>
-                        <property name="maximum_width">600</property>
-                        <property name="linear_growth_width">400</property>
-                        <property name="margin_top">32</property>
-                        <property name="margin_bottom">32</property>
-                        <property name="margin_start">12</property>
-                        <property name="margin_end">12</property>
-                        <child>
-                            <object class="GtkBox">
-                                <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <property name="orientation">vertical</property>
-                                <property name="hexpand">True</property>
-                                <child>
-                                    <object class="DungeonJournalCharacterEntry" id="background_character_entry">
-                                        <property name="entry_name" translatable="yes">Background</property>
-                                    </object>
-                                </child>
-                                <child>
-                                    <object class="DungeonJournalCharacterEntry" id="personality_traits_character_entry">
-                                        <property name="entry_name" translatable="yes">Personality Traits</property>
-                                    </object>
-                                </child>
-                                <child>
-                                    <object class="DungeonJournalCharacterEntry" id="ideals_character_entry">
-                                        <property name="entry_name" translatable="yes">Ideals</property>
-                                    </object>
-                                </child>
-                                <child>
-                                    <object class="DungeonJournalCharacterEntry" id="bonds_character_entry">
-                                        <property name="entry_name" translatable="yes">Bonds</property>
-                                    </object>
-                                </child>
-                                <child>
-                                    <object class="DungeonJournalCharacterEntry" id="flaws_character_entry">
-                                        <property name="entry_name" translatable="yes">Flaws</property>
-                                    </object>
-                                </child>
-                            </object>
-                        </child>
+                    <object class="DungeonJournalCharacterEntry" id="background_character_entry">
+                        <property name="entry_name" translatable="yes">Background</property>
+                    </object>
+                </child>
+                <child>
+                    <object class="DungeonJournalCharacterEntry" id="personality_traits_character_entry">
+                        <property name="entry_name" translatable="yes">Personality Traits</property>
+                    </object>
+                </child>
+                <child>
+                    <object class="DungeonJournalCharacterEntry" id="ideals_character_entry">
+                        <property name="entry_name" translatable="yes">Ideals</property>
+                    </object>
+                </child>
+                <child>
+                    <object class="DungeonJournalCharacterEntry" id="bonds_character_entry">
+                        <property name="entry_name" translatable="yes">Bonds</property>
+                    </object>
+                </child>
+                <child>
+                    <object class="DungeonJournalCharacterEntry" id="flaws_character_entry">
+                        <property name="entry_name" translatable="yes">Flaws</property>
                     </object>
                 </child>
             </object>

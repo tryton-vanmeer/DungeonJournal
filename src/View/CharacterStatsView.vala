@@ -1,7 +1,7 @@
 namespace DungeonJournal
 {
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/character/stats.ui")]
-    public class CharacterStatsView : Gtk.Bin
+    public class CharacterStatsView : CharacterView
     {
         [GtkChild] private CharacterEntryAdjustment proficiency_bonus_character_entry;
         [GtkChild] private CharacterEntryAdjustment armor_class_character_entry;

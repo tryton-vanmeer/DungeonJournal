@@ -1,7 +1,7 @@
 namespace DungeonJournal
 { 
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/character/background.ui")]
-    public class CharacterBackgroundView : Gtk.Bin
+    public class CharacterBackgroundView : CharacterView
     {
         [GtkChild] private CharacterEntry background_character_entry;
         [GtkChild] private CharacterEntry personality_traits_character_entry;

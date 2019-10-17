@@ -1,7 +1,7 @@
 namespace DungeonJournal
 {
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/character/ability-skills.ui")]
-    public class CharacterAbilitySkillView : Gtk.Bin
+    public class CharacterAbilitySkillView : CharacterView
     {
         // Ability Scores
         [GtkChild] private AbilityScore strength_ability_score;
