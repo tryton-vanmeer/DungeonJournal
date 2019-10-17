@@ -1,6 +1,6 @@
 namespace DungeonJournal
 { 
-    [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/widget/ability_skill.ui")]
+    [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/widget/ability-skill.ui")]
     public class AbilitySkill : Gtk.Box
     {
         [GtkChild]

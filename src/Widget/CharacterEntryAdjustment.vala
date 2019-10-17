@@ -1,6 +1,6 @@
 namespace DungeonJournal
 {
-    [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/widget/character_entry_adjustment.ui")]
+    [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/widget/character-entry-adjustment.ui")]
     public class CharacterEntryAdjustment : Gtk.Box
     {
         [GtkChild]
