@@ -14,6 +14,7 @@ namespace DungeonJournal
         private CharacterBackgroundView background_view;
         private CharacterStatsView stats_view;
         private CharacterAbilitySkillView ability_skill_view;
+        private CharacterFeaturesView features_view;
 
         public Window(Gtk.Application app)
         {
@@ -23,6 +24,7 @@ namespace DungeonJournal
             this.background_view = new CharacterBackgroundView();
             this.stats_view = new CharacterStatsView();
             this.ability_skill_view = new CharacterAbilitySkillView();
+            this.features_view = new CharacterFeaturesView();
 
             this.character = new CharacterSheet();
             bind_character();
@@ -50,11 +52,13 @@ namespace DungeonJournal
             this.stack.add_named(this.background_view, Page.BACKGROUND.to_string());
             this.stack.add_named(this.stats_view, Page.STATS.to_string());
             this.stack.add_named(this.ability_skill_view, Page.ABILITY_SKILLS.to_string());
+            this.stack.add_named(this.features_view, Page.FEATURES.to_string());
 
             this.sidebar.insert(new Gtk.Label(Page.INFO.to_string()), Page.INFO.to_index());
             this.sidebar.insert(new Gtk.Label(Page.BACKGROUND.to_string()), Page.BACKGROUND.to_index());
             this.sidebar.insert(new Gtk.Label(Page.STATS.to_string()), Page.STATS.to_index());
             this.sidebar.insert(new Gtk.Label(Page.ABILITY_SKILLS.to_string()), Page.ABILITY_SKILLS.to_index());
+            this.sidebar.insert(new Gtk.Label(Page.FEATURES.to_string()), Page.FEATURES.to_index());
         }
 
         private void connect_signals()
@@ -115,6 +119,7 @@ namespace DungeonJournal
             this.background_view.bind_character(ref this.character);
             this.stats_view.bind_character(ref this.character);
             this.ability_skill_view.bind_character(ref this.character);
+            this.features_view.bind_character(ref this.character);
         }
 
         private void open_character()
@@ -182,7 +187,8 @@ namespace DungeonJournal
         INFO,
         BACKGROUND,
         STATS,
-        ABILITY_SKILLS;
+        ABILITY_SKILLS,
+        FEATURES;
 
         public string to_string()
         {
@@ -196,6 +202,8 @@ namespace DungeonJournal
                     return _("Stats");
                 case ABILITY_SKILLS:
                     return _("Ability & Skills");
+                case FEATURES:
+                    return _("Features");
                 default:
                     assert_not_reached();
             }
@@ -213,6 +221,8 @@ namespace DungeonJournal
                     return 2;
                 case ABILITY_SKILLS:
                     return 3;
+                case FEATURES:
+                    return 4;
                 default:
                     assert_not_reached();
             }
@@ -230,6 +240,8 @@ namespace DungeonJournal
                     return STATS;
                 case 3:
                     return ABILITY_SKILLS;
+                case 4:
+                    return FEATURES;
                 default:
                     assert_not_reached();
             }

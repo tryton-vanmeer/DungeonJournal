@@ -31,6 +31,7 @@ sources = [
   'src/View/CharacterBackgroundView.vala',
   'src/View/CharacterStatsView.vala',
   'src/View/CharacterAbilitySkillView.vala',
+  'src/View/CharacterFeaturesView.vala',
   'src/Widget/CharacterEntry.vala',
   'src/Widget/CharacterEntryAdjustment.vala',
   'src/Widget/AbilityScore.vala',

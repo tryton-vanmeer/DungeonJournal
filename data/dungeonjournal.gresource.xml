@@ -9,6 +9,7 @@
         <file compressed="true" preprocess="xml-stripblanks">ui/character/background.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/character/stats.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/character/ability-skills.ui</file>
+        <file compressed="true" preprocess="xml-stripblanks">ui/character/features.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/widget/character-entry.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/widget/character-entry-adjustment.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/widget/ability-score.ui</file>
