@@ -12,7 +12,7 @@ namespace DungeonJournal
                 return (GLib.Object) this.box;
             }
 
-            return null;
+            return base.get_internal_child(builder, name);
         }
     }
 }
