@@ -1,0 +1,14 @@
+on: [push, pull_request]
+name: Flatpak
+jobs:
+  flatpak:
+    name: "Flatpak"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: bilelmoussaoui/flatpak-github-actions@wip
+      with:
+        bundle: "dungeonjournal-nightly.flatpak"
+        manifest: "io.github.trytonvanmeer.DungeonJournal.json"
+        app-id: "io.github.trytonvanmeer.DungeonJournal"
+        runtime-repo: "https://flathub.org/repo/flathub.flatpakrepo"
