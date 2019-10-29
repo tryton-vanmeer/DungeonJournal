@@ -9,6 +9,7 @@ namespace DungeonJournal
         [GtkChild] private CharacterEntryAdjustment speed_character_entry;
         [GtkChild] private CharacterEntryAdjustment hp_max_character_entry;
         [GtkChild] private CharacterEntryAdjustment hp_character_entry;
+        [GtkChild] private CharacterEntryAdjustment hp_temp_character_entry;
         [GtkChild] private CharacterEntry hit_dice_character_entry;
         
         public void bind_character(ref CharacterSheet character)
@@ -19,6 +20,7 @@ namespace DungeonJournal
             character.bind_property("speed", this.speed_character_entry.adjustment, "value", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
             character.bind_property("hp_max", this.hp_max_character_entry.adjustment, "value", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
             character.bind_property("hp_current", this.hp_character_entry.adjustment, "value", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
+            character.bind_property("hp_temp", this.hp_temp_character_entry.adjustment, "value", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
             character.bind_property("hit_dice", this.hit_dice_character_entry.entry, "text", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
         }
     }

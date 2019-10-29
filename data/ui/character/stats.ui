@@ -37,6 +37,11 @@
                     </object>
                 </child>
                 <child>
+                    <object class="DungeonJournalCharacterEntryAdjustment" id="hp_temp_character_entry">
+                        <property name="entry_name" translatable="yes">Temporary Hit Points</property>
+                    </object>
+                </child>
+                <child>
                     <object class="DungeonJournalCharacterEntry" id="hit_dice_character_entry">
                         <property name="entry_name" translatable="yes">Hit Dice</property>
                     </object>
