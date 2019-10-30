@@ -34,6 +34,7 @@ sources = [
   'src/View/CharacterFeaturesView.vala',
   'src/Widget/CharacterEntry.vala',
   'src/Widget/CharacterEntryAdjustment.vala',
+  'src/Widget/CharacterEntryTextView.vala',
   'src/Widget/AbilityScore.vala',
   'src/Widget/AbilitySkill.vala',
   'src/CharacterSheet.vala',
