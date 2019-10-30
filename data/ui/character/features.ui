@@ -10,9 +10,9 @@
                     <object class="GtkTextView" id="features_text_view">
                         <property name="height_request">256</property>
                         <property name="wrap_mode">word</property>
-                        <property name="top_margin">8</property>
-                        <property name="bottom_margin">8</property>
-                        <property name="left_margin">8</property>
+                        <property name="top_margin">6</property>
+                        <property name="bottom_margin">6</property>
+                        <property name="left_margin">6</property>
                     </object>
                 </child>
             </object>
