@@ -16,22 +16,22 @@
                     </object>
                 </child>
                 <child>
-                    <object class="DungeonJournalCharacterEntry" id="personality_traits_character_entry">
+                    <object class="DungeonJournalCharacterEntryTextView" id="personality_traits_character_entry">
                         <property name="entry_name" translatable="yes">Personality Traits</property>
                     </object>
                 </child>
                 <child>
-                    <object class="DungeonJournalCharacterEntry" id="ideals_character_entry">
-                        <property name="entry_name" translatable="yes">Ideals</property>
+                    <object class="DungeonJournalCharacterEntryTextView" id="ideals_character_entry">
+                        <property name="entry_name" translatable="yes">Ideals Traits</property>
                     </object>
                 </child>
                 <child>
-                    <object class="DungeonJournalCharacterEntry" id="bonds_character_entry">
+                    <object class="DungeonJournalCharacterEntryTextView" id="bonds_character_entry">
                         <property name="entry_name" translatable="yes">Bonds</property>
                     </object>
                 </child>
                 <child>
-                    <object class="DungeonJournalCharacterEntry" id="flaws_character_entry">
+                    <object class="DungeonJournalCharacterEntryTextView" id="flaws_character_entry">
                         <property name="entry_name" translatable="yes">Flaws</property>
                     </object>
                 </child>
