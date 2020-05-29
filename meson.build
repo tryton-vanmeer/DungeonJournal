@@ -1,4 +1,4 @@
-project('dungeonjournal', ['c', 'vala'], 
+project('dungeonjournal', ['c', 'vala'],
         version: '0.6.0',
   meson_version: '>= 0.40.0',
 )
@@ -17,7 +17,7 @@ deps = [
   dependency('gio-2.0', version: '>= 2.50'),
   dependency('gtk+-3.0', version: '>= 3.22'),
   dependency('json-glib-1.0', version: '>= 0.29.2'),
-  dependency('libhandy-0.0', version: '>= 0.0.9'),
+  dependency('libhandy-1', version: '>= 0.80.0'),
   valac.find_library('config', dirs: vapi_dir),
   cc.find_library('m'),
 ]
