@@ -171,7 +171,7 @@ namespace DungeonJournal
                 {
                     file.delete();
                 }
-            
+
                 FileOutputStream stream = file.create (FileCreateFlags.NONE);
                 stream.write(json.data);
             }
@@ -246,5 +246,5 @@ namespace DungeonJournal
                     assert_not_reached();
             }
         }
-    } 
+    }
 }
