@@ -1,140 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.36.0 -->
 <interface>
-    <requires lib="gtk+" version="3.20"/>
-    <template class="DungeonJournalWindow" parent="GtkApplicationWindow">
-    <property name="default-width">800</property>
-    <property name="default-height">600</property>
-
-        <child type="titlebar">
-            <object class="GtkHeaderBar" id="header_bar">
-                <property name="visible">True</property>
-                <property name="show-close-button">True</property>
-                <property name="title">Dungeon Journal</property>
-                <child>
-                    <object class="GtkButton" id="open_button">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="action_name">app.open</property>
-                        <property name="label" translatable="true">Open</property>
-                    </object>
-                    <packing>
-                        <property name="pack_type">start</property>
-                    </packing>
-                </child>
-                <child>
-                    <object class="GtkMenuButton" id="appmenu_button">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="receives_default">True</property>
-                        <property name="popover">appmenu_popover</property>
-                        <child>
-                            <object class="GtkImage">
-                                <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <property name="icon_name">open-menu-symbolic</property>
-                            </object>
-                        </child>
-                    </object>
-                    <packing>
-                        <property name="pack_type">end</property>
-                    </packing>
-                </child>
-                <child>
-                    <object class="GtkButton" id="save_button">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="action_name">app.save</property>
-                        <property name="label" translatable="true">Save</property>
-                    </object>
-                    <packing>
-                        <property name="pack_type">end</property>
-                    </packing>
-                </child>
-            </object>
-        </child>
-
+  <requires lib="gtk+" version="3.22"/>
+  <requires lib="libhandy" version="0.0"/>
+  <template class="DungeonJournalWindow" parent="GtkApplicationWindow">
+    <property name="can_focus">False</property>
+    <property name="default_width">800</property>
+    <property name="default_height">600</property>
+    <child>
+      <object class="HdyLeaflet" id="leaflet">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
         <child>
-            <object class="HdyLeaflet" id="leaflet">
+          <object class="GtkListBox" id="sidebar">
+            <property name="width_request">200</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="mode_transition_type">slide</property>
-            <property name="child_transition_type">slide</property>
-                <child>
-                    <object class="GtkListBox" id="sidebar">
-                        <property name="visible">True</property>
-                        <property name="width-request">200</property>
-                        <style>
-                            <class name="sidebar"/>
-                        </style>          
-                    </object>
-                </child>
-                <child>
-                    <object class="GtkStack" id="stack">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <child>
-                            <placeholder/>
-                        </child>
-                    </object>
-                </child>
-            </object>
+            <style>
+              <class name="sidebar"/>
+            </style>
+          </object>
         </child>
-    </template>
-  
-    <object class="GtkPopover" id="appmenu_popover">
-        <property name="can_focus">False</property>
-        <property name="relative_to">appmenu_button</property>
         <child>
-            <object class="GtkBox" id="appmenu_popover_box">
+          <object class="GtkStack" id="stack">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child type="titlebar">
+      <object class="GtkHeaderBar" id="header_bar">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="title">Dungeon Journal</property>
+        <property name="show_close_button">True</property>
+        <child>
+          <object class="GtkButton" id="open_button">
+            <property name="label" translatable="yes">Open</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="action_name">app.open</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkMenuButton" id="appmenu_button">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="popover">appmenu_popover</property>
+            <child>
+              <object class="GtkImage">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="margin_left">5</property>
-                <property name="margin_right">5</property>
-                <property name="margin_top">5</property>
-                <property name="margin_bottom">5</property>
-                <property name="orientation">vertical</property>
-                <!-- <child>
-                    <object class="GtkModelButton" id="button_popover_settings">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="receives_default">True</property>
-                        <property name="action_name">app.settings</property>
-                        <property name="text" translatable="yes">Preferences</property>
-                    </object>
-                    <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">0</property>
-                    </packing>
-                </child> -->
-                <child>
-                    <object class="GtkModelButton" id="button_popover_save_as">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="receives_default">True</property>
-                        <property name="action_name">app.save_as</property>
-                        <property name="text" translatable="yes">Save As...</property>
-                    </object>
-                </child>
-                <child>
-                    <object class="GtkModelButton" id="button_popover_shortcuts">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="receives_default">True</property>
-                        <property name="action_name">win.show-help-overlay</property>
-                        <property name="text" translatable="yes">Keyboard Shortcuts</property>
-                    </object>
-                </child>
-                <child>
-                    <object class="GtkModelButton" id="button_popover_about">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="receives_default">True</property>
-                        <property name="action_name">app.about</property>
-                        <property name="text" translatable="yes" comments="&quot;Footnote&quot; is the application name">About Dungeon Journal</property>
-                    </object>
-                </child>
-            </object>
+                <property name="icon_name">open-menu-symbolic</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="pack_type">end</property>
+            <property name="position">1</property>
+          </packing>
         </child>
-    </object>
+        <child>
+          <object class="GtkButton" id="save_button">
+            <property name="label" translatable="yes">Save</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="action_name">app.save</property>
+          </object>
+          <packing>
+            <property name="pack_type">end</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </template>
+  <object class="GtkPopover" id="appmenu_popover">
+    <property name="can_focus">False</property>
+    <property name="relative_to">appmenu_button</property>
+    <child>
+      <object class="GtkBox" id="appmenu_popover_box">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="margin_left">5</property>
+        <property name="margin_right">5</property>
+        <property name="margin_top">5</property>
+        <property name="margin_bottom">5</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkModelButton" id="button_popover_save_as">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="action_name">app.save_as</property>
+            <property name="text" translatable="yes">Save As...</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkModelButton" id="button_popover_shortcuts">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="action_name">win.show-help-overlay</property>
+            <property name="text" translatable="yes">Keyboard Shortcuts</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkModelButton" id="button_popover_about">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="action_name">app.about</property>
+            <property name="text" translatable="yes" comments="&quot;Footnote&quot; is the application name">About Dungeon Journal</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
 </interface>
