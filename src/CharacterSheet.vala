@@ -1,5 +1,5 @@
 namespace DungeonJournal
-{ 
+{
     public class CharacterSheet : Object
     {
         // Info
@@ -9,13 +9,6 @@ namespace DungeonJournal
         public int alignment { get; set; default = 4; }
         public double level { get; set; default=1; }
         public double xp { get; set; default=0; }
-
-        // Background
-        public string background { get; set; default=""; }
-        public string personality_traits { get; set; default=""; }
-        public string ideals { get; set; default=""; }
-        public string bonds { get; set; default=""; }
-        public string flaws { get; set; default=""; }
 
         // Stats
         public double proficiency_bonus { get; set; default=2; }
@@ -107,8 +100,5 @@ namespace DungeonJournal
 
         public bool persuasion_skill_proficiency { get; set; }
         public double persuasion_skill { get; set; default=0; }
-
-        //  Features
-        public string features { get; set; default=""; }
     }
 }
