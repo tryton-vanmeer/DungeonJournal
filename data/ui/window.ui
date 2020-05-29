@@ -11,6 +11,7 @@
       <object class="HdyLeaflet" id="leaflet">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="transition_type">slide</property>
         <child>
           <object class="GtkListBox" id="sidebar">
             <property name="width_request">200</property>
