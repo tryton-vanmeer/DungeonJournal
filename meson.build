@@ -33,7 +33,7 @@ sources = [
 
 c_args = [
   '-DVERSION="' + meson.project_version() + '"',
-  '-DGETTEXT_PACKAGE="footnote"',
+  '-DGETTEXT_PACKAGE="dungeonjournal"',
   '-DGNOMELOCALEDIR="' + get_option('prefix') + '/' + get_option('localedir') + '"',
   '-DHANDY_USE_UNSTABLE_API',
 ]
