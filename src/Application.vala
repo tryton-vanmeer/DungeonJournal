@@ -1,5 +1,5 @@
 namespace DungeonJournal
-{ 
+{
     public class App : Gtk.Application
     {
         public Window window;
@@ -93,7 +93,6 @@ namespace DungeonJournal
         Intl.bind_textdomain_codeset(Config.GETTEXT_PACKAGE, "utf-8");
 
         Gtk.init(ref args);
-        Hdy.init (ref args);
 
         var app = new App();
 
