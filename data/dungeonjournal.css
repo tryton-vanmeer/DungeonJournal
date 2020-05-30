@@ -1,5 +1,4 @@
-.sidebar label
+.title
 {
-    padding-top: 8px;
-    padding-bottom: 8px;
+    font-weight: bold;
 }
