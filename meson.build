@@ -26,7 +26,7 @@ sources = [
   'src/Application.vala',
   'src/Window.vala',
   'src/ShortcutsWindow.vala',
-  'src/View/CharacterInfoView.vala',
+  'src/CharacterInfoPage.vala',
   'src/CharacterSheet.vala',
   'src/Util.vala',
 ]

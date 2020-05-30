@@ -1,7 +1,7 @@
 namespace DungeonJournal
 {
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/CharacterInfoPage.ui")]
-    public class CharacterInfoView : Gtk.Box
+    public class CharacterInfoPage : Gtk.Box
     {
 
         public void bind_character(ref CharacterSheet character)

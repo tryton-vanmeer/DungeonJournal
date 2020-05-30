@@ -5,7 +5,7 @@ namespace DungeonJournal
     {
         [GtkChild] private Gtk.Stack stack;
 
-        private CharacterInfoView info_view;
+        private CharacterInfoPage info_view;
 
         private CharacterSheet character;
         private string character_path;
@@ -35,7 +35,7 @@ namespace DungeonJournal
 
         private void setup_view()
         {
-            this.info_view = new CharacterInfoView();
+            this.info_view = new CharacterInfoPage();
 
             this.stack.add_named(this.info_view, "info_view");
         }
