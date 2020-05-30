@@ -25,7 +25,7 @@ deps = [
 sources = [
   'src/Application.vala',
   'src/Window.vala',
-  'src/Window/ShortcutsWindow.vala',
+  'src/ShortcutsWindow.vala',
   'src/View/CharacterInfoView.vala',
   'src/CharacterSheet.vala',
   'src/Util.vala',
