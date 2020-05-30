@@ -82,6 +82,20 @@
             </child>
             <child>
               <object class="GtkListBoxRow">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="activatable">False</property>
+                <child>
+                  <object class="GtkSeparator">
+                    <property name="visible">True</property>
+                    <property name="sensitive">False</property>
+                    <property name="can_focus">False</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkListBoxRow">
                 <property name="width_request">100</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
