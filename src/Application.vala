@@ -84,6 +84,17 @@ namespace DungeonJournal
         }
     }
 
+    private void g_type_ensure()
+    {
+        /*
+            Workaround to prevent "invalid object type" for custom widgets like
+            "HdyColumn" that are used in *.ui files, but are never instantiated
+            in code.
+         */
+
+         var tmp_HdyColumn = new Hdy.Column();
+    }
+
     public static int main(string[] args)
     {
         // Setup gettext
@@ -93,6 +104,8 @@ namespace DungeonJournal
         Intl.bind_textdomain_codeset(Config.GETTEXT_PACKAGE, "utf-8");
 
         Gtk.init(ref args);
+
+        g_type_ensure();
 
         var app = new App();
 
