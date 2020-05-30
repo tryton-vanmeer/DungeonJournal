@@ -1,6 +1,6 @@
 namespace DungeonJournal
 {
-    [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/character-info-view.ui")]
+    [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/CharacterInfoPage.ui")]
     public class CharacterInfoView : Gtk.Box
     {
 

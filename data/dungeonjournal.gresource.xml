@@ -2,8 +2,8 @@
 <gresources>
     <gresource prefix="/io/github/trytonvanmeer/DungeonJournal">
         <file compressed="true">dungeonjournal.css</file>
-        <file compressed="true" preprocess="xml-stripblanks">ui/window.ui</file>
-        <file compressed="true" preprocess="xml-stripblanks">ui/shortcuts-window.ui</file>
-        <file compressed="true" preprocess="xml-stripblanks">ui/character-info-view.ui</file>
+        <file compressed="true" preprocess="xml-stripblanks">ui/Window.ui</file>
+        <file compressed="true" preprocess="xml-stripblanks">ui/ShortcutsWindow.ui</file>
+        <file compressed="true" preprocess="xml-stripblanks">ui/CharacterInfoPage.ui</file>
     </gresource>
 </gresources>

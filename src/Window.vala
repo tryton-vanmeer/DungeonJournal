@@ -1,6 +1,6 @@
 namespace DungeonJournal
 {
-    [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/window.ui")]
+    [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/Window.ui")]
     public class Window : Gtk.ApplicationWindow
     {
         [GtkChild] private Gtk.Stack stack;
