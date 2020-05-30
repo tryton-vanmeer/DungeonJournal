@@ -13,6 +13,9 @@
         <property name="can_focus">False</property>
         <property name="halign">start</property>
         <property name="label" translatable="yes">Info</property>
+        <attributes>
+          <attribute name="weight" value="bold"/>
+        </attributes>
         <style>
           <class name="title"/>
         </style>
@@ -33,13 +36,13 @@
           <object class="GtkListBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="selection_mode">none</property>
             <child>
               <object class="GtkListBoxRow">
                 <property name="width_request">100</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="activatable">False</property>
-                <property name="selectable">False</property>
                 <child>
                   <object class="GtkBox">
                     <property name="visible">True</property>
@@ -83,7 +86,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="activatable">False</property>
-                <property name="selectable">False</property>
                 <child>
                   <object class="GtkBox">
                     <property name="visible">True</property>
