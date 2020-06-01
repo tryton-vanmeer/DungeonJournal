@@ -3,6 +3,19 @@ namespace DungeonJournal
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/CharacterInfoPage.ui")]
     public class CharacterInfoPage : Gtk.Box
     {
+        [GtkChild] protected Gtk.ListBox listbox_info;
+
+        public CharacterInfoPage()
+        {
+            Object();
+
+            setup_view();
+        }
+
+        private void setup_view()
+        {
+            listbox_info.add(new EntryRow(_("Character Name")));
+        }
 
         public void bind_character(ref CharacterSheet character)
         {
