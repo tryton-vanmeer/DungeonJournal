@@ -4,7 +4,7 @@ namespace DungeonJournal
     public class SpinButtonRow: Gtk.ListBoxRow
     {
         [GtkChild] protected Gtk.Label label;
-        [GtkChild] public Gtk.SpinButton button;
+        [GtkChild] public Gtk.Adjustment adjustment;
 
         public SpinButtonRow(string label)
         {
