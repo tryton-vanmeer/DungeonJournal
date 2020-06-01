@@ -6,5 +6,6 @@
         <file compressed="true" preprocess="xml-stripblanks">ui/ShortcutsWindow.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/CharacterInfoPage.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/EntryRow.ui</file>
+        <file compressed="true" preprocess="xml-stripblanks">ui/ComboBoxRow.ui</file>
     </gresource>
 </gresources>

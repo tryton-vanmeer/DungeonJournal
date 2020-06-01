@@ -16,7 +16,8 @@ sources = [
   'CharacterInfoPage.vala',
   'CharacterSheet.vala',
   'Util.vala',
-  'widget/EntryRow.vala'
+  'widget/EntryRow.vala',
+  'widget/ComboBoxRow.vala'
 ]
 
 c_args = [
