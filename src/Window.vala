@@ -15,14 +15,13 @@ namespace DungeonJournal
             Object(application: app);
 
             this.character = new CharacterSheet();
-            bind_character();
-
             this.character_path = null;
 
             set_help_overlay(new ShortcutsWindow());
 
             setup_style();
             setup_view();
+            bind_character();
         }
 
         private void setup_style()
