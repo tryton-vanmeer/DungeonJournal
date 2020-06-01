@@ -8,6 +8,7 @@ namespace DungeonJournal
         protected EntryRow info_name;
         protected EntryRow info_class;
         protected EntryRow info_race;
+        protected ComboBoxRow info_alignment;
 
         public CharacterInfoPage()
         {
@@ -21,10 +22,12 @@ namespace DungeonJournal
             info_name = new EntryRow(_("Character Name"));
             info_class = new EntryRow(_("Class"));
             info_race = new EntryRow(_("Race"));
+            info_alignment = new ComboBoxRow(_("Alignment"));
 
             info.add(info_name);
             info.add(info_class);
             info.add(info_race);
+            info.add(info_alignment);
         }
 
         public void bind_character(ref CharacterSheet character)
