@@ -22,7 +22,17 @@ namespace DungeonJournal
             info_name = new EntryRow(_("Character Name"));
             info_class = new EntryRow(_("Class"));
             info_race = new EntryRow(_("Race"));
-            info_alignment = new ComboBoxRow(_("Alignment"));
+
+            string[] alignments = {
+                _("Lawful Good"),
+                _("Neutral Good"),
+                _("Chaotic Good"),
+                _("Neutral"),
+                _("Lawful Evil"),
+                _("Neutral Evil"),
+                _("Chaotic Evil")
+            };
+            info_alignment = new ComboBoxRow(_("Alignment"), alignments);
 
             info.add(info_name);
             info.add(info_class);
