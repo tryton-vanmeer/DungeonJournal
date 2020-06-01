@@ -10,6 +10,7 @@ namespace DungeonJournal
         protected EntryRow info_race;
         protected ComboBoxRow info_alignment;
         protected SpinButtonRow info_level;
+        protected SpinButtonRow info_xp;
 
         public CharacterInfoPage()
         {
@@ -36,12 +37,14 @@ namespace DungeonJournal
             info_alignment = new ComboBoxRow(_("Alignment"), alignments);
 
             info_level = new SpinButtonRow(_("Level"));
+            info_xp = new SpinButtonRow(_("Experience Points"));
 
             info.add(info_name);
             info.add(info_class);
             info.add(info_race);
             info.add(info_alignment);
             info.add(info_level);
+            info.add(info_xp);
         }
 
         public void bind_character(ref CharacterSheet character)
@@ -51,6 +54,7 @@ namespace DungeonJournal
             character.bind_property("race", this.info_race.entry, "text", BINDING_FLAGS);
             character.bind_property("alignment", this.info_alignment.combo, "active", BINDING_FLAGS);
             character.bind_property("level", this.info_level.adjustment, "value", BINDING_FLAGS);
+            character.bind_property("xp", this.info_xp.adjustment, "value", BINDING_FLAGS);
         }
     }
 }
