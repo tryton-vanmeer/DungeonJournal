@@ -6,7 +6,7 @@ namespace DungeonJournal
         public string name { get; set; default=""; }
         public string class { get; set; default=""; }
         public string race { get; set; default=""; }
-        public int alignment { get; set; default = 4; }
+        public int alignment { get; set; default=3; }
         public double level { get; set; default=1; }
         public double xp { get; set; default=0; }
 
