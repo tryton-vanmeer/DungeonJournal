@@ -6,11 +6,16 @@ namespace DungeonJournal
         [GtkChild] protected Gtk.Label label;
         [GtkChild] protected Gtk.ComboBoxText combo;
 
-        public ComboBoxRow(string label)
+        public ComboBoxRow(string label, string[] items)
         {
             Object();
 
             this.label.label = label;
+
+            for (int i = 0; i < items.length; i++)
+            {
+                this.combo.append_text(items[i]);
+            }
         }
     }
 }
