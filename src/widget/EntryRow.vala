@@ -4,6 +4,7 @@ namespace DungeonJournal
     public class EntryRow: Gtk.ListBoxRow
     {
         [GtkChild] protected Gtk.Label label;
+        [GtkChild] public Gtk.Entry entry { get; }
 
         public EntryRow(string label)
         {
