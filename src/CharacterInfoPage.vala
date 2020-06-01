@@ -9,6 +9,7 @@ namespace DungeonJournal
         protected EntryRow info_class;
         protected EntryRow info_race;
         protected ComboBoxRow info_alignment;
+        protected SpinButtonRow info_level;
 
         public CharacterInfoPage()
         {
@@ -34,10 +35,13 @@ namespace DungeonJournal
             };
             info_alignment = new ComboBoxRow(_("Alignment"), alignments);
 
+            info_level = new SpinButtonRow(_("Level"));
+
             info.add(info_name);
             info.add(info_class);
             info.add(info_race);
             info.add(info_alignment);
+            info.add(info_level);
         }
 
         public void bind_character(ref CharacterSheet character)
