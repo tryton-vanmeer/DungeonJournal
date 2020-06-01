@@ -3,7 +3,9 @@ namespace DungeonJournal
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/CharacterInfoPage.ui")]
     public class CharacterInfoPage : Gtk.Box
     {
-        [GtkChild] protected Gtk.ListBox listbox_info;
+        [GtkChild] protected Gtk.ListBox info;
+
+        protected EntryRow info_name;
 
         public CharacterInfoPage()
         {
@@ -14,11 +16,14 @@ namespace DungeonJournal
 
         private void setup_view()
         {
-            listbox_info.add(new EntryRow(_("Character Name")));
+            info_name = new EntryRow(_("Character Name"));
+
+            info.add(info_name);
         }
 
         public void bind_character(ref CharacterSheet character)
         {
+            character.bind_property("name", this.info_name.entry, "text", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
             //  character.bind_property("name", this.name_character_entry.entry, "text", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
             //  character.bind_property("class", this.class_character_entry.entry, "text", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
             //  character.bind_property("race", this.race_character_entry.entry, "text", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
