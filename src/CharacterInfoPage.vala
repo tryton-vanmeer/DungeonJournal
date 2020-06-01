@@ -45,6 +45,7 @@ namespace DungeonJournal
             character.bind_property("name", this.info_name.entry, "text", BINDING_FLAGS);
             character.bind_property("class", this.info_class.entry, "text", BINDING_FLAGS);
             character.bind_property("race", this.info_class.entry, "text", BINDING_FLAGS);
+            character.bind_property("alignment", this.info_alignment.combo, "active", BINDING_FLAGS);
         }
     }
 }
