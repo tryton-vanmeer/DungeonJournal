@@ -4,7 +4,7 @@ namespace DungeonJournal
     public class ComboBoxRow: Gtk.ListBoxRow
     {
         [GtkChild] protected Gtk.Label label;
-        [GtkChild] protected Gtk.ComboBoxText combo;
+        [GtkChild] public Gtk.ComboBoxText combo;
 
         public ComboBoxRow(string label, string[] items)
         {
