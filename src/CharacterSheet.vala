@@ -100,5 +100,15 @@ namespace DungeonJournal
 
         public bool persuasion_skill_proficiency { get; set; }
         public double persuasion_skill { get; set; default=0; }
+
+        public void bind(string source_prop, GLib.Object target, string target_prop)
+        {
+            this.bind_property(
+                source_prop,
+                target,
+                target_prop,
+                BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL
+            );
+        }
     }
 }

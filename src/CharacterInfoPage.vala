@@ -63,15 +63,15 @@ namespace DungeonJournal
         public void bind_character(ref CharacterSheet character)
         {
             // Info
-            character.bind_property("name", this.info_name.entry, "text", Util.BINDING_FLAGS);
-            character.bind_property("class", this.info_class.entry, "text", Util.BINDING_FLAGS);
-            character.bind_property("race", this.race.entry, "text", Util.BINDING_FLAGS);
-            character.bind_property("alignment", this.alignment.combo, "active", Util.BINDING_FLAGS);
-            character.bind_property("level", this.level.adjustment, "value", Util.BINDING_FLAGS);
-            character.bind_property("xp", this.xp.adjustment, "value", Util.BINDING_FLAGS);
+            character.bind("name", this.info_name.entry, "text");
+            character.bind("class", this.info_class.entry, "text");
+            character.bind("race", this.race.entry, "text");
+            character.bind("alignment", this.alignment.combo, "active");
+            character.bind("level", this.level.adjustment, "value");
+            character.bind("xp", this.xp.adjustment, "value");
 
             // Stats
-            character.bind_property("proficiency_bonus", this.proficiency_bonus.adjustment, "value", Util.BINDING_FLAGS);
+            character.bind("proficiency_bonus", this.proficiency_bonus.adjustment, "value");
         }
     }
 }
