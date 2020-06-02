@@ -40,8 +40,7 @@ namespace DungeonJournal
             this.page_info = new CharacterInfoPage();
 
             this.stack.add_titled(this.page_info, "info", _("Info"));
-            this.stack.add_titled(new CharacterInfoPage(), "stats", _("Stats"));
-            this.stack.add_titled(new CharacterInfoPage(), "inventory", _("Inventory"));
+            this.stack.child_set_property(this.page_info, "icon-name", "user-info-symbolic");
         }
 
         [GtkCallback]
