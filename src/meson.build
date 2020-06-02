@@ -12,6 +12,7 @@ sources = [
   'Window.vala',
   'ShortcutsWindow.vala',
   'CharacterInfoPage.vala',
+  'CharacterSkillsPage.vala',
   'CharacterSheet.vala',
   'Util.vala',
   'widget/EntryRow.vala',

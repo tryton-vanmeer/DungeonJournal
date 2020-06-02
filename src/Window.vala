@@ -9,6 +9,7 @@ namespace DungeonJournal
         [GtkChild] private Hdy.ViewSwitcherBar bottom_switcher;
 
         private CharacterInfoPage page_info;
+        private CharacterSkillsPage page_skills;
 
         private CharacterSheet character;
         private string character_path;
@@ -38,9 +39,12 @@ namespace DungeonJournal
         private void setup_view()
         {
             this.page_info = new CharacterInfoPage();
+            this.page_skills = new CharacterSkillsPage();
 
             this.stack.add_titled(this.page_info, "info", _("Info"));
             this.stack.child_set_property(this.page_info, "icon-name", "user-info-symbolic");
+
+            this.stack.add_titled(this.page_skills, "skills", _("Skills"));
         }
 
         [GtkCallback]
@@ -93,6 +97,7 @@ namespace DungeonJournal
         private void bind_character()
         {
             this.page_info.bind_character(ref this.character);
+            this.page_skills.bind_character(ref this.character);
         }
 
         private void open_character()
