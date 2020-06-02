@@ -64,31 +64,31 @@
     <property name="default_width">800</property>
     <property name="default_height">600</property>
     <child>
-      <object class="GtkScrolledWindow">
+      <object class="GtkBox">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="hscrollbar_policy">never</property>
+        <property name="vexpand">True</property>
+        <property name="orientation">vertical</property>
         <child>
-          <object class="GtkViewport">
+          <object class="GtkScrolledWindow">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="shadow_type">none</property>
+            <property name="can_focus">True</property>
+            <property name="hscrollbar_policy">never</property>
             <child>
-              <object class="HdyColumn">
+              <object class="GtkViewport">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="margin_start">12</property>
-                <property name="margin_end">12</property>
-                <property name="margin_top">32</property>
-                <property name="margin_bottom">32</property>
-                <property name="maximum_width">600</property>
-                <property name="linear_growth_width">400</property>
+                <property name="shadow_type">none</property>
                 <child>
-                  <object class="GtkBox">
+                  <object class="HdyColumn">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="vexpand">True</property>
-                    <property name="orientation">vertical</property>
+                    <property name="margin_start">12</property>
+                    <property name="margin_end">12</property>
+                    <property name="margin_top">32</property>
+                    <property name="margin_bottom">32</property>
+                    <property name="maximum_width">600</property>
+                    <property name="linear_growth_width">400</property>
                     <child>
                       <object class="GtkStack" id="stack">
                         <property name="visible">True</property>
@@ -97,31 +97,31 @@
                           <placeholder/>
                         </child>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">0</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="HdyViewSwitcherBar" id="bottom_switcher">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="policy">auto</property>
-                        <property name="icon_size">5</property>
-                        <property name="stack">stack</property>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">1</property>
-                      </packing>
                     </child>
                   </object>
                 </child>
               </object>
             </child>
           </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="HdyViewSwitcherBar" id="bottom_switcher">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="policy">auto</property>
+            <property name="icon_size">5</property>
+            <property name="stack">stack</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
         </child>
       </object>
     </child>
