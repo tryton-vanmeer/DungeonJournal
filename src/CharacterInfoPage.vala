@@ -9,10 +9,10 @@ namespace DungeonJournal
         // Info
         protected EntryRow info_name;
         protected EntryRow info_class;
-        protected EntryRow info_race;
-        protected ComboBoxRow info_alignment;
-        protected SpinButtonRow info_level;
-        protected SpinButtonRow info_xp;
+        protected EntryRow race;
+        protected ComboBoxRow alignment;
+        protected SpinButtonRow level;
+        protected SpinButtonRow xp;
 
         // Stats
         protected SpinButtonRow proficiency_bonus;
@@ -29,7 +29,7 @@ namespace DungeonJournal
         {
             this.info_name = new EntryRow(_("Character Name"));
             this.info_class = new EntryRow(_("Class"));
-            this.info_race = new EntryRow(_("Race"));
+            this.race = new EntryRow(_("Race"));
 
             string[] alignments = {
                 _("Lawful Good"),
@@ -40,17 +40,17 @@ namespace DungeonJournal
                 _("Neutral Evil"),
                 _("Chaotic Evil")
             };
-            this.info_alignment = new ComboBoxRow(_("Alignment"), alignments);
+            this.alignment = new ComboBoxRow(_("Alignment"), alignments);
 
-            this.info_level = new SpinButtonRow(_("Level"));
-            this.info_xp = new SpinButtonRow(_("Experience Points"));
+            this.level = new SpinButtonRow(_("Level"));
+            this.xp = new SpinButtonRow(_("Experience Points"));
 
             this.info.add(info_name);
             this.info.add(info_class);
-            this.info.add(info_race);
-            this.info.add(info_alignment);
-            this.info.add(info_level);
-            this.info.add(info_xp);
+            this.info.add(race);
+            this.info.add(alignment);
+            this.info.add(level);
+            this.info.add(xp);
         }
 
         public void setup_stats()
@@ -65,10 +65,10 @@ namespace DungeonJournal
             // Info
             character.bind_property("name", this.info_name.entry, "text", Util.BINDING_FLAGS);
             character.bind_property("class", this.info_class.entry, "text", Util.BINDING_FLAGS);
-            character.bind_property("race", this.info_race.entry, "text", Util.BINDING_FLAGS);
-            character.bind_property("alignment", this.info_alignment.combo, "active", Util.BINDING_FLAGS);
-            character.bind_property("level", this.info_level.adjustment, "value", Util.BINDING_FLAGS);
-            character.bind_property("xp", this.info_xp.adjustment, "value", Util.BINDING_FLAGS);
+            character.bind_property("race", this.race.entry, "text", Util.BINDING_FLAGS);
+            character.bind_property("alignment", this.alignment.combo, "active", Util.BINDING_FLAGS);
+            character.bind_property("level", this.level.adjustment, "value", Util.BINDING_FLAGS);
+            character.bind_property("xp", this.xp.adjustment, "value", Util.BINDING_FLAGS);
 
             // Stats
             character.bind_property("proficiency_bonus", this.proficiency_bonus.adjustment, "value", Util.BINDING_FLAGS);
