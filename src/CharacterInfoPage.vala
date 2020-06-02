@@ -16,14 +16,14 @@ namespace DungeonJournal
         {
             Object();
 
-            setup_view();
+            this.setup_info();
         }
 
-        private void setup_view()
+        private void setup_info()
         {
-            info_name = new EntryRow(_("Character Name"));
-            info_class = new EntryRow(_("Class"));
-            info_race = new EntryRow(_("Race"));
+            this.info_name = new EntryRow(_("Character Name"));
+            this.info_class = new EntryRow(_("Class"));
+            this.info_race = new EntryRow(_("Race"));
 
             string[] alignments = {
                 _("Lawful Good"),
@@ -34,21 +34,22 @@ namespace DungeonJournal
                 _("Neutral Evil"),
                 _("Chaotic Evil")
             };
-            info_alignment = new ComboBoxRow(_("Alignment"), alignments);
+            this.info_alignment = new ComboBoxRow(_("Alignment"), alignments);
 
-            info_level = new SpinButtonRow(_("Level"));
-            info_xp = new SpinButtonRow(_("Experience Points"));
+            this.info_level = new SpinButtonRow(_("Level"));
+            this.info_xp = new SpinButtonRow(_("Experience Points"));
 
-            info.add(info_name);
-            info.add(info_class);
-            info.add(info_race);
-            info.add(info_alignment);
-            info.add(info_level);
-            info.add(info_xp);
+            this.info.add(info_name);
+            this.info.add(info_class);
+            this.info.add(info_race);
+            this.info.add(info_alignment);
+            this.info.add(info_level);
+            this.info.add(info_xp);
         }
 
         public void bind_character(ref CharacterSheet character)
         {
+            // Info
             character.bind_property("name", this.info_name.entry, "text", BINDING_FLAGS);
             character.bind_property("class", this.info_class.entry, "text", BINDING_FLAGS);
             character.bind_property("race", this.info_race.entry, "text", BINDING_FLAGS);
