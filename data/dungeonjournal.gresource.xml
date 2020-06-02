@@ -9,5 +9,6 @@
         <file compressed="true" preprocess="xml-stripblanks">ui/EntryRow.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/ComboBoxRow.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/SpinButtonRow.ui</file>
+        <file compressed="true" preprocess="xml-stripblanks">ui/SpinButtonCheckboxRow.ui</file>
     </gresource>
 </gresources>

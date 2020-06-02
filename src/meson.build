@@ -17,7 +17,8 @@ sources = [
   'Util.vala',
   'widget/EntryRow.vala',
   'widget/ComboBoxRow.vala',
-  'widget/SpinButtonRow.vala'
+  'widget/SpinButtonRow.vala',
+  'widget/SpinButtonCheckboxRow.vala',
 ]
 
 c_args = [
