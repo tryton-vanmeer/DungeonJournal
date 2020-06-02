@@ -16,6 +16,13 @@ namespace DungeonJournal
 
         // Stats
         protected SpinButtonRow proficiency_bonus;
+        protected SpinButtonRow armor_class;
+        protected SpinButtonRow initiative;
+        protected SpinButtonRow speed;
+        protected SpinButtonRow hp_max;
+        protected SpinButtonRow hp_current;
+        protected SpinButtonRow hp_temp;
+        protected ComboBoxRow hit_dice;
 
         public CharacterInfoPage()
         {
@@ -45,19 +52,33 @@ namespace DungeonJournal
             this.level = new SpinButtonRow(_("Level"));
             this.xp = new SpinButtonRow(_("Experience Points"));
 
-            this.info.add(info_name);
-            this.info.add(info_class);
-            this.info.add(race);
-            this.info.add(alignment);
-            this.info.add(level);
-            this.info.add(xp);
+            this.info.add(this.info_name);
+            this.info.add(this.info_class);
+            this.info.add(this.race);
+            this.info.add(this.alignment);
+            this.info.add(this.level);
+            this.info.add(this.xp);
         }
 
         public void setup_stats()
         {
             this.proficiency_bonus = new SpinButtonRow(_("Proficiency Bonus"));
+            this.armor_class = new SpinButtonRow(_("Armor Class"));
+            this.initiative = new SpinButtonRow(_("Initiative"));
+            this.speed = new SpinButtonRow(_("Speed"));
+            this.hp_max = new SpinButtonRow(_("Hit Point Maximum"));
+            this.hp_current = new SpinButtonRow(_("Current Hit Points"));
+            this.hp_temp = new SpinButtonRow(_("Temporary Hit Points"));
+            this.hit_dice = new ComboBoxRow(_("Hit Dice"), Util.ARRAY_DICE);
 
-            this.stats.add(proficiency_bonus);
+            this.stats.add(this.proficiency_bonus);
+            this.stats.add(this.armor_class);
+            this.stats.add(this.initiative);
+            this.stats.add(this.speed);
+            this.stats.add(this.hp_max);
+            this.stats.add(this.hp_current);
+            this.stats.add(this.hp_temp);
+            this.stats.add(this.hit_dice);
         }
 
         public void bind_character(ref CharacterSheet character)
