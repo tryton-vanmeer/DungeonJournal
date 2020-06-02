@@ -18,7 +18,7 @@ namespace DungeonJournal
         public double hp_max { get; set; default=0; }
         public double hp_current { get; set; default=0; }
         public double hp_temp { get; set; default=0; }
-        public string hit_dice { get; set; default=""; }
+        public int hit_dice { get; set; default=0; }
 
         // Abiltiy
         public double strength_score { get; set; default=8.0; }
