@@ -3,14 +3,37 @@ project('dungeonjournal', ['c', 'vala'],
   meson_version: '>= 0.40.0',
 )
 
-i18n = import('i18n')
 gnome = import('gnome')
+i18n = import('i18n')
+
+# Add custom VAPI dir
+add_project_arguments(
+  ['--vapidir', meson.source_root() / 'vapi'],
+  language: 'vala'
+)
+
+# Configuration
+config_h_dir = include_directories('.')
+locale_dir = get_option('prefix') / get_option('localedir')
+
+conf = configuration_data()
+conf.set_quoted('GETTEXT_PACKAGE', meson.project_name())
+conf.set_quoted('LOCALEDIR', locale_dir)
+conf.set_quoted('VERSION', meson.project_version())
+configure_file(output: 'config.h', configuration: conf)
+
+add_project_arguments(
+  '--pkg', 'config',
+  language: 'vala'
+)
 
 valac = meson.get_compiler('vala')
 cc = meson.get_compiler('c')
 
+# Post-install scripts
+meson.add_install_script('meson_post_install.py')
+
+# Subfolders
 subdir('data')
 subdir('po')
 subdir('src')
-
-meson.add_install_script('meson_post_install.py')
