@@ -12,6 +12,12 @@ add_project_arguments(
   language: 'vala'
 )
 
+# Dependencies
+add_project_arguments(
+  '--target-glib=2.50',
+  language: 'vala'
+)
+
 # Configuration
 config_h_dir = include_directories('.')
 locale_dir = get_option('prefix') / get_option('localedir')
@@ -23,7 +29,7 @@ conf.set_quoted('VERSION', meson.project_version())
 configure_file(output: 'config.h', configuration: conf)
 
 add_project_arguments(
-  '--pkg', 'config',
+  ['--pkg', 'config'],
   language: 'vala'
 )
 

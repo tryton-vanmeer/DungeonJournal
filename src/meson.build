@@ -24,16 +24,11 @@ c_args = [
   '-DLOCALEDIR="@0@"'.format(locale_dir),
 ]
 
-vala_args = [
-  '--target-glib=2.50',
-]
-
 executable(
     meson.project_name(),
     sources + resources,
     include_directories: config_h_dir,
     dependencies: deps,
-    vala_args: vala_args,
     c_args: c_args,
     install: true,
 )
