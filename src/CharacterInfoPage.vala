@@ -93,6 +93,13 @@ namespace DungeonJournal
 
             // Stats
             character.bind("proficiency_bonus", this.proficiency_bonus.adjustment, "value");
+            character.bind("armor_class", this.armor_class.adjustment, "value");
+            character.bind("initiative", this.initiative.adjustment, "value");
+            character.bind("speed", this.speed.adjustment, "value");
+            character.bind("hp_max", this.hp_max.adjustment, "value");
+            character.bind("hp_current", this.hp_current.adjustment, "value");
+            character.bind("hp_temp", this.hp_temp.adjustment, "value");
+            character.bind("hit_dice", this.hit_dice.combo, "active");
         }
     }
 }
