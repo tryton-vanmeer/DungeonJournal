@@ -1,9 +1,10 @@
 deps = [
-  dependency('gio-2.0', version: '>= 2.50'),
-  dependency('gtk+-3.0', version: '>= 3.22'),
-  dependency('json-glib-1.0', version: '>= 0.29.2'),
-  dependency('libhandy-1', version: '>= 0.80.0'),
-  cc.find_library('m'),
+  math,
+  gio,
+  glib,
+  glib_json,
+  gtk,
+  libhandy,
 ]
 
 sources = [

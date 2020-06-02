@@ -18,6 +18,14 @@ add_project_arguments(
   language: 'vala'
 )
 
+math = meson.get_compiler('c').find_library('m')
+
+gio = dependency('gio-2.0', version: '>= 2.50')
+glib = dependency('glib-2.0', version: '>= 2.50')
+glib_json = dependency('json-glib-1.0', version: '>= 0.29.2')
+gtk = dependency('gtk+-3.0', version: '>= 3.22')
+libhandy = dependency('libhandy-1', version: '>= 0.80.0')
+
 # Configuration
 config_h_dir = include_directories('.')
 locale_dir = get_option('prefix') / get_option('localedir')
