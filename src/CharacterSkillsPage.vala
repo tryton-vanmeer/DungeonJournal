@@ -5,6 +5,7 @@ namespace DungeonJournal
     {
         [GtkChild] protected Gtk.ListBox strength;
 
+        protected SpinButtonRow strength_score;
         protected SpinButtonCheckboxRow strength_save;
         protected SpinButtonCheckboxRow athletics;
 
@@ -17,11 +18,13 @@ namespace DungeonJournal
 
         private void setup_view()
         {
+            this.strength_score = new SpinButtonRow.with_ability_score_label();
             this.strength_save = new SpinButtonCheckboxRow(_("Saving Throws"));
             this.athletics = new SpinButtonCheckboxRow(_("Athletics"));
 
-            this.strength.add(strength_save);
-            this.strength.add(athletics);
+            this.strength.add(this.strength_score);
+            this.strength.add(this.strength_save);
+            this.strength.add(this.athletics);
         }
 
         public void bind_character(ref CharacterSheet character)
