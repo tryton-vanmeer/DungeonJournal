@@ -60,6 +60,9 @@
                     "type": "git",
                     "url": "file:///home/tryton-vanmeer/Code/DungeonJournal"
                 }
+            ],
+            "config-opts": [
+                "-Dprofile=development"
             ]
         }
     ]

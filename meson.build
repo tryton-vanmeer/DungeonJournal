@@ -1,6 +1,6 @@
 project('dungeonjournal', ['c', 'vala'],
         version: '0.6.0',
-  meson_version: '>= 0.40.0',
+  meson_version: '>= 0.49.0',
 )
 
 gnome = import('gnome')
@@ -11,6 +11,14 @@ add_project_arguments(
   ['--vapidir', meson.source_root() / 'vapi'],
   language: 'vala'
 )
+
+# Application ID
+if get_option('profile') == 'development'
+  app_id = 'io.github.trytonvanmeer.DungeonJournal.Devel'
+else
+  app_id = 'io.github.trytonvanmeer.DungeonJournal'
+endif
+
 
 # Dependencies
 add_project_arguments(
@@ -31,9 +39,11 @@ config_h_dir = include_directories('.')
 locale_dir = get_option('prefix') / get_option('localedir')
 
 conf = configuration_data()
+conf.set_quoted('APP_ID', app_id)
+conf.set_quoted('PROFILE', get_option('profile'))
+conf.set_quoted('VERSION', meson.project_version())
 conf.set_quoted('GETTEXT_PACKAGE', meson.project_name())
 conf.set_quoted('LOCALEDIR', locale_dir)
-conf.set_quoted('VERSION', meson.project_version())
 configure_file(output: 'config.h', configuration: conf)
 
 add_project_arguments(

@@ -7,7 +7,7 @@ namespace DungeonJournal
         public App()
         {
             Object(
-                application_id: "io.github.trytonvanmeer.DungeonJournal",
+                application_id: Config.APP_ID,
                 flags: ApplicationFlags.FLAGS_NONE
             );
         }
@@ -71,7 +71,7 @@ namespace DungeonJournal
             Gtk.show_about_dialog
             (
                 window,
-                logo_icon_name: "io.github.trytonvanmeer.DungeonJournal",
+                logo_icon_name: Config.APP_ID,
                 program_name: "Dungeon Journal",
                 comments: _("Create Characters"),
                 copyright: "© 2019 Tryton Van Meer",
