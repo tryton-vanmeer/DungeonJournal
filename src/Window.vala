@@ -4,6 +4,9 @@ namespace DungeonJournal
     public class Window : Gtk.ApplicationWindow
     {
         [GtkChild] private Gtk.Stack stack;
+        [GtkChild] private Hdy.Squeezer squeezer;
+        [GtkChild] private Hdy.ViewSwitcher headerbar_switcher;
+        [GtkChild] private Hdy.ViewSwitcherBar bottom_switcher;
 
         private CharacterInfoPage page_info;
 
@@ -36,7 +39,15 @@ namespace DungeonJournal
         {
             this.page_info = new CharacterInfoPage();
 
-            this.stack.add_named(this.page_info, "info");
+            this.stack.add_titled(this.page_info, "info", _("Info"));
+            this.stack.add_titled(new CharacterInfoPage(), "stats", _("Stats"));
+            this.stack.add_titled(new CharacterInfoPage(), "inventory", _("Inventory"));
+        }
+
+        [GtkCallback]
+        public void on_headerbar_squeezer_notify()
+        {
+            this.bottom_switcher.reveal = this.squeezer.visible_child != this.headerbar_switcher;
         }
 
         public void on_open()
