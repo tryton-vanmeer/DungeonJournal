@@ -4,6 +4,7 @@ deps = [
   glib,
   glib_json,
   gtk,
+  gee,
   libhandy,
 ]
 
