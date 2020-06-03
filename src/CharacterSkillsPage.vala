@@ -29,7 +29,12 @@ namespace DungeonJournal
 
         public void bind_character(ref CharacterSheet character)
         {
+            character.bind("strength_score", this.strength_score.adjustment, "value");
+            character.bind("strength_save_proficiency", this.strength_save.checkbox, "active");
+            character.bind("strength_save", this.strength_save.adjustment, "value");
 
+            character.bind("athletics_skill_proficiency", this.athletics.checkbox, "active");
+            character.bind("athletics_skill", this.athletics.adjustment, "value");
         }
     }
 }
