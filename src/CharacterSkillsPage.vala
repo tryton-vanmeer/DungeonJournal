@@ -31,7 +31,7 @@ namespace DungeonJournal
         protected SpinButtonCheckboxRow charisma_save;
 
         protected HashMap<Ability, Gtk.ListBox> abilities;
-        protected HashMap<Ability, ArrayList<Gtk.ListBoxRow>> skills;
+        protected ArrayList<Gtk.ListBoxRow> skills;
 
         public CharacterSkillsPage()
         {
@@ -46,14 +46,7 @@ namespace DungeonJournal
             this.abilities.set(Ability.WISDOM, this.wisdom);
             this.abilities.set(Ability.CHARISMA, this.charisma);
 
-            this.skills = new Gee.HashMap<Ability, ArrayList<Gtk.ListBoxRow>>();
-
-            this.skills.set(Ability.STRENGTH, new ArrayList<Gtk.ListBoxRow>());
-            this.skills.set(Ability.DEXTERITY, new ArrayList<Gtk.ListBoxRow>());
-            this.skills.set(Ability.CONSTITUTION, new ArrayList<Gtk.ListBoxRow>());
-            this.skills.set(Ability.INTELLIGENCE, new ArrayList<Gtk.ListBoxRow>());
-            this.skills.set(Ability.WISDOM, new ArrayList<Gtk.ListBoxRow>());
-            this.skills.set(Ability.CHARISMA, new ArrayList<Gtk.ListBoxRow>());
+            this.skills = new ArrayList<Gtk.ListBoxRow>();
 
             this.setup_view();
         }
@@ -140,7 +133,7 @@ namespace DungeonJournal
             skill_row.set_name(skill);
 
             this.abilities.get(ability).add(skill_row);
-            this.skills.get(ability).add(skill_row);
+            this.skills.add(skill_row);
         }
 
         public void bind_character(ref CharacterSheet character)
