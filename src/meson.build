@@ -20,6 +20,7 @@ sources = [
   'widget/ComboBoxRow.vala',
   'widget/SpinButtonRow.vala',
   'widget/SpinButtonCheckboxRow.vala',
+  'widget/SeparatorRow.vala',
   'widget/CharacterFeatRow.vala',
 ]
 
