@@ -55,10 +55,15 @@ namespace DungeonJournal
             this.xp = new SpinButtonRow(_("Experience Points"));
 
             this.info.add(this.info_name);
+            this.info.add(new SeparatorRow());
             this.info.add(this.info_class);
+            this.info.add(new SeparatorRow());
             this.info.add(this.race);
+            this.info.add(new SeparatorRow());
             this.info.add(this.alignment);
+            this.info.add(new SeparatorRow());
             this.info.add(this.level);
+            this.info.add(new SeparatorRow());
             this.info.add(this.xp);
         }
 
@@ -74,12 +79,19 @@ namespace DungeonJournal
             this.hit_dice = new ComboBoxRow(_("Hit Dice"), Util.ARRAY_DICE);
 
             this.stats.add(this.proficiency_bonus);
+            this.stats.add(new SeparatorRow());
             this.stats.add(this.armor_class);
+            this.stats.add(new SeparatorRow());
             this.stats.add(this.initiative);
+            this.stats.add(new SeparatorRow());
             this.stats.add(this.speed);
+            this.stats.add(new SeparatorRow());
             this.stats.add(this.hp_max);
+            this.stats.add(new SeparatorRow());
             this.stats.add(this.hp_current);
+            this.stats.add(new SeparatorRow());
             this.stats.add(this.hp_temp);
+            this.stats.add(new SeparatorRow());
             this.stats.add(this.hit_dice);
         }
 
