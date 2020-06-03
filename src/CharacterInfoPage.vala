@@ -5,6 +5,7 @@ namespace DungeonJournal
     {
         [GtkChild] protected Gtk.ListBox info;
         [GtkChild] protected Gtk.ListBox stats;
+        [GtkChild] protected Gtk.ListBox feats;
 
         // Info
         protected EntryRow info_name;
