@@ -4,11 +4,25 @@ namespace DungeonJournal
     public class ComboBoxRow: Gtk.ListBoxRow
     {
         [GtkChild] protected Gtk.Label label;
-        [GtkChild] public Gtk.ComboBoxText combo;
+        [GtkChild] protected Gtk.ComboBoxText combo;
+
+        public int active
+        {
+            get
+            {
+                return this.combo.active;
+            }
+
+            set
+            {
+                this.combo.set_active(value);
+            }
+        }
 
         public ComboBoxRow(string label, string[] items)
         {
             Object();
+            this.connect_signals();
 
             this.label.label = label;
 
@@ -16,6 +30,13 @@ namespace DungeonJournal
             {
                 this.combo.append_text(items[i]);
             }
+        }
+
+        private void connect_signals()
+        {
+            this.combo.changed.connect(() => {
+                this.notify_property("active");
+            });
         }
     }
 }

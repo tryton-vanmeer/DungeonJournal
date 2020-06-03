@@ -4,11 +4,25 @@ namespace DungeonJournal
     public class SpinButtonRow: Gtk.ListBoxRow
     {
         [GtkChild] protected Gtk.Label label;
-        [GtkChild] public Gtk.Adjustment adjustment;
+        [GtkChild] protected Gtk.Adjustment adjustment;
+
+        public double value
+        {
+            get
+            {
+                return this.adjustment.value;
+            }
+
+            set
+            {
+                this.adjustment.set_value(value);
+            }
+        }
 
         public SpinButtonRow(string label)
         {
             Object();
+            this.connect_signals();
 
             this.label.label = label;
         }
@@ -16,12 +30,20 @@ namespace DungeonJournal
         public SpinButtonRow.with_ability_score_label()
         {
             Object();
+            this.connect_signals();
 
             this.set_label_to_ability_modifier();
 
             this.adjustment.value_changed.connect(
                 this.set_label_to_ability_modifier
             );
+        }
+
+        private void connect_signals()
+        {
+            this.adjustment.value_changed.connect(() => {
+                this.notify_property("value");
+            });
         }
 
         private void set_label_to_ability_modifier()
