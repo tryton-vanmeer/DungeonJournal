@@ -20,6 +20,7 @@ sources = [
   'widget/ComboBoxRow.vala',
   'widget/SpinButtonRow.vala',
   'widget/SpinButtonCheckboxRow.vala',
+  'widget/CharacterFeatRow.vala',
 ]
 
 c_args = [
