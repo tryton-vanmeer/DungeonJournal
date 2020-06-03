@@ -34,6 +34,11 @@ namespace DungeonJournal
 
         private void connect_signals()
         {
+            this.combo.scroll_event.connect(() => {
+                GLib.Signal.stop_emission_by_name(this.combo, "scroll-event");
+                return false;
+            });
+
             this.combo.changed.connect(() => {
                 this.notify_property("active");
             });

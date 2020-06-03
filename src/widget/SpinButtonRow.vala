@@ -4,6 +4,7 @@ namespace DungeonJournal
     public class SpinButtonRow: Gtk.ListBoxRow
     {
         [GtkChild] protected Gtk.Label label;
+        [GtkChild] protected Gtk.SpinButton spinbutton;
         [GtkChild] protected Gtk.Adjustment adjustment;
 
         public double value
@@ -41,6 +42,11 @@ namespace DungeonJournal
 
         private void connect_signals()
         {
+            this.spinbutton.scroll_event.connect(() => {
+                GLib.Signal.stop_emission_by_name(this.spinbutton, "scroll-event");
+                return false;
+            });
+
             this.adjustment.value_changed.connect(() => {
                 this.notify_property("value");
             });
