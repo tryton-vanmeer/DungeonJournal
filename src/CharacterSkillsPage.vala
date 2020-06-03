@@ -12,7 +12,6 @@ namespace DungeonJournal
 
         protected SpinButtonRow strength_score;
         protected SpinButtonCheckboxRow strength_save;
-        protected SpinButtonCheckboxRow athletics;
 
         protected SpinButtonRow dexterity_score;
         protected SpinButtonCheckboxRow dexterity_save;
@@ -41,12 +40,8 @@ namespace DungeonJournal
             this.strength_score = new SpinButtonRow.with_ability_score_label();
             this.strength_save = new SpinButtonCheckboxRow(_("Saving Throws"));
 
-            this.athletics = new SpinButtonCheckboxRow(_("Athletics"));
-
             this.strength.add(this.strength_score);
             this.strength.add(this.strength_save);
-
-            this.strength.add(this.athletics);
 
             this.dexterity_score = new SpinButtonRow.with_ability_score_label();
             this.dexterity_save = new SpinButtonCheckboxRow(_("Saving Throws"));
@@ -84,9 +79,6 @@ namespace DungeonJournal
             character.bind("strength_score", this.strength_score, "value");
             character.bind("strength_save_proficiency", this.strength_save, "active");
             character.bind("strength_save", this.strength_save, "value");
-
-            character.bind("athletics_skill_proficiency", this.athletics, "active");
-            character.bind("athletics_skill", this.athletics, "value");
 
             character.bind("dexterity_score", this.dexterity_score, "value");
             character.bind("dexterity_save_proficiency", this.dexterity_save, "active");
