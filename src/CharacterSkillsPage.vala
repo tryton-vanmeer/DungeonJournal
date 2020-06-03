@@ -109,29 +109,29 @@ namespace DungeonJournal
             this.add_skill_row(Ability.STRENGTH, "athletics", _("Athletics"));
 
             // dexterity
-            // acrobatics
-            // sleight_of_hand
-            // stealth
+            this.add_skill_row(Ability.DEXTERITY, "acrobatics", _("Acrobatics"));
+            this.add_skill_row(Ability.DEXTERITY, "sleight_of_hand", _("Sleight of Hand"));
+            this.add_skill_row(Ability.DEXTERITY, "stealth", _("Stealth"));
 
             // intelligence
-            // arcana
-            // history
-            // investigation
-            // nature
-            // religion
+            this.add_skill_row(Ability.INTELLIGENCE, "arcana", _("Arcana"));
+            this.add_skill_row(Ability.INTELLIGENCE, "history", _("History"));
+            this.add_skill_row(Ability.INTELLIGENCE, "investigation", _("Investigation"));
+            this.add_skill_row(Ability.INTELLIGENCE, "nature", _("Nature"));
+            this.add_skill_row(Ability.INTELLIGENCE, "religion", _("Religion"));
 
             // wisdom
-            // animal_handling
-            // insight
-            // medicine
-            // perception
-            // survival
+            this.add_skill_row(Ability.WISDOM, "animal_handling", _("Animal Handling"));
+            this.add_skill_row(Ability.WISDOM, "insight", _("Insight"));
+            this.add_skill_row(Ability.WISDOM, "medicine", _("Medicine"));
+            this.add_skill_row(Ability.WISDOM, "perception", _("Perception"));
+            this.add_skill_row(Ability.WISDOM, "survival", _("Survival"));
 
             // charisma
-            // deception
-            // intimidation
-            // performance
-            // persuasion
+            this.add_skill_row(Ability.CHARISMA, "deception", _("Deception"));
+            this.add_skill_row(Ability.CHARISMA, "intimidation", _("Intimidation"));
+            this.add_skill_row(Ability.CHARISMA, "performance", _("Performance"));
+            this.add_skill_row(Ability.CHARISMA, "persuasion", _("Persuasion"));
         }
 
         private void add_skill_row(Ability ability, string skill, string label)
