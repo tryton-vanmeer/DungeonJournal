@@ -70,23 +70,11 @@
         <property name="vexpand">True</property>
         <property name="orientation">vertical</property>
         <child>
-          <object class="HdyColumn">
+          <object class="GtkStack" id="stack">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="margin_start">12</property>
-            <property name="margin_end">12</property>
-            <property name="margin_top">32</property>
-            <property name="margin_bottom">32</property>
-            <property name="maximum_width">600</property>
-            <property name="linear_growth_width">400</property>
             <child>
-              <object class="GtkStack" id="stack">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <child>
-                  <placeholder/>
-                </child>
-              </object>
+              <placeholder/>
             </child>
           </object>
           <packing>
