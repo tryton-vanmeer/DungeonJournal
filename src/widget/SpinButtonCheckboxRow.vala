@@ -5,6 +5,7 @@ namespace DungeonJournal
     {
         [GtkChild] protected Gtk.Label label;
         [GtkChild] public Gtk.Adjustment adjustment;
+        [GtkChild] public Gtk.CheckButton checkbox;
 
         public SpinButtonCheckboxRow(string label)
         {
