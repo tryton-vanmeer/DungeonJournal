@@ -109,7 +109,8 @@ namespace DungeonJournal
         {
             if (row == this.feats_add_row)
             {
-                this.feats.prepend(new CharacterFeatRow());
+                var pos = (int) this.feats.get_children().length() - 1;
+                this.feats.insert(new CharacterFeatRow(), pos);
             }
         }
     }
