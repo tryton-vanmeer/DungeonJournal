@@ -110,41 +110,46 @@ namespace DungeonJournal
         private void setup_view_skills()
         {
             // strength
-            this.add_skill_row(Ability.STRENGTH, "athletics", _("Athletics"));
+            this.add_skill_row(Ability.STRENGTH, "athletics", _("Athletics"), false);
 
             // dexterity
             this.add_skill_row(Ability.DEXTERITY, "acrobatics", _("Acrobatics"));
             this.add_skill_row(Ability.DEXTERITY, "sleight_of_hand", _("Sleight of Hand"));
-            this.add_skill_row(Ability.DEXTERITY, "stealth", _("Stealth"));
+            this.add_skill_row(Ability.DEXTERITY, "stealth", _("Stealth"), false);
 
             // intelligence
             this.add_skill_row(Ability.INTELLIGENCE, "arcana", _("Arcana"));
             this.add_skill_row(Ability.INTELLIGENCE, "history", _("History"));
             this.add_skill_row(Ability.INTELLIGENCE, "investigation", _("Investigation"));
             this.add_skill_row(Ability.INTELLIGENCE, "nature", _("Nature"));
-            this.add_skill_row(Ability.INTELLIGENCE, "religion", _("Religion"));
+            this.add_skill_row(Ability.INTELLIGENCE, "religion", _("Religion"), false);
 
             // wisdom
             this.add_skill_row(Ability.WISDOM, "animal_handling", _("Animal Handling"));
             this.add_skill_row(Ability.WISDOM, "insight", _("Insight"));
             this.add_skill_row(Ability.WISDOM, "medicine", _("Medicine"));
             this.add_skill_row(Ability.WISDOM, "perception", _("Perception"));
-            this.add_skill_row(Ability.WISDOM, "survival", _("Survival"));
+            this.add_skill_row(Ability.WISDOM, "survival", _("Survival"), false);
 
             // charisma
             this.add_skill_row(Ability.CHARISMA, "deception", _("Deception"));
             this.add_skill_row(Ability.CHARISMA, "intimidation", _("Intimidation"));
             this.add_skill_row(Ability.CHARISMA, "performance", _("Performance"));
-            this.add_skill_row(Ability.CHARISMA, "persuasion", _("Persuasion"));
+            this.add_skill_row(Ability.CHARISMA, "persuasion", _("Persuasion"), false);
         }
 
-        private void add_skill_row(Ability ability, string skill, string label)
+        private void add_skill_row(Ability ability, string skill, string label, bool separator=true)
         {
             var skill_row = new SpinButtonCheckboxRow(label);
             skill_row.set_name(skill);
 
             this.abilities.get(ability).add(skill_row);
             this.skills.add(skill_row);
+
+            if (separator)
+            {
+                this.abilities.get(ability).add(new SeparatorRow());
+            }
         }
 
         public void bind_character(ref CharacterSheet character)
