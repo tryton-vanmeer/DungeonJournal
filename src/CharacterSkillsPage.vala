@@ -1,3 +1,5 @@
+using Gee;
+
 namespace DungeonJournal
 {
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/CharacterSkillsPage.ui")]
@@ -28,11 +30,30 @@ namespace DungeonJournal
         protected SpinButtonRow charisma_score;
         protected SpinButtonCheckboxRow charisma_save;
 
-        protected Gee.HashMap<string, List<Gtk.ListBoxRow>> skills;
+        protected HashMap<Ability, Gtk.ListBox> abilities;
+        protected HashMap<Ability, ArrayList<Gtk.ListBoxRow>> skills;
 
         public CharacterSkillsPage()
         {
             Object();
+
+            this.abilities = new HashMap<Ability, Gtk.ListBox>();
+
+            this.abilities.set(Ability.STRENGTH, this.strength);
+            this.abilities.set(Ability.DEXTERITY, this.dexterity);
+            this.abilities.set(Ability.CONSTITUTION, this.constitution);
+            this.abilities.set(Ability.INTELLIGENCE, this.intelligence);
+            this.abilities.set(Ability.WISDOM, this.wisdom);
+            this.abilities.set(Ability.CHARISMA, this.charisma);
+
+            this.skills = new Gee.HashMap<Ability, ArrayList<Gtk.ListBoxRow>>();
+
+            this.skills.set(Ability.STRENGTH, new ArrayList<Gtk.ListBoxRow>());
+            this.skills.set(Ability.DEXTERITY, new ArrayList<Gtk.ListBoxRow>());
+            this.skills.set(Ability.CONSTITUTION, new ArrayList<Gtk.ListBoxRow>());
+            this.skills.set(Ability.INTELLIGENCE, new ArrayList<Gtk.ListBoxRow>());
+            this.skills.set(Ability.WISDOM, new ArrayList<Gtk.ListBoxRow>());
+            this.skills.set(Ability.CHARISMA, new ArrayList<Gtk.ListBoxRow>());
 
             this.setup_view();
         }
