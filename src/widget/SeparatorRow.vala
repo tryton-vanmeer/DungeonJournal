@@ -9,6 +9,7 @@ namespace DungeonJournal
             Object();
 
             this.set_activatable(false);
+            this.set_can_focus(false);
 
             this.separator = new Gtk.Separator(Gtk.Orientation.HORIZONTAL);
             this.add(separator);
