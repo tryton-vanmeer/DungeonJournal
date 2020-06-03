@@ -84,22 +84,22 @@ namespace DungeonJournal
         public void bind_character(ref CharacterSheet character)
         {
             // Info
-            character.bind("name", this.info_name.entry, "text");
-            character.bind("class", this.info_class.entry, "text");
-            character.bind("race", this.race.entry, "text");
-            character.bind("alignment", this.alignment.combo, "active");
-            character.bind("level", this.level.adjustment, "value");
-            character.bind("xp", this.xp.adjustment, "value");
+            character.bind("name", this.info_name, "text");
+            character.bind("class", this.info_class, "text");
+            character.bind("race", this.race, "text");
+            character.bind("alignment", this.alignment, "active");
+            character.bind("level", this.level, "value");
+            character.bind("xp", this.xp, "value");
 
             // Stats
-            character.bind("proficiency_bonus", this.proficiency_bonus.adjustment, "value");
-            character.bind("armor_class", this.armor_class.adjustment, "value");
-            character.bind("initiative", this.initiative.adjustment, "value");
-            character.bind("speed", this.speed.adjustment, "value");
-            character.bind("hp_max", this.hp_max.adjustment, "value");
-            character.bind("hp_current", this.hp_current.adjustment, "value");
-            character.bind("hp_temp", this.hp_temp.adjustment, "value");
-            character.bind("hit_dice", this.hit_dice.combo, "active");
+            character.bind("proficiency_bonus", this.proficiency_bonus, "value");
+            character.bind("armor_class", this.armor_class, "value");
+            character.bind("initiative", this.initiative, "value");
+            character.bind("speed", this.speed, "value");
+            character.bind("hp_max", this.hp_max, "value");
+            character.bind("hp_current", this.hp_current, "value");
+            character.bind("hp_temp", this.hp_temp, "value");
+            character.bind("hit_dice", this.hit_dice, "active");
         }
     }
 }
