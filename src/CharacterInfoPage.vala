@@ -109,24 +109,10 @@ namespace DungeonJournal
         {
             if (row == this.feats_add_row)
             {
-                var pos = (int) this.feats.get_children().length();
-
-                if (pos != 1)
-                {
-                    var row_sep = new Gtk.ListBoxRow();
-                    row_sep.set_activatable(false);
-                    row_sep.add(new Gtk.Separator(Gtk.Orientation.HORIZONTAL));
-                    row_sep.show_all();
-
-                    this.feats.insert(row_sep, pos - 1);
-                }
-                else
-                {
-                    pos--;
-                }
+                var pos = (int) this.feats.get_children().length() - 1;
 
                 this.feats.insert(new CharacterFeatRow(), pos);
-
+                this.feats.insert(new SeparatorRow(), pos + 1);
             }
         }
     }
