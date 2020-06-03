@@ -6,6 +6,7 @@ namespace DungeonJournal
         [GtkChild] protected Gtk.ListBox info;
         [GtkChild] protected Gtk.ListBox stats;
         [GtkChild] protected Gtk.ListBox feats;
+        [GtkChild] protected Gtk.ListBoxRow feats_add_row;
 
         // Info
         protected EntryRow info_name;
@@ -101,6 +102,15 @@ namespace DungeonJournal
             character.bind("hp_current", this.hp_current, "value");
             character.bind("hp_temp", this.hp_temp, "value");
             character.bind("hit_dice", this.hit_dice, "active");
+        }
+
+        [GtkCallback]
+        public void on_feats_add_row_clicked(Gtk.ListBoxRow row)
+        {
+            if (row == this.feats_add_row)
+            {
+                // Add Feat Row
+            }
         }
     }
 }
