@@ -38,6 +38,8 @@ namespace DungeonJournal
             Object();
             this.connect_signals();
 
+            this.adjustment.set_lower(-5);
+
             this.label.label = label;
         }
 
