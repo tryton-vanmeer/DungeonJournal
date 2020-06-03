@@ -28,6 +28,8 @@ namespace DungeonJournal
         protected SpinButtonRow charisma_score;
         protected SpinButtonCheckboxRow charisma_save;
 
+        protected Gee.HashMap<string, List<Gtk.ListBoxRow>> skills;
+
         public CharacterSkillsPage()
         {
             Object();
@@ -36,6 +38,12 @@ namespace DungeonJournal
         }
 
         private void setup_view()
+        {
+            this.setup_view_abilities();
+            this.setup_view_skills();
+        }
+
+        private void setup_view_abilities()
         {
             this.strength_score = new SpinButtonRow.with_ability_score_label();
             this.strength_save = new SpinButtonCheckboxRow(_("Saving Throws"));
@@ -72,6 +80,11 @@ namespace DungeonJournal
 
             this.charisma.add(this.charisma_score);
             this.charisma.add(this.charisma_save);
+        }
+
+        private void setup_view_skills()
+        {
+
         }
 
         public void bind_character(ref CharacterSheet character)
