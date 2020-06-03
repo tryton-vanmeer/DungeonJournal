@@ -105,7 +105,42 @@ namespace DungeonJournal
 
         private void setup_view_skills()
         {
+            // strength
+            this.add_skill_row(Ability.STRENGTH, "athletics", _("Athletics"));
 
+            // dexterity
+            // acrobatics
+            // sleight_of_hand
+            // stealth
+
+            // intelligence
+            // arcana
+            // history
+            // investigation
+            // nature
+            // religion
+
+            // wisdom
+            // animal_handling
+            // insight
+            // medicine
+            // perception
+            // survival
+
+            // charisma
+            // deception
+            // intimidation
+            // performance
+            // persuasion
+        }
+
+        private void add_skill_row(Ability ability, string skill, string label)
+        {
+            var skill_row = new SpinButtonCheckboxRow(label);
+            skill_row.set_name(skill);
+
+            this.abilities.get(ability).add(skill_row);
+            this.skills.get(ability).add(skill_row);
         }
 
         public void bind_character(ref CharacterSheet character)
