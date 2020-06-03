@@ -161,6 +161,14 @@ namespace DungeonJournal
             character.bind("charisma_score", this.charisma_score, "value");
             character.bind("charisma_save_proficiency", this.charisma_save, "active");
             character.bind("charisma_save", this.charisma_save, "value");
+
+            foreach (Gtk.ListBoxRow row in this.skills)
+            {
+                var name = row.get_name();
+
+                character.bind(@"$(name)_skill_proficiency", row, "active");
+                character.bind(@"$(name)_skill", row, "value");
+            }
         }
     }
 }
