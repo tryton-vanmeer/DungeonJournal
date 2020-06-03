@@ -63,37 +63,48 @@ namespace DungeonJournal
             this.strength_save = new SpinButtonCheckboxRow(_("Saving Throws"));
 
             this.strength.add(this.strength_score);
+            this.strength.add(new SeparatorRow());
             this.strength.add(this.strength_save);
+            this.strength.add(new SeparatorRow());
 
             this.dexterity_score = new SpinButtonRow.with_ability_score_label();
             this.dexterity_save = new SpinButtonCheckboxRow(_("Saving Throws"));
 
             this.dexterity.add(this.dexterity_score);
+            this.dexterity.add(new SeparatorRow());
             this.dexterity.add(this.dexterity_save);
+            this.dexterity.add(new SeparatorRow());
 
             this.constitution_score = new SpinButtonRow.with_ability_score_label();
             this.constitution_save = new SpinButtonCheckboxRow(_("Saving Throws"));
 
             this.constitution.add(this.constitution_score);
+            this.constitution.add(new SeparatorRow());
             this.constitution.add(this.constitution_save);
 
             this.intelligence_score = new SpinButtonRow.with_ability_score_label();
             this.intelligence_save = new SpinButtonCheckboxRow(_("Saving Throws"));
 
             this.intelligence.add(this.intelligence_score);
+            this.intelligence.add(new SeparatorRow());
             this.intelligence.add(this.intelligence_save);
+            this.intelligence.add(new SeparatorRow());
 
             this.wisdom_score = new SpinButtonRow.with_ability_score_label();
             this.wisdom_save = new SpinButtonCheckboxRow(_("Saving Throws"));
 
             this.wisdom.add(this.wisdom_score);
+            this.wisdom.add(new SeparatorRow());
             this.wisdom.add(this.wisdom_save);
+            this.wisdom.add(new SeparatorRow());
 
             this.charisma_score = new SpinButtonRow.with_ability_score_label();
             this.charisma_save = new SpinButtonCheckboxRow(_("Saving Throws"));
 
             this.charisma.add(this.charisma_score);
+            this.charisma.add(new SeparatorRow());
             this.charisma.add(this.charisma_save);
+            this.charisma.add(new SeparatorRow());
         }
 
         private void setup_view_skills()
