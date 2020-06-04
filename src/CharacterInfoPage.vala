@@ -1,3 +1,5 @@
+using Gee;
+
 namespace DungeonJournal
 {
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/CharacterInfoPage.ui")]
@@ -5,7 +7,7 @@ namespace DungeonJournal
     {
         [GtkChild] protected Gtk.ListBox info;
         [GtkChild] protected Gtk.ListBox stats;
-        [GtkChild] protected Gtk.ListBox feats;
+        [GtkChild] protected Gtk.ListBox feats_listbox;
         [GtkChild] protected Gtk.ListBoxRow feats_add_row;
 
         // Info
@@ -26,12 +28,16 @@ namespace DungeonJournal
         protected SpinButtonRow hp_temp;
         protected ComboBoxRow hit_dice;
 
+        // Feats
+        protected ArrayList<string> feats;
+
         public CharacterInfoPage()
         {
             Object();
 
             this.setup_info();
             this.setup_stats();
+            this.setup_feats();
         }
 
         private void setup_info()
@@ -95,6 +101,11 @@ namespace DungeonJournal
             this.stats.add(this.hit_dice);
         }
 
+        private void setup_feats()
+        {
+            this.feats = new ArrayList<string>();
+        }
+
         public void bind_character(ref CharacterSheet character)
         {
             // Info
@@ -121,10 +132,10 @@ namespace DungeonJournal
         {
             if (row == this.feats_add_row)
             {
-                var pos = (int) this.feats.get_children().length() - 1;
+                var pos = (int) this.feats_listbox.get_children().length() - 1;
 
-                this.feats.insert(new CharacterFeatRow(), pos);
-                this.feats.insert(new SeparatorRow(), pos + 1);
+                this.feats_listbox.insert(new CharacterFeatRow(), pos);
+                this.feats_listbox.insert(new SeparatorRow(), pos + 1);
             }
         }
     }
