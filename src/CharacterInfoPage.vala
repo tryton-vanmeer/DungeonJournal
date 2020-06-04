@@ -29,7 +29,7 @@ namespace DungeonJournal
         protected ComboBoxRow hit_dice;
 
         // Feats
-        protected ArrayList<string> feats;
+        protected ArrayList<CharacterFeat> feats;
 
         public CharacterInfoPage()
         {
@@ -103,7 +103,7 @@ namespace DungeonJournal
 
         private void setup_feats()
         {
-            this.feats = new ArrayList<string>();
+            this.feats = new ArrayList<CharacterFeat>();
         }
 
         public void bind_character(ref CharacterSheet character)

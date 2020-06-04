@@ -15,6 +15,7 @@ sources = [
   'CharacterInfoPage.vala',
   'CharacterSkillsPage.vala',
   'CharacterSheet.vala',
+  'CharacterFeat.vala',
   'Util.vala',
   'widget/EntryRow.vala',
   'widget/ComboBoxRow.vala',
