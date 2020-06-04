@@ -128,6 +128,18 @@ namespace DungeonJournal
 
             // Feats
             character.bind("feats", this, "feats");
+
+            foreach (var feat in this.feats)
+            {
+                add_feats_row(ref feat);
+            }
+        }
+
+        public void add_feats_row(ref CharacterFeat feat)
+        {
+            var pos = (int) this.feats_listbox.get_children().length() - 1;
+            this.feats_listbox.insert(new CharacterFeatRow(ref feat), pos);
+            this.feats_listbox.insert(new SeparatorRow(), pos + 1);
         }
 
         [GtkCallback]
@@ -135,14 +147,10 @@ namespace DungeonJournal
         {
             if (row == this.feats_add_row)
             {
-                var pos = (int) this.feats_listbox.get_children().length() - 1;
-
                 var feat = new CharacterFeat();
-
                 this.feats.add(feat);
 
-                this.feats_listbox.insert(new CharacterFeatRow(ref feat), pos);
-                this.feats_listbox.insert(new SeparatorRow(), pos + 1);
+                this.add_feats_row(ref feat);
             }
         }
     }
