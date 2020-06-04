@@ -29,7 +29,7 @@ namespace DungeonJournal
         protected ComboBoxRow hit_dice;
 
         // Feats
-        protected ArrayList<CharacterFeat> feats;
+        protected ArrayList<CharacterFeat> feats { get; set; }
 
         public CharacterInfoPage()
         {
