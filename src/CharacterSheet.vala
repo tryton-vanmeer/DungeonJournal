@@ -1,3 +1,5 @@
+using Gee;
+
 namespace DungeonJournal
 {
     public class CharacterSheet : Object
@@ -100,6 +102,16 @@ namespace DungeonJournal
 
         public bool persuasion_skill_proficiency { get; set; }
         public double persuasion_skill { get; set; default=0; }
+
+        // Feats
+        public ArrayList<CharacterFeat> feats { get; set; }
+
+        public CharacterSheet()
+        {
+            Object();
+
+            this.feats = new ArrayList<CharacterFeat>();
+        }
 
         public void bind(string source_prop, GLib.Object target, string target_prop)
         {
