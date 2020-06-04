@@ -125,6 +125,9 @@ namespace DungeonJournal
             character.bind("hp_current", this.hp_current, "value");
             character.bind("hp_temp", this.hp_temp, "value");
             character.bind("hit_dice", this.hit_dice, "active");
+
+            // Feats
+            character.bind("feats", this, "feats");
         }
 
         [GtkCallback]
@@ -134,7 +137,11 @@ namespace DungeonJournal
             {
                 var pos = (int) this.feats_listbox.get_children().length() - 1;
 
-                this.feats_listbox.insert(new CharacterFeatRow(), pos);
+                var feat = new CharacterFeat();
+
+                this.feats.add(feat);
+
+                this.feats_listbox.insert(new CharacterFeatRow(ref feat), pos);
                 this.feats_listbox.insert(new SeparatorRow(), pos + 1);
             }
         }
