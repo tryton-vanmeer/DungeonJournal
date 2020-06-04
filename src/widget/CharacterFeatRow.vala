@@ -6,6 +6,8 @@ namespace DungeonJournal
         [GtkChild] protected Gtk.Entry _name;
         [GtkChild] protected Gtk.TextView _description;
 
+        public CharacterFeat feat;
+
         public new string name
         {
             get
@@ -32,9 +34,10 @@ namespace DungeonJournal
             }
         }
 
-        public CharacterFeatRow()
+        public CharacterFeatRow(ref CharacterFeat feat)
         {
             Object();
+            this.feat = feat;
         }
     }
 }
