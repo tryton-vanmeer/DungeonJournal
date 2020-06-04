@@ -6,6 +6,32 @@ namespace DungeonJournal
         [GtkChild] protected Gtk.Entry _name;
         [GtkChild] protected Gtk.TextView _description;
 
+        public new string name
+        {
+            get
+            {
+                return this._name.text;
+            }
+
+            set
+            {
+                this._name.text = value;
+            }
+        }
+
+        public string description
+        {
+            owned get
+            {
+                return this._description.buffer.text;
+            }
+
+            set
+            {
+                this._description.buffer.text = value;
+            }
+        }
+
         public CharacterFeatRow()
         {
             Object();
