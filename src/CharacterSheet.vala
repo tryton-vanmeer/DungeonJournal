@@ -104,14 +104,7 @@ namespace DungeonJournal
         public double persuasion_skill { get; set; default=0; }
 
         // Feats
-        public ArrayList<CharacterFeat> feats { get; set; }
-
-        public CharacterSheet()
-        {
-            Object();
-
-            this.feats = new ArrayList<CharacterFeat>();
-        }
+        public ArrayList<CharacterFeat> feats { get; set; default=new ArrayList<CharacterFeat>(); }
 
         public void bind(string source_prop, GLib.Object target, string target_prop)
         {
@@ -123,7 +116,7 @@ namespace DungeonJournal
             );
         }
 
-        public virtual Json.Node serialize_property(string property_name, Value value, ParamSpec pspec)
+        public override Json.Node serialize_property(string property_name, Value value, ParamSpec pspec)
         {
             if (value.type().is_a(typeof(ArrayList)))
             {
@@ -146,6 +139,25 @@ namespace DungeonJournal
             }
 
             return default_serialize_property (property_name, @value, pspec);
+        }
+
+        public override bool deserialize_property(string property_name, out Value value, ParamSpec pspec, Json.Node property_node)
+        {
+            if (property_name == "feats")
+            {
+                var feats = new ArrayList<CharacterFeat>();
+
+                property_node.get_array().foreach_element((arr, idx, node) =>{
+                    var feat = Json.gobject_deserialize(typeof(CharacterFeat), node) as CharacterFeat;
+                    assert(feat != null);
+                    feats.add(feat);
+                });
+
+                value = feats;
+                return true;
+            }
+
+            return default_deserialize_property (property_name, out @value, pspec, property_node);
         }
     }
 }
