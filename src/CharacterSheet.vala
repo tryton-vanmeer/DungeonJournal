@@ -2,7 +2,7 @@ using Gee;
 
 namespace DungeonJournal
 {
-    public class CharacterSheet : Object
+    public class CharacterSheet : Object, Json.Serializable
     {
         // Info
         public string name { get; set; default=""; }
@@ -121,6 +121,31 @@ namespace DungeonJournal
                 target_prop,
                 BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL
             );
+        }
+
+        public virtual Json.Node serialize_property(string property_name, Value value, ParamSpec pspec)
+        {
+            if (value.type().is_a(typeof(ArrayList)))
+            {
+                unowned ArrayList<Object> list_value = value as ArrayList<GLib.Object>;
+
+                if (list_value != null)
+                {
+                    var array = new Json.Array.sized(list_value.size);
+
+                    foreach (var item in list_value)
+                    {
+                        array.add_element(Json.gobject_serialize(item));
+                    }
+
+                    var node = new Json.Node(Json.NodeType.ARRAY);
+                    node.set_array(array);
+
+                    return node;
+                }
+            }
+
+            return default_serialize_property (property_name, @value, pspec);
         }
     }
 }
