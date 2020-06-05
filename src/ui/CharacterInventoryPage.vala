@@ -11,9 +11,37 @@ namespace DungeonJournal
         [GtkChild] protected ListBoxRow attacks_row_button;
         [GtkChild] protected ListBoxRow items_row_button;
 
+        // Currency
+        protected SpinButtonRow currency_copper;
+        protected SpinButtonRow currency_silver;
+        protected SpinButtonRow currency_gold;
+
         public CharacterInventoryPage()
         {
             Object();
+
+            this.setup_currency();
+            this.setup_attacks();
+            this.setup_items();
+        }
+
+        private void setup_currency()
+        {
+            this.currency_copper = new SpinButtonRow(_("Copper"));
+            this.currency_silver = new SpinButtonRow(_("Silver"));
+            this.currency_gold = new SpinButtonRow(_("Gold"));
+
+            this.currency_listbox.add(this.currency_copper);
+            this.currency_listbox.add(this.currency_silver);
+            this.currency_listbox.add(this.currency_gold);
+        }
+
+        private void setup_attacks()
+        {
+        }
+
+        private void setup_items()
+        {
         }
 
         public void bind_character(ref CharacterSheet character)
