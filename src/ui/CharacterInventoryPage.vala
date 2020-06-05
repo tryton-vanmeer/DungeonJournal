@@ -1,4 +1,5 @@
 using Gtk;
+using Gee;
 
 namespace DungeonJournal
 {
@@ -15,6 +16,9 @@ namespace DungeonJournal
         protected SpinButtonRow currency_copper;
         protected SpinButtonRow currency_silver;
         protected SpinButtonRow currency_gold;
+
+        // Attacks
+        protected ArrayList<CharacterAttack> attacks;
 
         public CharacterInventoryPage()
         {
@@ -38,6 +42,7 @@ namespace DungeonJournal
 
         private void setup_attacks()
         {
+            this.attacks = new ArrayList<CharacterAttack>();
         }
 
         private void setup_items()
@@ -51,10 +56,10 @@ namespace DungeonJournal
             character.bind("currency-gold", this.currency_gold, "value");
         }
 
-        private void add_attack_row()
+        private void add_attack_row(ref CharacterAttack attack)
         {
             var pos = (int) this.attacks_listbox.get_children().length() - 1;
-            this.attacks_listbox.insert(new CharacterAttackRow(), pos);
+            this.attacks_listbox.insert(new CharacterAttackRow(ref attack), pos);
             this.attacks_listbox.insert(new SeparatorRow(), pos + 1);
         }
 
@@ -63,7 +68,10 @@ namespace DungeonJournal
         {
             if (row == this.attacks_row_button)
             {
-                this.add_attack_row();
+                var attack = new CharacterAttack();
+                this.attacks.add(attack);
+
+                this.add_attack_row(ref attack);
             }
         }
     }

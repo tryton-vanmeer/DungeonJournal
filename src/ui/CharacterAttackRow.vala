@@ -11,9 +11,19 @@ namespace DungeonJournal
         [GtkChild] protected Entry atkbonus_entry;
         [GtkChild] protected Entry damage_entry;
 
-        public CharacterAttackRow()
+        public CharacterAttack attack { get; set; }
+
+        public CharacterAttackRow(ref CharacterAttack attack)
         {
             Object();
+
+            this.attack = attack;
+
+            this.attack.bind_property("weapon", this.weapon_entry, "text", Util.BINDING_FLAGS);
+            this.attack.bind_property("type", this.type_entry, "text", Util.BINDING_FLAGS);
+            this.attack.bind_property("range", this.range_entry, "text", Util.BINDING_FLAGS);
+            this.attack.bind_property("atkbonus", this.atkbonus_entry, "text", Util.BINDING_FLAGS);
+            this.attack.bind_property("damage", this.damage_entry, "text", Util.BINDING_FLAGS);
         }
     }
 }
