@@ -58,6 +58,11 @@ namespace DungeonJournal
 
             // Attacks
             character.bind("attacks", this, "attacks");
+
+            foreach (var attack in this.attacks)
+            {
+                add_attack_row(ref attack);
+            }
         }
 
         private void add_attack_row(ref CharacterAttack attack)
