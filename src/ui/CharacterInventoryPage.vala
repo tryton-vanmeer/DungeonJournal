@@ -50,5 +50,21 @@ namespace DungeonJournal
             character.bind("currency-silver", this.currency_silver, "value");
             character.bind("currency-gold", this.currency_gold, "value");
         }
+
+        private void add_attack_row()
+        {
+            var pos = (int) this.attacks_listbox.get_children().length() - 1;
+            this.attacks_listbox.insert(new CharacterAttackRow(), pos);
+            this.attacks_listbox.insert(new SeparatorRow(), pos + 1);
+        }
+
+        [GtkCallback]
+        public void on_attacks_row_clicked(ListBoxRow row)
+        {
+            if (row == this.attacks_row_button)
+            {
+                this.add_attack_row();
+            }
+        }
     }
 }

@@ -24,6 +24,7 @@ sources = [
   'ui/SpinButtonCheckboxRow.vala',
   'ui/SeparatorRow.vala',
   'ui/CharacterFeatRow.vala',
+  'ui/CharacterAttackRow.vala',
 ]
 
 c_args = [
