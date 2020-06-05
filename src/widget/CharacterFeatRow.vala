@@ -8,32 +8,6 @@ namespace DungeonJournal
 
         public CharacterFeat feat { get; set; }
 
-        public new string name
-        {
-            get
-            {
-                return this._name.text;
-            }
-
-            set
-            {
-                this._name.text = value;
-            }
-        }
-
-        public string description
-        {
-            owned get
-            {
-                return this._description.buffer.text;
-            }
-
-            set
-            {
-                this._description.buffer.text = value;
-            }
-        }
-
         public CharacterFeatRow(ref CharacterFeat feat)
         {
             Object();
