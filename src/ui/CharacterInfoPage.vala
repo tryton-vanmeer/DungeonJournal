@@ -9,7 +9,7 @@ namespace DungeonJournal
         [GtkChild] protected ListBox info_listbox;
         [GtkChild] protected ListBox stats_listbox;
         [GtkChild] protected ListBox feats_listbox;
-        [GtkChild] protected ListBoxRow feats_add_row;
+        [GtkChild] protected ListBoxRow feats_row_button;
 
         // Info
         protected EntryRow info_name;
@@ -144,9 +144,9 @@ namespace DungeonJournal
         }
 
         [GtkCallback]
-        public void on_feats_add_row_clicked(Gtk.ListBoxRow row)
+        public void on_feats_row_clicked(Gtk.ListBoxRow row)
         {
-            if (row == this.feats_add_row)
+            if (row == this.feats_row_button)
             {
                 var feat = new CharacterFeat();
                 this.feats.add(feat);
