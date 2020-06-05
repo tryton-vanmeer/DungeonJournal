@@ -75,7 +75,7 @@ valac = meson.get_compiler('vala')
 cc = meson.get_compiler('c')
 
 # Post-install scripts
-meson.add_install_script('meson_post_install.py')
+meson.add_install_script('build-aux/meson_post_install.py')
 
 # Subfolders
 subdir('data')
