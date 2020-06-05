@@ -1,16 +1,17 @@
+using Gtk;
 using Gee;
 
 namespace DungeonJournal
 {
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/CharacterSkillsPage.ui")]
-    public class CharacterSkillsPage : Gtk.Box
+    public class CharacterSkillsPage : Box
     {
-        [GtkChild] protected Gtk.ListBox strength_listbox;
-        [GtkChild] protected Gtk.ListBox dexterity_listbox;
-        [GtkChild] protected Gtk.ListBox constitution_listbox;
-        [GtkChild] protected Gtk.ListBox intelligence_listbox;
-        [GtkChild] protected Gtk.ListBox wisdom_listbox;
-        [GtkChild] protected Gtk.ListBox charisma_listbox;
+        [GtkChild] protected ListBox strength_listbox;
+        [GtkChild] protected ListBox dexterity_listbox;
+        [GtkChild] protected ListBox constitution_listbox;
+        [GtkChild] protected ListBox intelligence_listbox;
+        [GtkChild] protected ListBox wisdom_listbox;
+        [GtkChild] protected ListBox charisma_listbox;
 
         protected SpinButtonRow strength_score;
         protected SpinButtonCheckboxRow strength_save;
@@ -30,14 +31,14 @@ namespace DungeonJournal
         protected SpinButtonRow charisma_score;
         protected SpinButtonCheckboxRow charisma_save;
 
-        protected HashMap<Ability, Gtk.ListBox> abilities;
-        protected ArrayList<Gtk.ListBoxRow> skills;
+        protected HashMap<Ability, ListBox> abilities;
+        protected ArrayList<ListBoxRow> skills;
 
         public CharacterSkillsPage()
         {
             Object();
 
-            this.abilities = new HashMap<Ability, Gtk.ListBox>();
+            this.abilities = new HashMap<Ability, ListBox>();
 
             this.abilities.set(Ability.STRENGTH, this.strength_listbox);
             this.abilities.set(Ability.DEXTERITY, this.dexterity_listbox);
@@ -46,7 +47,7 @@ namespace DungeonJournal
             this.abilities.set(Ability.WISDOM, this.wisdom_listbox);
             this.abilities.set(Ability.CHARISMA, this.charisma_listbox);
 
-            this.skills = new ArrayList<Gtk.ListBoxRow>();
+            this.skills = new ArrayList<ListBoxRow>();
 
             this.setup_view();
         }
@@ -178,7 +179,7 @@ namespace DungeonJournal
             character.bind("charisma_save_proficiency", this.charisma_save, "active");
             character.bind("charisma_save", this.charisma_save, "value");
 
-            foreach (Gtk.ListBoxRow row in this.skills)
+            foreach (ListBoxRow row in this.skills)
             {
                 var name = row.get_name();
 

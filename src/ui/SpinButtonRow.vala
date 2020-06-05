@@ -1,11 +1,13 @@
+using Gtk;
+
 namespace DungeonJournal
 {
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/SpinButtonRow.ui")]
-    public class SpinButtonRow: Gtk.ListBoxRow
+    public class SpinButtonRow: ListBoxRow
     {
-        [GtkChild] protected Gtk.Label label;
-        [GtkChild] protected Gtk.SpinButton spinbutton;
-        [GtkChild] protected Gtk.Adjustment adjustment;
+        [GtkChild] protected Label label;
+        [GtkChild] protected SpinButton spinbutton;
+        [GtkChild] protected Adjustment adjustment;
 
         public double value
         {
@@ -16,7 +18,7 @@ namespace DungeonJournal
 
             set
             {
-                this.adjustment.set_value(value);
+                this.adjustment.value = value;
             }
         }
 
@@ -43,7 +45,7 @@ namespace DungeonJournal
         private void connect_signals()
         {
             this.spinbutton.scroll_event.connect(() => {
-                GLib.Signal.stop_emission_by_name(this.spinbutton, "scroll-event");
+                Signal.stop_emission_by_name(this.spinbutton, "scroll-event");
                 return false;
             });
 

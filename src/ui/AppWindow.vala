@@ -1,12 +1,15 @@
+using Gtk;
+using Hdy;
+
 namespace DungeonJournal
 {
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/AppWindow.ui")]
-    public class AppWindow : Gtk.ApplicationWindow
+    public class AppWindow : ApplicationWindow
     {
-        [GtkChild] private Gtk.Stack stack;
-        [GtkChild] private Hdy.Squeezer squeezer;
-        [GtkChild] private Hdy.ViewSwitcher headerbar_switcher;
-        [GtkChild] private Hdy.ViewSwitcherBar bottom_switcher;
+        [GtkChild] private Stack stack;
+        [GtkChild] private Squeezer squeezer;
+        [GtkChild] private ViewSwitcher headerbar_switcher;
+        [GtkChild] private ViewSwitcherBar bottom_switcher;
 
         private CharacterInfoPage page_info;
         private CharacterSkillsPage page_skills;
@@ -72,10 +75,10 @@ namespace DungeonJournal
 
         public void on_save_as()
         {
-            var dialog = new Gtk.FileChooserNative(
+            var dialog = new FileChooserNative(
                 _("Save Character"),
                 this,
-                Gtk.FileChooserAction.SAVE,
+                FileChooserAction.SAVE,
                 _("_Save"),
                 _("_Cancel")
             );
@@ -83,7 +86,7 @@ namespace DungeonJournal
             dialog.set_current_name(this.character.name + ".json");
             dialog.set_do_overwrite_confirmation(true);
 
-            if (dialog.run() == Gtk.ResponseType.ACCEPT)
+            if (dialog.run() == ResponseType.ACCEPT)
             {
                 string path = dialog.get_file().get_path();
 
@@ -102,15 +105,15 @@ namespace DungeonJournal
 
         private void open_character()
         {
-            var dialog = new Gtk.FileChooserNative(
+            var dialog = new FileChooserNative(
                 _("Open Character"),
                 this,
-                Gtk.FileChooserAction.OPEN,
+                FileChooserAction.OPEN,
                 _("_Open"),
                 _("_Cancel")
             );
 
-            var filter = new Gtk.FileFilter();
+            var filter = new FileFilter();
             filter.add_mime_type("application/json");
             dialog.set_filter(filter);
 

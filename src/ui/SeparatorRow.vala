@@ -1,8 +1,10 @@
+using Gtk;
+
 namespace DungeonJournal
 {
-    public class SeparatorRow: Gtk.ListBoxRow
+    public class SeparatorRow: ListBoxRow
     {
-        Gtk.Separator separator;
+        Separator separator;
 
         public SeparatorRow()
         {
@@ -11,7 +13,7 @@ namespace DungeonJournal
             this.set_activatable(false);
             this.set_can_focus(false);
 
-            this.separator = new Gtk.Separator(Gtk.Orientation.HORIZONTAL);
+            this.separator = new Separator(Orientation.HORIZONTAL);
             this.add(separator);
             this.show_all();
         }

@@ -1,14 +1,15 @@
+using Gtk;
 using Gee;
 
 namespace DungeonJournal
 {
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/CharacterInfoPage.ui")]
-    public class CharacterInfoPage : Gtk.Box
+    public class CharacterInfoPage : Box
     {
-        [GtkChild] protected Gtk.ListBox info_listbox;
-        [GtkChild] protected Gtk.ListBox stats_listbox;
-        [GtkChild] protected Gtk.ListBox feats_listbox;
-        [GtkChild] protected Gtk.ListBoxRow feats_add_row;
+        [GtkChild] protected ListBox info_listbox;
+        [GtkChild] protected ListBox stats_listbox;
+        [GtkChild] protected ListBox feats_listbox;
+        [GtkChild] protected ListBoxRow feats_add_row;
 
         // Info
         protected EntryRow info_name;

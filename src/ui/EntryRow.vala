@@ -1,10 +1,12 @@
+using Gtk;
+
 namespace DungeonJournal
 {
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/EntryRow.ui")]
-    public class EntryRow: Gtk.ListBoxRow
+    public class EntryRow: ListBoxRow
     {
-        [GtkChild] protected Gtk.Label label;
-        [GtkChild] protected Gtk.Entry entry;
+        [GtkChild] protected Label label;
+        [GtkChild] protected Entry entry;
 
         public string text
         {
@@ -15,7 +17,7 @@ namespace DungeonJournal
 
             set
             {
-                this.entry.set_text(value);
+                this.entry.text = value;
             }
         }
 
