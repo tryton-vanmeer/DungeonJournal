@@ -18,7 +18,7 @@ namespace DungeonJournal
         protected SpinButtonRow currency_gold;
 
         // Attacks
-        protected ArrayList<CharacterAttack> attacks;
+        protected ArrayList<CharacterAttack> attacks { get; set; }
 
         public CharacterInventoryPage()
         {
