@@ -143,11 +143,15 @@ namespace DungeonJournal
                 }
             }
 
-            return default_serialize_property (property_name, @value, pspec);
+            return default_serialize_property(property_name, @value, pspec);
         }
 
-        public override bool deserialize_property(string property_name, out Value value, ParamSpec pspec, Json.Node property_node)
+        public override bool deserialize_property(string property_name, out Value @value, ParamSpec pspec, Json.Node property_node)
         {
+            // json-glib currently has an issue in v1.4 where default_deserialize_property fails.
+            // https://gitlab.gnome.org/GNOME/json-glib/-/issues/39
+            // So pspec.value_type checks are done that shouldn't be needed in future.
+
             if (property_name == "feats")
             {
                 var feats = new ArrayList<CharacterFeat>();
@@ -159,10 +163,29 @@ namespace DungeonJournal
                 });
 
                 value = feats;
-                return true;
+            }
+            else if (pspec.value_type == typeof(string))
+            {
+                value = property_node.get_string();
+            }
+            else if (pspec.value_type == typeof(bool))
+            {
+                value = property_node.get_boolean();
+            }
+            else if (pspec.value_type == typeof(int))
+            {
+                value = property_node.get_int();
+            }
+            else if (pspec.value_type == typeof(double))
+            {
+                value = property_node.get_double();
+            }
+            else
+            {
+                return default_deserialize_property(property_name, out @value, pspec, property_node);
             }
 
-            return default_deserialize_property(property_name, out @value, pspec, property_node);
+            return true;
         }
     }
 }
