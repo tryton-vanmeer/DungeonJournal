@@ -111,6 +111,9 @@ namespace DungeonJournal
         public double currency_silver { get; set; default=0; }
         public double currency_gold { get; set; default=0; }
 
+        // Attacks
+        public ArrayList<CharacterAttack> attacks { get; set; default=new ArrayList<CharacterAttack>(); }
+
         public void bind(string source_prop, GLib.Object target, string target_prop)
         {
             this.bind_property(

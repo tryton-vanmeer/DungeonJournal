@@ -51,9 +51,13 @@ namespace DungeonJournal
 
         public void bind_character(ref CharacterSheet character)
         {
+            // Currency
             character.bind("currency-copper", this.currency_copper, "value");
             character.bind("currency-silver", this.currency_silver, "value");
             character.bind("currency-gold", this.currency_gold, "value");
+
+            // Attacks
+            character.bind("attacks", this, "attacks");
         }
 
         private void add_attack_row(ref CharacterAttack attack)
