@@ -117,7 +117,7 @@ namespace DungeonJournal
                 source_prop,
                 target,
                 target_prop,
-                BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL
+                Util.BINDING_FLAGS
             );
         }
 

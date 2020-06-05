@@ -2,6 +2,8 @@ namespace DungeonJournal
 {
     public class Util
     {
+        public const BindingFlags BINDING_FLAGS = BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL;
+
         public const string[] ARRAY_DICE = {
             "d4",
             "d6",
