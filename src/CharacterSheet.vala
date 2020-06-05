@@ -106,6 +106,11 @@ namespace DungeonJournal
         // Feats
         public ArrayList<CharacterFeat> feats { get; set; default=new ArrayList<CharacterFeat>(); }
 
+        // Currency
+        public double currency_copper { get; set; default=0; }
+        public double currency_silver { get; set; default=0; }
+        public double currency_gold { get; set; default=0; }
+
         public void bind(string source_prop, GLib.Object target, string target_prop)
         {
             this.bind_property(
@@ -157,7 +162,7 @@ namespace DungeonJournal
                 return true;
             }
 
-            return default_deserialize_property (property_name, out @value, pspec, property_node);
+            return default_deserialize_property(property_name, out @value, pspec, property_node);
         }
     }
 }
