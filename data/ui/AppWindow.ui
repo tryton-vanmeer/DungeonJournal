@@ -98,7 +98,7 @@
       </object>
     </child>
   </object>
-  <template class="DungeonJournalWindow" parent="GtkApplicationWindow">
+  <template class="DungeonJournalAppWindow" parent="GtkApplicationWindow">
     <property name="can_focus">False</property>
     <property name="default_width">800</property>
     <property name="default_height">600</property>
@@ -189,6 +189,7 @@
           </object>
           <packing>
             <property name="pack_type">end</property>
+            <property name="position">1</property>
           </packing>
         </child>
       </object>

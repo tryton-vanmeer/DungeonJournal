@@ -1,7 +1,7 @@
 namespace DungeonJournal
 {
-    [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/Window.ui")]
-    public class Window : Gtk.ApplicationWindow
+    [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/AppWindow.ui")]
+    public class AppWindow : Gtk.ApplicationWindow
     {
         [GtkChild] private Gtk.Stack stack;
         [GtkChild] private Hdy.Squeezer squeezer;
@@ -14,7 +14,7 @@ namespace DungeonJournal
         private CharacterSheet character;
         private string character_path;
 
-        public Window(Gtk.Application app)
+        public AppWindow(Gtk.Application app)
         {
             Object(application: app);
 
