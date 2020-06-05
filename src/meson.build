@@ -11,18 +11,18 @@ deps = [
 sources = [
   'Application.vala',
   'Window.vala',
-  'ShortcutsWindow.vala',
-  'CharacterInfoPage.vala',
-  'CharacterSkillsPage.vala',
   'CharacterSheet.vala',
   'CharacterFeat.vala',
   'Util.vala',
-  'widget/EntryRow.vala',
-  'widget/ComboBoxRow.vala',
-  'widget/SpinButtonRow.vala',
-  'widget/SpinButtonCheckboxRow.vala',
-  'widget/SeparatorRow.vala',
-  'widget/CharacterFeatRow.vala',
+  'ui/ShortcutsWindow.vala',
+  'ui/CharacterInfoPage.vala',
+  'ui/CharacterSkillsPage.vala',
+  'ui/EntryRow.vala',
+  'ui/ComboBoxRow.vala',
+  'ui/SpinButtonRow.vala',
+  'ui/SpinButtonCheckboxRow.vala',
+  'ui/SeparatorRow.vala',
+  'ui/CharacterFeatRow.vala',
 ]
 
 c_args = [
