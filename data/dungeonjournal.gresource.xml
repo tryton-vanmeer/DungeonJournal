@@ -6,6 +6,7 @@
         <file compressed="true" preprocess="xml-stripblanks">ui/ShortcutsWindow.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/CharacterInfoPage.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/CharacterSkillsPage.ui</file>
+        <file compressed="true" preprocess="xml-stripblanks">ui/CharacterInventoryPage.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/EntryRow.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/ComboBoxRow.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/SpinButtonRow.ui</file>

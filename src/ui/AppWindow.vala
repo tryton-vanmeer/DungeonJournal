@@ -13,6 +13,7 @@ namespace DungeonJournal
 
         private CharacterInfoPage page_info;
         private CharacterSkillsPage page_skills;
+        private CharacterInventoryPage page_inventory;
 
         private CharacterSheet character;
         private string character_path;
@@ -43,11 +44,13 @@ namespace DungeonJournal
         {
             this.page_info = new CharacterInfoPage();
             this.page_skills = new CharacterSkillsPage();
+            this.page_inventory = new CharacterInventoryPage();
 
             this.stack.add_titled(this.page_info, "info", _("Info"));
             this.stack.child_set_property(this.page_info, "icon-name", "user-info-symbolic");
 
             this.stack.add_titled(this.page_skills, "skills", _("Skills"));
+            this.stack.add_titled(this.page_inventory, "inventory", _("Inventory"));
         }
 
         [GtkCallback]
@@ -101,6 +104,7 @@ namespace DungeonJournal
         {
             this.page_info.bind_character(ref this.character);
             this.page_skills.bind_character(ref this.character);
+            this.page_inventory.bind_character(ref this.character);
         }
 
         private void open_character()

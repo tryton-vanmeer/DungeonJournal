@@ -17,6 +17,7 @@ sources = [
   'ui/ShortcutsWindow.vala',
   'ui/CharacterInfoPage.vala',
   'ui/CharacterSkillsPage.vala',
+  'ui/CharacterInventoryPage.vala',
   'ui/EntryRow.vala',
   'ui/ComboBoxRow.vala',
   'ui/SpinButtonRow.vala',
