@@ -3,8 +3,8 @@ using Hdy;
 
 namespace DungeonJournal
 {
-    [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/AppWindow.ui")]
-    public class AppWindow : ApplicationWindow
+    [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/ApplicationWindow.ui")]
+    public class ApplicationWindow : Gtk.ApplicationWindow
     {
         [GtkChild] private Stack stack;
         [GtkChild] private Squeezer squeezer;
@@ -17,7 +17,7 @@ namespace DungeonJournal
         private CharacterSheet character;
         private string character_path;
 
-        public AppWindow(Gtk.Application app)
+        public ApplicationWindow(Gtk.Application app)
         {
             Object(application: app);
 

@@ -2,7 +2,7 @@ namespace DungeonJournal
 {
     public class App : Gtk.Application
     {
-        public AppWindow window;
+        public DungeonJournal.ApplicationWindow window;
 
         public App()
         {
@@ -20,7 +20,7 @@ namespace DungeonJournal
 
         protected override void activate()
         {
-            window = new DungeonJournal.AppWindow(this);
+            window = new DungeonJournal.ApplicationWindow(this);
             window.show_all();
         }
 
