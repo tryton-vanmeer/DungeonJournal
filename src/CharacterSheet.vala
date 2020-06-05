@@ -155,17 +155,19 @@ namespace DungeonJournal
             // https://gitlab.gnome.org/GNOME/json-glib/-/issues/39
             // So pspec.value_type checks are done that shouldn't be needed in future.
 
-            if (property_name == "feats")
+            if (pspec.value_type == typeof(ArrayList))
             {
-                var feats = new ArrayList<CharacterFeat>();
+                var array = property_node.get_array();
 
-                property_node.get_array().foreach_element((arr, idx, node) =>{
-                    var feat = Json.gobject_deserialize(typeof(CharacterFeat), node) as CharacterFeat;
-                    assert(feat != null);
-                    feats.add(feat);
-                });
-
-                value = feats;
+                switch (property_name)
+                {
+                    case "feats":
+                        value = this.get_arraylist_for_type<CharacterFeat>(array);
+                        break;
+                    case "attacks":
+                        value = this.get_arraylist_for_type<CharacterAttack>(array);
+                        break;
+                }
             }
             else if (pspec.value_type == typeof(string))
             {
@@ -189,6 +191,19 @@ namespace DungeonJournal
             }
 
             return true;
+        }
+
+        private ArrayList get_arraylist_for_type<G>(Json.Array array)
+        {
+            var list = new ArrayList<G>();
+
+            array.foreach_element((arr, idx, node) => {
+                G item = Json.gobject_deserialize(typeof(G), node);
+                assert(item != null);
+                list.add(item);
+            });
+
+            return list;
         }
     }
 }
