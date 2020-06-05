@@ -47,8 +47,6 @@ namespace DungeonJournal
             this.page_inventory = new CharacterInventoryPage();
 
             this.stack.add_titled(this.page_info, "info", _("Info"));
-            this.stack.child_set_property(this.page_info, "icon-name", "user-info-symbolic");
-
             this.stack.add_titled(this.page_skills, "skills", _("Skills"));
             this.stack.add_titled(this.page_inventory, "inventory", _("Inventory"));
         }

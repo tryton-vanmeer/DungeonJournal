@@ -8,7 +8,6 @@ namespace DungeonJournal
         public CharacterInventoryPage()
         {
             Object();
-            this.set_property("icon-name", "user-info-symbolic");
         }
 
         public void bind_character(ref CharacterSheet character)
