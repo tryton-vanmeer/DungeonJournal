@@ -58,7 +58,7 @@
                         <property name="label_xalign">0</property>
                         <property name="shadow_type">in</property>
                         <child>
-                          <object class="GtkListBox" id="strength">
+                          <object class="GtkListBox" id="strength_listbox">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="selection_mode">none</property>
@@ -95,7 +95,7 @@
                         <property name="label_xalign">0</property>
                         <property name="shadow_type">in</property>
                         <child>
-                          <object class="GtkListBox" id="dexterity">
+                          <object class="GtkListBox" id="dexterity_listbox">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="selection_mode">none</property>
@@ -132,7 +132,7 @@
                         <property name="label_xalign">0</property>
                         <property name="shadow_type">in</property>
                         <child>
-                          <object class="GtkListBox" id="constitution">
+                          <object class="GtkListBox" id="constitution_listbox">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="selection_mode">none</property>
@@ -169,7 +169,7 @@
                         <property name="label_xalign">0</property>
                         <property name="shadow_type">in</property>
                         <child>
-                          <object class="GtkListBox" id="intelligence">
+                          <object class="GtkListBox" id="intelligence_listbox">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="selection_mode">none</property>
@@ -206,7 +206,7 @@
                         <property name="label_xalign">0</property>
                         <property name="shadow_type">in</property>
                         <child>
-                          <object class="GtkListBox" id="wisdom">
+                          <object class="GtkListBox" id="wisdom_listbox">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="selection_mode">none</property>
@@ -243,7 +243,7 @@
                         <property name="label_xalign">0</property>
                         <property name="shadow_type">in</property>
                         <child>
-                          <object class="GtkListBox" id="charisma">
+                          <object class="GtkListBox" id="charisma_listbox">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="selection_mode">none</property>
