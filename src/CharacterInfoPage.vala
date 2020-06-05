@@ -5,28 +5,28 @@ namespace DungeonJournal
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/CharacterInfoPage.ui")]
     public class CharacterInfoPage : Gtk.Box
     {
-        [GtkChild] protected Gtk.ListBox info;
-        [GtkChild] protected Gtk.ListBox stats;
+        [GtkChild] protected Gtk.ListBox info_listbox;
+        [GtkChild] protected Gtk.ListBox stats_listbox;
         [GtkChild] protected Gtk.ListBox feats_listbox;
         [GtkChild] protected Gtk.ListBoxRow feats_add_row;
 
         // Info
         protected EntryRow info_name;
         protected EntryRow info_class;
-        protected EntryRow race;
-        protected ComboBoxRow alignment;
-        protected SpinButtonRow level;
-        protected SpinButtonRow xp;
+        protected EntryRow info_race;
+        protected ComboBoxRow info_alignment;
+        protected SpinButtonRow info_level;
+        protected SpinButtonRow info_xp;
 
         // Stats
-        protected SpinButtonRow proficiency_bonus;
-        protected SpinButtonRow armor_class;
-        protected SpinButtonRow initiative;
-        protected SpinButtonRow speed;
-        protected SpinButtonRow hp_max;
-        protected SpinButtonRow hp_current;
-        protected SpinButtonRow hp_temp;
-        protected ComboBoxRow hit_dice;
+        protected SpinButtonRow stats_proficiency_bonus;
+        protected SpinButtonRow stats_armor_class;
+        protected SpinButtonRow stats_initiative;
+        protected SpinButtonRow stats_speed;
+        protected SpinButtonRow stats_hp_max;
+        protected SpinButtonRow stats_hp_current;
+        protected SpinButtonRow stats_hp_temp;
+        protected ComboBoxRow stats_hit_dice;
 
         // Feats
         protected ArrayList<CharacterFeat> feats { get; set; }
@@ -44,7 +44,7 @@ namespace DungeonJournal
         {
             this.info_name = new EntryRow(_("Character Name"));
             this.info_class = new EntryRow(_("Class"));
-            this.race = new EntryRow(_("Race"));
+            this.info_race = new EntryRow(_("Race"));
 
             string[] alignments = {
                 _("Lawful Good"),
@@ -55,50 +55,50 @@ namespace DungeonJournal
                 _("Neutral Evil"),
                 _("Chaotic Evil")
             };
-            this.alignment = new ComboBoxRow(_("Alignment"), alignments);
+            this.info_alignment = new ComboBoxRow(_("Alignment"), alignments);
 
-            this.level = new SpinButtonRow(_("Level"));
-            this.xp = new SpinButtonRow(_("Experience Points"));
+            this.info_level = new SpinButtonRow(_("Level"));
+            this.info_xp = new SpinButtonRow(_("Experience Points"));
 
-            this.info.add(this.info_name);
-            this.info.add(new SeparatorRow());
-            this.info.add(this.info_class);
-            this.info.add(new SeparatorRow());
-            this.info.add(this.race);
-            this.info.add(new SeparatorRow());
-            this.info.add(this.alignment);
-            this.info.add(new SeparatorRow());
-            this.info.add(this.level);
-            this.info.add(new SeparatorRow());
-            this.info.add(this.xp);
+            this.info_listbox.add(this.info_name);
+            this.info_listbox.add(new SeparatorRow());
+            this.info_listbox.add(this.info_class);
+            this.info_listbox.add(new SeparatorRow());
+            this.info_listbox.add(this.info_race);
+            this.info_listbox.add(new SeparatorRow());
+            this.info_listbox.add(this.info_alignment);
+            this.info_listbox.add(new SeparatorRow());
+            this.info_listbox.add(this.info_level);
+            this.info_listbox.add(new SeparatorRow());
+            this.info_listbox.add(this.info_xp);
         }
 
         public void setup_stats()
         {
-            this.proficiency_bonus = new SpinButtonRow(_("Proficiency Bonus"));
-            this.armor_class = new SpinButtonRow(_("Armor Class"));
-            this.initiative = new SpinButtonRow(_("Initiative"));
-            this.speed = new SpinButtonRow(_("Speed"));
-            this.hp_max = new SpinButtonRow(_("Hit Point Maximum"));
-            this.hp_current = new SpinButtonRow(_("Current Hit Points"));
-            this.hp_temp = new SpinButtonRow(_("Temporary Hit Points"));
-            this.hit_dice = new ComboBoxRow(_("Hit Dice"), Util.ARRAY_DICE);
+            this.stats_proficiency_bonus = new SpinButtonRow(_("Proficiency Bonus"));
+            this.stats_armor_class = new SpinButtonRow(_("Armor Class"));
+            this.stats_initiative = new SpinButtonRow(_("Initiative"));
+            this.stats_speed = new SpinButtonRow(_("Speed"));
+            this.stats_hp_max = new SpinButtonRow(_("Hit Point Maximum"));
+            this.stats_hp_current = new SpinButtonRow(_("Current Hit Points"));
+            this.stats_hp_temp = new SpinButtonRow(_("Temporary Hit Points"));
+            this.stats_hit_dice = new ComboBoxRow(_("Hit Dice"), Util.ARRAY_DICE);
 
-            this.stats.add(this.proficiency_bonus);
-            this.stats.add(new SeparatorRow());
-            this.stats.add(this.armor_class);
-            this.stats.add(new SeparatorRow());
-            this.stats.add(this.initiative);
-            this.stats.add(new SeparatorRow());
-            this.stats.add(this.speed);
-            this.stats.add(new SeparatorRow());
-            this.stats.add(this.hp_max);
-            this.stats.add(new SeparatorRow());
-            this.stats.add(this.hp_current);
-            this.stats.add(new SeparatorRow());
-            this.stats.add(this.hp_temp);
-            this.stats.add(new SeparatorRow());
-            this.stats.add(this.hit_dice);
+            this.stats_listbox.add(this.stats_proficiency_bonus);
+            this.stats_listbox.add(new SeparatorRow());
+            this.stats_listbox.add(this.stats_armor_class);
+            this.stats_listbox.add(new SeparatorRow());
+            this.stats_listbox.add(this.stats_initiative);
+            this.stats_listbox.add(new SeparatorRow());
+            this.stats_listbox.add(this.stats_speed);
+            this.stats_listbox.add(new SeparatorRow());
+            this.stats_listbox.add(this.stats_hp_max);
+            this.stats_listbox.add(new SeparatorRow());
+            this.stats_listbox.add(this.stats_hp_current);
+            this.stats_listbox.add(new SeparatorRow());
+            this.stats_listbox.add(this.stats_hp_temp);
+            this.stats_listbox.add(new SeparatorRow());
+            this.stats_listbox.add(this.stats_hit_dice);
         }
 
         private void setup_feats()
@@ -111,20 +111,20 @@ namespace DungeonJournal
             // Info
             character.bind("name", this.info_name, "text");
             character.bind("class", this.info_class, "text");
-            character.bind("race", this.race, "text");
-            character.bind("alignment", this.alignment, "active");
-            character.bind("level", this.level, "value");
-            character.bind("xp", this.xp, "value");
+            character.bind("race", this.info_race, "text");
+            character.bind("alignment", this.info_alignment, "active");
+            character.bind("level", this.info_level, "value");
+            character.bind("xp", this.info_xp, "value");
 
             // Stats
-            character.bind("proficiency_bonus", this.proficiency_bonus, "value");
-            character.bind("armor_class", this.armor_class, "value");
-            character.bind("initiative", this.initiative, "value");
-            character.bind("speed", this.speed, "value");
-            character.bind("hp_max", this.hp_max, "value");
-            character.bind("hp_current", this.hp_current, "value");
-            character.bind("hp_temp", this.hp_temp, "value");
-            character.bind("hit_dice", this.hit_dice, "active");
+            character.bind("proficiency_bonus", this.stats_proficiency_bonus, "value");
+            character.bind("armor_class", this.stats_armor_class, "value");
+            character.bind("initiative", this.stats_initiative, "value");
+            character.bind("speed", this.stats_speed, "value");
+            character.bind("hp_max", this.stats_hp_max, "value");
+            character.bind("hp_current", this.stats_hp_current, "value");
+            character.bind("hp_temp", this.stats_hp_temp, "value");
+            character.bind("hit_dice", this.stats_hit_dice, "active");
 
             // Feats
             character.bind("feats", this, "feats");
