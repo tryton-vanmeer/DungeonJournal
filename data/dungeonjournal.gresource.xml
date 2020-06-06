@@ -13,5 +13,6 @@
         <file compressed="true" preprocess="xml-stripblanks">ui/SpinButtonCheckboxRow.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/CharacterFeatRow.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/CharacterAttackRow.ui</file>
+        <file compressed="true" preprocess="xml-stripblanks">ui/CharacterItemRow.ui</file>
     </gresource>
 </gresources>

@@ -26,6 +26,7 @@ sources = [
   'ui/SeparatorRow.vala',
   'ui/CharacterFeatRow.vala',
   'ui/CharacterAttackRow.vala',
+  'ui/CharacterItemRow.vala',
 ]
 
 c_args = [
