@@ -67,6 +67,9 @@ namespace DungeonJournal
             {
                 add_attack_row(ref attack);
             }
+
+            // Items
+            character.bind("items", this, "items");
         }
 
         private void add_attack_row(ref CharacterAttack attack)

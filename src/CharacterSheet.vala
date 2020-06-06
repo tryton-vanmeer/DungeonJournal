@@ -114,6 +114,9 @@ namespace DungeonJournal
         // Attacks
         public ArrayList<CharacterAttack> attacks { get; set; default=new ArrayList<CharacterAttack>(); }
 
+        // Items
+        public ArrayList<CharacterItem> items { get; set; default=new ArrayList<CharacterItem>(); }
+
         public void bind(string source_prop, GLib.Object target, string target_prop)
         {
             this.bind_property(
