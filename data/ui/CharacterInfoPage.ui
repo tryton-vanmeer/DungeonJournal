@@ -141,7 +141,7 @@
                               <object class="GtkListBoxRow" id="feats_row_button">
                                 <property name="width_request">100</property>
                                 <property name="visible">True</property>
-                                <property name="can_focus">True</property>
+                                <property name="can_focus">False</property>
                                 <property name="selectable">False</property>
                                 <child>
                                   <object class="GtkImage">

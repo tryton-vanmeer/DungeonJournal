@@ -104,7 +104,7 @@
                               <object class="GtkListBoxRow" id="attacks_row_button">
                                 <property name="width_request">100</property>
                                 <property name="visible">True</property>
-                                <property name="can_focus">True</property>
+                                <property name="can_focus">False</property>
                                 <property name="selectable">False</property>
                                 <child>
                                   <object class="GtkImage">
@@ -159,7 +159,7 @@
                               <object class="GtkListBoxRow" id="items_row_button">
                                 <property name="width_request">100</property>
                                 <property name="visible">True</property>
-                                <property name="can_focus">True</property>
+                                <property name="can_focus">False</property>
                                 <property name="selectable">False</property>
                                 <child>
                                   <object class="GtkImage">
