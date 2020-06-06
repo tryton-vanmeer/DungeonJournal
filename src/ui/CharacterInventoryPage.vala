@@ -70,6 +70,11 @@ namespace DungeonJournal
 
             // Items
             character.bind("items", this, "items");
+
+            foreach (var item in this.items)
+            {
+                add_item_row(ref item);
+            }
         }
 
         private void add_attack_row(ref CharacterAttack attack)
