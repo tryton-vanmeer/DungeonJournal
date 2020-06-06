@@ -3,7 +3,7 @@
 <interface>
   <requires lib="gtk+" version="3.22"/>
   <requires lib="libhandy" version="0.0"/>
-  <template class="DungeonJournalCharacterInfoPage" parent="GtkBox">
+  <template class="DungeonJournalCharacterInventoryPage" parent="GtkBox">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="orientation">vertical</property>
@@ -40,7 +40,7 @@
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="halign">start</property>
-                        <property name="label" translatable="yes">Info</property>
+                        <property name="label" translatable="yes">Currency</property>
                         <attributes>
                           <attribute name="weight" value="bold"/>
                         </attributes>
@@ -58,7 +58,7 @@
                         <property name="label_xalign">0</property>
                         <property name="shadow_type">in</property>
                         <child>
-                          <object class="GtkListBox" id="info_listbox">
+                          <object class="GtkListBox" id="currency_listbox">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="selection_mode">none</property>
@@ -77,7 +77,7 @@
                         <property name="can_focus">False</property>
                         <property name="halign">start</property>
                         <property name="margin_top">18</property>
-                        <property name="label" translatable="yes">Stats</property>
+                        <property name="label" translatable="yes">Attacks</property>
                         <attributes>
                           <attribute name="weight" value="bold"/>
                         </attributes>
@@ -95,10 +95,28 @@
                         <property name="label_xalign">0</property>
                         <property name="shadow_type">in</property>
                         <child>
-                          <object class="GtkListBox" id="stats_listbox">
+                          <object class="GtkListBox" id="attacks_listbox">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="selection_mode">none</property>
+                            <signal name="row-activated" handler="on_attacks_row_clicked" swapped="no"/>
+                            <child>
+                              <object class="GtkListBoxRow" id="attacks_row_button">
+                                <property name="width_request">100</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="selectable">False</property>
+                                <child>
+                                  <object class="GtkImage">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="margin_top">12</property>
+                                    <property name="margin_bottom">12</property>
+                                    <property name="icon_name">list-add-symbolic</property>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
                           </object>
                         </child>
                       </object>
@@ -114,7 +132,7 @@
                         <property name="can_focus">False</property>
                         <property name="halign">start</property>
                         <property name="margin_top">18</property>
-                        <property name="label" translatable="yes">Features</property>
+                        <property name="label" translatable="yes">Items</property>
                         <attributes>
                           <attribute name="weight" value="bold"/>
                         </attributes>
@@ -132,13 +150,13 @@
                         <property name="label_xalign">0</property>
                         <property name="shadow_type">in</property>
                         <child>
-                          <object class="GtkListBox" id="feats_listbox">
+                          <object class="GtkListBox" id="items_listbox">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="selection_mode">none</property>
-                            <signal name="row-activated" handler="on_feats_row_clicked" swapped="no"/>
+                            <signal name="row-activated" handler="on_items_row_clicked" swapped="no"/>
                             <child>
-                              <object class="GtkListBoxRow" id="feats_row_button">
+                              <object class="GtkListBoxRow" id="items_row_button">
                                 <property name="width_request">100</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>

@@ -12,17 +12,22 @@ sources = [
   'Application.vala',
   'CharacterSheet.vala',
   'CharacterFeat.vala',
+  'CharacterAttack.vala',
+  'CharacterItem.vala',
   'Util.vala',
-  'ui/AppWindow.vala',
+  'ui/ApplicationWindow.vala',
   'ui/ShortcutsWindow.vala',
   'ui/CharacterInfoPage.vala',
   'ui/CharacterSkillsPage.vala',
+  'ui/CharacterInventoryPage.vala',
   'ui/EntryRow.vala',
   'ui/ComboBoxRow.vala',
   'ui/SpinButtonRow.vala',
   'ui/SpinButtonCheckboxRow.vala',
   'ui/SeparatorRow.vala',
   'ui/CharacterFeatRow.vala',
+  'ui/CharacterAttackRow.vala',
+  'ui/CharacterItemRow.vala',
 ]
 
 c_args = [

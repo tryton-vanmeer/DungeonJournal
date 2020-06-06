@@ -106,13 +106,24 @@ namespace DungeonJournal
         // Feats
         public ArrayList<CharacterFeat> feats { get; set; default=new ArrayList<CharacterFeat>(); }
 
+        // Currency
+        public double currency_copper { get; set; default=0; }
+        public double currency_silver { get; set; default=0; }
+        public double currency_gold { get; set; default=0; }
+
+        // Attacks
+        public ArrayList<CharacterAttack> attacks { get; set; default=new ArrayList<CharacterAttack>(); }
+
+        // Items
+        public ArrayList<CharacterItem> items { get; set; default=new ArrayList<CharacterItem>(); }
+
         public void bind(string source_prop, GLib.Object target, string target_prop)
         {
             this.bind_property(
                 source_prop,
                 target,
                 target_prop,
-                BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL
+                Util.BINDING_FLAGS
             );
         }
 
@@ -138,26 +149,67 @@ namespace DungeonJournal
                 }
             }
 
-            return default_serialize_property (property_name, @value, pspec);
+            return default_serialize_property(property_name, @value, pspec);
         }
 
-        public override bool deserialize_property(string property_name, out Value value, ParamSpec pspec, Json.Node property_node)
+        public override bool deserialize_property(string property_name, out Value @value, ParamSpec pspec, Json.Node property_node)
         {
-            if (property_name == "feats")
+            // json-glib currently has an issue in v1.4 where default_deserialize_property fails.
+            // https://gitlab.gnome.org/GNOME/json-glib/-/issues/39
+            // So pspec.value_type checks are done that shouldn't be needed in future.
+
+            if (pspec.value_type == typeof(ArrayList))
             {
-                var feats = new ArrayList<CharacterFeat>();
+                var array = property_node.get_array();
 
-                property_node.get_array().foreach_element((arr, idx, node) =>{
-                    var feat = Json.gobject_deserialize(typeof(CharacterFeat), node) as CharacterFeat;
-                    assert(feat != null);
-                    feats.add(feat);
-                });
-
-                value = feats;
-                return true;
+                switch (property_name)
+                {
+                    case "feats":
+                        value = this.get_arraylist_for_type<CharacterFeat>(array);
+                        break;
+                    case "attacks":
+                        value = this.get_arraylist_for_type<CharacterAttack>(array);
+                        break;
+                    case "items":
+                        value = this.get_arraylist_for_type<CharacterItem>(array);
+                        break;
+                }
+            }
+            else if (pspec.value_type == typeof(string))
+            {
+                value = property_node.get_string();
+            }
+            else if (pspec.value_type == typeof(bool))
+            {
+                value = property_node.get_boolean();
+            }
+            else if (pspec.value_type == typeof(int))
+            {
+                value = property_node.get_int();
+            }
+            else if (pspec.value_type == typeof(double))
+            {
+                value = property_node.get_double();
+            }
+            else
+            {
+                return default_deserialize_property(property_name, out @value, pspec, property_node);
             }
 
-            return default_deserialize_property (property_name, out @value, pspec, property_node);
+            return true;
+        }
+
+        private ArrayList get_arraylist_for_type<G>(Json.Array array)
+        {
+            var list = new ArrayList<G>();
+
+            array.foreach_element((arr, idx, node) => {
+                G item = Json.gobject_deserialize(typeof(G), node);
+                assert(item != null);
+                list.add(item);
+            });
+
+            return list;
         }
     }
 }

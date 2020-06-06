@@ -16,8 +16,8 @@ namespace DungeonJournal
 
             this.feat = feat;
 
-            this.feat.bind_property("name", this.name_entry, "text", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
-            this.feat.bind_property("description", this.description_entry.buffer, "text", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
+            this.feat.bind_property("name", this.name_entry, "text", Util.BINDING_FLAGS);
+            this.feat.bind_property("description", this.description_entry.buffer, "text", Util.BINDING_FLAGS);
         }
     }
 }

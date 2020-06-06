@@ -9,7 +9,7 @@ namespace DungeonJournal
         [GtkChild] protected ListBox info_listbox;
         [GtkChild] protected ListBox stats_listbox;
         [GtkChild] protected ListBox feats_listbox;
-        [GtkChild] protected ListBoxRow feats_add_row;
+        [GtkChild] protected ListBoxRow feats_row_button;
 
         // Info
         protected EntryRow info_name;
@@ -132,11 +132,11 @@ namespace DungeonJournal
 
             foreach (var feat in this.feats)
             {
-                add_feats_row(ref feat);
+                add_feat_row(ref feat);
             }
         }
 
-        public void add_feats_row(ref CharacterFeat feat)
+        private void add_feat_row(ref CharacterFeat feat)
         {
             var pos = (int) this.feats_listbox.get_children().length() - 1;
             this.feats_listbox.insert(new CharacterFeatRow(ref feat), pos);
@@ -144,14 +144,14 @@ namespace DungeonJournal
         }
 
         [GtkCallback]
-        public void on_feats_add_row_clicked(Gtk.ListBoxRow row)
+        public void on_feats_row_clicked(ListBoxRow row)
         {
-            if (row == this.feats_add_row)
+            if (row == this.feats_row_button)
             {
                 var feat = new CharacterFeat();
                 this.feats.add(feat);
 
-                this.add_feats_row(ref feat);
+                this.add_feat_row(ref feat);
             }
         }
     }
