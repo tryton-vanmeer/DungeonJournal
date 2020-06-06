@@ -154,6 +154,7 @@
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="selection_mode">none</property>
+                            <signal name="row-activated" handler="on_items_row_clicked" swapped="no"/>
                             <child>
                               <object class="GtkListBoxRow" id="items_row_button">
                                 <property name="width_request">100</property>

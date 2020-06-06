@@ -20,6 +20,9 @@ namespace DungeonJournal
         // Attacks
         protected ArrayList<CharacterAttack> attacks { get; set; }
 
+        // Items
+        protected ArrayList<CharacterItem> items { get; set; }
+
         public CharacterInventoryPage()
         {
             Object();
@@ -47,6 +50,7 @@ namespace DungeonJournal
 
         private void setup_items()
         {
+            this.items = new ArrayList<CharacterItem>();
         }
 
         public void bind_character(ref CharacterSheet character)
@@ -72,6 +76,13 @@ namespace DungeonJournal
             this.attacks_listbox.insert(new SeparatorRow(), pos + 1);
         }
 
+        private void add_item_row(ref CharacterItem item)
+        {
+            var pos = (int) this.items_listbox.get_children().length() - 1;
+            this.items_listbox.insert(new CharacterItemRow(ref item), pos);
+            this.items_listbox.insert(new SeparatorRow(), pos + 1);
+        }
+
         [GtkCallback]
         public void on_attacks_row_clicked(ListBoxRow row)
         {
@@ -81,6 +92,18 @@ namespace DungeonJournal
                 this.attacks.add(attack);
 
                 this.add_attack_row(ref attack);
+            }
+        }
+
+        [GtkCallback]
+        public void on_items_row_clicked(ListBoxRow row)
+        {
+            if (row == this.items_row_button)
+            {
+                var item = new CharacterItem();
+                this.items.add(item);
+
+                this.add_item_row(ref item);
             }
         }
     }
