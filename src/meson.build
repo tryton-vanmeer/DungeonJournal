@@ -14,7 +14,7 @@ sources = [
   'CharacterFeat.vala',
   'CharacterAttack.vala',
   'Util.vala',
-  'ui/AppWindow.vala',
+  'ui/ApplicationWindow.vala',
   'ui/ShortcutsWindow.vala',
   'ui/CharacterInfoPage.vala',
   'ui/CharacterSkillsPage.vala',
