@@ -170,6 +170,9 @@ namespace DungeonJournal
                     case "attacks":
                         value = this.get_arraylist_for_type<CharacterAttack>(array);
                         break;
+                    case "items":
+                        value = this.get_arraylist_for_type<CharacterItem>(array);
+                        break;
                 }
             }
             else if (pspec.value_type == typeof(string))
