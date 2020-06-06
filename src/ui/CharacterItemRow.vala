@@ -19,6 +19,11 @@ namespace DungeonJournal
             this.connect_signals();
 
             this.item = item;
+
+            this.item.bind_property("item_name", this.name_entry, "text", Util.BINDING_FLAGS);
+            this.item.bind_property("cost", this.cost_entry, "text", Util.BINDING_FLAGS);
+            this.item.bind_property("weight", this.weight_adjustment, "value", Util.BINDING_FLAGS);
+            this.item.bind_property("description", this.description_entry.buffer, "text", Util.BINDING_FLAGS);
         }
 
         private void connect_signals()
