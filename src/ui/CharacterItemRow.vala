@@ -7,6 +7,7 @@ namespace DungeonJournal
     {
         [GtkChild] protected Entry name_entry;
         [GtkChild] protected Entry cost_entry;
+        [GtkChild] protected SpinButton weight_spinbutton;
         [GtkChild] protected Adjustment weight_adjustment;
         [GtkChild] protected TextView description_entry;
 
@@ -15,8 +16,17 @@ namespace DungeonJournal
         public CharacterItemRow(ref CharacterItem item)
         {
             Object();
+            this.connect_signals();
 
             this.item = item;
+        }
+
+        private void connect_signals()
+        {
+            this.weight_spinbutton.scroll_event.connect(() => {
+                Signal.stop_emission_by_name(this.weight_spinbutton, "scroll-event");
+                return false;
+            });
         }
     }
 }
