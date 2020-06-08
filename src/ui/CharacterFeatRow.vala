@@ -5,7 +5,7 @@ namespace DungeonJournal
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/CharacterFeatRow.ui")]
     public class CharacterFeatRow : ListBoxRow
     {
-        private const string[] expand_button_icons = {"go-next-symbolic", "go-down-symbolic"};
+        private const string[] expand_button_icons = {"pan-end-symbolic", "pan-down-symbolic"};
 
         [GtkChild] protected Label name_label;
         [GtkChild] protected Button expand_button;
