@@ -3,8 +3,9 @@ using Gtk;
 namespace DungeonJournal
 {
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/CharacterFeatRow.ui")]
-    public class CharacterFeatRow: ListBoxRow, CharacterExpandingRow
+    public class CharacterFeatRow : ListBoxRow
     {
+        [GtkChild] protected Box box;
         [GtkChild] protected Entry name_entry;
         [GtkChild] protected TextView description_entry;
 
