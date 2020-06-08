@@ -9,6 +9,7 @@ namespace DungeonJournal
 
         [GtkChild] protected Label name_label;
         [GtkChild] protected Button expand_button;
+        [GtkChild] protected Button delete_button;
         [GtkChild] protected Image expand_image;
         [GtkChild] protected Box expand_box;
 
@@ -33,6 +34,7 @@ namespace DungeonJournal
         private void on_expand_button_clicked()
         {
             this.expand_box.visible = !this.expand_box.visible;
+            this.delete_button.visible = !this.delete_button.visible;
             this.expand_image.icon_name = expand_button_icons[(int) this.expand_box.visible];
         }
     }
