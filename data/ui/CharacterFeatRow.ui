@@ -65,6 +65,7 @@
                 <property name="receives_default">True</property>
                 <property name="image">delete_image</property>
                 <property name="relief">none</property>
+                <signal name="clicked" handler="on_delete_button_clicked" swapped="no"/>
                 <style>
                   <class name="destructive-action"/>
                 </style>

@@ -37,5 +37,12 @@ namespace DungeonJournal
             this.delete_button.visible = !this.delete_button.visible;
             this.expand_image.icon_name = expand_button_icons[(int) this.expand_box.visible];
         }
+
+        [GtkCallback]
+        private void on_delete_button_clicked()
+        {
+            var box = (ListBox) this.parent;
+            box.row_activated(this);
+        }
     }
 }
