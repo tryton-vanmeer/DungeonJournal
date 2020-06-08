@@ -153,6 +153,18 @@ namespace DungeonJournal
 
                 this.add_feat_row(ref feat);
             }
+
+            else if (row.get_type() == typeof(CharacterFeatRow))
+            {
+                // Delete Feat
+                var feat_row = (CharacterFeatRow) row;
+                this.feats.remove(feat_row.feat);
+                this.feats_listbox.remove(feat_row);
+
+                // And remove the SeparatorRow
+                var pos = (int) this.feats_listbox.get_children().length() - 2;
+                this.feats_listbox.remove(this.feats_listbox.get_row_at_index(pos));
+            }
         }
     }
 }
