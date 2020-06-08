@@ -132,8 +132,7 @@
             <property name="can_focus">False</property>
             <child>
               <object class="GtkButton" id="delete_button">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="image">delete_image</property>
                 <style>
@@ -149,7 +148,7 @@
             <child>
               <object class="GtkButton" id="expand_button">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="image">expand_image</property>
               </object>
