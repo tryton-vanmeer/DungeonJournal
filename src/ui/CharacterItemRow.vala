@@ -6,6 +6,8 @@ namespace DungeonJournal
     public class CharacterItemRow : ListBoxRow
     {
         [GtkChild] protected Entry name_entry;
+        [GtkChild] protected SpinButton quantity_spinbutton;
+        [GtkChild] protected Adjustment quantity_adjustment;
         [GtkChild] protected Entry cost_entry;
         [GtkChild] protected SpinButton weight_spinbutton;
         [GtkChild] protected Adjustment weight_adjustment;
@@ -21,6 +23,7 @@ namespace DungeonJournal
             this.item = item;
 
             this.item.bind_property("item_name", this.name_entry, "text", Util.BINDING_FLAGS);
+            this.item.bind_property("quantity", this.quantity_adjustment, "value", Util.BINDING_FLAGS);
             this.item.bind_property("cost", this.cost_entry, "text", Util.BINDING_FLAGS);
             this.item.bind_property("weight", this.weight_adjustment, "value", Util.BINDING_FLAGS);
             this.item.bind_property("description", this.description_entry.buffer, "text", Util.BINDING_FLAGS);
@@ -28,6 +31,11 @@ namespace DungeonJournal
 
         private void connect_signals()
         {
+            this.quantity_spinbutton.scroll_event.connect(() => {
+                Signal.stop_emission_by_name(this.quantity_spinbutton, "scroll-event");
+                return false;
+            });
+
             this.weight_spinbutton.scroll_event.connect(() => {
                 Signal.stop_emission_by_name(this.weight_spinbutton, "scroll-event");
                 return false;
