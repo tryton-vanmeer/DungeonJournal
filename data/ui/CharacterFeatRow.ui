@@ -61,6 +61,7 @@
         </child>
         <child>
           <object class="GtkBox" id="expand_box">
+            <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="orientation">vertical</property>
             <property name="spacing">6</property>
@@ -165,6 +166,6 @@
   <object class="GtkImage" id="expand_image">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="icon_name">go-next-symbolic</property>
+    <property name="icon_name">go-down-symbolic</property>
   </object>
 </interface>
