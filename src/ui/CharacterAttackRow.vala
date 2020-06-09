@@ -29,7 +29,7 @@ namespace DungeonJournal
             this.attack.bind_property("atkbonus", this.atkbonus_entry, "text", Util.BINDING_FLAGS);
             this.attack.bind_property("damage", this.damage_entry, "text", Util.BINDING_FLAGS);
 
-            this.name_label.bind_property("label", this.weapon_entry, "text", Util.BINDING_FLAGS);
+            this.weapon_entry.bind_property("text", this.name_label, "label");
         }
 
         [GtkCallback]
