@@ -25,7 +25,7 @@ namespace DungeonJournal
             this.feat.bind_property("name", this.name_entry, "text", Util.BINDING_FLAGS);
             this.feat.bind_property("description", this.description_entry.buffer, "text", Util.BINDING_FLAGS);
 
-            this.name_label.bind_property("label", this.name_entry, "text", Util.BINDING_FLAGS);
+            this.name_entry.bind_property("text", this.name_label, "label");
         }
 
         [GtkCallback]
