@@ -24,5 +24,10 @@ namespace DungeonJournal
             var list_box = (ListBox) this.parent;
             list_box.row_activated(this);
         }
+
+        public void collapse_row()
+        {
+            this.expand_button.clicked();
+        }
     }
 }
