@@ -35,7 +35,7 @@ namespace DungeonJournal
             this.item.bind_property("weight", this.weight_adjustment, "value", Util.BINDING_FLAGS);
             this.item.bind_property("description", this.description_entry.buffer, "text", Util.BINDING_FLAGS);
 
-            this.name_entry.bind_property("text", this.name_label, "label");
+            this.name_entry.bind_property("text", this.name_label, "label", BindingFlags.SYNC_CREATE);
             this.quantity_adjustment.bind_property(
                 "value", this.quantity_label, "label", BindingFlags.SYNC_CREATE,
                 (binding, srcval, ref targetval) => {

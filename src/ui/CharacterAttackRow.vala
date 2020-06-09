@@ -31,9 +31,9 @@ namespace DungeonJournal
             this.attack.bind_property("atkbonus", this.atkbonus_entry, "text", Util.BINDING_FLAGS);
             this.attack.bind_property("damage", this.damage_entry, "text", Util.BINDING_FLAGS);
 
-            this.weapon_entry.bind_property("text", this.name_label, "label");
-            this.atkbonus_entry.bind_property("text", this.atkbonus_label, "label");
-            this.damage_entry.bind_property("text", this.damage_label, "label");
+            this.weapon_entry.bind_property("text", this.name_label, "label", BindingFlags.SYNC_CREATE);
+            this.atkbonus_entry.bind_property("text", this.atkbonus_label, "label", BindingFlags.SYNC_CREATE);
+            this.damage_entry.bind_property("text", this.damage_label, "label", BindingFlags.SYNC_CREATE);
         }
 
         [GtkCallback]
