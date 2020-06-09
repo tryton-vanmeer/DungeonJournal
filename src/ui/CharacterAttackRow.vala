@@ -5,6 +5,12 @@ namespace DungeonJournal
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/CharacterAttackRow.ui")]
     public class CharacterAttackRow: ListBoxRow
     {
+        [GtkChild] protected Label name_label;
+        [GtkChild] protected Button expand_button;
+        [GtkChild] protected Button delete_button;
+        [GtkChild] protected Image expand_image;
+        [GtkChild] protected Box expand_box;
+
         [GtkChild] protected Entry weapon_entry;
         [GtkChild] protected Entry range_entry;
         [GtkChild] protected Entry atkbonus_entry;
