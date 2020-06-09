@@ -101,6 +101,18 @@ namespace DungeonJournal
 
                 this.add_attack_row(ref attack);
             }
+
+            else if (row.get_type() == typeof(CharacterAttackRow))
+            {
+                // Delete Attack
+                var attack_row = (CharacterAttackRow) row;
+                this.attacks.remove(attack_row.attack);
+                this.attacks_listbox.remove(attack_row);
+
+                // And remove the SeparatorRow
+                var pos = (int) this.attacks_listbox.get_children().length() - 2;
+                this.attacks_listbox.remove(this.attacks_listbox.get_row_at_index(pos));
+            }
         }
 
         [GtkCallback]
@@ -112,6 +124,18 @@ namespace DungeonJournal
                 this.items.add(item);
 
                 this.add_item_row(ref item);
+            }
+
+            else if (row.get_type() == typeof(CharacterItemRow))
+            {
+                // Delete Item
+                var item_row = (CharacterItemRow) row;
+                this.items.remove(item_row.item);
+                this.items_listbox.remove(item_row);
+
+                // And remove the SeparatorRow
+                var pos = (int) this.items_listbox.get_children().length() - 2;
+                this.items_listbox.remove(this.items_listbox.get_row_at_index(pos));
             }
         }
     }
