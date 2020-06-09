@@ -63,6 +63,15 @@ namespace DungeonJournal
             // Attacks
             character.bind("attacks", this, "attacks");
 
+            // Clear attacks_listbox
+            foreach (var row in this.attacks_listbox.get_children())
+            {
+                if (row != this.attacks_row_button)
+                {
+                    this.attacks_listbox.remove(row);
+                }
+            }
+
             foreach (var attack in this.attacks)
             {
                 add_attack_row(ref attack);
@@ -70,6 +79,15 @@ namespace DungeonJournal
 
             // Items
             character.bind("items", this, "items");
+
+            // Clear items_listbox
+            foreach (var row in this.items_listbox.get_children())
+            {
+                if (row != this.items_row_button)
+                {
+                    this.items_listbox.remove(row);
+                }
+            }
 
             foreach (var item in this.items)
             {

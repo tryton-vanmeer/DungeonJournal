@@ -130,6 +130,15 @@ namespace DungeonJournal
             // Feats
             character.bind("feats", this, "feats");
 
+            // Clear feats_listbox
+            foreach (var row in this.feats_listbox.get_children())
+            {
+                if (row != this.feats_row_button)
+                {
+                    this.feats_listbox.remove(row);
+                }
+            }
+
             foreach (var feat in this.feats)
             {
                 add_feat_row(ref feat);
