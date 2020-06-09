@@ -3,8 +3,15 @@ using Gtk;
 namespace DungeonJournal
 {
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/CharacterItemRow.ui")]
-    public class CharacterItemRow : ListBoxRow
+    public class CharacterItemRow : ListBoxRow, CharacterRowInterface
     {
+        [GtkChild] protected Label name_label;
+        [GtkChild] protected Label quantity_label;
+        [GtkChild] protected Button expand_button { get; }
+        [GtkChild] protected Button delete_button { get; }
+        [GtkChild] protected Image expand_image { get; }
+        [GtkChild] protected Box expand_box { get; }
+
         [GtkChild] protected Entry name_entry;
         [GtkChild] protected SpinButton quantity_spinbutton;
         [GtkChild] protected Adjustment quantity_adjustment;
@@ -27,6 +34,28 @@ namespace DungeonJournal
             this.item.bind_property("cost", this.cost_entry, "text", Util.BINDING_FLAGS);
             this.item.bind_property("weight", this.weight_adjustment, "value", Util.BINDING_FLAGS);
             this.item.bind_property("description", this.description_entry.buffer, "text", Util.BINDING_FLAGS);
+
+            this.name_entry.bind_property("text", this.name_label, "label", BindingFlags.SYNC_CREATE);
+            this.quantity_adjustment.bind_property(
+                "value", this.quantity_label, "label", BindingFlags.SYNC_CREATE,
+                (binding, srcval, ref targetval) => {
+                    double src = (double) srcval;
+                    targetval.set_string(@"x$((int) src)");
+                    return true;
+                }
+            );
+        }
+
+        [GtkCallback]
+        private void on_expand_button_clicked()
+        {
+            this.expand_button_clicked();
+        }
+
+        [GtkCallback]
+        private void on_delete_button_clicked()
+        {
+            this.delete_button_clicked();
         }
 
         private void connect_signals()

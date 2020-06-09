@@ -130,16 +130,32 @@ namespace DungeonJournal
             // Feats
             character.bind("feats", this, "feats");
 
+            // Clear feats_listbox
+            foreach (var row in this.feats_listbox.get_children())
+            {
+                if (row != this.feats_row_button)
+                {
+                    this.feats_listbox.remove(row);
+                }
+            }
+
             foreach (var feat in this.feats)
             {
-                add_feat_row(ref feat);
+                this.add_feat_row(ref feat, true);
             }
         }
 
-        private void add_feat_row(ref CharacterFeat feat)
+        private void add_feat_row(ref CharacterFeat feat, bool collapse = false)
         {
             var pos = (int) this.feats_listbox.get_children().length() - 1;
-            this.feats_listbox.insert(new CharacterFeatRow(ref feat), pos);
+            var row = new CharacterFeatRow(ref feat);
+
+            if (collapse)
+            {
+                row.collapse_row();
+            }
+
+            this.feats_listbox.insert(row, pos);
             this.feats_listbox.insert(new SeparatorRow(), pos + 1);
         }
 
@@ -152,6 +168,18 @@ namespace DungeonJournal
                 this.feats.add(feat);
 
                 this.add_feat_row(ref feat);
+            }
+
+            else if (row.get_type() == typeof(CharacterFeatRow))
+            {
+                // Delete Feat
+                var feat_row = (CharacterFeatRow) row;
+                this.feats.remove(feat_row.feat);
+                this.feats_listbox.remove(feat_row);
+
+                // And remove the SeparatorRow
+                var pos = (int) this.feats_listbox.get_children().length() - 2;
+                this.feats_listbox.remove(this.feats_listbox.get_row_at_index(pos));
             }
         }
     }
