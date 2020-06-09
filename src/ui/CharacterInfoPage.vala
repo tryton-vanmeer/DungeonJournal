@@ -141,14 +141,21 @@ namespace DungeonJournal
 
             foreach (var feat in this.feats)
             {
-                add_feat_row(ref feat);
+                this.add_feat_row(ref feat, true);
             }
         }
 
-        private void add_feat_row(ref CharacterFeat feat)
+        private void add_feat_row(ref CharacterFeat feat, bool collapse = false)
         {
             var pos = (int) this.feats_listbox.get_children().length() - 1;
-            this.feats_listbox.insert(new CharacterFeatRow(ref feat), pos);
+            var row = new CharacterFeatRow(ref feat);
+
+            if (collapse)
+            {
+                row.collapse_row();
+            }
+
+            this.feats_listbox.insert(row, pos);
             this.feats_listbox.insert(new SeparatorRow(), pos + 1);
         }
 

@@ -74,7 +74,7 @@ namespace DungeonJournal
 
             foreach (var attack in this.attacks)
             {
-                add_attack_row(ref attack);
+                add_attack_row(ref attack, true);
             }
 
             // Items
@@ -91,21 +91,35 @@ namespace DungeonJournal
 
             foreach (var item in this.items)
             {
-                add_item_row(ref item);
+                add_item_row(ref item, true);
             }
         }
 
-        private void add_attack_row(ref CharacterAttack attack)
+        private void add_attack_row(ref CharacterAttack attack, bool collapse = false)
         {
             var pos = (int) this.attacks_listbox.get_children().length() - 1;
-            this.attacks_listbox.insert(new CharacterAttackRow(ref attack), pos);
+            var row = new CharacterAttackRow(ref attack);
+
+            if (collapse)
+            {
+                row.collapse_row();
+            }
+
+            this.attacks_listbox.insert(row, pos);
             this.attacks_listbox.insert(new SeparatorRow(), pos + 1);
         }
 
-        private void add_item_row(ref CharacterItem item)
+        private void add_item_row(ref CharacterItem item, bool collapse = false)
         {
             var pos = (int) this.items_listbox.get_children().length() - 1;
-            this.items_listbox.insert(new CharacterItemRow(ref item), pos);
+            var row = new CharacterItemRow(ref item);
+
+            if (collapse)
+            {
+                row.collapse_row();
+            }
+
+            this.items_listbox.insert(row, pos);
             this.items_listbox.insert(new SeparatorRow(), pos + 1);
         }
 
