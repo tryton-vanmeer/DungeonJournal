@@ -50,4 +50,7 @@ resources = gnome.compile_resources('dungeonjournal-resources',
 )
 
 # Icons
-install_subdir('icons/hicolor/', install_dir: join_paths (get_option('datadir'), 'icons'))
+install_data(
+  join_paths('icons', 'scalable', 'apps', '@0@.svg'.format(app_id)),
+  install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', 'scalable', 'apps')
+)
