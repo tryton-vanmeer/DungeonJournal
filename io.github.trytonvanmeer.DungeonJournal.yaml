@@ -28,12 +28,12 @@ cleanup:
 modules:
 - name: libhandy
   buildsystem: meson
-  config:
+  config-opts:
   - -Dglade_catalog=disabled
   - -Dintrospection=enabled
   - -Dexamples=false
   - -Dtests=false
-  source:
+  sources:
   - type: git
     url: https://gitlab.gnome.org/GNOME/libhandy.git
 
