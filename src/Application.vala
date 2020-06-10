@@ -68,6 +68,13 @@ namespace DungeonJournal
                 "Tryton Van Meer <trytonvanmeer@gmail.com>",
             };
 
+            var version = Config.VERSION;
+
+            if (Config.PROFILE == "development")
+            {
+                version = "master";
+            }
+
             Gtk.show_about_dialog
             (
                 window,
@@ -78,7 +85,7 @@ namespace DungeonJournal
                 authors: authors,
                 website: "https://github.com/tryton-vanmeer/DungeonJournal",
                 website_label: _("GitHub Homepage"),
-                version: Config.VERSION,
+                version: version,
                 license_type: Gtk.License.GPL_3_0
             );
         }
