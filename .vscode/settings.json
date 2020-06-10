@@ -1,0 +1,10 @@
+{
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "/io.github.trytonvanmeer.DungeonJournal.json"
+            ],
+            "url": "https://raw.githubusercontent.com/TingPing/flatpak-manifest-schema/master/flatpak-manifest.schema"
+        }
+    ]
+}
