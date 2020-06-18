@@ -22,11 +22,6 @@ namespace DungeonJournal
 
         protected override void activate()
         {
-            this.create_app_window();
-        }
-
-        public void create_app_window()
-        {
             this.window = new DungeonJournal.ApplicationWindow(this);
             this.window.show_all();
         }
