@@ -64,15 +64,39 @@ namespace DungeonJournal
             this.bottom_switcher.reveal = this.squeezer.visible_child != this.headerbar_switcher;
         }
 
+        public void on_open()
+        {
+            var dialog = new FileChooserNative(
+                _("Open Character"),
+                this,
+                FileChooserAction.OPEN,
+                _("_Open"),
+                _("_Cancel")
+            );
+
+            var filter = new FileFilter();
+            filter.add_mime_type("application/json");
+            dialog.set_filter(filter);
+
+            if (dialog.run() == ResponseType.ACCEPT)
+            {
+                string path = dialog.get_file().get_path();
+
+                this.open_character(path);
+            }
+
+            dialog.destroy();
+        }
+
         public void on_save()
         {
             if (this.character_path == null)
             {
-                on_save_as();
+                this.on_save_as();
             }
             else
             {
-                save_character(this.character_path);
+                this.save_character(this.character_path);
             }
         }
 
@@ -93,7 +117,7 @@ namespace DungeonJournal
             {
                 string path = dialog.get_file().get_path();
 
-                save_character(path);
+                this.save_character(path);
                 this.character_path = path;
             }
 
@@ -108,7 +132,7 @@ namespace DungeonJournal
                 parser.load_from_file(file_path);
                 Json.Node node = parser.get_root();
                 this.character = Json.gobject_deserialize(typeof (CharacterSheet), node) as CharacterSheet;
-                bind_character();
+                this.bind_character();
                 this.character_path = file_path;
             }
             catch (Error e)
@@ -129,7 +153,7 @@ namespace DungeonJournal
                     file.delete();
                 }
 
-                FileOutputStream stream = file.create (FileCreateFlags.NONE);
+                FileOutputStream stream = file.create(FileCreateFlags.NONE);
                 stream.write(json.data);
             }
             catch (Error e)

@@ -37,26 +37,7 @@ namespace DungeonJournal
             var open_action = new GLib.SimpleAction("open", null);
             open_action.activate.connect(()=>
             {
-                var dialog = new FileChooserNative(
-                    _("Open Character"),
-                    window,
-                    FileChooserAction.OPEN,
-                    _("_Open"),
-                    _("_Cancel")
-                );
-
-                var filter = new FileFilter();
-                filter.add_mime_type("application/json");
-                dialog.set_filter(filter);
-
-                if (dialog.run() == ResponseType.ACCEPT)
-                {
-                    string path = dialog.get_file().get_path();
-
-                    this.window.open_character(path);
-                }
-
-                dialog.destroy();
+                this.window.on_open();
             });
 
             var save_action = new GLib.SimpleAction("save", null);
