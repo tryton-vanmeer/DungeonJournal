@@ -16,6 +16,7 @@ sources = [
   'CharacterItem.vala',
   'Util.vala',
   'ui/ApplicationWindow.vala',
+  'ui/StartupWindow.vala',
   'ui/ShortcutsWindow.vala',
   'ui/CharacterInfoPage.vala',
   'ui/CharacterSkillsPage.vala',
