@@ -23,7 +23,6 @@ namespace DungeonJournal
         protected override void activate()
         {
             this.window = new DungeonJournal.ApplicationWindow(this);
-            this.window.show_all();
         }
 
         private void setup_actions()
