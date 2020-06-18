@@ -15,6 +15,8 @@ namespace DungeonJournal
         private CharacterSkillsPage page_skills;
         private CharacterInventoryPage page_inventory;
 
+        private StartupWindow startup_window;
+
         private CharacterSheet character;
         private string character_path;
 
@@ -30,6 +32,9 @@ namespace DungeonJournal
             setup_style();
             setup_view();
             bind_character();
+
+            startup_window = new StartupWindow(this);
+            startup_window.show_all();
         }
 
         private void setup_style()
