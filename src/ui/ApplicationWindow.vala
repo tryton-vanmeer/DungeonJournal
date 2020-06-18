@@ -100,9 +100,9 @@ namespace DungeonJournal
 
         private void bind_character()
         {
-            this.page_info.bind_character(ref this.character);
-            this.page_skills.bind_character(ref this.character);
-            this.page_inventory.bind_character(ref this.character);
+            this.page_info.bind_character(this.character);
+            this.page_skills.bind_character(this.character);
+            this.page_inventory.bind_character(this.character);
         }
 
         private void open_character()

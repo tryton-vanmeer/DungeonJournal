@@ -53,7 +53,7 @@ namespace DungeonJournal
             this.items = new ArrayList<CharacterItem>();
         }
 
-        public void bind_character(ref CharacterSheet character)
+        public void bind_character(CharacterSheet character)
         {
             // Currency
             character.bind("currency-copper", this.currency_copper, "value");

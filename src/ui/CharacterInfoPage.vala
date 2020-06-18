@@ -107,7 +107,7 @@ namespace DungeonJournal
             this.feats = new ArrayList<CharacterFeat>();
         }
 
-        public void bind_character(ref CharacterSheet character)
+        public void bind_character(CharacterSheet character)
         {
             // Info
             character.bind("name", this.info_name, "text");

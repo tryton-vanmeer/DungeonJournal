@@ -153,7 +153,7 @@ namespace DungeonJournal
             }
         }
 
-        public void bind_character(ref CharacterSheet character)
+        public void bind_character(CharacterSheet character)
         {
             character.bind("strength_score", this.strength_score, "value");
             character.bind("strength_save_proficiency", this.strength_save, "active");
