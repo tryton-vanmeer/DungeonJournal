@@ -2,7 +2,6 @@
 <!-- Generated with glade 3.36.0 -->
 <interface>
   <requires lib="gtk+" version="3.22"/>
-  <requires lib="libhandy" version="0.0"/>
   <template class="DungeonJournalStartupWindow" parent="GtkWindow">
     <property name="can_focus">False</property>
     <property name="default_width">800</property>
@@ -22,22 +21,11 @@
       </object>
     </child>
     <child type="titlebar">
-      <object class="HdyHeaderBar">
+      <object class="GtkHeaderBar">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="title" translatable="yes">Dungeon Journal</property>
         <property name="show_close_button">True</property>
-        <property name="centering_policy">strict</property>
-        <child>
-          <object class="GtkLabel" id="headerbar_label">
-            <property name="name">title_label</property>
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label">Dungeon Journal</property>
-            <attributes>
-              <attribute name="weight" value="bold"/>
-            </attributes>
-          </object>
-        </child>
         <child>
           <placeholder/>
         </child>
