@@ -51,15 +51,17 @@ namespace DungeonJournal
             this.stack.add_titled(this.page_inventory, "inventory", _("Inventory"));
         }
 
+        private void bind_character()
+        {
+            this.page_info.bind_character(this.character);
+            this.page_skills.bind_character(this.character);
+            this.page_inventory.bind_character(this.character);
+        }
+
         [GtkCallback]
         public void on_headerbar_squeezer_notify()
         {
             this.bottom_switcher.reveal = this.squeezer.visible_child != this.headerbar_switcher;
-        }
-
-        public void on_open()
-        {
-            open_character();
         }
 
         public void on_save()
@@ -98,49 +100,21 @@ namespace DungeonJournal
             dialog.destroy();
         }
 
-        private void bind_character()
+        public void open_character(string file_path)
         {
-            this.page_info.bind_character(this.character);
-            this.page_skills.bind_character(this.character);
-            this.page_inventory.bind_character(this.character);
-        }
-
-        private void open_character()
-        {
-            var dialog = new FileChooserNative(
-                _("Open Character"),
-                this,
-                FileChooserAction.OPEN,
-                _("_Open"),
-                _("_Cancel")
-            );
-
-            var filter = new FileFilter();
-            filter.add_mime_type("application/json");
-            dialog.set_filter(filter);
-
-            if (dialog.run() == Gtk.ResponseType.ACCEPT)
+            try
             {
-                string path = dialog.get_file().get_path();
-
-                try
-                {
-                    var parser = new Json.Parser();
-                    parser.load_from_file(path);
-
-                    Json.Node node = parser.get_root();
-                    this.character = Json.gobject_deserialize(typeof (CharacterSheet), node) as CharacterSheet;
-                    bind_character();
-
-                    this.character_path = path;
-                }
-                catch (Error e)
-                {
-                    log(null, LogLevelFlags.LEVEL_ERROR, "Error Opening Character: %s\n", path);
-                }
+                var parser = new Json.Parser();
+                parser.load_from_file(file_path);
+                Json.Node node = parser.get_root();
+                this.character = Json.gobject_deserialize(typeof (CharacterSheet), node) as CharacterSheet;
+                bind_character();
+                this.character_path = file_path;
             }
-
-            dialog.destroy();
+            catch (Error e)
+            {
+                log(null, LogLevelFlags.LEVEL_ERROR, "Error Opening Character: %s\n", file_path);
+            }
         }
 
         private void save_character(string path)

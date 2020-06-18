@@ -1,3 +1,5 @@
+using Gtk;
+
 namespace DungeonJournal
 {
     public class App : Gtk.Application
@@ -35,7 +37,26 @@ namespace DungeonJournal
             var open_action = new GLib.SimpleAction("open", null);
             open_action.activate.connect(()=>
             {
-                this.window.on_open();
+                var dialog = new FileChooserNative(
+                    _("Open Character"),
+                    window,
+                    FileChooserAction.OPEN,
+                    _("_Open"),
+                    _("_Cancel")
+                );
+
+                var filter = new FileFilter();
+                filter.add_mime_type("application/json");
+                dialog.set_filter(filter);
+
+                if (dialog.run() == ResponseType.ACCEPT)
+                {
+                    string path = dialog.get_file().get_path();
+
+                    this.window.open_character(path);
+                }
+
+                dialog.destroy();
             });
 
             var save_action = new GLib.SimpleAction("save", null);
