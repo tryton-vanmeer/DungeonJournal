@@ -64,12 +64,13 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkButton">
+                      <object class="GtkButton" id="open_button">
                         <property name="label" translatable="yes">Open Character</property>
                         <property name="height_request">48</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
+                        <signal name="clicked" handler="on_open" swapped="no"/>
                         <style>
                           <class name="suggested-action"/>
                         </style>
@@ -81,12 +82,13 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkButton">
+                      <object class="GtkButton" id="new_button">
                         <property name="label" translatable="yes">New Character</property>
                         <property name="height_request">48</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
+                        <signal name="clicked" handler="on_new" swapped="no"/>
                       </object>
                       <packing>
                         <property name="expand">False</property>
