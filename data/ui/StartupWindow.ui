@@ -46,45 +46,69 @@
                       </packing>
                     </child>
                     <child>
-                      <placeholder/>
-                    </child>
-                    <child>
-                      <placeholder/>
-                    </child>
-                    <child>
                       <object class="GtkLabel">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="halign">start</property>
-                        <property name="label" translatable="yes">Recent Characters</property>
+                        <property name="halign">center</property>
+                        <property name="label" translatable="yes">Create some characters</property>
                         <attributes>
                           <attribute name="weight" value="bold"/>
+                          <attribute name="scale" value="1.8"/>
                         </attributes>
                       </object>
                       <packing>
                         <property name="expand">False</property>
                         <property name="fill">True</property>
-                        <property name="position">3</property>
+                        <property name="position">1</property>
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkFrame">
+                      <object class="GtkBox" id="recents_box">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="label_xalign">0</property>
-                        <property name="shadow_type">in</property>
+                        <property name="orientation">vertical</property>
+                        <property name="spacing">12</property>
                         <child>
-                          <object class="GtkListBox" id="recent_listbox">
+                          <object class="GtkLabel">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="selection_mode">none</property>
+                            <property name="halign">start</property>
+                            <property name="label" translatable="yes">Recent Characters</property>
+                            <attributes>
+                              <attribute name="weight" value="bold"/>
+                            </attributes>
                           </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkFrame">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label_xalign">0</property>
+                            <property name="shadow_type">in</property>
+                            <child>
+                              <object class="GtkListBox" id="recent_listbox">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="selection_mode">none</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">1</property>
+                          </packing>
                         </child>
                       </object>
                       <packing>
                         <property name="expand">False</property>
                         <property name="fill">True</property>
-                        <property name="position">4</property>
+                        <property name="position">2</property>
                       </packing>
                     </child>
                   </object>
