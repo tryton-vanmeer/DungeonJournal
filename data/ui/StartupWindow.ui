@@ -25,8 +25,8 @@
                 <property name="margin_end">12</property>
                 <property name="margin_top">32</property>
                 <property name="margin_bottom">32</property>
-                <property name="maximum_width">650</property>
-                <property name="linear_growth_width">450</property>
+                <property name="maximum_width">288</property>
+                <property name="linear_growth_width">288</property>
                 <child>
                   <object class="GtkBox">
                     <property name="visible">True</property>
