@@ -26,6 +26,30 @@ namespace DungeonJournal
             this.recents_box.hide();
         }
 
+        private void finish_startup()
+        {
+            this.done_startup = true;
+            this.window.show_all();
+            this.destroy();
+        }
+
+        [GtkCallback]
+        private void on_open()
+        {
+            var res = this.window.on_open(this);
+
+            if (res)
+            {
+                this.finish_startup();
+            }
+        }
+
+        [GtkCallback]
+        private void on_new()
+        {
+            this.finish_startup();
+        }
+
         [GtkCallback]
         private void on_destroy()
         {
