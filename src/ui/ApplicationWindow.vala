@@ -69,7 +69,7 @@ namespace DungeonJournal
             this.bottom_switcher.reveal = this.squeezer.visible_child != this.headerbar_switcher;
         }
 
-        public void on_open()
+        public bool on_open()
         {
             var dialog = new FileChooserNative(
                 _("Open Character"),
@@ -88,6 +88,11 @@ namespace DungeonJournal
                 string path = dialog.get_file().get_path();
 
                 this.open_character(path);
+                return true;
+            }
+            else
+            {
+                return false;
             }
 
             dialog.destroy();
