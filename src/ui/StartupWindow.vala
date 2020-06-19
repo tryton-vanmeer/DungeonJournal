@@ -8,6 +8,7 @@ namespace DungeonJournal
         private DungeonJournal.ApplicationWindow window;
 
         [GtkChild] private Image logo;
+        [GtkChild] private Box recents_box;
 
         private bool done_startup { get; set; default=false; }
 
@@ -17,6 +18,12 @@ namespace DungeonJournal
             this.window = window;
 
             this.logo.icon_name = Config.APP_ID;
+        }
+
+        public override void show_all()
+        {
+            base.show_all();
+            this.recents_box.hide();
         }
 
         [GtkCallback]
