@@ -69,11 +69,11 @@ namespace DungeonJournal
             this.bottom_switcher.reveal = this.squeezer.visible_child != this.headerbar_switcher;
         }
 
-        public bool on_open()
+        public bool on_open(Gtk.Window? parent=this)
         {
             var dialog = new FileChooserNative(
                 _("Open Character"),
-                this,
+                parent,
                 FileChooserAction.OPEN,
                 _("_Open"),
                 _("_Cancel")
