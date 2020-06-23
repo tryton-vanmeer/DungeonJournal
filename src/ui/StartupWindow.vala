@@ -25,7 +25,11 @@ namespace DungeonJournal
         public override void show_all()
         {
             base.show_all();
+            this.hide_listbox_if_empty();
+        }
 
+        private void hide_listbox_if_empty()
+        {
             if (this.recents_listbox.get_children().length() == 0)
             {
                 this.recents_box.hide();
@@ -80,7 +84,10 @@ namespace DungeonJournal
         {
             var recent_row = (RecentsCharacterRow) row;
 
-            printerr("Delete row: " + recent_row.file_path);
+            this.window.remove_recent_file(recent_row.file_path);
+
+            this.recents_listbox.remove(row);
+            this.hide_listbox_if_empty();
         }
 
         [GtkCallback]
