@@ -76,7 +76,8 @@ namespace DungeonJournal
         {
             var recent_row = (RecentsCharacterRow) row;
 
-            printerr("Clicked row: " + recent_row.file_path);
+            this.window.open_character(recent_row.file_path);
+            this.finish_startup();
         }
 
         [GtkCallback]
