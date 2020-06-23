@@ -1,4 +1,5 @@
 using Gtk;
+using Gee;
 using Hdy;
 
 namespace DungeonJournal
@@ -141,6 +142,7 @@ namespace DungeonJournal
                 Json.Node node = parser.get_root();
                 this.character = Json.gobject_deserialize(typeof (CharacterSheet), node) as CharacterSheet;
                 this.bind_character();
+                this.add_recent_file(file_path);
                 this.character_path = file_path;
             }
             catch (Error e)
@@ -167,6 +169,17 @@ namespace DungeonJournal
             catch (Error e)
             {
                 log(null, LogLevelFlags.LEVEL_ERROR, "Error Saving Character: %s\n", path);
+            }
+        }
+
+        private void add_recent_file(string file_path)
+        {
+            var recents = new ArrayList<string>.wrap(App.settings.recent_files);
+
+            if (!recents.contains(file_path))
+            {
+                recents.add(file_path);
+                App.settings.recent_files = recents.to_array();
             }
         }
     }
