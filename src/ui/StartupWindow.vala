@@ -68,6 +68,22 @@ namespace DungeonJournal
         }
 
         [GtkCallback]
+        private void on_recents_row_clicked(ListBoxRow row)
+        {
+            var recent_row = (RecentsCharacterRow) row;
+
+            printerr("Clicked row: " + recent_row.file_path);
+        }
+
+        [GtkCallback]
+        private void on_recents_row_delete(ListBox listbox, ListBoxRow? row)
+        {
+            var recent_row = (RecentsCharacterRow) row;
+
+            printerr("Delete row: " + recent_row.file_path);
+        }
+
+        [GtkCallback]
         private void on_destroy()
         {
             if (!this.done_startup)
