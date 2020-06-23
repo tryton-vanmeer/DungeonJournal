@@ -6,18 +6,25 @@ namespace DungeonJournal
     public class RecentsCharacterRow: ListBoxRow, CharacterRowInterface
     {
         [GtkChild] protected Label name_label;
+        [GtkChild] protected Label filepath_label;
         [GtkChild] protected Button expand_button { get; }
         [GtkChild] protected Button delete_button { get; }
         [GtkChild] protected Image expand_image { get; }
         [GtkChild] protected Box expand_box { get; }
 
-        public string file_path { get; set; }
+        public string file_path
+        {
+            get
+            {
+                return this.filepath_label.label;
+            }
+        }
 
         public RecentsCharacterRow(string file_path)
         {
             Object();
-            this.file_path = file_path;
-            this.name_label.label = file_path;
+            this.filepath_label.label = file_path;
+            this.name_label.label = Path.get_basename(file_path).replace(".json", "");
         }
 
         public override void show_all()
