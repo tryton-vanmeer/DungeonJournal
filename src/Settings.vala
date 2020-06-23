@@ -6,7 +6,7 @@ namespace DungeonJournal
 
         public Settings()
         {
-            this.settings = new GLib.Settings(Config.APP_ID);
+            this.settings = new GLib.Settings("io.github.trytonvanmeer.DungeonJournal");
         }
 
         public void apply()
