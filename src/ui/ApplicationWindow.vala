@@ -94,8 +94,6 @@ namespace DungeonJournal
             {
                 return false;
             }
-
-            dialog.destroy();
         }
 
         public void on_save()
