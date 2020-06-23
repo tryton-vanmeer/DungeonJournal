@@ -4,6 +4,7 @@ namespace DungeonJournal
 {
     public class App : Gtk.Application
     {
+        public DungeonJournal.Settings settings;
         public DungeonJournal.ApplicationWindow window;
 
         public App()
@@ -12,6 +13,8 @@ namespace DungeonJournal
                 application_id: Config.APP_ID,
                 flags: ApplicationFlags.FLAGS_NONE
             );
+
+            this.settings = new DungeonJournal.Settings();
         }
 
         protected override void startup()
@@ -103,6 +106,7 @@ namespace DungeonJournal
         Gtk.init(ref args);
 
         var app = new App();
+        app.settings.apply();
 
         return app.run(args);
     }
