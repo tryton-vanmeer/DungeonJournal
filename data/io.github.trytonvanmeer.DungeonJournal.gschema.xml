@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="dungeonjournal">
+    <schema id="io.github.trytonvanmeer.DungeonJournal" path="/io/github/trytonvanmeer/DungeonJournal/" gettext-domain="dungeonjournal">
+        <key type="i" name="window-width">
+            <default>800</default>
+            <summary>Window width</summary>
+            <description>Width of the window.</description>
+        </key>
+        <key type="i" name="window-height">
+            <default>600</default>
+            <summary>Window height</summary>
+            <description>Height of the window.</description>
+        </key>
+        <key type="as" name="recent-files">
+            <default>[]</default>
+            <summary>List of Recent Files</summary>
+            <description>A list of recently used files, shown in the Startup Window.</description>
+        </key>
+    </schema>
+</schemalist>

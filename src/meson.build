@@ -10,11 +10,12 @@ deps = [
 
 sources = [
   'Application.vala',
+  'Util.vala',
+  'Settings.vala',
   'CharacterSheet.vala',
   'CharacterFeat.vala',
   'CharacterAttack.vala',
   'CharacterItem.vala',
-  'Util.vala',
   'ui/ApplicationWindow.vala',
   'ui/StartupWindow.vala',
   'ui/ShortcutsWindow.vala',
@@ -26,6 +27,7 @@ sources = [
   'ui/SpinButtonRow.vala',
   'ui/SpinButtonCheckboxRow.vala',
   'ui/SeparatorRow.vala',
+  'ui/RecentsCharacterRow.vala',
   'ui/CharacterRowInterface.vala',
   'ui/CharacterFeatRow.vala',
   'ui/CharacterAttackRow.vala',

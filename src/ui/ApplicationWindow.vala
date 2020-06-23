@@ -1,4 +1,5 @@
 using Gtk;
+using Gee;
 using Hdy;
 
 namespace DungeonJournal
@@ -69,11 +70,11 @@ namespace DungeonJournal
             this.bottom_switcher.reveal = this.squeezer.visible_child != this.headerbar_switcher;
         }
 
-        public void on_open()
+        public bool on_open(Gtk.Window? parent=this)
         {
             var dialog = new FileChooserNative(
                 _("Open Character"),
-                this,
+                parent,
                 FileChooserAction.OPEN,
                 _("_Open"),
                 _("_Cancel")
@@ -88,9 +89,12 @@ namespace DungeonJournal
                 string path = dialog.get_file().get_path();
 
                 this.open_character(path);
+                return true;
             }
-
-            dialog.destroy();
+            else
+            {
+                return false;
+            }
         }
 
         public void on_save()
@@ -138,6 +142,7 @@ namespace DungeonJournal
                 Json.Node node = parser.get_root();
                 this.character = Json.gobject_deserialize(typeof (CharacterSheet), node) as CharacterSheet;
                 this.bind_character();
+                this.add_recent_file(file_path);
                 this.character_path = file_path;
             }
             catch (Error e)
@@ -165,6 +170,25 @@ namespace DungeonJournal
             {
                 log(null, LogLevelFlags.LEVEL_ERROR, "Error Saving Character: %s\n", path);
             }
+        }
+
+        private void add_recent_file(string file_path)
+        {
+            var recents = new ArrayList<string>.wrap(App.settings.recent_files);
+
+            if (!recents.contains(file_path))
+            {
+                recents.add(file_path);
+                App.settings.recent_files = recents.to_array();
+            }
+        }
+
+        public void remove_recent_file(string file_path)
+        {
+            var recents = new ArrayList<string>.wrap(App.settings.recent_files);
+
+            recents.remove(file_path);
+            App.settings.recent_files = recents.to_array();
         }
     }
 }
