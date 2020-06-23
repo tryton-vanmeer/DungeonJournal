@@ -182,5 +182,13 @@ namespace DungeonJournal
                 App.settings.recent_files = recents.to_array();
             }
         }
+
+        public void remove_recent_file(string file_path)
+        {
+            var recents = new ArrayList<string>.wrap(App.settings.recent_files);
+
+            recents.remove(file_path);
+            App.settings.recent_files = recents.to_array();
+        }
     }
 }
