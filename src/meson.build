@@ -10,11 +10,12 @@ deps = [
 
 sources = [
   'Application.vala',
+  'Util.vala',
+  'Settings.vala',
   'CharacterSheet.vala',
   'CharacterFeat.vala',
   'CharacterAttack.vala',
   'CharacterItem.vala',
-  'Util.vala',
   'ui/ApplicationWindow.vala',
   'ui/StartupWindow.vala',
   'ui/ShortcutsWindow.vala',
