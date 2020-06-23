@@ -27,6 +27,7 @@ sources = [
   'ui/SpinButtonRow.vala',
   'ui/SpinButtonCheckboxRow.vala',
   'ui/SeparatorRow.vala',
+  'ui/RecentsCharacterRow.vala',
   'ui/CharacterRowInterface.vala',
   'ui/CharacterFeatRow.vala',
   'ui/CharacterAttackRow.vala',
