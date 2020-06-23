@@ -106,7 +106,6 @@ namespace DungeonJournal
         Gtk.init(ref args);
 
         var app = new App();
-        app.settings.apply();
 
         return app.run(args);
     }

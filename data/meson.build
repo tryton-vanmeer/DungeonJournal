@@ -32,9 +32,7 @@ if appstream_util.found()
   )
 endif
 
-# install_data('io.github.trytonvanmeer.DungeonJournal.gschema.xml',
-#   install_dir: join_paths(get_option('datadir'), 'glib-2.0/schemas')
-# )
+install_data('io.github.trytonvanmeer.DungeonJournal.gschema.xml', install_dir: get_option('datadir') + '/glib-2.0/schemas/')
 
 compile_schemas = find_program('glib-compile-schemas', required: false)
 if compile_schemas.found()

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="dungeonjournal">
+    <schema id="io.github.trytonvanmeer.DungeonJournal" path="/io/github/trytonvanmeer/DungeonJournal/" gettext-domain="dungeonjournal">
+        <key type="i" name="window-width">
+            <default>800</default>
+            <summary>Window Width</summary>
+            <description>Width of the window</description>
+        </key>
+        <key type="i" name="window-height">
+            <default>600</default>
+            <summary>Window Height</summary>
+            <description>Height of the window</description>
+        </key>
+    </schema>
+</schemalist>
