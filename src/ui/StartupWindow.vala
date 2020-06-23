@@ -38,7 +38,8 @@ namespace DungeonJournal
 
             foreach (var file_path in recents)
             {
-                this.recents_listbox.add(new Label(file_path));
+                var row = new RecentsCharacterRow(file_path);
+                this.recents_listbox.add(row);
             }
         }
 
