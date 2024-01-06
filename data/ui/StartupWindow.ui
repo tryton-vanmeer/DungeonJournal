@@ -18,15 +18,14 @@
             <property name="can_focus">False</property>
             <property name="shadow_type">none</property>
             <child>
-              <object class="HdyColumn">
+              <object class="HdyClamp">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="margin_start">12</property>
                 <property name="margin_end">12</property>
                 <property name="margin_top">32</property>
                 <property name="margin_bottom">32</property>
-                <property name="maximum_width">288</property>
-                <property name="linear_growth_width">288</property>
+                <property name="maximum_size">288</property>
                 <child>
                   <object class="GtkBox">
                     <property name="visible">True</property>
@@ -170,3 +169,4 @@
     </child>
   </template>
 </interface>
+
