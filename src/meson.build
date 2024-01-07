@@ -5,7 +5,7 @@ deps = [
   glib_json,
   gtk,
   gee,
-  libhandy,
+  libadwaita,
 ]
 
 sources = [

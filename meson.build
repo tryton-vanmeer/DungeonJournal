@@ -31,28 +31,9 @@ math = meson.get_compiler('c').find_library('m')
 gio = dependency('gio-2.0', version: '>= 2.50')
 glib = dependency('glib-2.0', version: '>= 2.50')
 glib_json = dependency('json-glib-1.0', version: '>= 0.29.2')
-gtk = dependency('gtk+-3.0', version: '>= 3.22')
+gtk = dependency('gtk4', version: '>= 4')
+libadwaita = dependency('libadwaita-1', version: '>= 1.0')
 gee = dependency('gee-0.8')
-
-libhandy = dependency('libhandy-1', version: '>= 0.80.0', required: false)
-if not libhandy.found()
-  libhandy_subproj = subproject(
-    'libhandy',
-    default_options: [
-      'examples=false',
-      'glade_catalog=disabled',
-      'tests=false',
-    ]
-  )
-
-  # When using libhandy as subproject, make sure we get the VAPI file
-  libhandy = declare_dependency(
-    dependencies: [
-      libhandy_subproj.get_variable('libhandy_dep'),
-      libhandy_subproj.get_variable('libhandy_vapi'),
-    ]
-  )
-endif
 
 # Configuration
 config_h_dir = include_directories('.')

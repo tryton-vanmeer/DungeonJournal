@@ -5,18 +5,18 @@ namespace DungeonJournal
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/CharacterAttackRow.ui")]
     public class CharacterAttackRow: ListBoxRow, CharacterRowInterface
     {
-        [GtkChild] protected Label name_label;
-        [GtkChild] protected Label atkbonus_label;
-        [GtkChild] protected Label damage_label;
-        [GtkChild] protected Button expand_button { get; }
-        [GtkChild] protected Button delete_button { get; }
-        [GtkChild] protected Image expand_image { get; }
-        [GtkChild] protected Box expand_box { get; }
+        [GtkChild] protected unowned Label name_label;
+        [GtkChild] protected unowned Label atkbonus_label;
+        [GtkChild] protected unowned Label damage_label;
+        [GtkChild] protected unowned Button expand_button { get; }
+        [GtkChild] protected unowned Button delete_button { get; }
+        [GtkChild] protected unowned Image expand_image { get; }
+        [GtkChild] protected unowned Box expand_box { get; }
 
-        [GtkChild] protected Entry weapon_entry;
-        [GtkChild] protected Entry range_entry;
-        [GtkChild] protected Entry atkbonus_entry;
-        [GtkChild] protected Entry damage_entry;
+        [GtkChild] protected unowned Entry weapon_entry;
+        [GtkChild] protected unowned Entry range_entry;
+        [GtkChild] protected unowned Entry atkbonus_entry;
+        [GtkChild] protected unowned Entry damage_entry;
 
         public CharacterAttack attack { get; set; }
 

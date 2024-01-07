@@ -5,10 +5,10 @@ namespace DungeonJournal
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/SpinButtonCheckboxRow.ui")]
     public class SpinButtonCheckboxRow: Gtk.ListBoxRow
     {
-        [GtkChild] protected Label label;
-        [GtkChild] protected SpinButton spinbutton;
-        [GtkChild] protected Adjustment adjustment;
-        [GtkChild] protected CheckButton checkbox;
+        [GtkChild] protected unowned Label label;
+        [GtkChild] protected unowned SpinButton spinbutton;
+        [GtkChild] protected unowned Adjustment adjustment;
+        [GtkChild] protected unowned CheckButton checkbox;
 
         public double value
         {
@@ -48,10 +48,12 @@ namespace DungeonJournal
 
         private void connect_signals()
         {
+            /*
             this.spinbutton.scroll_event.connect(() => {
                 Signal.stop_emission_by_name(this.spinbutton, "scroll-event");
                 return false;
             });
+            */
 
             this.adjustment.value_changed.connect(() => {
                 this.notify_property("value");

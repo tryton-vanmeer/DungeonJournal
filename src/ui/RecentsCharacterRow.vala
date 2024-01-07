@@ -5,9 +5,9 @@ namespace DungeonJournal
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/RecentsCharacterRow.ui")]
     public class RecentsCharacterRow: ListBoxRow
     {
-        [GtkChild] protected Label name_label;
-        [GtkChild] protected Label filepath_label;
-        [GtkChild] protected Button delete_button;
+        [GtkChild] protected unowned Label name_label;
+        [GtkChild] protected unowned Label filepath_label;
+        [GtkChild] protected unowned Button delete_button;
 
         public string file_path
         {

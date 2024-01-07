@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.36.0 -->
 <interface>
-  <requires lib="gtk+" version="3.22"/>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
   <object class="GtkAdjustment" id="adjustment">
     <property name="upper">1000000</property>
     <property name="step_increment">1</property>
@@ -9,14 +10,10 @@
   </object>
   <template class="DungeonJournalSpinButtonRow" parent="GtkListBoxRow">
     <property name="width_request">100</property>
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
     <property name="activatable">False</property>
     <property name="selectable">False</property>
     <child>
       <object class="GtkBox">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
         <property name="margin_start">12</property>
         <property name="margin_end">12</property>
         <property name="margin_top">12</property>
@@ -28,25 +25,14 @@
             <property name="can_focus">False</property>
             <property name="halign">start</property>
           </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">0</property>
-          </packing>
         </child>
         <child>
           <object class="GtkSpinButton" id="spinbutton">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
             <property name="adjustment">adjustment</property>
           </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">1</property>
-          </packing>
         </child>
       </object>
     </child>
   </template>
 </interface>
+

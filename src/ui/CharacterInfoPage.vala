@@ -6,10 +6,10 @@ namespace DungeonJournal
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/CharacterInfoPage.ui")]
     public class CharacterInfoPage : Box
     {
-        [GtkChild] protected ListBox info_listbox;
-        [GtkChild] protected ListBox stats_listbox;
-        [GtkChild] protected ListBox feats_listbox;
-        [GtkChild] protected ListBoxRow feats_row_button;
+        [GtkChild] protected unowned ListBox info_listbox;
+        [GtkChild] protected unowned ListBox stats_listbox;
+        [GtkChild] protected unowned ListBox feats_listbox;
+        [GtkChild] protected unowned ListBoxRow feats_row_button;
 
         // Info
         protected EntryRow info_name;
@@ -61,17 +61,17 @@ namespace DungeonJournal
             this.info_level = new SpinButtonRow(_("Level"));
             this.info_xp = new SpinButtonRow(_("Experience Points"));
 
-            this.info_listbox.add(this.info_name);
-            this.info_listbox.add(new SeparatorRow());
-            this.info_listbox.add(this.info_class);
-            this.info_listbox.add(new SeparatorRow());
-            this.info_listbox.add(this.info_race);
-            this.info_listbox.add(new SeparatorRow());
-            this.info_listbox.add(this.info_alignment);
-            this.info_listbox.add(new SeparatorRow());
-            this.info_listbox.add(this.info_level);
-            this.info_listbox.add(new SeparatorRow());
-            this.info_listbox.add(this.info_xp);
+            this.info_listbox.append(this.info_name);
+            this.info_listbox.append(new SeparatorRow());
+            this.info_listbox.append(this.info_class);
+            this.info_listbox.append(new SeparatorRow());
+            this.info_listbox.append(this.info_race);
+            this.info_listbox.append(new SeparatorRow());
+            this.info_listbox.append(this.info_alignment);
+            this.info_listbox.append(new SeparatorRow());
+            this.info_listbox.append(this.info_level);
+            this.info_listbox.append(new SeparatorRow());
+            this.info_listbox.append(this.info_xp);
         }
 
         public void setup_stats()
@@ -85,21 +85,21 @@ namespace DungeonJournal
             this.stats_hp_temp = new SpinButtonRow(_("Temporary Hit Points"));
             this.stats_hit_dice = new ComboBoxRow(_("Hit Dice"), Util.ARRAY_DICE);
 
-            this.stats_listbox.add(this.stats_proficiency_bonus);
-            this.stats_listbox.add(new SeparatorRow());
-            this.stats_listbox.add(this.stats_armor_class);
-            this.stats_listbox.add(new SeparatorRow());
-            this.stats_listbox.add(this.stats_initiative);
-            this.stats_listbox.add(new SeparatorRow());
-            this.stats_listbox.add(this.stats_speed);
-            this.stats_listbox.add(new SeparatorRow());
-            this.stats_listbox.add(this.stats_hp_max);
-            this.stats_listbox.add(new SeparatorRow());
-            this.stats_listbox.add(this.stats_hp_current);
-            this.stats_listbox.add(new SeparatorRow());
-            this.stats_listbox.add(this.stats_hp_temp);
-            this.stats_listbox.add(new SeparatorRow());
-            this.stats_listbox.add(this.stats_hit_dice);
+            this.stats_listbox.append(this.stats_proficiency_bonus);
+            this.stats_listbox.append(new SeparatorRow());
+            this.stats_listbox.append(this.stats_armor_class);
+            this.stats_listbox.append(new SeparatorRow());
+            this.stats_listbox.append(this.stats_initiative);
+            this.stats_listbox.append(new SeparatorRow());
+            this.stats_listbox.append(this.stats_speed);
+            this.stats_listbox.append(new SeparatorRow());
+            this.stats_listbox.append(this.stats_hp_max);
+            this.stats_listbox.append(new SeparatorRow());
+            this.stats_listbox.append(this.stats_hp_current);
+            this.stats_listbox.append(new SeparatorRow());
+            this.stats_listbox.append(this.stats_hp_temp);
+            this.stats_listbox.append(new SeparatorRow());
+            this.stats_listbox.append(this.stats_hit_dice);
         }
 
         private void setup_feats()
@@ -131,12 +131,15 @@ namespace DungeonJournal
             character.bind("feats", this, "feats");
 
             // Clear feats_listbox
-            foreach (var row in this.feats_listbox.get_children())
+            var i = 0;
+            while (this.feats_listbox.get_row_at_index(i) != null)
             {
+                var row = this.feats_listbox.get_row_at_index(i);
                 if (row != this.feats_row_button)
                 {
                     this.feats_listbox.remove(row);
                 }
+                i ++;
             }
 
             foreach (var feat in this.feats)
@@ -147,7 +150,9 @@ namespace DungeonJournal
 
         private void add_feat_row(ref CharacterFeat feat, bool collapse = false)
         {
-            var pos = (int) this.feats_listbox.get_children().length() - 1;
+            var length = 0;
+            while ( this.feats_listbox.get_row_at_index(length) != null) length ++;
+            var pos = (int) length - 1;
             var row = new CharacterFeatRow(ref feat);
 
             if (collapse)
@@ -178,7 +183,10 @@ namespace DungeonJournal
                 this.feats_listbox.remove(feat_row);
 
                 // And remove the SeparatorRow
-                var pos = (int) this.feats_listbox.get_children().length() - 2;
+                var length = 0;
+                while ( this.feats_listbox.get_row_at_index(length) != null) length ++;
+
+                var pos = (int) length - 2;
                 this.feats_listbox.remove(this.feats_listbox.get_row_at_index(pos));
             }
         }

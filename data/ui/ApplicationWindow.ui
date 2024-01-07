@@ -1,196 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.36.0 -->
 <interface>
-  <requires lib="gtk+" version="3.22"/>
-  <requires lib="libhandy" version="0.0"/>
-  <object class="GtkPopover" id="appmenu">
-    <property name="can_focus">False</property>
-    <child>
-      <object class="GtkBox" id="appmenu_box">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="margin_start">6</property>
-        <property name="margin_end">6</property>
-        <property name="margin_top">6</property>
-        <property name="margin_bottom">6</property>
-        <property name="orientation">vertical</property>
-        <child>
-          <object class="GtkModelButton" id="open">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="action_name">app.open</property>
-            <property name="text" translatable="yes">Open...</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">0</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkModelButton" id="save">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="action_name">app.save</property>
-            <property name="text" translatable="yes">Save...</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">1</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkModelButton" id="save_as">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="action_name">app.save_as</property>
-            <property name="text" translatable="yes">Save As...</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">2</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkSeparator">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">3</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkModelButton" id="shortcuts">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="action_name">win.show-help-overlay</property>
-            <property name="text" translatable="yes">Keyboard Shortcuts</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">4</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkModelButton" id="about">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="action_name">app.about</property>
-            <property name="text" translatable="yes" comments="&quot;Footnote&quot; is the application name">About Dungeon Journal</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">5</property>
-          </packing>
-        </child>
-      </object>
-    </child>
-  </object>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <menu id="appmenu">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Open...</attribute>
+        <attribute name="action">app.open</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Save...</attribute>
+        <attribute name="action">app.save</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Save As...</attribute>
+        <attribute name="action">app.save_as</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Keyboard Shortcuts</attribute>
+        <attribute name="action">win.show-help-overlay</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes" comments="&quot;Footnote&quot; is the application name">About Dungeon Journal</attribute>
+        <attribute name="action">app.about</attribute>
+      </item>
+    </section>
+  </menu>
   <template class="DungeonJournalApplicationWindow" parent="GtkApplicationWindow">
-    <property name="can_focus">False</property>
     <property name="default_width">800</property>
     <property name="default_height">600</property>
     <property name="icon_name">io.github.trytonvanmeer.DungeonJournal</property>
     <child>
       <object class="GtkBox">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
         <property name="vexpand">True</property>
         <property name="orientation">vertical</property>
         <child>
-          <object class="GtkStack" id="stack">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
+          <object class="AdwViewStack" id="stack">
             <child>
               <placeholder/>
             </child>
           </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">0</property>
-          </packing>
-        </child>
-        <child>
-          <object class="HdyViewSwitcherBar" id="bottom_switcher">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="policy">auto</property>
-            <property name="stack">stack</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">1</property>
-          </packing>
         </child>
       </object>
     </child>
     <child type="titlebar">
-      <object class="HdyHeaderBar">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="show_close_button">True</property>
+      <object class="AdwHeaderBar">
         <property name="centering_policy">strict</property>
-        <child type="title">
-          <object class="HdySqueezer" id="squeezer">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="homogeneous">True</property>
-            <signal name="notify::visible-child" handler="on_headerbar_squeezer_notify" swapped="no"/>
-            <child>
-              <object class="HdyViewSwitcher" id="headerbar_switcher">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="stack">stack</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkLabel" id="headerbar_label">
-                <property name="name">title_label</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label">Dungeon Journal</property>
-                <attributes>
-                  <attribute name="weight" value="bold"/>
-                </attributes>
-              </object>
-            </child>
+        <property name="title-widget">
+          <object class="AdwViewSwitcher" id="headerbar_switcher">
+            <property name="stack">stack</property>
+            <property name="policy">wide</property>
           </object>
-          <packing>
-            <property name="position">1</property>
-          </packing>
-        </child>
+        </property>
         <child>
           <object class="GtkMenuButton" id="appmenu_button">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="popover">appmenu</property>
+            <property name="popover">
+              <object class="GtkPopoverMenu">
+                <property name="menu-model">appmenu</property>
+              </object>
+            </property>
             <child>
               <object class="GtkImage">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
                 <property name="icon_name">open-menu-symbolic</property>
               </object>
             </child>
           </object>
-          <packing>
-            <property name="pack_type">end</property>
-            <property name="position">1</property>
-          </packing>
         </child>
       </object>
     </child>

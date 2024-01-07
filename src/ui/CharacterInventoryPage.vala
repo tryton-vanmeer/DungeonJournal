@@ -6,13 +6,13 @@ namespace DungeonJournal
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/CharacterInventoryPage.ui")]
     public class CharacterInventoryPage : Box
     {
-        [GtkChild] protected ListBox currency_listbox;
-        [GtkChild] protected ListBox attacks_listbox;
-        [GtkChild] protected ListBox items_listbox;
-        [GtkChild] protected ListBoxRow attacks_row_button;
-        [GtkChild] protected ListBoxRow items_row_button;
+        [GtkChild] protected unowned ListBox currency_listbox;
+        [GtkChild] protected unowned ListBox attacks_listbox;
+        [GtkChild] protected unowned ListBox items_listbox;
+        [GtkChild] protected unowned ListBoxRow attacks_row_button;
+        [GtkChild] protected unowned ListBoxRow items_row_button;
 
-        // Currency
+        // Currency unowned
         protected SpinButtonRow currency_copper;
         protected SpinButtonRow currency_silver;
         protected SpinButtonRow currency_gold;
@@ -38,9 +38,9 @@ namespace DungeonJournal
             this.currency_silver = new SpinButtonRow(_("Silver"));
             this.currency_gold = new SpinButtonRow(_("Gold"));
 
-            this.currency_listbox.add(this.currency_copper);
-            this.currency_listbox.add(this.currency_silver);
-            this.currency_listbox.add(this.currency_gold);
+            this.currency_listbox.append(this.currency_copper);
+            this.currency_listbox.append(this.currency_silver);
+            this.currency_listbox.append(this.currency_gold);
         }
 
         private void setup_attacks()
@@ -64,12 +64,14 @@ namespace DungeonJournal
             character.bind("attacks", this, "attacks");
 
             // Clear attacks_listbox
-            foreach (var row in this.attacks_listbox.get_children())
-            {
+            var i = 0;
+            while (this.attacks_listbox.get_row_at_index(i) != null) {
+                var row = this.attacks_listbox.get_row_at_index(i);
                 if (row != this.attacks_row_button)
                 {
                     this.attacks_listbox.remove(row);
                 }
+                i++;
             }
 
             foreach (var attack in this.attacks)
@@ -81,12 +83,14 @@ namespace DungeonJournal
             character.bind("items", this, "items");
 
             // Clear items_listbox
-            foreach (var row in this.items_listbox.get_children())
-            {
+            i = 0;
+            while (this.items_listbox.get_row_at_index(i) != null) {
+                var row = this.items_listbox.get_row_at_index(i);
                 if (row != this.items_row_button)
                 {
                     this.items_listbox.remove(row);
                 }
+                i++;
             }
 
             foreach (var item in this.items)
@@ -97,7 +101,9 @@ namespace DungeonJournal
 
         private void add_attack_row(ref CharacterAttack attack, bool collapse = false)
         {
-            var pos = (int) this.attacks_listbox.get_children().length() - 1;
+            var length = 0;
+            while ( this.attacks_listbox.get_row_at_index(length) != null) length ++;
+            var pos = (int) length - 1;
             var row = new CharacterAttackRow(ref attack);
 
             if (collapse)
@@ -111,7 +117,9 @@ namespace DungeonJournal
 
         private void add_item_row(ref CharacterItem item, bool collapse = false)
         {
-            var pos = (int) this.items_listbox.get_children().length() - 1;
+            var length = 0;
+            while ( this.items_listbox.get_row_at_index(length) != null) length ++;
+            var pos = (int) length - 1;
             var row = new CharacterItemRow(ref item);
 
             if (collapse)
@@ -142,7 +150,9 @@ namespace DungeonJournal
                 this.attacks_listbox.remove(attack_row);
 
                 // And remove the SeparatorRow
-                var pos = (int) this.attacks_listbox.get_children().length() - 2;
+                var length = 0;
+                while ( this.attacks_listbox.get_row_at_index(length) != null) length ++;
+                var pos = (int) length - 2;
                 this.attacks_listbox.remove(this.attacks_listbox.get_row_at_index(pos));
             }
         }
@@ -166,7 +176,9 @@ namespace DungeonJournal
                 this.items_listbox.remove(item_row);
 
                 // And remove the SeparatorRow
-                var pos = (int) this.items_listbox.get_children().length() - 2;
+                var length = 0;
+                while ( this.items_listbox.get_row_at_index(length) != null) length ++;
+                var pos = (int) length - 2;
                 this.items_listbox.remove(this.items_listbox.get_row_at_index(pos));
             }
         }

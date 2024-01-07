@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-    <template class="DungeonJournalShortcutsWindow" parent="GtkShortcutsWindow">
+    <template class="DungeonJournalShortcutsWindow">
         <property name="modal">True</property>
         <child>
             <object class="GtkShortcutsSection">
@@ -38,3 +38,4 @@
         </child>
     </template>
 </interface>
+

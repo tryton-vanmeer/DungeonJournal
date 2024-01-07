@@ -5,20 +5,20 @@ namespace DungeonJournal
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/CharacterItemRow.ui")]
     public class CharacterItemRow : ListBoxRow, CharacterRowInterface
     {
-        [GtkChild] protected Label name_label;
-        [GtkChild] protected Label quantity_label;
-        [GtkChild] protected Button expand_button { get; }
-        [GtkChild] protected Button delete_button { get; }
-        [GtkChild] protected Image expand_image { get; }
-        [GtkChild] protected Box expand_box { get; }
+        [GtkChild] protected unowned Label name_label;
+        [GtkChild] protected unowned Label quantity_label;
+        [GtkChild] protected unowned Button expand_button { get; }
+        [GtkChild] protected unowned Button delete_button { get; }
+        [GtkChild] protected unowned Image expand_image { get; }
+        [GtkChild] protected unowned Box expand_box { get; }
 
-        [GtkChild] protected Entry name_entry;
-        [GtkChild] protected SpinButton quantity_spinbutton;
-        [GtkChild] protected Adjustment quantity_adjustment;
-        [GtkChild] protected Entry cost_entry;
-        [GtkChild] protected SpinButton weight_spinbutton;
-        [GtkChild] protected Adjustment weight_adjustment;
-        [GtkChild] protected TextView description_entry;
+        [GtkChild] protected unowned Entry name_entry;
+        [GtkChild] protected unowned SpinButton quantity_spinbutton;
+        [GtkChild] protected unowned Adjustment quantity_adjustment;
+        [GtkChild] protected unowned Entry cost_entry;
+        [GtkChild] protected unowned SpinButton weight_spinbutton;
+        [GtkChild] protected unowned Adjustment weight_adjustment;
+        [GtkChild] protected unowned TextView description_entry;
 
         public CharacterItem item { get; set; }
 
@@ -59,7 +59,7 @@ namespace DungeonJournal
         }
 
         private void connect_signals()
-        {
+        {/*
             this.quantity_spinbutton.scroll_event.connect(() => {
                 Signal.stop_emission_by_name(this.quantity_spinbutton, "scroll-event");
                 return false;
@@ -69,6 +69,7 @@ namespace DungeonJournal
                 Signal.stop_emission_by_name(this.weight_spinbutton, "scroll-event");
                 return false;
             });
-        }
+        */
+       }
     }
 }
