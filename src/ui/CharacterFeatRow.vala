@@ -5,14 +5,14 @@ namespace DungeonJournal
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/CharacterFeatRow.ui")]
     public class CharacterFeatRow : ListBoxRow, CharacterRowInterface
     {
-        [GtkChild] protected Label name_label;
-        [GtkChild] protected Button expand_button { get; }
-        [GtkChild] protected Button delete_button { get; }
-        [GtkChild] protected Image expand_image { get; }
-        [GtkChild] protected Box expand_box { get; }
+        [GtkChild] protected unowned Label name_label;
+        [GtkChild] protected unowned Button expand_button { get; }
+        [GtkChild] protected unowned Button delete_button { get; }
+        [GtkChild] protected unowned Image expand_image { get; }
+        [GtkChild] protected unowned Box expand_box { get; }
 
-        [GtkChild] protected Entry name_entry;
-        [GtkChild] protected TextView description_entry;
+        [GtkChild] protected unowned Entry name_entry;
+        [GtkChild] protected unowned TextView description_entry;
 
         public CharacterFeat feat { get; set; }
 

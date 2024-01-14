@@ -2,7 +2,7 @@ using Gtk;
 
 namespace DungeonJournal
 {
-    public class App : Gtk.Application
+    public class App : Adw.Application
     {
         public static DungeonJournal.Settings settings;
         public DungeonJournal.ApplicationWindow window;
@@ -103,7 +103,7 @@ namespace DungeonJournal
         Intl.textdomain(Config.GETTEXT_PACKAGE);
         Intl.bind_textdomain_codeset(Config.GETTEXT_PACKAGE, "utf-8");
 
-        Gtk.init(ref args);
+        Gtk.init();
 
         var app = new App();
 

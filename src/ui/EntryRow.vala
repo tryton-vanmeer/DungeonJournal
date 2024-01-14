@@ -5,8 +5,8 @@ namespace DungeonJournal
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/EntryRow.ui")]
     public class EntryRow: ListBoxRow
     {
-        [GtkChild] protected Label label;
-        [GtkChild] protected Entry entry;
+        [GtkChild] protected unowned Label label;
+        [GtkChild] protected unowned Entry entry;
 
         public string text
         {

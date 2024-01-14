@@ -27,4 +27,4 @@ ninja
 
 **Note:** Additional to the standard dependencies (GTK, Vala, ...), you need following dependencies:
 - json-glib
-- libhandy
+- libadwaita
