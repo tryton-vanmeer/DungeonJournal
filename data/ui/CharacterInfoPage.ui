@@ -33,13 +33,11 @@
                       </object>
                     </child>
                     <child>
-                      <object class="GtkFrame">
-                        <property name="label_xalign">0</property>
-                        <child>
-                          <object class="GtkListBox" id="info_listbox">
-                            <property name="selection_mode">none</property>
-                          </object>
-                        </child>
+                      <object class="GtkListBox" id="info_listbox">
+                        <style>
+                          <class name="boxed-list"/>
+                        </style>
+                        <property name="selection_mode">none</property>
                       </object>
                     </child>
                     <child>
@@ -53,13 +51,11 @@
                       </object>
                     </child>
                     <child>
-                      <object class="GtkFrame">
-                        <property name="label_xalign">0</property>
-                        <child>
-                          <object class="GtkListBox" id="stats_listbox">
-                            <property name="selection_mode">none</property>
-                          </object>
-                        </child>
+                      <object class="GtkListBox" id="stats_listbox">
+                        <style>
+                          <class name="boxed-list"/>
+                        </style>
+                        <property name="selection_mode">none</property>
                       </object>
                     </child>
                     <child>
@@ -73,23 +69,21 @@
                       </object>
                     </child>
                     <child>
-                      <object class="GtkFrame">
-                        <property name="label_xalign">0</property>
+                      <object class="GtkListBox" id="feats_listbox">
+                        <style>
+                          <class name="boxed-list"/>
+                        </style>
+                        <property name="selection_mode">none</property>
+                        <signal name="row-activated" handler="on_feats_row_clicked" swapped="no"/>
                         <child>
-                          <object class="GtkListBox" id="feats_listbox">
-                            <property name="selection_mode">none</property>
-                            <signal name="row-activated" handler="on_feats_row_clicked" swapped="no"/>
+                          <object class="GtkListBoxRow" id="feats_row_button">
+                            <property name="width_request">100</property>
+                            <property name="selectable">False</property>
                             <child>
-                              <object class="GtkListBoxRow" id="feats_row_button">
-                                <property name="width_request">100</property>
-                                <property name="selectable">False</property>
-                                <child>
-                                  <object class="GtkImage">
-                                    <property name="margin_top">12</property>
-                                    <property name="margin_bottom">12</property>
-                                    <property name="icon_name">list-add-symbolic</property>
-                                  </object>
-                                </child>
+                              <object class="GtkImage">
+                                <property name="margin_top">12</property>
+                                <property name="margin_bottom">12</property>
+                                <property name="icon_name">list-add-symbolic</property>
                               </object>
                             </child>
                           </object>

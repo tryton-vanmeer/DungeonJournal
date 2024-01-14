@@ -33,15 +33,13 @@
                       </object>
                     </child>
                     <child>
-                      <object class="GtkFrame">
-                        <property name="label_xalign">0</property>
-                        <child>
-                          <object class="GtkListBox" id="currency_listbox">
-                            <property name="selection_mode">none</property>
-                          </object>
-                        </child>
+                      <object class="GtkListBox" id="currency_listbox">
+                        <style>
+                          <class name="boxed-list"/>
+                        </style>
+                        <property name="selection_mode">none</property>
                       </object>
-                    </child>
+                     </child>
                     <child>
                       <object class="GtkLabel">
                         <property name="halign">start</property>
@@ -53,23 +51,21 @@
                       </object>
                     </child>
                     <child>
-                      <object class="GtkFrame">
-                        <property name="label_xalign">0</property>
+                      <object class="GtkListBox" id="attacks_listbox">
+                        <style>
+                          <class name="boxed-list"/>
+                        </style>
+                        <property name="selection_mode">none</property>
+                        <signal name="row-activated" handler="on_attacks_row_clicked" swapped="no"/>
                         <child>
-                          <object class="GtkListBox" id="attacks_listbox">
-                            <property name="selection_mode">none</property>
-                            <signal name="row-activated" handler="on_attacks_row_clicked" swapped="no"/>
+                          <object class="GtkListBoxRow" id="attacks_row_button">
+                            <property name="width_request">100</property>
+                            <property name="selectable">False</property>
                             <child>
-                              <object class="GtkListBoxRow" id="attacks_row_button">
-                                <property name="width_request">100</property>
-                                <property name="selectable">False</property>
-                                <child>
-                                  <object class="GtkImage">
-                                    <property name="margin_top">12</property>
-                                    <property name="margin_bottom">12</property>
-                                    <property name="icon_name">list-add-symbolic</property>
-                                  </object>
-                                </child>
+                              <object class="GtkImage">
+                                <property name="margin_top">12</property>
+                                <property name="margin_bottom">12</property>
+                                <property name="icon_name">list-add-symbolic</property>
                               </object>
                             </child>
                           </object>
@@ -87,23 +83,21 @@
                       </object>
                     </child>
                     <child>
-                      <object class="GtkFrame">
-                        <property name="label_xalign">0</property>
+                      <object class="GtkListBox" id="items_listbox">
+                        <style>
+                          <class name="boxed-list"/>
+                        </style>
+                        <property name="selection_mode">none</property>
+                        <signal name="row-activated" handler="on_items_row_clicked" swapped="no"/>
                         <child>
-                          <object class="GtkListBox" id="items_listbox">
-                            <property name="selection_mode">none</property>
-                            <signal name="row-activated" handler="on_items_row_clicked" swapped="no"/>
+                          <object class="GtkListBoxRow" id="items_row_button">
+                            <property name="width_request">100</property>
+                            <property name="selectable">False</property>
                             <child>
-                              <object class="GtkListBoxRow" id="items_row_button">
-                                <property name="width_request">100</property>
-                                <property name="selectable">False</property>
-                                <child>
-                                  <object class="GtkImage">
-                                    <property name="margin_top">12</property>
-                                    <property name="margin_bottom">12</property>
-                                    <property name="icon_name">list-add-symbolic</property>
-                                  </object>
-                                </child>
+                              <object class="GtkImage">
+                                <property name="margin_top">12</property>
+                                <property name="margin_bottom">12</property>
+                                <property name="icon_name">list-add-symbolic</property>
                               </object>
                             </child>
                           </object>

@@ -62,15 +62,10 @@ namespace DungeonJournal
             this.info_xp = new SpinButtonRow(_("Experience Points"));
 
             this.info_listbox.append(this.info_name);
-            this.info_listbox.append(new SeparatorRow());
             this.info_listbox.append(this.info_class);
-            this.info_listbox.append(new SeparatorRow());
             this.info_listbox.append(this.info_race);
-            this.info_listbox.append(new SeparatorRow());
             this.info_listbox.append(this.info_alignment);
-            this.info_listbox.append(new SeparatorRow());
             this.info_listbox.append(this.info_level);
-            this.info_listbox.append(new SeparatorRow());
             this.info_listbox.append(this.info_xp);
         }
 
@@ -86,19 +81,12 @@ namespace DungeonJournal
             this.stats_hit_dice = new ComboBoxRow(_("Hit Dice"), Util.ARRAY_DICE);
 
             this.stats_listbox.append(this.stats_proficiency_bonus);
-            this.stats_listbox.append(new SeparatorRow());
             this.stats_listbox.append(this.stats_armor_class);
-            this.stats_listbox.append(new SeparatorRow());
             this.stats_listbox.append(this.stats_initiative);
-            this.stats_listbox.append(new SeparatorRow());
             this.stats_listbox.append(this.stats_speed);
-            this.stats_listbox.append(new SeparatorRow());
             this.stats_listbox.append(this.stats_hp_max);
-            this.stats_listbox.append(new SeparatorRow());
             this.stats_listbox.append(this.stats_hp_current);
-            this.stats_listbox.append(new SeparatorRow());
             this.stats_listbox.append(this.stats_hp_temp);
-            this.stats_listbox.append(new SeparatorRow());
             this.stats_listbox.append(this.stats_hit_dice);
         }
 
@@ -159,9 +147,7 @@ namespace DungeonJournal
             {
                 row.collapse_row();
             }
-
             this.feats_listbox.insert(row, pos);
-            this.feats_listbox.insert(new SeparatorRow(), pos + 1);
         }
 
         [GtkCallback]
@@ -181,13 +167,6 @@ namespace DungeonJournal
                 var feat_row = (CharacterFeatRow) row;
                 this.feats.remove(feat_row.feat);
                 this.feats_listbox.remove(feat_row);
-
-                // And remove the SeparatorRow
-                var length = 0;
-                while ( this.feats_listbox.get_row_at_index(length) != null) length ++;
-
-                var pos = (int) length - 2;
-                this.feats_listbox.remove(this.feats_listbox.get_row_at_index(pos));
             }
         }
     }

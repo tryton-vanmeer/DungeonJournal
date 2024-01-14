@@ -65,7 +65,8 @@ namespace DungeonJournal
 
             // Clear attacks_listbox
             var i = 0;
-            while (this.attacks_listbox.get_row_at_index(i) != null) {
+            while (this.attacks_listbox.get_row_at_index(i) != null)
+            {
                 var row = this.attacks_listbox.get_row_at_index(i);
                 if (row != this.attacks_row_button)
                 {
@@ -84,7 +85,8 @@ namespace DungeonJournal
 
             // Clear items_listbox
             i = 0;
-            while (this.items_listbox.get_row_at_index(i) != null) {
+            while (this.items_listbox.get_row_at_index(i) != null)
+            {
                 var row = this.items_listbox.get_row_at_index(i);
                 if (row != this.items_row_button)
                 {
@@ -112,7 +114,6 @@ namespace DungeonJournal
             }
 
             this.attacks_listbox.insert(row, pos);
-            this.attacks_listbox.insert(new SeparatorRow(), pos + 1);
         }
 
         private void add_item_row(ref CharacterItem item, bool collapse = false)
@@ -128,7 +129,6 @@ namespace DungeonJournal
             }
 
             this.items_listbox.insert(row, pos);
-            this.items_listbox.insert(new SeparatorRow(), pos + 1);
         }
 
         [GtkCallback]
@@ -148,12 +148,6 @@ namespace DungeonJournal
                 var attack_row = (CharacterAttackRow) row;
                 this.attacks.remove(attack_row.attack);
                 this.attacks_listbox.remove(attack_row);
-
-                // And remove the SeparatorRow
-                var length = 0;
-                while ( this.attacks_listbox.get_row_at_index(length) != null) length ++;
-                var pos = (int) length - 2;
-                this.attacks_listbox.remove(this.attacks_listbox.get_row_at_index(pos));
             }
         }
 
@@ -174,12 +168,6 @@ namespace DungeonJournal
                 var item_row = (CharacterItemRow) row;
                 this.items.remove(item_row.item);
                 this.items_listbox.remove(item_row);
-
-                // And remove the SeparatorRow
-                var length = 0;
-                while ( this.items_listbox.get_row_at_index(length) != null) length ++;
-                var pos = (int) length - 2;
-                this.items_listbox.remove(this.items_listbox.get_row_at_index(pos));
             }
         }
     }

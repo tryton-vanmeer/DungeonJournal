@@ -33,13 +33,11 @@
                       </object>
                     </child>
                     <child>
-                      <object class="GtkFrame">
-                        <property name="label_xalign">0</property>
-                        <child>
-                          <object class="GtkListBox" id="strength_listbox">
-                            <property name="selection_mode">none</property>
-                          </object>
-                        </child>
+                      <object class="GtkListBox" id="strength_listbox">
+                        <style>
+                          <class name="boxed-list"/>
+                        </style>
+                        <property name="selection_mode">none</property>
                       </object>
                     </child>
                     <child>
@@ -53,13 +51,11 @@
                       </object>
                     </child>
                     <child>
-                      <object class="GtkFrame">
-                        <property name="label_xalign">0</property>
-                        <child>
-                          <object class="GtkListBox" id="dexterity_listbox">
-                            <property name="selection_mode">none</property>
-                          </object>
-                        </child>
+                      <object class="GtkListBox" id="dexterity_listbox">
+                        <style>
+                          <class name="boxed-list"/>
+                        </style>
+                        <property name="selection_mode">none</property>
                       </object>
                     </child>
                     <child>
@@ -73,13 +69,11 @@
                       </object>
                     </child>
                     <child>
-                      <object class="GtkFrame">
-                        <property name="label_xalign">0</property>
-                        <child>
-                          <object class="GtkListBox" id="constitution_listbox">
-                            <property name="selection_mode">none</property>
-                          </object>
-                        </child>
+                      <object class="GtkListBox" id="constitution_listbox">
+                        <style>
+                          <class name="boxed-list"/>
+                        </style>
+                        <property name="selection_mode">none</property>
                       </object>
                     </child>
                     <child>
@@ -93,13 +87,11 @@
                       </object>
                     </child>
                     <child>
-                      <object class="GtkFrame">
-                        <property name="label_xalign">0</property>
-                        <child>
-                          <object class="GtkListBox" id="intelligence_listbox">
-                            <property name="selection_mode">none</property>
-                          </object>
-                        </child>
+                      <object class="GtkListBox" id="intelligence_listbox">
+                        <style>
+                          <class name="boxed-list"/>
+                        </style>
+                        <property name="selection_mode">none</property>
                       </object>
                     </child>
                     <child>
@@ -113,13 +105,11 @@
                       </object>
                     </child>
                     <child>
-                      <object class="GtkFrame">
-                        <property name="label_xalign">0</property>
-                        <child>
-                          <object class="GtkListBox" id="wisdom_listbox">
-                            <property name="selection_mode">none</property>
-                          </object>
-                        </child>
+                      <object class="GtkListBox" id="wisdom_listbox">
+                        <style>
+                          <class name="boxed-list"/>
+                        </style>
+                        <property name="selection_mode">none</property>
                       </object>
                     </child>
                     <child>
@@ -133,15 +123,11 @@
                       </object>
                     </child>
                     <child>
-                      <object class="GtkFrame">
-                        <property name="label_xalign">0</property>
-                        <child>
-                          <object class="GtkListBox" id="charisma_listbox">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="selection_mode">none</property>
-                          </object>
-                        </child>
+                      <object class="GtkListBox" id="charisma_listbox">
+                        <style>
+                          <class name="boxed-list"/>
+                        </style>
+                        <property name="selection_mode">none</property>
                       </object>
                     </child>
                   </object>

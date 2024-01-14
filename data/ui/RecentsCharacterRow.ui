@@ -3,52 +3,26 @@
 <interface>
   <requires lib="gtk" version="4.0"/>
   <requires lib="Adw" version="1.0"/>
-  <template class="DungeonJournalRecentsCharacterRow" parent="GtkListBoxRow">
-    <property name="width_request">100</property>
+  <template class="DungeonJournalRecentsCharacterRow" parent="AdwActionRow">
+    <property name="width_request">400</property>
     <property name="selectable">False</property>
-    <child>
-      <object class="GtkGrid">
-        <property name="margin_start">12</property>
-        <property name="margin_end">12</property>
-        <property name="margin_top">12</property>
-        <property name="margin_bottom">12</property>
-        <child>
-          <object class="GtkLabel" id="name_label">
-            <property name="halign">start</property>
-            <property name="label" translatable="yes">Jeff</property>
-            <property name="ellipsize">end</property>
-            <attributes>
-              <attribute name="weight" value="bold"/>
-            </attributes>
-          </object>
-        </child>
-        <child>
-          <object class="GtkLabel" id="filepath_label">
-            <property name="halign">start</property>
-            <property name="label" translatable="yes">~/Documents/Jeff</property>
-            <property name="ellipsize">end</property>
-            <attributes>
-              <attribute name="weight" value="light"/>
-            </attributes>
-          </object>
-        </child>
-        <child>
-          <object class="GtkButton" id="delete_button">
-            <property name="receives_default">True</property>
-            <property name="halign">end</property>
-            <property name="hexpand">True</property>
-            <property name="icon_name">edit-delete</property>
-            <signal name="clicked" handler="on_delete_button_clicked" swapped="no"/>
-            <style>
-              <class name="destructive-action"/>
-            </style>
-          </object>
-        </child>
+    <property name="title">Jeff</property>
+    <property name="subtitle">~/Documents/Jeff</property>
+    <property name="activatable">true</property>
+    <child type="suffix">
+      <object class="GtkButton" id="delete_button">
+        <property name="valign">center</property>
+        <property name="icon_name">edit-delete</property>
+        <signal name="clicked" handler="on_delete_button_clicked" swapped="no"/>
+      </object>
+    </child>
+    <child type="suffix">
+      <object class="GtkImage">
+        <property name="margin_start">5</property>
+        <property name="valign">center</property>
+        <property name="icon_name">go-next</property>
       </object>
     </child>
   </template>
-  <object class="GtkImage" id="delete_image">
-    <property name="icon_name">edit-delete-symbolic</property>
-  </object>
 </interface>
 
