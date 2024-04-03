@@ -26,7 +26,8 @@ namespace DungeonJournal
             this.character = new CharacterSheet();
             this.character_path = null;
 
-            // set_help_overlay(new ShortcutsWindow());
+            Builder builder = new Builder.from_resource("/io/github/trytonvanmeer/DungeonJournal/ui/ShortcutsWindow.ui");
+            set_help_overlay(builder.get_object("shortcuts_window") as Gtk.ShortcutsWindow);
 
             setup_view();
             bind_character();

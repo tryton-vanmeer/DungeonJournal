@@ -1,144 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.36.0 -->
 <interface>
   <requires lib="gtk" version="4.0"/>
   <requires lib="Adw" version="1.0"/>
   <object class="GtkImage" id="delete_image">
     <property name="icon_name">edit-delete-symbolic</property>
   </object>
-  <object class="GtkImage" id="expand_image">
-    <property name="icon_name">pan-down-symbolic</property>
-  </object>
-  <template class="DungeonJournalCharacterAttackRow" parent="GtkListBoxRow">
+  <template class="DungeonJournalCharacterAttackRow" parent="AdwExpanderRow">
     <property name="width_request">100</property>
     <property name="activatable">False</property>
     <property name="selectable">False</property>
+    <child type="prefix">
+      <object class="GtkButton" id="delete_button">
+        <property name="valign">center</property>
+        <property name="receives_default">True</property>
+        <property name="icon_name">edit-delete</property>
+        <signal name="clicked" handler="on_delete_button_clicked" swapped="no"/>
+        <style>
+          <class name="flat"/>
+          <class name="error"/>
+        </style>
+      </object>
+    </child>
     <child>
-      <object class="GtkBox">
-        <property name="margin_start">12</property>
-        <property name="margin_end">12</property>
-        <property name="margin_top">12</property>
-        <property name="margin_bottom">12</property>
-        <property name="orientation">vertical</property>
-        <property name="spacing">6</property>
-        <child>
-          <object class="GtkBox">
-            <property name="spacing">6</property>
-            <child>
-              <object class="GtkLabel" id="name_label">
-                <property name="ellipsize">end</property>
-                <attributes>
-                  <attribute name="weight" value="bold"/>
-                </attributes>
-              </object>
-            </child>
-            <child>
-              <object class="GtkSeparator">
-                <property name="margin_start">6</property>
-                <property name="margin_end">6</property>
-                <property name="orientation">vertical</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkLabel" id="atkbonus_label">
-              </object>
-            </child>
-            <child>
-              <object class="GtkButton" id="delete_button">
-                <property name="receives_default">True</property>
-                <property name="icon_name">edit-delete</property>
-                <signal name="clicked" handler="on_delete_button_clicked" swapped="no"/>
-                <style>
-                  <class name="destructive-action"/>
-                </style>
-              </object>
-            </child>
-            <child>
-              <object class="GtkButton" id="expand_button">
-                <property name="receives_default">True</property>
-                <property name="icon_name">pan-end</property>
-                <signal name="clicked" handler="on_expand_button_clicked" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkSeparator">
-                <property name="margin_start">6</property>
-                <property name="margin_end">6</property>
-                <property name="orientation">vertical</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkLabel" id="damage_label">
-              </object>
-            </child>
-          </object>
-        </child>
-        <child>
-          <object class="GtkBox" id="expand_box">
-            <property name="orientation">vertical</property>
-            <property name="spacing">6</property>
-            <child>
-              <object class="GtkBox">
-                <property name="homogeneous">True</property>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="halign">start</property>
-                    <property name="label" translatable="yes">Weapon</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkEntry" id="weapon_entry">
-                  </object>
-                </child>
-              </object>
-            </child>
-            <child>
-              <object class="GtkBox">
-                <property name="homogeneous">True</property>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="halign">start</property>
-                    <property name="label" translatable="yes">Range</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkEntry" id="range_entry">
-                  </object>
-                </child>
-              </object>
-            </child>
-            <child>
-              <object class="GtkBox">
-                <property name="homogeneous">True</property>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="halign">start</property>
-                    <property name="label" translatable="yes">Attack Bonus</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkEntry" id="atkbonus_entry">
-                  </object>
-                </child>
-              </object>
-            </child>
-            <child>
-              <object class="GtkBox">
-                <property name="homogeneous">True</property>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="halign">start</property>
-                    <property name="label" translatable="yes">Damage/Type</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkEntry" id="damage_entry">
-                  </object>
-                </child>
-              </object>
-            </child>
-          </object>
-        </child>
+      <object class="AdwEntryRow" id="weapon_entry">
+        <property name="title">Weapon</property>
+        <signal name="changed" handler="update_title" swapped="no"/>
+      </object>
+    </child>
+    <child>
+      <object class="AdwEntryRow" id="range_entry">
+        <property name="title">Range</property>
+        <signal name="changed" handler="update_title" swapped="no"/>
+      </object>
+    </child>
+    <child>
+      <object class="AdwEntryRow" id="atkbonus_entry">
+        <property name="title">Attack Bonus</property>
+        <signal name="changed" handler="update_title" swapped="no"/>
+      </object>
+    </child>
+    <child>
+      <object class="AdwEntryRow" id="damage_entry">
+        <property name="title">Damage / Type</property>
+        <signal name="changed" handler="update_title" swapped="no"/>
       </object>
     </child>
   </template>
