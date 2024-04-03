@@ -32,7 +32,7 @@ gio = dependency('gio-2.0', version: '>= 2.50')
 glib = dependency('glib-2.0', version: '>= 2.50')
 glib_json = dependency('json-glib-1.0', version: '>= 0.29.2')
 gtk = dependency('gtk4', version: '>= 4')
-libadwaita = dependency('libadwaita-1', version: '>= 1.0')
+libadwaita = dependency('libadwaita-1', version: '>= 1.4')
 gee = dependency('gee-0.8')
 
 # Configuration

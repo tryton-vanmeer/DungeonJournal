@@ -9,95 +9,45 @@
   <object class="GtkImage" id="expand_image">
     <property name="icon_name">pan-down-symbolic</property>
   </object>
-  <template class="DungeonJournalCharacterFeatRow" parent="GtkListBoxRow">
+  <template class="DungeonJournalCharacterFeatRow" parent="AdwExpanderRow">
     <property name="width_request">100</property>
     <property name="activatable">False</property>
     <property name="selectable">False</property>
+    <child type="prefix">
+      <object class="GtkButton" id="delete_button">
+        <property name="receives_default">True</property>
+        <property name="icon_name">edit-delete</property>
+        <property name="valign">center</property>
+        <signal name="clicked" handler="on_delete_button_clicked" swapped="no"/>
+        <style>
+          <class name="flat"/>
+          <class name="error"/>
+        </style>
+      </object>
+    </child>
+
     <child>
-      <object class="GtkBox">
-        <property name="margin_start">12</property>
-        <property name="margin_end">12</property>
-        <property name="margin_top">12</property>
-        <property name="margin_bottom">12</property>
-        <property name="orientation">vertical</property>
-        <property name="spacing">6</property>
+      <object class="AdwEntryRow" id="name_entry">
+        <property name="title">Name</property>
+      </object>
+    </child>
+    <child>
+      <object class="AdwActionRow">
+        <property name="title">Description</property>
         <child>
-          <object class="GtkBox">
-            <property name="spacing">6</property>
+          <object class="GtkScrolledWindow">
+            <property name="height_request">120</property>
+            <property name="hscrollbar_policy">never</property>
             <child>
-              <object class="GtkLabel" id="name_label">
-                <property name="ellipsize">end</property>
-                <attributes>
-                  <attribute name="weight" value="bold"/>
-                </attributes>
-              </object>
-            </child>
-            <child>
-              <object class="GtkButton" id="expand_button">
-                <property name="receives_default">True</property>
-                <property name="icon_name">pan-end</property>
-                <signal name="clicked" handler="on_expand_button_clicked" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkButton" id="delete_button">
-                <property name="receives_default">True</property>
-                <property name="icon_name">edit-delete</property>
-                <signal name="clicked" handler="on_delete_button_clicked" swapped="no"/>
-                <style>
-                  <class name="destructive-action"/>
-                </style>
-              </object>
-            </child>
-          </object>
-        </child>
-        <child>
-          <object class="GtkBox" id="expand_box">
-            <property name="orientation">vertical</property>
-            <property name="spacing">6</property>
-            <child>
-              <object class="GtkBox">
-                <property name="homogeneous">True</property>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="halign">start</property>
-                    <property name="label" translatable="yes">Name</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkEntry" id="name_entry">
-                    <property name="hexpand">True</property>
-                  </object>
-                </child>
-              </object>
-            </child>
-            <child>
-              <object class="GtkBox">
-                <property name="spacing">12</property>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="halign">start</property>
-                    <property name="valign">start</property>
-                    <property name="label" translatable="yes">Description</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkScrolledWindow">
-                    <property name="height_request">120</property>
-                    <property name="hscrollbar_policy">never</property>
-                    <child>
-                      <object class="GtkTextView" id="description_entry">
-                        <property name="hexpand">true</property>
-                        <property name="vexpand">true</property>
-                        <property name="wrap_mode">word-char</property>
-                        <property name="left_margin">6</property>
-                        <property name="right_margin">6</property>
-                        <property name="top_margin">6</property>
-                        <property name="bottom_margin">6</property>
-                      </object>
-                    </child>
-                  </object>
-                </child>
+              <object class="GtkTextView" id="description_entry">
+                <property name="width_request">200</property>
+                <property name="hexpand">true</property>
+                <property name="vexpand">true</property>
+                <property name="wrap_mode">word-char</property>
+                <property name="left_margin">6</property>
+                <property name="right_margin">6</property>
+                <property name="top_margin">6</property>
+                <property name="bottom_margin">6</property>
               </object>
             </child>
           </object>

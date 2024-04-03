@@ -39,7 +39,7 @@ namespace DungeonJournal
         [GtkCallback]
         private void on_expand_button_clicked()
         {
-            this.expand_button_clicked();
+
         }
 
         [GtkCallback]
