@@ -39,7 +39,7 @@ namespace DungeonJournal
             var open_action = new GLib.SimpleAction("open", null);
             open_action.activate.connect(()=>
             {
-                this.window.on_open();
+                this.window.on_open.begin();
             });
 
             var save_action = new GLib.SimpleAction("save", null);
@@ -51,7 +51,7 @@ namespace DungeonJournal
             var save_as_action = new GLib.SimpleAction("save_as", null);
             save_as_action.activate.connect(() =>
             {
-                this.window.on_save_as();
+                this.window.on_save_as.begin();
             });
 
             this.add_action(open_action);

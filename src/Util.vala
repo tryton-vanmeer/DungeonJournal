@@ -37,4 +37,4 @@ namespace DungeonJournal
         WISDOM,
         CHARISMA
     }
-
+}

@@ -8,7 +8,6 @@ namespace DungeonJournal
     public class ApplicationWindow : Gtk.ApplicationWindow
     {
         [GtkChild] private unowned ViewStack stack;
-        [GtkChild] private unowned ViewSwitcher headerbar_switcher;
 
         private CharacterInfoPage page_info;
         private CharacterSkillsPage page_skills;
@@ -76,7 +75,7 @@ namespace DungeonJournal
         {
             if (this.character_path == null)
             {
-                this.on_save_as();
+                this.on_save_as.begin();
             }
             else
             {
