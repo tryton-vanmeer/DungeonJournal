@@ -79,16 +79,15 @@ namespace DungeonJournal
                 version = "master";
             }
 
-            Gtk.show_about_dialog
+            Adw.show_about_dialog
             (
                 window,
-                logo_icon_name: Config.APP_ID,
-                program_name: "Dungeon Journal",
+                application_icon: Config.APP_ID,
+                application_name: "Dungeon Journal",
                 comments: _("Create Characters"),
                 copyright: "© 2019 Tryton Van Meer",
-                authors: authors,
+                developers: authors,
                 website: "https://github.com/tryton-vanmeer/DungeonJournal",
-                website_label: _("GitHub Homepage"),
                 version: version,
                 license_type: Gtk.License.GPL_3_0
             );
