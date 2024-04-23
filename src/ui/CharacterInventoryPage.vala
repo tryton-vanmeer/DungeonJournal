@@ -13,9 +13,9 @@ namespace DungeonJournal
         [GtkChild] protected unowned ListBoxRow items_row_button;
 
         // Currency unowned
-        protected SpinButtonRow currency_copper;
-        protected SpinButtonRow currency_silver;
-        protected SpinButtonRow currency_gold;
+        [GtkChild] protected unowned Adw.SpinRow currency_copper;
+        [GtkChild] protected unowned Adw.SpinRow currency_silver;
+        [GtkChild] protected unowned Adw.SpinRow currency_gold;
 
         // Attacks
         protected ArrayList<CharacterAttack> attacks { get; set; }
@@ -34,13 +34,6 @@ namespace DungeonJournal
 
         private void setup_currency()
         {
-            this.currency_copper = new SpinButtonRow(_("Copper"));
-            this.currency_silver = new SpinButtonRow(_("Silver"));
-            this.currency_gold = new SpinButtonRow(_("Gold"));
-
-            this.currency_listbox.append(this.currency_copper);
-            this.currency_listbox.append(this.currency_silver);
-            this.currency_listbox.append(this.currency_gold);
         }
 
         private void setup_attacks()
