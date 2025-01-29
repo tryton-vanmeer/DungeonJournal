@@ -13,22 +13,22 @@ namespace DungeonJournal
         [GtkChild] protected unowned ListBox wisdom_listbox;
         [GtkChild] protected unowned ListBox charisma_listbox;
 
-        protected SpinButtonRow strength_score;
+        protected Adw.SpinRow strength_score;
         protected SpinButtonCheckboxRow strength_save;
 
-        protected SpinButtonRow dexterity_score;
+        protected Adw.SpinRow dexterity_score;
         protected SpinButtonCheckboxRow dexterity_save;
 
-        protected SpinButtonRow constitution_score;
+        protected Adw.SpinRow constitution_score;
         protected SpinButtonCheckboxRow constitution_save;
 
-        protected SpinButtonRow intelligence_score;
+        protected Adw.SpinRow intelligence_score;
         protected SpinButtonCheckboxRow intelligence_save;
 
-        protected SpinButtonRow wisdom_score;
+        protected Adw.SpinRow wisdom_score;
         protected SpinButtonCheckboxRow wisdom_save;
 
-        protected SpinButtonRow charisma_score;
+        protected Adw.SpinRow charisma_score;
         protected SpinButtonCheckboxRow charisma_save;
 
         protected HashMap<Ability, ListBox> abilities;
@@ -58,39 +58,58 @@ namespace DungeonJournal
             this.setup_view_skills();
         }
 
+        private Adw.SpinRow spin_row_with_ability_score_label()
+        {
+            var row = new Adw.SpinRow(new Gtk.Adjustment(0, 0, 100, 1, 5, 10), 1, 0);
+            
+            set_label_to_ability_modifier(row);
+            
+            row.adjustment.value_changed.connect(() => {
+                    set_label_to_ability_modifier(row);
+                });
+            
+            return row;
+        }
+
+        private void set_label_to_ability_modifier(Adw.SpinRow row)
+        {
+            var modifier = Util.calculate_ability_modifier(row.adjustment.value);
+            row.title = modifier;
+        }
+
         private void setup_view_abilities()
         {
-            this.strength_score = new SpinButtonRow.with_ability_score_label();
+            this.strength_score = spin_row_with_ability_score_label();
             this.strength_save = new SpinButtonCheckboxRow(_("Saving Throws"));
 
             this.strength_listbox.append(this.strength_score);
             this.strength_listbox.append(this.strength_save);
 
-            this.dexterity_score = new SpinButtonRow.with_ability_score_label();
+            this.dexterity_score = spin_row_with_ability_score_label();
             this.dexterity_save = new SpinButtonCheckboxRow(_("Saving Throws"));
 
             this.dexterity_listbox.append(this.dexterity_score);
             this.dexterity_listbox.append(this.dexterity_save);
 
-            this.constitution_score = new SpinButtonRow.with_ability_score_label();
+            this.constitution_score = spin_row_with_ability_score_label();
             this.constitution_save = new SpinButtonCheckboxRow(_("Saving Throws"));
 
             this.constitution_listbox.append(this.constitution_score);
             this.constitution_listbox.append(this.constitution_save);
 
-            this.intelligence_score = new SpinButtonRow.with_ability_score_label();
+            this.intelligence_score = spin_row_with_ability_score_label();
             this.intelligence_save = new SpinButtonCheckboxRow(_("Saving Throws"));
 
             this.intelligence_listbox.append(this.intelligence_score);
             this.intelligence_listbox.append(this.intelligence_save);
 
-            this.wisdom_score = new SpinButtonRow.with_ability_score_label();
+            this.wisdom_score = spin_row_with_ability_score_label();
             this.wisdom_save = new SpinButtonCheckboxRow(_("Saving Throws"));
 
             this.wisdom_listbox.append(this.wisdom_score);
             this.wisdom_listbox.append(this.wisdom_save);
 
-            this.charisma_score = new SpinButtonRow.with_ability_score_label();
+            this.charisma_score = spin_row_with_ability_score_label();
             this.charisma_save = new SpinButtonCheckboxRow(_("Saving Throws"));
 
             this.charisma_listbox.append(this.charisma_score);

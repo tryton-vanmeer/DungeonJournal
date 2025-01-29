@@ -9,7 +9,6 @@
         <file compressed="true" preprocess="xml-stripblanks">ui/CharacterSkillsPage.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/CharacterInventoryPage.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/ComboBoxRow.ui</file>
-        <file compressed="true" preprocess="xml-stripblanks">ui/SpinButtonRow.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/SpinButtonCheckboxRow.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/RecentsCharacterRow.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/CharacterFeatRow.ui</file>

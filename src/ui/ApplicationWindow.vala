@@ -41,7 +41,7 @@ namespace DungeonJournal
             this.page_skills = new CharacterSkillsPage();
             this.page_inventory = new CharacterInventoryPage();
 
-            this.stack.add_titled_with_icon(this.page_info, "info", _("Info"), "dialog-information");
+            this.stack.add_titled_with_icon(this.page_info, "info", _("Info"), "dialog-information-symbolic");
             this.stack.add_titled_with_icon(this.page_skills, "skills", _("Skills"), "software-update-available");
             this.stack.add_titled_with_icon(this.page_inventory, "inventory", _("Inventory"), "emoji-symbols");
         }

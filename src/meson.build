@@ -24,7 +24,6 @@ sources = [
   'ui/CharacterInventoryPage.vala',
   'ui/EntryRow.vala',
   'ui/ComboBoxRow.vala',
-  'ui/SpinButtonRow.vala',
   'ui/SpinButtonCheckboxRow.vala',
   'ui/SeparatorRow.vala',
   'ui/RecentsCharacterRow.vala',

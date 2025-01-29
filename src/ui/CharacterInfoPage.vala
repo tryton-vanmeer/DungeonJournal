@@ -72,7 +72,7 @@ namespace DungeonJournal
         }
 
         public Adw.SpinRow spin_row_with_label(string label) {
-            var row = new Adw.SpinRow(new Gtk.Adjustment(0, -100, 100, 1, 5, 10), 1, 0);
+            var row = new Adw.SpinRow(new Gtk.Adjustment(0, 0, 100, 1, 5, 10), 1, 0);
             row.title = label;
             return row;
         }
