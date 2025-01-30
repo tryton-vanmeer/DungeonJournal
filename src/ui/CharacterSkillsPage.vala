@@ -62,19 +62,20 @@ namespace DungeonJournal
         {
             var row = new Adw.SpinRow(new Gtk.Adjustment(0, 0, 100, 1, 5, 10), 1, 0);
             
-            set_label_to_ability_modifier(row);
+            row.title = _("Score");
+            set_subtitle_to_modifier(row);
             
             row.adjustment.value_changed.connect(() => {
-                    set_label_to_ability_modifier(row);
+                    set_subtitle_to_modifier(row);
                 });
             
             return row;
         }
 
-        private void set_label_to_ability_modifier(Adw.SpinRow row)
+        private void set_subtitle_to_modifier(Adw.SpinRow row)
         {
             var modifier = Util.calculate_ability_modifier(row.adjustment.value);
-            row.title = modifier;
+            row.subtitle = modifier;
         }
 
         private void setup_view_abilities()
