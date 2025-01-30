@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <object class="GtkAdjustment" id="skill_adjustment">
+    <property name="upper">100</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <template class="DungeonJournalCharacterSkillRow" parent="AdwExpanderRow">
+    <property name="selectable">False</property>
+    <child>
+      <object class="AdwSpinRow" id="skill_value">
+        <property name="title" translatable="yes">Value</property>
+        <property name="text" translatable="yes">0</property>
+        <property name="adjustment">skill_adjustment</property>
+      </object>
+      </child>
+  </template>
+</interface>
