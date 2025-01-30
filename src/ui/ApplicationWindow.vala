@@ -1,16 +1,13 @@
 using Gtk;
 using Gee;
-using Hdy;
+using Adw;
 
 namespace DungeonJournal
 {
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/ApplicationWindow.ui")]
     public class ApplicationWindow : Gtk.ApplicationWindow
     {
-        [GtkChild] private Stack stack;
-        [GtkChild] private Squeezer squeezer;
-        [GtkChild] private ViewSwitcher headerbar_switcher;
-        [GtkChild] private ViewSwitcherBar bottom_switcher;
+        [GtkChild] private unowned ViewStack stack;
 
         private CharacterInfoPage page_info;
         private CharacterSkillsPage page_skills;
@@ -28,22 +25,14 @@ namespace DungeonJournal
             this.character = new CharacterSheet();
             this.character_path = null;
 
-            set_help_overlay(new ShortcutsWindow());
+            Builder builder = new Builder.from_resource("/io/github/trytonvanmeer/DungeonJournal/ui/ShortcutsWindow.ui");
+            set_help_overlay(builder.get_object("shortcuts_window") as Gtk.ShortcutsWindow);
 
-            setup_style();
             setup_view();
             bind_character();
 
             startup_window = new StartupWindow(this);
-            startup_window.show_all();
-        }
-
-        private void setup_style()
-        {
-            var provider = new Gtk.CssProvider();
-            provider.load_from_resource("/io/github/trytonvanmeer/DungeonJournal/dungeonjournal.css");
-
-            Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), provider, Gtk.STYLE_PROVIDER_PRIORITY_USER);
+            startup_window.present();
         }
 
         private void setup_view()
@@ -52,9 +41,9 @@ namespace DungeonJournal
             this.page_skills = new CharacterSkillsPage();
             this.page_inventory = new CharacterInventoryPage();
 
-            this.stack.add_titled(this.page_info, "info", _("Info"));
-            this.stack.add_titled(this.page_skills, "skills", _("Skills"));
-            this.stack.add_titled(this.page_inventory, "inventory", _("Inventory"));
+            this.stack.add_titled_with_icon(this.page_info, "info", _("Info"), "dialog-information-symbolic");
+            this.stack.add_titled_with_icon(this.page_skills, "skills", _("Skills"), "software-update-available");
+            this.stack.add_titled_with_icon(this.page_inventory, "inventory", _("Inventory"), "emoji-symbols");
         }
 
         private void bind_character()
@@ -64,35 +53,20 @@ namespace DungeonJournal
             this.page_inventory.bind_character(this.character);
         }
 
-        [GtkCallback]
-        public void on_headerbar_squeezer_notify()
+        public async bool on_open(Gtk.Window? parent=this)
         {
-            this.bottom_switcher.reveal = this.squeezer.visible_child != this.headerbar_switcher;
-        }
-
-        public bool on_open(Gtk.Window? parent=this)
-        {
-            var dialog = new FileChooserNative(
-                _("Open Character"),
-                parent,
-                FileChooserAction.OPEN,
-                _("_Open"),
-                _("_Cancel")
-            );
-
-            var filter = new FileFilter();
-            filter.add_mime_type("application/json");
-            dialog.set_filter(filter);
-
-            if (dialog.run() == ResponseType.ACCEPT)
-            {
-                string path = dialog.get_file().get_path();
-
+            try {
+                var dialog = new FileDialog();
+                var filter = new FileFilter();
+                filter.add_mime_type("application/json");
+                dialog.set_default_filter(filter);
+                dialog.set_title("Open Character");
+                var file = yield dialog.open(parent, null);
+                string path = file.get_path();
                 this.open_character(path);
                 return true;
-            }
-            else
-            {
+            } catch (GLib.Error e) {
+                stdout.printf("Error: %s\n", e.message);
                 return false;
             }
         }
@@ -101,7 +75,7 @@ namespace DungeonJournal
         {
             if (this.character_path == null)
             {
-                this.on_save_as();
+                this.on_save_as.begin();
             }
             else
             {
@@ -109,28 +83,17 @@ namespace DungeonJournal
             }
         }
 
-        public void on_save_as()
+        public async void on_save_as()
         {
-            var dialog = new FileChooserNative(
-                _("Save Character"),
-                this,
-                FileChooserAction.SAVE,
-                _("_Save"),
-                _("_Cancel")
-            );
-
-            dialog.set_current_name(this.character.name + ".json");
-            dialog.set_do_overwrite_confirmation(true);
-
-            if (dialog.run() == ResponseType.ACCEPT)
-            {
-                string path = dialog.get_file().get_path();
-
+            try {
+                var dialog = new FileDialog();
+                dialog.set_initial_name(this.character.name + ".json");
+                var file = yield dialog.save(this, null);
+                string path = file.get_path();
                 this.save_character(path);
-                this.character_path = path;
+            } catch (GLib.Error e) {
+                stdout.printf("Error: %s\n", e.message);
             }
-
-            dialog.destroy();
         }
 
         public void open_character(string file_path)

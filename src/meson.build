@@ -5,7 +5,7 @@ deps = [
   glib_json,
   gtk,
   gee,
-  libhandy,
+  libadwaita,
 ]
 
 sources = [
@@ -24,8 +24,7 @@ sources = [
   'ui/CharacterInventoryPage.vala',
   'ui/EntryRow.vala',
   'ui/ComboBoxRow.vala',
-  'ui/SpinButtonRow.vala',
-  'ui/SpinButtonCheckboxRow.vala',
+  'ui/CharacterSkillRow.vala',
   'ui/SeparatorRow.vala',
   'ui/RecentsCharacterRow.vala',
   'ui/CharacterRowInterface.vala',

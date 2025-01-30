@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-    <template class="DungeonJournalShortcutsWindow" parent="GtkShortcutsWindow">
-        <property name="modal">True</property>
-        <child>
-            <object class="GtkShortcutsSection">
-                <property name="section-name">shortcuts</property>
-                <property name="max-height">12</property>
-                <property name="visible">True</property>
-                <child>
-                    <object class="GtkShortcutsGroup">
-                        <property name="title" translatable="yes">General</property>
-                        <property name="visible">True</property>
-                        <child>
-                            <object class="GtkShortcutsShortcut">
-                                <property name="visible">True</property>
-                                <property name="accelerator">&lt;primary&gt;O</property>
-                                <property name="title" translatable="yes" context="shortcut window">Open a Character</property>
-                            </object>
-                        </child>
-                        <child>
-                            <object class="GtkShortcutsShortcut">
-                                <property name="visible">True</property>
-                                <property name="accelerator">&lt;primary&gt;S</property>
-                                <property name="title" translatable="yes" context="shortcut window">Save the Character</property>
-                            </object>
-                        </child>
-                        <child>
-                            <object class="GtkShortcutsShortcut">
-                                <property name="visible">True</property>
-                                <property name="accelerator">&lt;primary&gt;&lt;shift&gt;S</property>
-                                <property name="title" translatable="yes" context="shortcut window">Save the Character with a new filename</property>
-                            </object>
-                        </child>
-                    </object>
-                </child>
-            </object>
-        </child>
-    </template>
+  <object class="GtkShortcutsWindow" id="shortcuts_window">
+    <child>
+      <object class="GtkShortcutsSection">
+          <property name="section-name">shortcuts</property>
+          <property name="max-height">12</property>
+          <property name="visible">True</property>
+          <child>
+              <object class="GtkShortcutsGroup">
+                  <property name="title" translatable="yes">General</property>
+                  <property name="visible">True</property>
+                  <child>
+                      <object class="GtkShortcutsShortcut">
+                          <property name="visible">True</property>
+                          <property name="accelerator">&lt;primary&gt;O</property>
+                          <property name="title" translatable="yes" context="shortcut window">Open a Character</property>
+                      </object>
+                  </child>
+                  <child>
+                      <object class="GtkShortcutsShortcut">
+                          <property name="visible">True</property>
+                          <property name="accelerator">&lt;primary&gt;S</property>
+                          <property name="title" translatable="yes" context="shortcut window">Save the Character</property>
+                      </object>
+                  </child>
+                  <child>
+                      <object class="GtkShortcutsShortcut">
+                          <property name="visible">True</property>
+                          <property name="accelerator">&lt;primary&gt;&lt;shift&gt;S</property>
+                          <property name="title" translatable="yes" context="shortcut window">Save the Character with a new filename</property>
+                      </object>
+                  </child>
+              </object>
+          </child>
+      </object>
+    </child>
+  </object>
 </interface>
+

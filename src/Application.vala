@@ -2,7 +2,7 @@ using Gtk;
 
 namespace DungeonJournal
 {
-    public class App : Gtk.Application
+    public class App : Adw.Application
     {
         public static DungeonJournal.Settings settings;
         public DungeonJournal.ApplicationWindow window;
@@ -39,7 +39,7 @@ namespace DungeonJournal
             var open_action = new GLib.SimpleAction("open", null);
             open_action.activate.connect(()=>
             {
-                this.window.on_open();
+                this.window.on_open.begin();
             });
 
             var save_action = new GLib.SimpleAction("save", null);
@@ -51,7 +51,7 @@ namespace DungeonJournal
             var save_as_action = new GLib.SimpleAction("save_as", null);
             save_as_action.activate.connect(() =>
             {
-                this.window.on_save_as();
+                this.window.on_save_as.begin();
             });
 
             this.add_action(open_action);
@@ -79,16 +79,15 @@ namespace DungeonJournal
                 version = "master";
             }
 
-            Gtk.show_about_dialog
+            Adw.show_about_dialog
             (
                 window,
-                logo_icon_name: Config.APP_ID,
-                program_name: "Dungeon Journal",
+                application_icon: Config.APP_ID,
+                application_name: "Dungeon Journal",
                 comments: _("Create Characters"),
                 copyright: "© 2019 Tryton Van Meer",
-                authors: authors,
+                developers: authors,
                 website: "https://github.com/tryton-vanmeer/DungeonJournal",
-                website_label: _("GitHub Homepage"),
                 version: version,
                 license_type: Gtk.License.GPL_3_0
             );
@@ -103,7 +102,7 @@ namespace DungeonJournal
         Intl.textdomain(Config.GETTEXT_PACKAGE);
         Intl.bind_textdomain_codeset(Config.GETTEXT_PACKAGE, "utf-8");
 
-        Gtk.init(ref args);
+        Gtk.init();
 
         var app = new App();
 

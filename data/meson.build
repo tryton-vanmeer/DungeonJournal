@@ -17,7 +17,6 @@ endif
 
 # Appdata
 appstream_file = i18n.merge_file(
-  'io.github.trytonvanmeer.DungeonJournal.appdata.xml',
   input: 'io.github.trytonvanmeer.DungeonJournal.appdata.xml.in',
   output: 'io.github.trytonvanmeer.DungeonJournal.appdata.xml',
   po_dir: '../po',

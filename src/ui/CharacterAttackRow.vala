@@ -3,20 +3,14 @@ using Gtk;
 namespace DungeonJournal
 {
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/CharacterAttackRow.ui")]
-    public class CharacterAttackRow: ListBoxRow, CharacterRowInterface
+    public class CharacterAttackRow: Adw.ExpanderRow, CharacterRowInterface
     {
-        [GtkChild] protected Label name_label;
-        [GtkChild] protected Label atkbonus_label;
-        [GtkChild] protected Label damage_label;
-        [GtkChild] protected Button expand_button { get; }
-        [GtkChild] protected Button delete_button { get; }
-        [GtkChild] protected Image expand_image { get; }
-        [GtkChild] protected Box expand_box { get; }
+        [GtkChild] protected unowned Button delete_button { get; }
 
-        [GtkChild] protected Entry weapon_entry;
-        [GtkChild] protected Entry range_entry;
-        [GtkChild] protected Entry atkbonus_entry;
-        [GtkChild] protected Entry damage_entry;
+        [GtkChild] protected unowned Adw.EntryRow weapon_entry;
+        [GtkChild] protected unowned Adw.EntryRow range_entry;
+        [GtkChild] protected unowned Adw.EntryRow atkbonus_entry;
+        [GtkChild] protected unowned Adw.EntryRow damage_entry;
 
         public CharacterAttack attack { get; set; }
 
@@ -30,16 +24,13 @@ namespace DungeonJournal
             this.attack.bind_property("range", this.range_entry, "text", Util.BINDING_FLAGS);
             this.attack.bind_property("atkbonus", this.atkbonus_entry, "text", Util.BINDING_FLAGS);
             this.attack.bind_property("damage", this.damage_entry, "text", Util.BINDING_FLAGS);
-
-            this.weapon_entry.bind_property("text", this.name_label, "label", BindingFlags.SYNC_CREATE);
-            this.atkbonus_entry.bind_property("text", this.atkbonus_label, "label", BindingFlags.SYNC_CREATE);
-            this.damage_entry.bind_property("text", this.damage_label, "label", BindingFlags.SYNC_CREATE);
         }
 
         [GtkCallback]
-        private void on_expand_button_clicked()
+        private void update_title()
         {
-            this.expand_button_clicked();
+            this.title = this.weapon_entry.text;
+            this.subtitle = this.damage_entry.text + " | " + this.atkbonus_entry.text;
         }
 
         [GtkCallback]

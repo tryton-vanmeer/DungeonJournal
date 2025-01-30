@@ -5,8 +5,8 @@ namespace DungeonJournal
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/ComboBoxRow.ui")]
     public class ComboBoxRow: ListBoxRow
     {
-        [GtkChild] protected Label label;
-        [GtkChild] protected ComboBoxText combo;
+        [GtkChild] protected unowned Label label;
+        [GtkChild] protected unowned ComboBoxText combo;
 
         public int active
         {
@@ -36,10 +36,12 @@ namespace DungeonJournal
 
         private void connect_signals()
         {
+            /*
             this.combo.scroll_event.connect(() => {
                 Signal.stop_emission_by_name(this.combo, "scroll-event");
                 return false;
             });
+            */
 
             this.combo.changed.connect(() => {
                 this.notify_property("active");

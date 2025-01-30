@@ -1,80 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.36.0 -->
 <interface>
-  <requires lib="gtk+" version="3.22"/>
-  <requires lib="libhandy" version="0.0"/>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
   <template class="DungeonJournalCharacterInventoryPage" parent="GtkBox">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
     <property name="orientation">vertical</property>
     <property name="spacing">12</property>
     <child>
       <object class="GtkScrolledWindow">
-        <property name="visible">True</property>
-        <property name="can_focus">True</property>
         <property name="vexpand">True</property>
         <property name="hscrollbar_policy">external</property>
         <child>
           <object class="GtkViewport">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="shadow_type">none</property>
             <child>
-              <object class="HdyColumn">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
+              <object class="AdwClamp">
                 <property name="margin_start">12</property>
                 <property name="margin_end">12</property>
                 <property name="margin_top">32</property>
                 <property name="margin_bottom">32</property>
-                <property name="maximum_width">650</property>
-                <property name="linear_growth_width">450</property>
+                <property name="maximum_size">650</property>
                 <child>
                   <object class="GtkBox">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="orientation">vertical</property>
                     <property name="spacing">12</property>
                     <child>
                       <object class="GtkLabel">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
                         <property name="halign">start</property>
                         <property name="label" translatable="yes">Currency</property>
                         <attributes>
                           <attribute name="weight" value="bold"/>
                         </attributes>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">0</property>
-                      </packing>
                     </child>
                     <child>
-                      <object class="GtkFrame">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="label_xalign">0</property>
-                        <property name="shadow_type">in</property>
+                      <object class="GtkListBox" id="currency_listbox">
+                        <style>
+                          <class name="boxed-list"/>
+                        </style>
+                        <property name="selection_mode">none</property>
                         <child>
-                          <object class="GtkListBox" id="currency_listbox">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="selection_mode">none</property>
+                          <object class="AdwSpinRow" id="currency_gold">
+                            <property name="title" translatable="yes">Gold</property>
+                            <property name="adjustment">
+                              <object class="GtkAdjustment">
+                                <property name="lower">0</property>
+                                <property name="upper">100</property>
+                                <property name="value">50</property>
+                                <property name="page-increment">10</property>
+                                <property name="step-increment">1</property>
+                              </object>
+                            </property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwSpinRow" id="currency_silver">
+                            <property name="title" translatable="yes">Silver</property>
+                            <property name="adjustment">
+                              <object class="GtkAdjustment">
+                                <property name="lower">0</property>
+                                <property name="upper">100</property>
+                                <property name="value">50</property>
+                                <property name="page-increment">10</property>
+                                <property name="step-increment">1</property>
+                              </object>
+                            </property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwSpinRow" id="currency_copper">
+                            <property name="title" translatable="yes">Copper</property>
+                            <property name="adjustment">
+                              <object class="GtkAdjustment">
+                                <property name="lower">0</property>
+                                <property name="upper">100</property>
+                                <property name="value">50</property>
+                                <property name="page-increment">10</property>
+                                <property name="step-increment">1</property>
+                              </object>
+                            </property>
                           </object>
                         </child>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">1</property>
-                      </packing>
-                    </child>
+                     </child>
                     <child>
                       <object class="GtkLabel">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
                         <property name="halign">start</property>
                         <property name="margin_top">18</property>
                         <property name="label" translatable="yes">Attacks</property>
@@ -82,54 +91,31 @@
                           <attribute name="weight" value="bold"/>
                         </attributes>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">2</property>
-                      </packing>
                     </child>
                     <child>
-                      <object class="GtkFrame">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="label_xalign">0</property>
-                        <property name="shadow_type">in</property>
+                      <object class="GtkListBox" id="attacks_listbox">
+                        <style>
+                          <class name="boxed-list"/>
+                        </style>
+                        <property name="selection_mode">none</property>
+                        <signal name="row-activated" handler="on_attacks_row_clicked" swapped="no"/>
                         <child>
-                          <object class="GtkListBox" id="attacks_listbox">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="selection_mode">none</property>
-                            <signal name="row-activated" handler="on_attacks_row_clicked" swapped="no"/>
+                          <object class="GtkListBoxRow" id="attacks_row_button">
+                            <property name="width_request">100</property>
+                            <property name="selectable">False</property>
                             <child>
-                              <object class="GtkListBoxRow" id="attacks_row_button">
-                                <property name="width_request">100</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <property name="selectable">False</property>
-                                <child>
-                                  <object class="GtkImage">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <property name="margin_top">12</property>
-                                    <property name="margin_bottom">12</property>
-                                    <property name="icon_name">list-add-symbolic</property>
-                                  </object>
-                                </child>
+                              <object class="GtkImage">
+                                <property name="margin_top">12</property>
+                                <property name="margin_bottom">12</property>
+                                <property name="icon_name">list-add-symbolic</property>
                               </object>
                             </child>
                           </object>
                         </child>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">3</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkLabel">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
                         <property name="halign">start</property>
                         <property name="margin_top">18</property>
                         <property name="label" translatable="yes">Items</property>
@@ -137,49 +123,28 @@
                           <attribute name="weight" value="bold"/>
                         </attributes>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">4</property>
-                      </packing>
                     </child>
                     <child>
-                      <object class="GtkFrame">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="label_xalign">0</property>
-                        <property name="shadow_type">in</property>
+                      <object class="GtkListBox" id="items_listbox">
+                        <style>
+                          <class name="boxed-list"/>
+                        </style>
+                        <property name="selection_mode">none</property>
+                        <signal name="row-activated" handler="on_items_row_clicked" swapped="no"/>
                         <child>
-                          <object class="GtkListBox" id="items_listbox">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="selection_mode">none</property>
-                            <signal name="row-activated" handler="on_items_row_clicked" swapped="no"/>
+                          <object class="GtkListBoxRow" id="items_row_button">
+                            <property name="width_request">100</property>
+                            <property name="selectable">False</property>
                             <child>
-                              <object class="GtkListBoxRow" id="items_row_button">
-                                <property name="width_request">100</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <property name="selectable">False</property>
-                                <child>
-                                  <object class="GtkImage">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <property name="margin_top">12</property>
-                                    <property name="margin_bottom">12</property>
-                                    <property name="icon_name">list-add-symbolic</property>
-                                  </object>
-                                </child>
+                              <object class="GtkImage">
+                                <property name="margin_top">12</property>
+                                <property name="margin_bottom">12</property>
+                                <property name="icon_name">list-add-symbolic</property>
                               </object>
                             </child>
                           </object>
                         </child>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">5</property>
-                      </packing>
                     </child>
                   </object>
                 </child>
@@ -188,11 +153,7 @@
           </object>
         </child>
       </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">True</property>
-        <property name="position">0</property>
-      </packing>
     </child>
   </template>
 </interface>
+
