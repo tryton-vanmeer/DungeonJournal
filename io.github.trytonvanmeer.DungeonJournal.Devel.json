@@ -1,5 +1,5 @@
 {
-    "app-id": "io.github.trytonvanmeer.DungeonJournal",
+    "app-id": "io.github.trytonvanmeer.DungeonJournal.Devel",
     "runtime": "org.gnome.Platform",
     "runtime-version": "47",
     "sdk": "org.gnome.Sdk",
@@ -32,7 +32,7 @@
         "builddir": true,
         "buildsystem": "meson",
         "config-opts": [
-          "-Dprofile=default"
+          "-Dprofile=development"
         ],
         "sources": [
           {
