@@ -57,16 +57,8 @@
         </property>
         <child>
           <object class="GtkMenuButton" id="appmenu_button">
-            <property name="popover">
-              <object class="GtkPopoverMenu">
-                <property name="menu-model">appmenu</property>
-              </object>
-            </property>
-            <child>
-              <object class="GtkImage">
-                <property name="icon_name">open-menu-symbolic</property>
-              </object>
-            </child>
+            <property name="icon_name">open-menu-symbolic</property>
+            <property name="menu-model">appmenu</property>
           </object>
         </child>
       </object>
