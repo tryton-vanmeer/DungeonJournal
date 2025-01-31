@@ -1,7 +1,7 @@
 # Dungeon Journal
 
 ![screenshot](data/screenshots/1.png)
-![screenshot](data/screenshots/1 - Dark.png)
+![screenshot](data/screenshots/1%20-%20Dark.png)
 
 Dungeon Journal is a 5e character manager for the GNOME desktop environment.
 
