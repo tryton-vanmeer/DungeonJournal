@@ -1,6 +1,7 @@
 # Dungeon Journal
 
 ![screenshot](data/screenshots/1.png)
+![screenshot](data/screenshots/1 - Dark.png)
 
 Dungeon Journal is a 5e character manager for the GNOME desktop environment.
 
@@ -24,7 +25,7 @@ cd build
 meson ..
 ninja
 ```
-
-**Note:** Additional to the standard dependencies (GTK, Vala, ...), you need following dependencies:
+### Dependencies
+- GTK4
+- Libadwaita
 - json-glib
-- libadwaita
