@@ -19,13 +19,25 @@
 			<image type="source">https://raw.githubusercontent.com/tryton-vanmeer/DungeonJournal/master/data/screenshots/1.png</image>
 		</screenshot>
 		<screenshot>
+			<image type="source">https://raw.githubusercontent.com/tryton-vanmeer/DungeonJournal/master/data/screenshots/1%20-%20Dark.png</image>
+		</screenshot>
+		<screenshot>
 			<image type="source">https://raw.githubusercontent.com/tryton-vanmeer/DungeonJournal/master/data/screenshots/2.png</image>
+		</screenshot>
+		<screenshot>
+			<image type="source">https://raw.githubusercontent.com/tryton-vanmeer/DungeonJournal/master/data/screenshots/2%20-%20Dark.png</image>
 		</screenshot>
 		<screenshot>
 			<image type="source">https://raw.githubusercontent.com/tryton-vanmeer/DungeonJournal/master/data/screenshots/3.png</image>
 		</screenshot>
 		<screenshot>
+			<image type="source">https://raw.githubusercontent.com/tryton-vanmeer/DungeonJournal/master/data/screenshots/3%20-%20Dark.png</image>
+		</screenshot>
+		<screenshot>
 			<image type="source">https://raw.githubusercontent.com/tryton-vanmeer/DungeonJournal/master/data/screenshots/4.png</image>
+		</screenshot>
+		<screenshot>
+			<image type="source">https://raw.githubusercontent.com/tryton-vanmeer/DungeonJournal/master/data/screenshots/4%20-%20Dark.png</image>
 		</screenshot>
 	</screenshots>
 
@@ -33,7 +45,16 @@
 	<url type="homepage">https://github.com/tryton-vanmeer/DungeonJournal</url>
   	<url type="bugtracker">https://github.com/tryton-vanmeer/DungeonJournal/issues</url>
 
-	<releases>
+    <releases>
+        <release version="0.7.0" date="2025-01-31">
+            <description>
+                <p>Version 0.7.0 of Dungeon Journal</p>
+                <ul>
+                    <li>Redesigned app to use GTK4 and Libadwaita</li>
+                    <li>Add a startup window to quickly open characters or make a new one</li>
+                </ul>
+            </description>
+        </release>
 		<release version="0.6.0" date="2019-09-12">
 			<description>
 				<p>Version 0.6.0 of Dungeon Journal.</p>
