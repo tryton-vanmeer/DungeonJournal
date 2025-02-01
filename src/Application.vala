@@ -70,6 +70,8 @@ namespace DungeonJournal
             string[] authors =
             {
                 "Tryton Van Meer <trytonvanmeer@gmail.com>",
+                "qwertzuiopy <michael@cmbm.de>",
+                "Azakidev <zazaguichi@outlook.com>"
             };
 
             var version = Config.VERSION;
