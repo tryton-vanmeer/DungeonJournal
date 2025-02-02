@@ -32,7 +32,7 @@ namespace DungeonJournal
         protected CharacterSkillRow charisma_save;
 
         protected HashMap<Ability, ListBox> abilities;
-        protected ArrayList<ListBoxRow> skills;
+        protected ArrayList<CharacterSkillRow> skills;
 
         public CharacterSkillsPage()
         {
@@ -47,7 +47,7 @@ namespace DungeonJournal
             this.abilities.set(Ability.WISDOM, this.wisdom_listbox);
             this.abilities.set(Ability.CHARISMA, this.charisma_listbox);
 
-            this.skills = new ArrayList<ListBoxRow>();
+            this.skills = new ArrayList<CharacterSkillRow>();
 
             this.setup_view();
         }
@@ -84,37 +84,37 @@ namespace DungeonJournal
             this.strength_save = new CharacterSkillRow(_("Saving Throws"));
 
             this.strength_listbox.append(this.strength_score);
-            this.strength_listbox.append(this.strength_save);
+            this.strength_listbox.append(this.strength_save.skill_row);
 
             this.dexterity_score = spin_row_with_ability_score_label();
             this.dexterity_save = new CharacterSkillRow(_("Saving Throws"));
 
             this.dexterity_listbox.append(this.dexterity_score);
-            this.dexterity_listbox.append(this.dexterity_save);
+            this.dexterity_listbox.append(this.dexterity_save.skill_row);
 
             this.constitution_score = spin_row_with_ability_score_label();
             this.constitution_save = new CharacterSkillRow(_("Saving Throws"));
 
             this.constitution_listbox.append(this.constitution_score);
-            this.constitution_listbox.append(this.constitution_save);
+            this.constitution_listbox.append(this.constitution_save.skill_row);
 
             this.intelligence_score = spin_row_with_ability_score_label();
             this.intelligence_save = new CharacterSkillRow(_("Saving Throws"));
 
             this.intelligence_listbox.append(this.intelligence_score);
-            this.intelligence_listbox.append(this.intelligence_save);
+            this.intelligence_listbox.append(this.intelligence_save.skill_row);
 
             this.wisdom_score = spin_row_with_ability_score_label();
             this.wisdom_save = new CharacterSkillRow(_("Saving Throws"));
 
             this.wisdom_listbox.append(this.wisdom_score);
-            this.wisdom_listbox.append(this.wisdom_save);
+            this.wisdom_listbox.append(this.wisdom_save.skill_row);
 
             this.charisma_score = spin_row_with_ability_score_label();
             this.charisma_save = new CharacterSkillRow(_("Saving Throws"));
 
             this.charisma_listbox.append(this.charisma_score);
-            this.charisma_listbox.append(this.charisma_save);
+            this.charisma_listbox.append(this.charisma_save.skill_row);
         }
 
         private void setup_view_skills()
@@ -151,43 +151,43 @@ namespace DungeonJournal
         private void add_skill_row(Ability ability, string skill, string label)
         {
             var skill_row = new CharacterSkillRow(label);
-            skill_row.set_name(skill);
+            skill_row.skill_row.set_name(skill);
 
-            this.abilities.get(ability).append(skill_row);
+            this.abilities.get(ability).append(skill_row.skill_row);
             this.skills.add(skill_row);
         }
 
         public void bind_character(CharacterSheet character)
         {
             character.bind("strength_score", this.strength_score, "value");
-            character.bind("strength_save_proficiency", this.strength_save, "expanded");
+            character.bind("strength_save_proficiency", this.strength_save, "proficient");
             character.bind("strength_save", this.strength_save, "value");
 
             character.bind("dexterity_score", this.dexterity_score, "value");
-            character.bind("dexterity_save_proficiency", this.dexterity_save, "expanded");
+            character.bind("dexterity_save_proficiency", this.dexterity_save, "proficient");
             character.bind("dexterity_save", this.dexterity_save, "value");
 
             character.bind("constitution_score", this.constitution_score, "value");
-            character.bind("constitution_save_proficiency", this.constitution_save, "expanded");
+            character.bind("constitution_save_proficiency", this.constitution_save, "proficient");
             character.bind("constitution_save", this.constitution_save, "value");
 
             character.bind("intelligence_score", this.intelligence_score, "value");
-            character.bind("intelligence_save_proficiency", this.intelligence_save, "expanded");
+            character.bind("intelligence_save_proficiency", this.intelligence_save, "proficient");
             character.bind("intelligence_save", this.intelligence_save, "value");
 
             character.bind("wisdom_score", this.wisdom_score, "value");
-            character.bind("wisdom_save_proficiency", this.wisdom_save, "expanded");
+            character.bind("wisdom_save_proficiency", this.wisdom_save, "proficient");
             character.bind("wisdom_save", this.wisdom_save, "value");
 
             character.bind("charisma_score", this.charisma_score, "value");
-            character.bind("charisma_save_proficiency", this.charisma_save, "expanded");
+            character.bind("charisma_save_proficiency", this.charisma_save, "proficient");
             character.bind("charisma_save", this.charisma_save, "value");
 
-            foreach (ListBoxRow row in this.skills)
+            foreach (CharacterSkillRow row in this.skills)
             {
-                var name = row.get_name();
+                var name = row.skill_row.get_name();
 
-                character.bind(@"$(name)_skill_proficiency", row, "expanded");
+                character.bind(@"$(name)_skill_proficiency", row, "proficient");
                 character.bind(@"$(name)_skill", row, "value");
             }
         }
