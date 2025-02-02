@@ -6,18 +6,18 @@ namespace DungeonJournal
     public class ComboBoxRow: ListBoxRow
     {
         [GtkChild] protected unowned Label label;
-        [GtkChild] protected unowned ComboBoxText combo;
+        [GtkChild] protected unowned DropDown combo;
 
         public int active
         {
             get
             {
-                return this.combo.active;
+                return (int)this.combo.selected;
             }
 
             set
             {
-                this.combo.active = value;
+                this.combo.selected = value;
             }
         }
 
@@ -27,11 +27,12 @@ namespace DungeonJournal
             this.connect_signals();
 
             this.label.label = label;
+            StringList list = new StringList(items);
+            this.combo.model = list;
+        }
 
-            for (int i = 0; i < items.length; i++)
-            {
-                this.combo.append_text(items[i]);
-            }
+        private void selected_changed() {
+            this.notify_property("active");
         }
 
         private void connect_signals()
@@ -43,9 +44,7 @@ namespace DungeonJournal
             });
             */
 
-            this.combo.changed.connect(() => {
-                this.notify_property("active");
-            });
+            this.combo.connect("notify::selected", this.selected_changed);
         }
     }
 }

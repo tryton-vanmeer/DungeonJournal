@@ -22,7 +22,7 @@
           </object>
         </child>
         <child>
-          <object class="GtkComboBoxText" id="combo">
+          <object class="GtkDropDown" id="combo">
           </object>
         </child>
       </object>
