@@ -20,14 +20,9 @@ namespace DungeonJournal
 
             this.logo.icon_name = Config.APP_ID;
             this.setup_recents();
-        }
-/*
-        public override void present()
-        {
-            base.present();
             this.hide_listbox_if_empty();
         }
-*/
+
         private void hide_listbox_if_empty()
         {
             if (this.recents_listbox.get_row_at_index(0) == null)
