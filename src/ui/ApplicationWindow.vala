@@ -5,7 +5,7 @@ using Adw;
 namespace DungeonJournal
 {
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/ApplicationWindow.ui")]
-    public class ApplicationWindow : Gtk.ApplicationWindow
+    public class ApplicationWindow : Adw.ApplicationWindow
     {
         [GtkChild] private unowned ViewStack stack;
 
