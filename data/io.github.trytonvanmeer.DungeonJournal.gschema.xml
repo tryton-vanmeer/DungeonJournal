@@ -14,7 +14,7 @@
         <key type="as" name="recent-files">
             <default>[]</default>
             <summary>List of Recent Files</summary>
-            <description>A list of recently used files, shown in the Startup Window.</description>
+            <description>A list of recently used files, shown in the Startup Page.</description>
         </key>
     </schema>
 </schemalist>

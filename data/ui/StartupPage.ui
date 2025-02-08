@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.36.0 -->
+<interface>
+    <requires lib="gtk" version="4.0" />
+    <requires lib="Adw" version="1.0" />
+    <template class="DungeonJournalStartupPage" parent="GtkBox">
+        <property name="orientation">vertical</property>
+        <property name="spacing">12</property>
+        <child>
+            <object class="AdwHeaderBar">
+                <signal name="destroy" handler="on_destroy" swapped="no" />
+                <style>
+                    <class name="flat" />
+                </style>
+            </object>
+        </child>
+        <child>
+            <object class="AdwStatusPage" id="status_page">
+                <property name="title" translatable="yes">Create some characters</property>
+            </object>
+        </child>
+        <child>
+            <object class="GtkBox">
+                <property name="orientation">horizontal</property>
+                <property name="spacing">12</property>
+                <property name="halign">center</property>
+                <child>
+                    <object class="GtkButton" id="open_button">
+                        <property name="label" translatable="yes">Open Character</property>
+                        <signal name="clicked" handler="on_open" swapped="no" />
+                        <style>
+                            <class name="suggested-action" />
+                            <class name="pill" />
+                        </style>
+                    </object>
+                </child>
+                <child>
+                    <object class="GtkButton" id="new_button">
+                        <property name="label" translatable="yes">New Character</property>
+                        <signal name="clicked" handler="on_new" swapped="no" />
+                        <style>
+                            <class name="pill" />
+                        </style>
+                    </object>
+                </child>
+            </object>
+        </child>
+        <child>
+            <object class="GtkBox" id="recents_box">
+                <property name="margin_top">12</property>
+                <property name="orientation">vertical</property>
+                <property name="spacing">12</property>
+                <property name="halign">center</property>
+                <child>
+                    <object class="GtkLabel">
+                        <property name="halign">start</property>
+                        <property name="label" translatable="yes">Recent Characters</property>
+                        <attributes>
+                            <attribute name="weight" value="bold" />
+                        </attributes>
+                    </object>
+                </child>
+                <child>
+                    <object class="GtkScrolledWindow">
+                        <property name="margin-bottom">12</property>
+                        <property name="has-frame">false</property>
+                        <property name="propagate-natural-width">True</property>
+                        <property name="propagate-natural-height">True</property>
+                        <child>
+                            <object class="GtkListBox" id="recents_listbox">
+                                <style>
+                                    <class name="boxed-list" />
+                                </style>
+                                <property name="selection_mode">none</property>
+                                <signal name="row-activated" handler="on_recents_row_clicked"
+                                    swapped="no" />
+                                <signal name="row-selected" handler="on_recents_row_delete"
+                                    swapped="no" />
+                            </object>
+                        </child>
+                    </object>
+                </child>
+            </object>
+        </child>
+    </template>
+</interface>
+
