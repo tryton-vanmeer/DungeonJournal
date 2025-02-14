@@ -7,18 +7,20 @@ namespace DungeonJournal
     [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/ApplicationWindow.ui")]
     public class ApplicationWindow : Adw.ApplicationWindow
     {
+        [GtkChild] private unowned Stack main_stack;
+
         [GtkChild] private unowned ViewStack stack;
 
         private CharacterInfoPage page_info;
         private CharacterSkillsPage page_skills;
         private CharacterInventoryPage page_inventory;
 
-        private StartupWindow startup_window;
+        private StartupPage startup_page;
 
         private CharacterSheet character;
         private string character_path;
 
-        public ApplicationWindow(Gtk.Application app)
+        public ApplicationWindow(Adw.Application app)
         {
             Object(application: app);
 
@@ -31,8 +33,10 @@ namespace DungeonJournal
             setup_view();
             bind_character();
 
-            startup_window = new StartupWindow(this);
-            startup_window.present();
+            startup_page = new StartupPage(this);
+            this.main_stack.add_named(startup_page, "startup");
+            this.main_stack.set_visible_child_name("startup");
+            this.present();
         }
 
         private void setup_view()
@@ -53,7 +57,12 @@ namespace DungeonJournal
             this.page_inventory.bind_character(this.character);
         }
 
-        public async bool on_open(Gtk.Window? parent=this)
+        public void switch()
+        {
+            this.main_stack.set_visible_child_name("main");
+        }
+
+        public async bool on_open()
         {
             try {
                 var dialog = new FileDialog();
@@ -61,7 +70,7 @@ namespace DungeonJournal
                 filter.add_mime_type("application/json");
                 dialog.set_default_filter(filter);
                 dialog.set_title("Open Character");
-                var file = yield dialog.open(parent, null);
+                var file = yield dialog.open(this, null);
                 string path = file.get_path();
                 this.open_character(path);
                 return true;

@@ -1,24 +1,24 @@
 using Gtk;
+using Adw;
 
 namespace DungeonJournal
 {
-    [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/StartupWindow.ui")]
-    public class StartupWindow : Window
+    [GtkTemplate (ui = "/io/github/trytonvanmeer/DungeonJournal/ui/StartupPage.ui")]
+    public class StartupPage : Box
     {
         private DungeonJournal.ApplicationWindow window;
 
-        [GtkChild] private unowned Image logo;
+        [GtkChild] private unowned StatusPage status_page;
         [GtkChild] private unowned Box recents_box;
         [GtkChild] private unowned ListBox recents_listbox;
 
-        private bool done_startup { get; set; default=false; }
 
-        public StartupWindow(DungeonJournal.ApplicationWindow window)
+        public StartupPage(DungeonJournal.ApplicationWindow window)
         {
             Object();
             this.window = window;
 
-            this.logo.icon_name = Config.APP_ID;
+            this.status_page.icon_name = Config.APP_ID;
             this.setup_recents();
             this.hide_listbox_if_empty();
         }
@@ -42,24 +42,20 @@ namespace DungeonJournal
             }
         }
 
-        private void finish_startup()
-        {
-            this.done_startup = true;
-            this.window.present();
-            this.destroy();
-        }
-
         [GtkCallback]
         private async void on_open()
         {
-            yield this.window.on_open(this);
-            this.finish_startup();
+            bool open = yield this.window.on_open();
+            if (open)
+            {
+                this.window.switch();
+            }
         }
 
         [GtkCallback]
         private void on_new()
         {
-            this.finish_startup();
+            this.window.switch();
         }
 
         [GtkCallback]
@@ -68,7 +64,7 @@ namespace DungeonJournal
             var recent_row = (RecentsCharacterRow) row;
 
             this.window.open_character(recent_row.file_path);
-            this.finish_startup();
+            this.window.switch();
         }
 
         [GtkCallback]
@@ -85,10 +81,7 @@ namespace DungeonJournal
         [GtkCallback]
         private void on_destroy()
         {
-            if (!this.done_startup)
-            {
-                this.window.destroy();
-            }
+            this.window.destroy();
         }
     }
 }
